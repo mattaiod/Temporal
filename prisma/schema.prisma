@@ -12,6 +12,34 @@ datasource db {
 
 
 model Timebox {
-  id        Int      @default(autoincrement()) @id
-  title     String
+  id          Int      @default(autoincrement()) @id
+  title       String
+  tasks       Task[]
+  createdAt  DateTime  @default(now())
+}
+
+model Task {
+  id          Int         @default(autoincrement()) @id
+  title       String
+  state       State       @default(NEW)
+  timebox     Timebox     @relation(fields: [timeboxId], references: [id])
+  timeboxslot Timeslot    @relation(fields: [timeslotId], references: [id])
+  timeboxId   Int
+  timeslotId  Int         @unique
+  createdAt  DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model Timeslot {
+  id          Int      @default(autoincrement()) @id
+  startAt    DateTime
+  duration    DateTime
+  task        Task?
+  createdAt  DateTime  @default(now())
+}
+
+enum State {
+  NEW
+  IN_PROGRESS
+  COMPLETE
 }
