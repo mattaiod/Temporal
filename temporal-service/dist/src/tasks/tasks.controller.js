@@ -21,20 +21,20 @@ let TasksController = class TasksController {
     constructor(tasksService) {
         this.tasksService = tasksService;
     }
-    create(createTaskDto) {
-        return this.tasksService.create({ createTaskDto });
+    create(dto) {
+        return this.tasksService.create(dto);
     }
     findAll() {
         return this.tasksService.findAll();
     }
-    findOne(id) {
-        return this.tasksService.findOne(+id);
+    findOne(uuid) {
+        return this.tasksService.findOne(uuid);
     }
-    update(id, updateTaskDto) {
-        return this.tasksService.update(+id, updateTaskDto);
+    update(uuid, updateTaskDto) {
+        return this.tasksService.update(uuid, updateTaskDto);
     }
-    remove(id) {
-        return this.tasksService.remove(+id);
+    remove(uuid) {
+        return this.tasksService.remove(uuid);
     }
 };
 __decorate([
@@ -51,23 +51,23 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], TasksController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Get)(':uuid'),
+    __param(0, (0, common_1.Param)('uuid')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], TasksController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Patch)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Patch)(':uuid'),
+    __param(0, (0, common_1.Param)('uuid')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_task_dto_1.UpdateTaskDto]),
     __metadata("design:returntype", void 0)
 ], TasksController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Delete)(':uuid'),
+    __param(0, (0, common_1.Param)('uuid')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)

@@ -31,7 +31,7 @@ services:
       POSTGRES_USER: ${USER_SERVICE_USER}
       POSTGRES_DB: ${USER_SERVICE_DB}
     ports:
-      - "5433:5432"
+      - "5434:5432"
     volumes:
       - user-db:/data/db
 
