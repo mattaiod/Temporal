@@ -73,6 +73,15 @@ declare const CreateUserDto_base: import("nestjs-zod").ZodDto<{
 }>;
 export declare class CreateUserDto extends CreateUserDto_base {
 }
+declare const FindUserByIdDto_base: import("nestjs-zod").ZodDto<{
+    id: string;
+}, z.ZodObjectDef<{
+    id: z.ZodString;
+}, "strip", z.ZodTypeAny>, {
+    id: string;
+}>;
+export declare class FindUserByIdDto extends FindUserByIdDto_base {
+}
 declare const FindUserByDto_base: import("nestjs-zod").ZodDto<{
     email?: string | undefined;
     id?: string | undefined;

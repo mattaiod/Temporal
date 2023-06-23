@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FindUserByDto = exports.CreateUserDto = exports.UpdateUserSchema = exports.FindUserByIdSchema = exports.FindUserSchema = exports.CreateUserSchema = void 0;
+exports.FindUserByDto = exports.FindUserByIdDto = exports.CreateUserDto = exports.UpdateUserSchema = exports.FindUserByIdSchema = exports.FindUserSchema = exports.CreateUserSchema = void 0;
 const z_1 = require("nestjs-zod/z");
 const nestjs_zod_1 = require("nestjs-zod");
 const client_1 = require("@prisma/client");
@@ -26,6 +26,9 @@ exports.UpdateUserSchema = z_1.z.object({
 class CreateUserDto extends (0, nestjs_zod_1.createZodDto)(exports.CreateUserSchema.omit({ role: true }).strict()) {
 }
 exports.CreateUserDto = CreateUserDto;
+class FindUserByIdDto extends (0, nestjs_zod_1.createZodDto)(z_1.z.object({ id: z_1.z.string().uuid() })) {
+}
+exports.FindUserByIdDto = FindUserByIdDto;
 class FindUserByDto extends (0, nestjs_zod_1.createZodDto)(exports.CreateUserSchema.pick({ email: true }).partial().merge(z_1.z.object({ id: z_1.z.string().uuid() }).partial())) {
 }
 exports.FindUserByDto = FindUserByDto;

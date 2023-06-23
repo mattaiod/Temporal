@@ -29,12 +29,16 @@ const users_service_1 = require("./users.service");
 const users_dto_1 = require("./users.dto");
 const users_pipe_1 = require("./users.pipe");
 const argon2 = require("argon2");
+const microservices_1 = require("@nestjs/microservices");
+const grpc_js_1 = require("@grpc/grpc-js");
 let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
     }
-    getUsers() {
-        return this.usersService.findAll();
+    async getUsers() {
+        const users = await this.usersService.findAll();
+        console.log("users: ", users);
+        return users;
     }
     async createUser(body) {
         const { password } = body, data = __rest(body, ["password"]);
@@ -46,15 +50,9 @@ let UsersController = class UsersController {
             throw new common_1.ConflictException();
         }
     }
-    async getUser(body) {
-        try {
-            return await this.usersService.findBy(body);
-        }
-        catch (error) {
-            throw new common_1.NotFoundException();
-        }
+    findUserById(data, metadata, call) {
+        return this.usersService.findBy(data);
     }
-    ;
     async deleteUser(body) {
         try {
             return await this.usersService.delete(body);
@@ -66,25 +64,24 @@ let UsersController = class UsersController {
     ;
 };
 __decorate([
-    (0, common_1.Get)(),
+    (0, microservices_1.EventPattern)('get-users'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsersController.prototype, "getUsers", null);
 __decorate([
-    (0, common_1.Post)('create'),
+    (0, microservices_1.EventPattern)('create-users'),
     __param(0, (0, common_1.Body)(new users_pipe_1.UsersValidationPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [users_dto_1.CreateUserDto]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "createUser", null);
 __decorate([
-    (0, common_1.Post)('findby'),
-    __param(0, (0, common_1.Body)(new users_pipe_1.UsersValidationPipe)),
+    (0, microservices_1.GrpcMethod)('UsersService', 'FindUserById'),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [users_dto_1.FindUserByDto]),
-    __metadata("design:returntype", Promise)
-], UsersController.prototype, "getUser", null);
+    __metadata("design:paramtypes", [users_dto_1.FindUserByIdDto, grpc_js_1.Metadata, Object]),
+    __metadata("design:returntype", void 0)
+], UsersController.prototype, "findUserById", null);
 __decorate([
     (0, common_1.Post)('delete'),
     __param(0, (0, common_1.Body)(new users_pipe_1.UsersValidationPipe)),

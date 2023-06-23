@@ -25,6 +25,7 @@ export const UpdateUserSchema = z.object({
     password: z.password().min(6).max(64).atLeastOne("digit").optional()
 })
 export class CreateUserDto extends createZodDto(CreateUserSchema.omit({role: true}).strict()) {}
+export class FindUserByIdDto extends createZodDto(z.object({id: z.string().uuid()})) {}
 export class FindUserByDto extends createZodDto(CreateUserSchema.pick({email: true}).partial().merge(z.object({id: z.string().uuid()}).partial())) {}
 // export class FindUserByIdDto extends createZodDto(FindUserByIdSchema) {}
 

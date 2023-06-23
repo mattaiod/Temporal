@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package users;
+
+//import "users/proto/message.proto";
+import "google/protobuf/timestamp.proto";
+
+enum  Role {
+  USER = 0;
+  ADMIN = 1;
+}
+
+
+message FindUserById {
+  string id = 1;
+}
+
+message User {
+  string id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string email = 4;
+  Role role = 5;
+  google.protobuf.Timestamp createdAt = 6;
+  google.protobuf.Timestamp updatedAt = 7;
+}
+service UsersService {
+  rpc FindUserById (FindUserById) returns (User) {}
+}
+

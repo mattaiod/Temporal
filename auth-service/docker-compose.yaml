@@ -1,3 +1,4 @@
+# auth-service
 version: '3.8'
 
 services:
@@ -9,28 +10,29 @@ services:
     tty: true
     stdin_open: true
     env_file:
-      - .env
+      - .auth-service.env
     ports:
-      - "3000:3000"
+      - "3002:3000"
     volumes:
       - .:/home/node
+      - ../libs:/home/node/libs
 
   auth-service-db:
     image: postgres:15-alpine3.16
     container_name: auth-service-db
     restart: always
     env_file:
-      - .env
+      - .auth-service.env
     environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_HOST: ${POSTGRES_HOST}
-      POSTGRES_PORT: ${POSTGRES_PORT}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${AUTH_SERVICE_PASSWORD}
+      POSTGRES_HOST: ${AUTH_SERVICE_HOST}
+      POSTGRES_PORT: ${AUTH_SERVICE_PORT}
+      POSTGRES_USER: ${AUTH_SERVICE_USER}
+      POSTGRES_DB: ${AUTH_SERVICE_DB}
     ports:
       - "5432:5432"
     volumes:
-      - db:/data/db
+      - auth-db:/data/db
 
   adminer:
     image: adminer
@@ -40,4 +42,4 @@ services:
       - "8080:8080"
 
 volumes:
-  db:
+  auth-db:
