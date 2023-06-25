@@ -16,12 +16,54 @@ let TasksRepository = class TasksRepository {
     constructor(prisma) {
         this.prisma = prisma;
     }
-    async createTask(params) {
-        const { data } = params;
-        return this.prisma.task.create({ data });
+    async createTask(dto) {
+        return this.prisma.task.create({
+            data: {
+                title: dto.title,
+                state: dto.state,
+                priority: dto.priority,
+                createdBy: dto.createdBy,
+                timebox: {
+                    connect: {
+                        id: dto.timebox,
+                    },
+                },
+                timeslot: {
+                    connect: {
+                        id: dto.timeslot,
+                    },
+                },
+            },
+        });
     }
     async getTasks() {
         return this.prisma.task.findMany();
+    }
+    async getTask(uuid) {
+        const task = await this.prisma.task.findUnique({
+            where: {
+                uuid,
+            },
+        });
+        if (!task) {
+            throw new common_1.NotFoundException();
+        }
+        return task;
+    }
+    async updateTask(uuid, updateTaskDto) {
+        return this.prisma.task.update({
+            where: {
+                uuid,
+            },
+            data: updateTaskDto,
+        });
+    }
+    async deleteTask(uuid) {
+        await this.prisma.task.delete({
+            where: {
+                uuid,
+            },
+        });
     }
 };
 TasksRepository = __decorate([

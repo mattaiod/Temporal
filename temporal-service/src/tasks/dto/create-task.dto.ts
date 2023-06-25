@@ -1,25 +1,14 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { Priority, State } from "@prisma/client";
-import { CreateTimeboxDto } from "src/timeboxs/dto/create-timebox.dto"; 
-import { CreateTimeslotDto } from "src/timeslots/dto/create-timeslot.dto";
+import { createZodDto } from 'nestjs-zod';
+import { z } from 'nestjs-zod/z';
+import { CreateTimeboxDto } from '../../timeboxs/dto/create-timebox.dto';
 
+const createTaskSchema = z.object({
+  title: z.string().min(5).nonempty(),
+  state: z.enum(['NOT_ASSIGNED', 'SUCCESS', 'FAILED']).default('NOT_ASSIGNED'),
+  priority: z.enum(['LOW', 'MEDIUM', 'HIGH']),
+  timebox: z.number(),
+  timeslot: z.number(),
+  createdBy: z.string(),
+});
 
-export class CreateTaskDto {
-    @ApiProperty()
-    title: string;
-    @ApiProperty()
-    state: State;
-    @ApiProperty()
-    priority: Priority;
-    @ApiProperty()
-    createdBy: string;
-    @ApiProperty({ type: () => CreateTimeslotDto })
-    timeslot: null;
-    @ApiProperty({ type: () => CreateTimeboxDto })
-    timebox: null;
-    @ApiProperty()
-    createdAt: Date | string
-    @ApiProperty()
-    updatedAt: Date | string
-
-}
+export class CreateTaskDto extends createZodDto(createTaskSchema) {}
