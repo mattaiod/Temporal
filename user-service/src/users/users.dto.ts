@@ -21,10 +21,12 @@ export const FindUserByIdSchema = z.object({
 export const UpdateUserSchema = z.object({
     first_name: z.string().min(2).max(64).optional(),
     last_name: z.string().min(2).max(64).optional(),
-    email: z.string().email(),
+    email: z.string().email().optional(),
     password: z.password().min(6).max(64).atLeastOne("digit").optional()
 })
 export class CreateUserDto extends createZodDto(CreateUserSchema.omit({role: true}).strict()) {}
+export class grpcCreateUserDto extends createZodDto(UpdateUserSchema) {}
+
 export class FindUserByIdDto extends createZodDto(z.object({id: z.string().uuid()})) {}
 export class FindUserByDto extends createZodDto(CreateUserSchema.pick({email: true}).partial().merge(z.object({id: z.string().uuid()}).partial())) {}
 // export class FindUserByIdDto extends createZodDto(FindUserByIdSchema) {}

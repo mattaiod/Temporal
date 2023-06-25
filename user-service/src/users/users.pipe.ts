@@ -7,7 +7,6 @@ import {fromZodError} from "zod-validation-error";
 
 export const UsersValidationPipe = createZodValidationPipe({
   // provide custom validation exception factory
-
   createValidationException: (error: ZodError) =>
       new BadRequestException(fromZodError(error)),
 })

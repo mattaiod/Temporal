@@ -38,17 +38,17 @@ export declare const FindUserByIdSchema: z.ZodObject<{
 export declare const UpdateUserSchema: z.ZodObject<{
     first_name: z.ZodOptional<z.ZodString>;
     last_name: z.ZodOptional<z.ZodString>;
-    email: z.ZodString;
+    email: z.ZodOptional<z.ZodString>;
     password: z.ZodOptional<z.ZodPassword>;
 }, "strip", z.ZodTypeAny, {
-    email: string;
     first_name?: string | undefined;
     last_name?: string | undefined;
+    email?: string | undefined;
     password?: string | undefined;
 }, {
-    email: string;
     first_name?: string | undefined;
     last_name?: string | undefined;
+    email?: string | undefined;
     password?: string | undefined;
 }>;
 declare const CreateUserDto_base: import("nestjs-zod").ZodDto<{
@@ -72,6 +72,24 @@ declare const CreateUserDto_base: import("nestjs-zod").ZodDto<{
     password: string;
 }>;
 export declare class CreateUserDto extends CreateUserDto_base {
+}
+declare const grpcCreateUserDto_base: import("nestjs-zod").ZodDto<{
+    first_name?: string | undefined;
+    last_name?: string | undefined;
+    email?: string | undefined;
+    password?: string | undefined;
+}, z.ZodObjectDef<{
+    first_name: z.ZodOptional<z.ZodString>;
+    last_name: z.ZodOptional<z.ZodString>;
+    email: z.ZodOptional<z.ZodString>;
+    password: z.ZodOptional<z.ZodPassword>;
+}, "strip", z.ZodTypeAny>, {
+    first_name?: string | undefined;
+    last_name?: string | undefined;
+    email?: string | undefined;
+    password?: string | undefined;
+}>;
+export declare class grpcCreateUserDto extends grpcCreateUserDto_base {
 }
 declare const FindUserByIdDto_base: import("nestjs-zod").ZodDto<{
     id: string;

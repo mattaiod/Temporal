@@ -14,6 +14,7 @@ async function bootstrap() {
           options: {
               package: 'users',
               protoPath: join(__dirname, 'users/proto/users.proto'),
+              url: '0.0.0.0:3000'
           }
         // transport: Transport.TCP,
         //   options: {

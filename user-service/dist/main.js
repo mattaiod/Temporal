@@ -12,6 +12,7 @@ async function bootstrap() {
         options: {
             package: 'users',
             protoPath: (0, path_1.join)(__dirname, 'users/proto/users.proto'),
+            url: '0.0.0.0:3000'
         }
     });
     app.useGlobalPipes(new users_pipe_1.UsersValidationPipe());

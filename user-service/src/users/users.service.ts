@@ -19,20 +19,20 @@ export class UsersService {
     //     return this.prisma.user.findMany();
     // }
     async findBy(body: FindUserByDto) {
-        if (body.email) {
-            return this.prisma.user.findUnique({
-                where: {
-                    email: body.email
-                }
-            });
-        }
-        if (body.id) {
+        // if (body.email) {
+        //     return this.prisma.user.findUnique({
+        //         where: {
+        //             email: body.email
+        //         }
+        //     });
+        // }
+        // if (body.id) {
             return this.prisma.user.findUnique({
                 where: {
                     id: body.id
                 }
             })
-        }
+        // }
     }
 
     delete(body: FindUserByDto){

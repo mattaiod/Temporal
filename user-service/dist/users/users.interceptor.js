@@ -10,6 +10,7 @@ exports.UsersInterceptor = void 0;
 const common_1 = require("@nestjs/common");
 let UsersInterceptor = class UsersInterceptor {
     intercept(context, next) {
+        console.log("Interceptor context: ", context);
         return next.handle().pipe();
     }
 };

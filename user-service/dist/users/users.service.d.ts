@@ -22,7 +22,7 @@ export declare class UsersService {
         role: import(".prisma/client").Role;
         createdAt: Date;
         updatedAt: Date;
-    }, unknown, never> & {}) | null | undefined>;
+    }, unknown, never> & {}) | null>;
     delete(body: FindUserByDto): import(".prisma/client").Prisma.Prisma__UserClient<import("@prisma/client/runtime").GetResult<{
         id: string;
         first_name: string;

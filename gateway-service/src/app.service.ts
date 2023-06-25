@@ -1,19 +1,29 @@
 import {Inject, Injectable, OnModuleInit} from '@nestjs/common';
-import {CreateUserDto} from './users/users.dto';
+import {CreateUserDto, FindUserByDto} from './users/users.dto';
 import {ClientGrpc} from "@nestjs/microservices";
 import {Observable} from "rxjs";
 
+export interface UsersService {
+  findUserById(data: FindUserByDto): Observable<any>
+  createUser(data: CreateUserDto): Observable<any>
+}
+
 @Injectable()
 export class AppService implements OnModuleInit{
-  private usersService: any;
-  constructor(@Inject('USER_SERVICE') private usersClient: ClientGrpc) {}
+  private usersService : UsersService;
+  constructor(@Inject('user-service') private usersClient: ClientGrpc) {}
+
 
   onModuleInit() {
-    this.usersService = this.usersClient.getService<any>('UsersService');
+    console.log('client', this.usersClient.getService('UsersService')) ;
+    this.usersService = this.usersClient.getService<UsersService>('UsersService');
   }
-
-  getUserById(): Observable<string> {
-    return this.usersService.findOne();
+  findUserById(data: FindUserByDto): Observable<any> {
+    console.log('call findUserById');
+    return this.usersService.findUserById(data);
   }
-
+  createUser(data: CreateUserDto): Observable<any> {
+    console.log('call findUserById');
+    return this.usersService.createUser(data);
+  }
 }

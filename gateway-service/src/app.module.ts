@@ -7,20 +7,21 @@ import {join} from 'path';
 @Module({
   imports: [
       ClientsModule.register([
-        {
-            name: 'USER_SERVICE',
-            transport: Transport.GRPC,
-            options: {
-                package: 'users',
-                protoPath: join( 'src/users/users.proto'),
-            }
+          {
+              name: 'user-service',
+              transport: Transport.GRPC,
+              options: {
+                  package: 'users',
+                  protoPath: join(__dirname, 'users/users.proto'),
+                  url: "user-service:3000"
+              }
 
-            // name: 'USER_SERVICE',
-            // transport: Transport.TCP,
-            // options:{
-            //     host: 'user-service',
-            // }
-        },
+              // name: 'USER_SERVICE',
+              // transport: Transport.TCP,
+              // options:{
+              //     host: 'user-service',
+              // }
+          },
       ]),
       PinoLoggerModule.forRoot({
           pinoHttp: {

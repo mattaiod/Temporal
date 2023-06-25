@@ -8,9 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -27,7 +24,7 @@ exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
 const users_service_1 = require("./users.service");
 const users_dto_1 = require("./users.dto");
-const users_pipe_1 = require("./users.pipe");
+const nestjs_zod_1 = require("nestjs-zod");
 const argon2 = require("argon2");
 const microservices_1 = require("@nestjs/microservices");
 const grpc_js_1 = require("@grpc/grpc-js");
@@ -35,47 +32,25 @@ let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
     }
-    async getUsers() {
-        const users = await this.usersService.findAll();
-        console.log("users: ", users);
-        return users;
+    findUserById(data, metadata, call) {
+        console.log("data: ", data);
+        return { id: "3", first_name: "test" };
     }
-    async createUser(body) {
-        const { password } = body, data = __rest(body, ["password"]);
+    async createUser(data, metadata, call) {
+        (new nestjs_zod_1.ZodValidationPipe((0, nestjs_zod_1.createZodDto)(data)));
+        console.log("data: $$$$ ", data);
+        const { password, firstName, lastName } = data, rest = __rest(data, ["password", "firstName", "lastName"]);
         const hashed_password = await argon2.hash(password);
         try {
-            return await this.usersService.createUser(Object.assign({ password: hashed_password }, data));
+            const newBody = Object.assign({ password: hashed_password, first_name: firstName, last_name: lastName }, rest);
+            console.log("in try data: ", newBody);
+            return this.usersService.createUser(newBody);
         }
         catch (error) {
             throw new common_1.ConflictException();
         }
     }
-    findUserById(data, metadata, call) {
-        return this.usersService.findBy(data);
-    }
-    async deleteUser(body) {
-        try {
-            return await this.usersService.delete(body);
-        }
-        catch (error) {
-            throw new common_1.NotFoundException();
-        }
-    }
-    ;
 };
-__decorate([
-    (0, microservices_1.EventPattern)('get-users'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], UsersController.prototype, "getUsers", null);
-__decorate([
-    (0, microservices_1.EventPattern)('create-users'),
-    __param(0, (0, common_1.Body)(new users_pipe_1.UsersValidationPipe)),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [users_dto_1.CreateUserDto]),
-    __metadata("design:returntype", Promise)
-], UsersController.prototype, "createUser", null);
 __decorate([
     (0, microservices_1.GrpcMethod)('UsersService', 'FindUserById'),
     __metadata("design:type", Function),
@@ -83,12 +58,11 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "findUserById", null);
 __decorate([
-    (0, common_1.Post)('delete'),
-    __param(0, (0, common_1.Body)(new users_pipe_1.UsersValidationPipe)),
+    (0, microservices_1.GrpcMethod)('UsersService', 'CreateUser'),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [users_dto_1.FindUserByDto]),
+    __metadata("design:paramtypes", [Object, grpc_js_1.Metadata, Object]),
     __metadata("design:returntype", Promise)
-], UsersController.prototype, "deleteUser", null);
+], UsersController.prototype, "createUser", null);
 UsersController = __decorate([
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])

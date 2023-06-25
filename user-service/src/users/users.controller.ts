@@ -11,14 +11,15 @@ import {
     NotFoundException, ConflictException, Inject
 } from '@nestjs/common';
 import {UsersService} from "./users.service";
-import {CreateUserDto, FindUserByDto, FindUserByIdDto} from "./users.dto";
-import {ZodValidationPipe} from "nestjs-zod"
+import {CreateUserDto, FindUserByDto, FindUserByIdDto, grpcCreateUserDto} from "./users.dto";
+import {createZodDto, ZodValidationPipe} from "nestjs-zod"
 import {User} from "@prisma/client";
 import {UsersValidationPipe} from "./users.pipe";
 import {NotFoundError} from "rxjs";
 import * as argon2 from "argon2";
 import {ClientProxy, EventPattern, GrpcMethod, MessagePattern} from '@nestjs/microservices';
 import {Metadata, ServerUnaryCall} from "@grpc/grpc-js";
+import {logCreator} from "@nestjs/microservices/external/kafka.interface";
 // import {FindUserById} from "src/users/proto/users";
 
 
@@ -31,12 +32,17 @@ export class UsersController {
     ) {
 }
 
-    // @Get()
-    @EventPattern('get-users')
-    async getUsers() {
-        const users = await this.usersService.findAll();
-        console.log("users: ", users);
-        return users;
+
+    // async getUsers() {
+    //     const users = await this.usersService.findAll();
+    //     console.log("users: ", users);
+    //     return users;
+    // }
+    @GrpcMethod('UsersService', 'FindUserById')
+    findUserById(data: FindUserByIdDto , metadata: Metadata, call: ServerUnaryCall<any, any>) {
+        // return this.usersService.findBy(data);
+        console.log("data: ", data);
+        return {id: "3", first_name: "test"};
     }
     // @Post()
     // getUserById(@Body(new ZodValidationPipe) body: FindUserByIdDto | FindUserDto ) {
@@ -47,22 +53,24 @@ export class UsersController {
 
     // @Post('create')
 
-    @EventPattern('create-users')
-    async createUser(@Body(new UsersValidationPipe) body: CreateUserDto){
-        const {password,  ...data} = body;
+    @GrpcMethod('UsersService', 'CreateUser')
+    async createUser(data: any, metadata: Metadata, call: ServerUnaryCall<any, any>) {
+
+        (new ZodValidationPipe(createZodDto(data)));
+        console.log("data: $$$$ ", data);
+
+        const {password, firstName, lastName, ...rest} = data;
         const hashed_password = await argon2.hash(password);
         try {
-            return await this.usersService.createUser({password: hashed_password,  ...data});
-        }catch (error) {
+            const newBody = {password: hashed_password,first_name: firstName, last_name: lastName, ...rest};
+            console.log("in try data: ", newBody);
+            return this.usersService.createUser(newBody);
+        } catch (error) {
             throw new ConflictException();
         }
     }
 
 
-    @GrpcMethod('UsersService', 'FindUserById')
-    findUserById(data: FindUserByIdDto , metadata: Metadata, call: ServerUnaryCall<any, any>) {
-        return this.usersService.findBy(data);
-    }
     // async findUserById(@Body(new UsersValidationPipe) body: FindUserByDto) {
     //     try {
     //         return await this.usersService.findBy(body);
@@ -70,13 +78,13 @@ export class UsersController {
     //         throw new NotFoundException();
     //     }
     // };
-    @Post('delete')
-    async deleteUser(@Body(new UsersValidationPipe) body: FindUserByDto) {
-        try {
-            return await this.usersService.delete(body);
-        }catch (error){
-            throw new NotFoundException();
-        }
-    };
+    // @Post('delete')
+    // async deleteUser(@Body(new UsersValidationPipe) body: FindUserByDto) {
+    //     try {
+    //         return await this.usersService.delete(body);
+    //     }catch (error){
+    //         throw new NotFoundException();
+    //     }
+    // };
 
 }
