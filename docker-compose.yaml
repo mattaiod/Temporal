@@ -25,41 +25,7 @@ services:
     extends:
       file: ./auth-service/docker-compose.yaml
       service: auth-service-db
-#    volumes:
-#      - auth-db:/data/db
-#  tracing:
-#    image: jaegertracing/all-in-one:latest
-#    environment:
-#      - COLLECTOR_OTLP_ENABLED=true
-#    ports:
-#      - 16686:16686
-#      - 14268:14268
-#      - 4318:4318
-#
-#  auth-api:
-#    extends:
-#      file: ./compose/compose.published.yml
-#      service: auth-api
-#
-#  user-api:
-#    extends:
-#      file: ./compose/compose.published.yml
-#      service: user-api
-#
-#  task-api:
-#    extends:
-#      file: ./compose/compose.published.yml
-#      service: task-api
-#
-#  front:
-#    extends:
-#      file: ./compose/compose.published.yml
-#      service: front
-
-
-#  - userDb:
-#  - authDb:
-
+      
 volumes:
 
   auth-db:

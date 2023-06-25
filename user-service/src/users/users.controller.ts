@@ -40,9 +40,8 @@ export class UsersController {
     // }
     @GrpcMethod('UsersService', 'FindUserById')
     findUserById(data: FindUserByIdDto , metadata: Metadata, call: ServerUnaryCall<any, any>) {
-        // return this.usersService.findBy(data);
         console.log("data: ", data);
-        return {id: "3", first_name: "test"};
+        return this.usersService.findBy(data);
     }
     // @Post()
     // getUserById(@Body(new ZodValidationPipe) body: FindUserByIdDto | FindUserDto ) {
@@ -54,17 +53,15 @@ export class UsersController {
     // @Post('create')
 
     @GrpcMethod('UsersService', 'CreateUser')
-    async createUser(data: any, metadata: Metadata, call: ServerUnaryCall<any, any>) {
-
-        (new ZodValidationPipe(createZodDto(data)));
+    async createUser(data: CreateUserDto, metadata: Metadata, call: ServerUnaryCall<any, any>) {
         console.log("data: $$$$ ", data);
 
-        const {password, firstName, lastName, ...rest} = data;
+        const {password, ...rest} = data;
         const hashed_password = await argon2.hash(password);
         try {
-            const newBody = {password: hashed_password,first_name: firstName, last_name: lastName, ...rest};
-            console.log("in try data: ", newBody);
-            return this.usersService.createUser(newBody);
+            const newUser = await this.usersService.createUser({password: hashed_password, ...rest});
+            console.log("newUser: ", newUser);
+            return newUser;
         } catch (error) {
             throw new ConflictException();
         }

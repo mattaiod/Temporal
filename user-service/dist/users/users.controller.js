@@ -24,7 +24,6 @@ exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
 const users_service_1 = require("./users.service");
 const users_dto_1 = require("./users.dto");
-const nestjs_zod_1 = require("nestjs-zod");
 const argon2 = require("argon2");
 const microservices_1 = require("@nestjs/microservices");
 const grpc_js_1 = require("@grpc/grpc-js");
@@ -34,17 +33,16 @@ let UsersController = class UsersController {
     }
     findUserById(data, metadata, call) {
         console.log("data: ", data);
-        return { id: "3", first_name: "test" };
+        return this.usersService.findBy(data);
     }
     async createUser(data, metadata, call) {
-        (new nestjs_zod_1.ZodValidationPipe((0, nestjs_zod_1.createZodDto)(data)));
         console.log("data: $$$$ ", data);
-        const { password, firstName, lastName } = data, rest = __rest(data, ["password", "firstName", "lastName"]);
+        const { password } = data, rest = __rest(data, ["password"]);
         const hashed_password = await argon2.hash(password);
         try {
-            const newBody = Object.assign({ password: hashed_password, first_name: firstName, last_name: lastName }, rest);
-            console.log("in try data: ", newBody);
-            return this.usersService.createUser(newBody);
+            const newUser = await this.usersService.createUser(Object.assign({ password: hashed_password }, rest));
+            console.log("newUser: ", newUser);
+            return newUser;
         }
         catch (error) {
             throw new common_1.ConflictException();
@@ -60,7 +58,7 @@ __decorate([
 __decorate([
     (0, microservices_1.GrpcMethod)('UsersService', 'CreateUser'),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, grpc_js_1.Metadata, Object]),
+    __metadata("design:paramtypes", [users_dto_1.CreateUserDto, grpc_js_1.Metadata, Object]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "createUser", null);
 UsersController = __decorate([

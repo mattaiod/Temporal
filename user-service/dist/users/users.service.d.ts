@@ -5,8 +5,8 @@ export declare class UsersService {
     constructor(prisma: PrismaClient);
     findAll(): Promise<(import("@prisma/client/runtime").GetResult<{
         id: string;
-        first_name: string;
-        last_name: string;
+        firstName: string;
+        lastName: string;
         email: string;
         password: string;
         role: import(".prisma/client").Role;
@@ -15,8 +15,8 @@ export declare class UsersService {
     }, unknown, never> & {})[]>;
     findBy(body: FindUserByDto): Promise<(import("@prisma/client/runtime").GetResult<{
         id: string;
-        first_name: string;
-        last_name: string;
+        firstName: string;
+        lastName: string;
         email: string;
         password: string;
         role: import(".prisma/client").Role;
@@ -25,8 +25,8 @@ export declare class UsersService {
     }, unknown, never> & {}) | null>;
     delete(body: FindUserByDto): import(".prisma/client").Prisma.Prisma__UserClient<import("@prisma/client/runtime").GetResult<{
         id: string;
-        first_name: string;
-        last_name: string;
+        firstName: string;
+        lastName: string;
         email: string;
         password: string;
         role: import(".prisma/client").Role;
@@ -35,8 +35,8 @@ export declare class UsersService {
     }, unknown, never> & {}, never, import("@prisma/client/runtime").DefaultArgs> | undefined;
     findById(body: FindUserByDto): import(".prisma/client").Prisma.Prisma__UserClient<(import("@prisma/client/runtime").GetResult<{
         id: string;
-        first_name: string;
-        last_name: string;
+        firstName: string;
+        lastName: string;
         email: string;
         password: string;
         role: import(".prisma/client").Role;
@@ -45,8 +45,8 @@ export declare class UsersService {
     }, unknown, never> & {}) | null, null, import("@prisma/client/runtime").DefaultArgs>;
     createUser(body: CreateUserDto): Promise<import("@prisma/client/runtime").GetResult<{
         id: string;
-        first_name: string;
-        last_name: string;
+        firstName: string;
+        lastName: string;
         email: string;
         password: string;
         role: import(".prisma/client").Role;

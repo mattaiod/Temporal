@@ -13,13 +13,9 @@ async function bootstrap() {
           transport: Transport.GRPC,
           options: {
               package: 'users',
-              protoPath: join(__dirname, 'users/proto/users.proto'),
+              protoPath: join(__dirname, './users/users.proto'),
               url: '0.0.0.0:3000'
           }
-        // transport: Transport.TCP,
-        //   options: {
-        //     host: '0.0.0.0'
-        //   }
       }
   );
   app.useGlobalPipes(new UsersValidationPipe());
