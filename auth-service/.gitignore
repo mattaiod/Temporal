@@ -1,8 +1,6 @@
 # compiled output
 /dist
 /node_modules
-.cache
-.npm
 
 # Logs
 logs
@@ -28,9 +26,6 @@ lerna-debug.log*
 *.launch
 .settings/
 *.sublime-workspace
-temporal-service/.idea/
-temporal-service/node_modules/
-
 
 # IDE - VSCode
 .vscode/*
@@ -38,7 +33,3 @@ temporal-service/node_modules/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.ash_history
-.node_repl_history
-.prettierrc
-*.env
