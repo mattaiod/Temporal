@@ -11,7 +11,7 @@ async function bootstrap() {
         transport: microservices_1.Transport.GRPC,
         options: {
             package: 'users',
-            protoPath: (0, path_1.join)(__dirname, './users/users.proto'),
+            protoPath: (0, path_1.join)(__dirname, 'users/users.proto'),
             url: '0.0.0.0:3000'
         }
     });

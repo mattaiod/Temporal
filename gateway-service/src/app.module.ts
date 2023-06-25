@@ -1,28 +1,12 @@
 import {Module} from '@nestjs/common';
-import {AppController} from './app.controller';
-import {AppService} from './app.service';
 import {ClientsModule, Transport} from '@nestjs/microservices'
 import {LoggerModule as PinoLoggerModule} from "nestjs-pino";
 import {join} from 'path';
+import {UsersController} from "./users/users.controller";
+import {UsersModule} from "./users/users.module";
 @Module({
   imports: [
-      ClientsModule.register([
-          {
-              name: 'user-service',
-              transport: Transport.GRPC,
-              options: {
-                  package: 'users',
-                  protoPath: join(__dirname, 'users/users.proto'),
-                  url: "user-service:3000"
-              }
 
-              // name: 'USER_SERVICE',
-              // transport: Transport.TCP,
-              // options:{
-              //     host: 'user-service',
-              // }
-          },
-      ]),
       PinoLoggerModule.forRoot({
           pinoHttp: {
               transport: {
@@ -32,9 +16,10 @@ import {join} from 'path';
                   }
               }
           }
-      })
+      }),
+      UsersModule
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
