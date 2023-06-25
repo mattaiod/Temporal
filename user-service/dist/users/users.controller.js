@@ -36,7 +36,7 @@ let UsersController = class UsersController {
         return this.usersService.findBy(data);
     }
     async createUser(data, metadata, call) {
-        console.log("data: $$$$ ", data);
+        console.log("data: ", data);
         const { password } = data, rest = __rest(data, ["password"]);
         const hashed_password = await argon2.hash(password);
         try {

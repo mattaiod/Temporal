@@ -27,13 +27,6 @@ let UsersService = class UsersService {
         });
     }
     delete(body) {
-        if (body.email) {
-            return this.prisma.user.delete({
-                where: {
-                    email: body.email
-                }
-            });
-        }
         if (body.id) {
             return this.prisma.user.delete({
                 where: {
@@ -41,13 +34,6 @@ let UsersService = class UsersService {
                 }
             });
         }
-    }
-    findById(body) {
-        return this.prisma.user.findUnique({
-            where: {
-                id: body.id
-            }
-        });
     }
     async createUser(body) {
         return this.prisma.user.create({
