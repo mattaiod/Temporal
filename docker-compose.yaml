@@ -36,7 +36,15 @@ services:
     extends:
       file: ./temporal-service/docker-compose.yaml
       service: temporal-service-db
-      
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+
 volumes:
 
   auth-db:

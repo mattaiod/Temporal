@@ -15,11 +15,5 @@ export const UpdateUserSchema = z.object({
     email: z.string().email().optional(),
     password: z.password().min(6).max(64).atLeastOne("digit").optional()
 })
-export class CreateUserDto extends createZodDto(CreateUserSchema.omit({role: true}).strict()) {}
-export class grpcCreateUserDto extends createZodDto(UpdateUserSchema) {}
-export class CreatedUserDto extends createZodDto(CreateUserSchema.merge(z.object({id: z.string().uuid(), createdAt: z.date(), updatedAt: z.date()}))) {}
-
-export class FindUserByIdDto extends createZodDto(z.object({id: z.string().uuid()})) {}
-export class FindUserByDto extends createZodDto(CreateUserSchema.pick({email: true}).partial().merge(z.object({id: z.string().uuid()}).partial())) {}
 
 // export type CreateUserDto = z.infer<typeof CreateUserSchema>

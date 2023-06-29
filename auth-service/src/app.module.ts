@@ -3,10 +3,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import {LoggerModule as PinoLoggerModule} from "nestjs-pino";
+import { UsersModule } from './users/users.module';
+import {UsersService} from "./users/users.service";
 
 
 @Module({
-  imports: [AuthModule,
+  imports: [
     PinoLoggerModule.forRoot({
       pinoHttp: {
         transport: {
@@ -16,8 +18,10 @@ import {LoggerModule as PinoLoggerModule} from "nestjs-pino";
           }
         }
       }
-    })],
+    }),
+    UsersModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
+
 })
 export class AppModule {}
