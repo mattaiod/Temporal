@@ -7,8 +7,8 @@ import "google/protobuf/timestamp.proto";
 service UsersService {
   rpc FindUserById (FindUserByIdRequest) returns (FindUserByResponse) {}
   rpc FindUserByEmail (FindUserByEmailRequest) returns (FindUserByResponse) {}
-  rpc CreateUser (CreateUserRequest) returns (User) {}
   rpc CheckPassword (CheckPasswordRequest) returns (CheckPasswordResponse) {}
+  rpc CreateUser (CreateUserRequest) returns (User) {}
 }
 
 enum CheckPasswordStatus {

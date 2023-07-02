@@ -13,7 +13,7 @@ async function bootstrap() {
           transport: Transport.GRPC,
           options: {
               package: 'users',
-              protoPath: join(__dirname, 'users/users.proto'),
+              protoPath: join(__dirname.concat('/users/users.proto')),
               url: '0.0.0.0:3000'
           }
       }
@@ -22,4 +22,5 @@ async function bootstrap() {
   app.useLogger(app.get(Logger));
   await app.listen();
 }
+
 bootstrap();

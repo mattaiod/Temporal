@@ -1,7 +1,7 @@
 import {Inject, Injectable} from '@nestjs/common';
 import {ClientGrpc} from "@nestjs/microservices";
 import {Observable} from "rxjs";
-import {CreateUserRequest, FindUserByIdRequest, FindUserByResponse} from "../auth/users.proto.typs";
+import {CreateUserRequest, FindUserByIdRequest, FindUserByResponse} from "./users.proto.typs";
 
 export interface UsersService {
     FindUserById(data: FindUserByIdRequest): Observable<FindUserByResponse>
@@ -13,7 +13,6 @@ export class UsersService {
 
     private usersService : UsersService;
     constructor(@Inject('USER_SERVICE') private usersClient: ClientGrpc) {}
-
     onModuleInit() {
         this.usersService = this.usersClient.getService<UsersService>('UsersService');
     }

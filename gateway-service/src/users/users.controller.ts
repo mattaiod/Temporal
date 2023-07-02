@@ -3,7 +3,7 @@ import {UsersService} from "./users.service";
 import {ZodValidationPipe} from "nestjs-zod";
 import {z} from "nestjs-zod/z";
 import {Observable} from "rxjs";
-import {CreateUserRequest, FindUserByResponse, User} from "../auth/users.proto.typs";
+import {CreateUserRequest, FindUserByResponse, User} from "./users.proto.typs";
 
 @Controller('users')
 export class UsersController {

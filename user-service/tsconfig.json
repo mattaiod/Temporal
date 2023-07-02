@@ -17,16 +17,5 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "assets": ["**/*.proto"],
-    "watchAssets": true
-
-//    "paths": {
-//      "@app/shared": [
-//        "libs/shared/src"
-//      ],
-//      "@app/shared/*": [
-//        "libs/shared/src/*"
-//      ]
-//    }
   }
 }

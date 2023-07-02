@@ -46,11 +46,11 @@ export declare class UsersService {
     checkPassword(body: CheckPasswordRequest): Promise<{
         status: CheckPasswordStatus;
         user?: {
-            id: string;
             firstName: string;
             lastName: string;
             email: string;
             password: string;
+            id: string;
             role?: "User" | "Admin" | undefined;
         } | undefined;
     }>;

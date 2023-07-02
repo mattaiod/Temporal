@@ -1,19 +1,10 @@
 import {Inject, Injectable} from '@nestjs/common';
-import {
-    CheckPasswordRequest,
-    CheckPasswordResponse,
-    FindUserByIdRequest,
-    FindUserByResponse,
-} from "./users.proto.typs";
-import {Observable} from "rxjs";
+import { Observable } from 'rxjs';
+import {CheckPasswordRequest, CheckPasswordResponse, FindUserByIdRequest, FindUserByResponse} from "./users.proto.typs";
 import {ClientGrpc} from "@nestjs/microservices";
-
-
 export interface UsersService {
     FindUserById(data: FindUserByIdRequest): Observable<FindUserByResponse>
-    CheckPassword(data: CheckPasswordRequest): Observable<FindUserByResponse>
-    Testing (FindUserByIdRequest) : FindUserByIdRequest
-
+    CheckPassword(data: CheckPasswordRequest): Observable<CheckPasswordResponse>
 }
 @Injectable()
 export class UsersService {
@@ -30,14 +21,16 @@ export class UsersService {
         return foundUser;
     }
     checkPassword(data: CheckPasswordRequest): Observable<CheckPasswordResponse> {
-        console.log('call checkPassword');
+        console.log('call checkPassword', data);
 
         const checkedPassword = this.usersService.checkPassword(data);
-        console.log('call checkPassword in service', checkedPassword.forEach((value) => console.log(value)));
+        checkedPassword.pipe();
+        console.log('call checkPassword in service', checkedPassword);
+
         return checkedPassword;
     }
     testing(data: FindUserByIdRequest): FindUserByIdRequest {
         console.log('call testing', data);
-        return data;
+        return {id : data.id}
     }
 }

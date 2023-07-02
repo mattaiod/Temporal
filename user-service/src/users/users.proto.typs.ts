@@ -1,6 +1,6 @@
 import {CreateUserSchema, UpdateUserSchema} from "./users.dto";
 import {createZodDto} from "nestjs-zod";
-import {z, ZodParsedType, ZodType} from "nestjs-zod/z";
+import {z} from "nestjs-zod/z";
 // service UsersService {
 //   rpc FindUserById (FindUserById) returns (User) {}
 //   rpc CreateUser (CreateUser) returns (User) {}

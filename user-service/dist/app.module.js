@@ -9,11 +9,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const users_module_1 = require("./users/users.module");
+const LoggerModule_1 = require("nestjs-pino/LoggerModule");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [users_module_1.UsersModule],
+        imports: [
+            users_module_1.UsersModule,
+            LoggerModule_1.LoggerModule.forRoot({
+                pinoHttp: {
+                    transport: {
+                        target: 'pino-pretty',
+                        options: {
+                            singleLine: true
+                        }
+                    }
+                }
+            })
+        ]
     })
 ], AppModule);
 exports.AppModule = AppModule;

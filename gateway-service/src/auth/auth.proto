@@ -1,13 +1,11 @@
 syntax = "proto3";
 
-package users;
+package auth;
 
 import "google/protobuf/timestamp.proto";
 
 service AuthService {
-  rpc FindUserById (FindUserByIdRequest) returns (FindUserByResponse) {}
-  rpc CheckPassword (CheckPasswordRequest) returns (CheckPasswordResponse) {}
-  rpc Testing (FindUserByIdRequest) returns (FindUserByIdRequest) {}
+  rpc Login (LoginRequest) returns (LoginResponse) {}
 }
 
 enum CheckPasswordStatus {
@@ -44,19 +42,23 @@ message User {
   google.protobuf.Timestamp updatedAt = 7;
 }
 
-message CreateUserRequest {
-  string firstName = 1;
-  string lastName = 2;
-  string email = 3;
-  string password = 4;
+
+message RefreshTokenResponse {
+  string refreshToken = 1;
 }
 
-message CheckPasswordResponse {
+message AccessTokenResponse {
+  string accessToken = 1;
+}
+
+message LoginResponse {
   CheckPasswordStatus status = 1;
-  User user = 2;
+  string accessToken = 2;
+  string refreshToken = 3;
 }
 
-message CheckPasswordRequest {
-  string email = 1;
-  string password = 2;
+message LoginRequest {
+  string clientIp = 1;
+  string email = 2;
+  string password = 3;
 }
