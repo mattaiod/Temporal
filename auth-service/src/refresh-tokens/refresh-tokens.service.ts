@@ -6,7 +6,9 @@ import {JwtService} from "@nestjs/jwt";
 export class RefreshTokensService {
     constructor(
         private readonly prisma: PrismaClient,
-        private readonly jwtService: JwtService) {
+        private readonly jwtService: JwtService
+    )
+    {
     }
     async createRefreshToken(dto: CreateRefreshTokenDto) {
         const refreshTokenJWT = this.jwtService.sign(

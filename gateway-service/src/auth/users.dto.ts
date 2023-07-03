@@ -1,4 +1,4 @@
-import { z } from 'nestjs-zod/z'
+import { z } from 'nestjs-zod/z';
 import { createZodDto } from "nestjs-zod"
 
 export enum Role {

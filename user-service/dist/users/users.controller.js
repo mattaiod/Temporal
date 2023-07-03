@@ -63,31 +63,35 @@ let UsersController = class UsersController {
     }
 };
 __decorate([
-    (0, microservices_1.GrpcMethod)('UsersService', 'FindUserById'),
+    (0, microservices_1.GrpcMethod)("UsersService", "FindUserById"),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [users_proto_typs_1.FindUserByIdRequest, grpc_js_1.Metadata, Object]),
+    __metadata("design:paramtypes", [users_proto_typs_1.FindUserByIdRequest,
+        grpc_js_1.Metadata, Object]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "findUserById", null);
 __decorate([
-    (0, microservices_1.GrpcMethod)('UsersService', 'FindUserByEmail'),
+    (0, microservices_1.GrpcMethod)("UsersService", "FindUserByEmail"),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [users_proto_typs_1.FindUserByEmailRequest, grpc_js_1.Metadata, Object]),
+    __metadata("design:paramtypes", [users_proto_typs_1.FindUserByEmailRequest,
+        grpc_js_1.Metadata, Object]),
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "findUserByEmail", null);
 __decorate([
-    (0, microservices_1.GrpcMethod)('UsersService', 'CheckPassword'),
+    (0, microservices_1.GrpcMethod)("UsersService", "CheckPassword"),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [users_proto_typs_1.CheckPasswordRequest, grpc_js_1.Metadata, Object]),
+    __metadata("design:paramtypes", [users_proto_typs_1.CheckPasswordRequest,
+        grpc_js_1.Metadata, Object]),
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "checkPassword", null);
 __decorate([
-    (0, microservices_1.GrpcMethod)('UsersService', 'CreateUser'),
+    (0, microservices_1.GrpcMethod)("UsersService", "CreateUser"),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [users_proto_typs_1.CreateUserRequest, grpc_js_1.Metadata, Object]),
+    __metadata("design:paramtypes", [users_proto_typs_1.CreateUserRequest,
+        grpc_js_1.Metadata, Object]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "createUser", null);
 UsersController = __decorate([
-    (0, common_1.Controller)('users'),
+    (0, common_1.Controller)("users"),
     __metadata("design:paramtypes", [users_service_1.UsersService])
 ], UsersController);
 exports.UsersController = UsersController;

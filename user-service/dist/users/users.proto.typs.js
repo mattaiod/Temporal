@@ -23,7 +23,9 @@ exports.FindUserByIdRequest = FindUserByIdRequest;
 class FindUserByEmailRequest extends (0, nestjs_zod_1.createZodDto)(users_dto_1.CreateUserSchema.pick({ email: true })) {
 }
 exports.FindUserByEmailRequest = FindUserByEmailRequest;
-class FindUserByResponse extends (0, nestjs_zod_1.createZodDto)(z_1.z.object({ user: z_1.z.optional(users_dto_1.CreateUserSchema.merge(z_1.z.object({ id: z_1.z.string().uuid() }))) })) {
+class FindUserByResponse extends (0, nestjs_zod_1.createZodDto)(z_1.z.object({
+    user: z_1.z.optional(users_dto_1.CreateUserSchema.merge(z_1.z.object({ id: z_1.z.string().uuid() }))),
+})) {
 }
 exports.FindUserByResponse = FindUserByResponse;
 class User extends (0, nestjs_zod_1.createZodDto)(users_dto_1.CreateUserSchema.merge(z_1.z.object({

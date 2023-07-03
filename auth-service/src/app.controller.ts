@@ -1,24 +1,28 @@
-import {Controller, UseInterceptors} from '@nestjs/common';
+import {Body, Controller, UseGuards, UseInterceptors} from '@nestjs/common';
 import {UsersService} from "./users/users.service";
 import {GrpcMethod} from "@nestjs/microservices";
-import {CheckPasswordResponse, CheckPasswordStatus, FindUserByIdRequest} from "./users/users.proto.typs";
+import {CheckPasswordStatus, FindUserByIdRequest} from "./users/users.proto.typs";
 import {Metadata, ServerUnaryCall} from "@grpc/grpc-js";
 import {LoginRequest} from "./app.proto.types";
 import {firstValueFrom} from "rxjs";
 import {RefreshTokensService} from "./refresh-tokens/refresh-tokens.service";
 import {JwtService} from "@nestjs/jwt";
-import {ZodGuard, ZodValidationPipe} from "nestjs-zod";
 import {AppInterceptor} from "./app.interceptor";
+import {AccessTokenDto, TokenStatus, TokenResponse} from "./access-tokens/access-token.dto";
+import {AuthGuard} from "./auth/auth.guard";
+import {AppService} from "./app.service";
 
 @Controller()
 export class AppController {
     constructor(private readonly usersService: UsersService,
                 private readonly refreshTokensService: RefreshTokensService,
-                private readonly jwtService: JwtService
+                private readonly jwtService: JwtService,
+                private readonly authService: AppService
     ) {
     }
 
     @GrpcMethod('AuthService', 'FindUserById')
+    @UseGuards(AuthGuard)
     async findUserById(data: FindUserByIdRequest, metadata: Metadata, call: ServerUnaryCall<any, any>) {
         const foundUser = await this.usersService.findUserById(data);
         console.log("foundUser auth: ", foundUser);
@@ -54,6 +58,7 @@ export class AppController {
                             expiresIn: process.env.ACCESS_TOKEN_AUTH_SERVICE_EXPIRES_IN
                         }
                     );
+
                     const res = {
                         status: status,
                         accessToken: accessToken,
@@ -93,5 +98,11 @@ export class AppController {
         const testingResponse = data;
         console.log("testingResponse : ", testingResponse);
         return testingResponse;
+    }
+
+    @GrpcMethod('AuthService', 'VerifyAccessToken')
+    async verifyAccessToken(accessToken: AccessTokenDto, metadata: Metadata, call: ServerUnaryCall<any, any>):Promise<TokenResponse> {
+        const response =  await this.authService.verifyToken(accessToken);
+        return response;
     }
 }

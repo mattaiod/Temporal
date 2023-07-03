@@ -6,8 +6,12 @@ import { Module } from '@nestjs/common';
 import {PassportModule} from "@nestjs/passport";
 import { RefreshTokensModule } from './refresh-tokens/refresh-tokens.module';
 import {JwtService} from "@nestjs/jwt";
+import {ConfigModule} from "@nestjs/config";
 @Module({
   imports: [
+      ConfigModule.forRoot({
+        isGlobal: true
+      }),
     PinoLoggerModule.forRoot({
       pinoHttp: {
         transport: {

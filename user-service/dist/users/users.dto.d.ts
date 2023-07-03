@@ -1,25 +1,26 @@
 import { z } from 'nestjs-zod/z';
+export declare enum Role {
+    USER = "USER",
+    ADMIN = "ADMIN"
+}
 export declare const CreateUserSchema: z.ZodObject<{
     firstName: z.ZodString;
     lastName: z.ZodString;
     email: z.ZodString;
     password: z.ZodPassword;
-    role: z.ZodOptional<z.ZodNativeEnum<{
-        User: "User";
-        Admin: "Admin";
-    }>>;
+    role: z.ZodOptional<z.ZodNativeEnum<typeof Role>>;
 }, "strip", z.ZodTypeAny, {
     firstName: string;
     lastName: string;
     email: string;
     password: string;
-    role?: "User" | "Admin" | undefined;
+    role?: Role | undefined;
 }, {
     firstName: string;
     lastName: string;
     email: string;
     password: string;
-    role?: "User" | "Admin" | undefined;
+    role?: Role | undefined;
 }>;
 export declare const UpdateUserSchema: z.ZodObject<{
     firstName: z.ZodOptional<z.ZodString>;
