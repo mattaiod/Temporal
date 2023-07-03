@@ -41,4 +41,4 @@ temporal-service/node_modules/
 .ash_history
 .node_repl_history
 .prettierrc
-*.env
+/*.env
