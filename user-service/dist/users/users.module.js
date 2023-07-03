@@ -11,25 +11,12 @@ const common_1 = require("@nestjs/common");
 const users_controller_1 = require("./users.controller");
 const users_service_1 = require("./users.service");
 const client_1 = require("@prisma/client");
-const nestjs_pino_1 = require("nestjs-pino");
 let UsersModule = class UsersModule {
 };
 UsersModule = __decorate([
     (0, common_1.Module)({
         controllers: [users_controller_1.UsersController],
-        providers: [users_service_1.UsersService, client_1.PrismaClient],
-        imports: [
-            nestjs_pino_1.LoggerModule.forRoot({
-                pinoHttp: {
-                    transport: {
-                        target: 'pino-pretty',
-                        options: {
-                            singleLine: true
-                        }
-                    }
-                }
-            })
-        ]
+        providers: [users_service_1.UsersService, client_1.PrismaClient]
     })
 ], UsersModule);
 exports.UsersModule = UsersModule;

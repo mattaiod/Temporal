@@ -23,17 +23,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
 const users_service_1 = require("./users.service");
-const users_dto_1 = require("./users.dto");
 const argon2 = require("argon2");
 const microservices_1 = require("@nestjs/microservices");
 const grpc_js_1 = require("@grpc/grpc-js");
+const users_proto_typs_1 = require("./users.proto.typs");
 let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
     }
-    findUserById(data, metadata, call) {
+    async findUserById(data, metadata, call) {
+        const foundUser = await this.usersService.findUserById(data);
+        console.log("FindUserById foundUser: ", foundUser);
+        if (!foundUser) {
+            return { user: undefined };
+        }
+        console.log("foundUser: ", { user: foundUser });
+        return { user: foundUser };
+    }
+    findUserByEmail(data, metadata, call) {
         console.log("data: ", data);
-        return this.usersService.findBy(data);
+        return this.usersService.findUserByEmail(data);
+    }
+    checkPassword(data, metadata, call) {
+        console.log("data: ", data);
+        return this.usersService.checkPassword(data);
     }
     async createUser(data, metadata, call) {
         console.log("data: ", data);
@@ -52,13 +65,25 @@ let UsersController = class UsersController {
 __decorate([
     (0, microservices_1.GrpcMethod)('UsersService', 'FindUserById'),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [users_dto_1.FindUserByIdDto, grpc_js_1.Metadata, Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:paramtypes", [users_proto_typs_1.FindUserByIdRequest, grpc_js_1.Metadata, Object]),
+    __metadata("design:returntype", Promise)
 ], UsersController.prototype, "findUserById", null);
+__decorate([
+    (0, microservices_1.GrpcMethod)('UsersService', 'FindUserByEmail'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [users_proto_typs_1.FindUserByEmailRequest, grpc_js_1.Metadata, Object]),
+    __metadata("design:returntype", void 0)
+], UsersController.prototype, "findUserByEmail", null);
+__decorate([
+    (0, microservices_1.GrpcMethod)('UsersService', 'CheckPassword'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [users_proto_typs_1.CheckPasswordRequest, grpc_js_1.Metadata, Object]),
+    __metadata("design:returntype", void 0)
+], UsersController.prototype, "checkPassword", null);
 __decorate([
     (0, microservices_1.GrpcMethod)('UsersService', 'CreateUser'),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [users_dto_1.CreateUserDto, grpc_js_1.Metadata, Object]),
+    __metadata("design:paramtypes", [users_proto_typs_1.CreateUserRequest, grpc_js_1.Metadata, Object]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "createUser", null);
 UsersController = __decorate([

@@ -5,19 +5,34 @@ package users;
 import "google/protobuf/timestamp.proto";
 
 service UsersService {
-  rpc FindUserById (FindUserById) returns (User) {}
-  rpc CreateUser (CreateUser) returns (User) {}
+  rpc FindUserById (FindUserByIdRequest) returns (FindUserByResponse) {}
+  rpc FindUserByEmail (FindUserByEmailRequest) returns (FindUserByResponse) {}
+  rpc CheckPassword (CheckPasswordRequest) returns (CheckPasswordResponse) {}
+  rpc CreateUser (CreateUserRequest) returns (User) {}
 }
 
+enum CheckPasswordStatus {
+  OK = 0;
+  WRONG_PASSWORD = 1;
+  NOT_FOUND = 2;
+  INTERNAL = 3;
+  UNRECOGNIZED = -1;
+}
 
 enum  Role {
   USER = 0;
   ADMIN = 1;
 }
 
-
-message FindUserById {
+message FindUserByIdRequest {
   string id = 1;
+}
+message FindUserByEmailRequest {
+  string email = 1;
+}
+
+message FindUserByResponse {
+  User user = 1;
 }
 
 message User {
@@ -30,9 +45,19 @@ message User {
   google.protobuf.Timestamp updatedAt = 7;
 }
 
-message CreateUser {
+message CreateUserRequest {
   string firstName = 1;
   string lastName = 2;
   string email = 3;
   string password = 4;
+}
+
+message CheckPasswordResponse {
+  CheckPasswordStatus status = 1;
+  User user = 2;
+}
+
+message CheckPasswordRequest {
+  string email = 1;
+  string password = 2;
 }

@@ -1,10 +1,11 @@
 import { UsersService } from "./users.service";
-import { CreateUserDto, FindUserByIdDto } from "./users.dto";
 import { Metadata, ServerUnaryCall } from "@grpc/grpc-js";
+import { CheckPasswordRequest, CreateUserRequest, FindUserByEmailRequest, FindUserByIdRequest, FindUserByResponse } from "./users.proto.typs";
 export declare class UsersController {
     private readonly usersService;
     constructor(usersService: UsersService);
-    findUserById(data: FindUserByIdDto, metadata: Metadata, call: ServerUnaryCall<any, any>): Promise<(import("@prisma/client/runtime").GetResult<{
+    findUserById(data: FindUserByIdRequest, metadata: Metadata, call: ServerUnaryCall<any, any>): Promise<FindUserByResponse>;
+    findUserByEmail(data: FindUserByEmailRequest, metadata: Metadata, call: ServerUnaryCall<any, any>): Promise<(import("@prisma/client/runtime").GetResult<{
         id: string;
         firstName: string;
         lastName: string;
@@ -14,7 +15,18 @@ export declare class UsersController {
         createdAt: Date;
         updatedAt: Date;
     }, unknown, never> & {}) | null>;
-    createUser(data: CreateUserDto, metadata: Metadata, call: ServerUnaryCall<any, any>): Promise<import("@prisma/client/runtime").GetResult<{
+    checkPassword(data: CheckPasswordRequest, metadata: Metadata, call: ServerUnaryCall<any, any>): Promise<{
+        status: import("./users.proto.typs").CheckPasswordStatus;
+        user?: {
+            firstName: string;
+            lastName: string;
+            email: string;
+            password: string;
+            id: string;
+            role?: "User" | "Admin" | undefined;
+        } | undefined;
+    }>;
+    createUser(data: CreateUserRequest, metadata: Metadata, call: ServerUnaryCall<any, any>): Promise<import("@prisma/client/runtime").GetResult<{
         id: string;
         firstName: string;
         lastName: string;

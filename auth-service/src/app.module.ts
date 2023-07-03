@@ -1,12 +1,13 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { AuthModule } from './auth/auth.module';
 import {LoggerModule as PinoLoggerModule} from "nestjs-pino";
-
-
+import { AppController } from './app.controller';
+import { UsersModule } from './users/users.module';
+import { AppService } from './app.service';
+import { Module } from '@nestjs/common';
+import {PassportModule} from "@nestjs/passport";
+import { RefreshTokensModule } from './refresh-tokens/refresh-tokens.module';
+import {JwtService} from "@nestjs/jwt";
 @Module({
-  imports: [AuthModule,
+  imports: [
     PinoLoggerModule.forRoot({
       pinoHttp: {
         transport: {
@@ -16,8 +17,12 @@ import {LoggerModule as PinoLoggerModule} from "nestjs-pino";
           }
         }
       }
-    })],
+    }),
+    PassportModule.register({defaultStrategy: 'jwt'}),
+    UsersModule,
+    RefreshTokensModule
+  ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, JwtService],
 })
 export class AppModule {}

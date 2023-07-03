@@ -4,9 +4,11 @@ import {LoggerModule as PinoLoggerModule} from "nestjs-pino";
 import {join} from 'path';
 import {UsersController} from "./users/users.controller";
 import {UsersModule} from "./users/users.module";
+import { AuthController } from './auth/auth.controller';
+import { AuthService } from './auth/auth.service';
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
-
       PinoLoggerModule.forRoot({
           pinoHttp: {
               transport: {
@@ -17,7 +19,8 @@ import {UsersModule} from "./users/users.module";
               }
           }
       }),
-      UsersModule
+      UsersModule,
+      AuthModule
   ],
   controllers: [],
   providers: [],
