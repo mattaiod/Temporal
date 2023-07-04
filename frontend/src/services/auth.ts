@@ -1,4 +1,3 @@
-import { useSignUpEmailPassword } from '@nhost/vue'
 import { nhost } from '~/modules/nhost'
 import { ifElse, ifElseEither } from '~/utils/condition'
 import { tryCatch } from '~/utils/error'
@@ -19,7 +18,6 @@ export const signInEmailPassword = async (email: string, password: string) => {
   return await tryCatch(
     async () => {
       const res = await nhost.auth.signIn({ email, password })
-      debugger
       return ifElseEither(isNull(res.error), () => "failed", () => res)
     },
     () => left("failed"),
@@ -30,7 +28,6 @@ export const signOut = async () => {
   return await tryCatch(
     async () => {
       const res = await nhost.auth.signOut()
-      debugger
       return ifElseEither(isNull(res.error), () => "failed", () => res)
     },
     () => left("failed"),

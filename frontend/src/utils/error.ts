@@ -24,3 +24,10 @@ export const tryCatchToEither = async <T, U, V>(tryFn: () => Promise<T>, catchFn
   }
 }
 
+export class ErrorValueForbidden extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "ErrorValueForbidden"
+  }
+}
+

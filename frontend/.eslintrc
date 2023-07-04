@@ -5,7 +5,7 @@
     "no-console": "error",
     "array-callback-return": "error",
     "no-constructor-return": "error",
-    "no-duplicate-imports": "error",
+    "no-duplicate-imports": "off",
     "no-new-native-nonconstructor": "error",
     "no-self-compare": "error",
     "no-template-curly-in-string": "error",

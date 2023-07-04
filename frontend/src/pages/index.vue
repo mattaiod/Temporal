@@ -1,31 +1,11 @@
 <script setup lang="ts">
 import { useApolloClient, useLazyQuery, useQuery } from "@vue/apollo-composable"
-import { gql } from "@apollo/client/core"
-
-const { resolveClient } = useApolloClient()
-const client = resolveClient()
+import { fetchAllData_User } from '../services/graphQL'
+import type { IdUser } from '../models/user'
 
 const state = reactive({
   result: [],
 })
-
-const loadData = async () => {
-  // const keyToFetch = "test"
-  // const res = await client.query<{ test: number }>({
-  //   query: gql`
-  //     query MyQuery {
-  //       test {
-  //         test
-  //         test2
-  //       }
-  //     }
-  //   `,
-  // })
-
-  // state.result = res.data
-}
-
-loadData()
 </script>
 
 <template>

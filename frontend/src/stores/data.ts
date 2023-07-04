@@ -1,17 +1,12 @@
 import type { User } from '@nhost/vue'
 import { defineStore } from 'pinia'
 import type { UserModel } from '~/models/user'
+import type { AllDataUser } from '~/services/graphQL'
 import type { Nullable } from '~/utils/types'
 
-export const userStore = defineStore({
-  id: 'user',
+export const dataStore = defineStore({
+  id: 'data',
   state: () => ({
-    user: null as Nullable<User>,
+    value: null as Nullable<AllDataUser>,
   }),
-
-  getters: {
-    getUser(): Nullable<User> {
-      return this.user
-    },
-  },
 })

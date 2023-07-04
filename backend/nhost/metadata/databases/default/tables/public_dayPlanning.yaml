@@ -2,14 +2,14 @@ table:
   name: dayPlanning
   schema: public
 array_relationships:
-  - name: ListSlot
+  - name: ListTask
     using:
       manual_configuration:
         column_mapping:
           id: dayPlanning_id
         insertion_order: null
         remote_table:
-          name: slot
+          name: task
           schema: public
   - name: ListTaskPriorityMax3
     using:

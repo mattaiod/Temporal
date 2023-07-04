@@ -12,7 +12,6 @@ const password = ref('')
 const handleSubmit = async (event: Event) => {
   event.preventDefault()
   const res = await signInEmailPassword(email.value, password.value)
-  debugger
   either(res, log, () => router.push('/'))
 }
 </script>

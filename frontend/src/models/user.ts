@@ -1,7 +1,9 @@
 import { hydrateStrict } from '../utils/object'
 import { _BaseModel } from './_base'
 
-export class UserModel extends _BaseModel {
+export type IdUser = string & { readonly __tag: unique symbol }
+
+export class UserModel extends _BaseModel<IdUser> {
   email!: string
 
   protected constructor(obj: UserModel) {
@@ -9,7 +11,7 @@ export class UserModel extends _BaseModel {
     hydrateStrict(this, obj)
   }
 
-  static override make(obj: UserModel): UserModel {
+  static make(obj: UserModel): UserModel {
     return new this(obj)
   }
 }

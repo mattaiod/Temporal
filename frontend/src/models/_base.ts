@@ -1,20 +1,16 @@
 import { hydrate } from '../utils/object'
 import type { UserModel } from './user'
 
-export class _BaseModel {
-  id!: Id
+export class _BaseModel<T> {
+  id!: T
   createdAt!: Date
   updatedAt!: Date
   created_by!: UserModel
 
-  protected constructor(obj: _BaseModel) {
+  protected constructor(obj: _BaseModel<T>) {
     hydrate(this, obj)
-  }
-
-  static make(obj: _BaseModel): _BaseModel {
-    return new this(obj)
   }
 }
 
-export type Id = number & { readonly __tag: unique symbol }
+export type BaseModel<T, Id> = _BaseModel< Id > & T
 

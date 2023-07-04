@@ -34,7 +34,6 @@
     "noImplicitReturns": true,
     "strictNullChecks": true,
     "allowJs": false,
-    "no-unref": "off",
     "forceConsistentCasingInFileNames": true,
     "types": [
       "vitest",
@@ -42,7 +41,6 @@
       "vue/ref-macros",
       "vite-plugin-pages/client",
       "vite-plugin-vue-layouts/client",
-      "vue-apollo"
     ],
     "paths": {
       "~/*": [

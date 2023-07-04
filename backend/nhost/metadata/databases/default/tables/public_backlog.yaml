@@ -4,11 +4,9 @@ table:
 array_relationships:
   - name: ListTask
     using:
-      manual_configuration:
-        column_mapping:
-          user_id: backlog_id
-        insertion_order: null
-        remote_table:
+      foreign_key_constraint_on:
+        column: backlog_id
+        table:
           name: task
           schema: public
 select_permissions:

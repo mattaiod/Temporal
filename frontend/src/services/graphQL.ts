@@ -1,16 +1,23 @@
 import { useApolloClient } from '@vue/apollo-composable'
 import { gql } from "@apollo/client/core"
-const { resolveClient } = useApolloClient()
-const client = resolveClient()
+import type { IdUser } from '~/models/user'
+import { nhost } from '~/modules/nhost'
+import type { BacklogModel } from '~/models/backlog'
+import type { DayPlanningModel } from '~/models/dayPlanning'
 
-// current graphQL request for all
-/*
-query MyQuery {
-  backlog(where: {user_id: {_eq: "HHDHF"}}) {
+export interface AllDataUser {
+  backlog: BacklogModel[]
+  dayPlanning: DayPlanningModel[]
+}
+
+export const fetchAllData_User = async (userId: string) => {
+  const Request = gql`
+  query ($userId: uuid!) {
+  backlog(where: {user_id: {_eq: $userId}}) {
     createdAt
     id
     updatedAt
-    ListTask(where: {backlog_id: {_is_null: false}}) {
+    ListTask(where: {dayPlanning_id: {_is_null: true}}) {
       createdAt
       updatedAt
       title
@@ -22,36 +29,25 @@ query MyQuery {
     }
   }
   dayPlanning {
+    ListTaskPriorityMax3 {
+      createdAt
+      deadline
+      description
+      id
+      priority
+      status
+      timeBegin
+      timeEnd
+      title
+      updatedAt
+    }
     createdAt
     date
     id
     updatedAt
-    ListSlot {
-      createdAt
-      id
-      timeBegin
-      timeEnd
-      updatedAt
-      task {
-        createdAt
-        deadline
-        description
-        id
-        priority
-        status
-        title
-        updatedAt
-      }
-    }
-    ListTaskPriorityMax3 {
-      createdAt
-      id
-      deadline
-      description
-      priority
-      status
-      title
-      updatedAt
-    }
   }
 }
+`
+  return await nhost.graphql.request<AllDataUser>(Request, { userId })
+}
+

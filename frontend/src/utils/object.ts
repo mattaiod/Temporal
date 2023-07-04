@@ -12,3 +12,4 @@ export const hydrateStrict = (sourceToHydrate: AnyObject, objForHydrating: AnyOb
 }
 
 export const isObject = (obj: unknown): obj is Object => Object.prototype.toString.call(obj) === '[object Object]'
+

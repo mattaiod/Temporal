@@ -8,29 +8,37 @@ insert_permissions:
         user_id:
           _eq: X-Hasura-User-Id
       columns:
-        - backlog_id
-        - dayPlanning_ListTaskPriority
-        - deadline
-        - description
         - id
+        - user_id
+        - title
+        - createdAt
+        - description
+        - deadline
         - priority
         - status
-        - title
-        - user_id
+        - updatedAt
+        - backlog_id
+        - dayPlanning_ListTaskPriority
+        - timeBegin
+        - timeEnd
+        - dayPlanning_id
 select_permissions:
   - role: user
     permission:
       columns:
-        - backlog_id
-        - createdAt
-        - dayPlanning_ListTaskPriority
-        - deadline
         - description
-        - id
         - priority
         - status
         - title
+        - createdAt
+        - deadline
+        - timeBegin
+        - timeEnd
         - updatedAt
+        - backlog_id
+        - dayPlanning_id
+        - dayPlanning_ListTaskPriority
+        - id
         - user_id
       filter:
         user_id:
@@ -39,14 +47,19 @@ update_permissions:
   - role: user
     permission:
       columns:
-        - backlog_id
-        - dayPlanning_ListTaskPriority
-        - deadline
         - description
-        - id
         - priority
         - status
         - title
+        - createdAt
+        - deadline
+        - timeBegin
+        - timeEnd
+        - updatedAt
+        - backlog_id
+        - dayPlanning_id
+        - dayPlanning_ListTaskPriority
+        - id
         - user_id
       filter:
         user_id:

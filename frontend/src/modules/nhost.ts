@@ -6,6 +6,8 @@ import { type Session, type User } from "@nhost/hasura-auth-js"
 import { setContext } from "@apollo/client/link/context"
 import type { UserModule } from "~/types"
 
+import { userStore } from "~/stores/user"
+
 const backendUrl = import.meta.env.VITE_NHOST_URL
 const region = import.meta.env.VITE_NHOST_REGION
 const subdomain = import.meta.env.VITE_NHOST_SUBDOMAIN
@@ -37,15 +39,16 @@ export const install: UserModule = ({ app, router }) => {
   app.use(nhost)
   app.provide(DefaultApolloClient, apolloClient)
   // app.use(VueApolloComponents);
-
   // AUTH GUARD
   router.beforeEach(async (to, from, next) => {
     if (to.meta.requiresAuth) {
       await nhost.auth.isAuthenticatedAsync()
       const session = nhost.auth.getSession()
-      if (session)
+      if (session) {
+        userStore().user = session?.user
         next()
-      else next("/auth/login")
+      }
+      else { next("/auth/login") }
     }
     else {
       next()

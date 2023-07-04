@@ -10,7 +10,6 @@
 - "!include public_backlog.yaml"
 - "!include public_dayPlanning.yaml"
 - "!include public_priority.yaml"
-- "!include public_slot.yaml"
 - "!include public_task.yaml"
 - "!include public_taskStatus.yaml"
 - "!include storage_buckets.yaml"
