@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { either } from '../../utils/monads'
 import { log } from '../../utils/log'
 import { signInEmailPassword } from '../../services/auth'
+import { URL_FIRST } from '../../router'
 
 const router = useRouter()
 const email = ref('')
@@ -12,7 +13,7 @@ const password = ref('')
 const handleSubmit = async (event: Event) => {
   event.preventDefault()
   const res = await signInEmailPassword(email.value, password.value)
-  either(res, log, () => router.push('/'))
+  either(res, log, () => router.push(URL_FIRST))
 }
 </script>
 

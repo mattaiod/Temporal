@@ -21,20 +21,6 @@ useHead({
     },
   ],
 })
-
-const loadAllDataUser = async () => {
-  const UserStore = userStore().user
-  if (isNull(UserStore)) { throwErr("User should not be null") }
-  else {
-    const res = await fetchAllData_User(UserStore.id)
-    if (isNull(res.data))
-      throwErr("Data should not be null")
-    else
-      dataStore().value = res.data
-  }
-}
-
-loadAllDataUser()
 </script>
 
 <template>

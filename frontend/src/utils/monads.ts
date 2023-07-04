@@ -1,4 +1,4 @@
-import { is, isGlobal } from "./boolean"
+import { is, isGlobal } from "./predicat"
 import { throwErr } from "./error"
 import type { Class } from "./types"
 

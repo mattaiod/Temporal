@@ -1,4 +1,4 @@
-class ArrayMax3<T> extends Array<T> {
+export class ArrayMax3<T> extends Array<T> {
   constructor(...arr: T[]) {
     super(...arr)
   }

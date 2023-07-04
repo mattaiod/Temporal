@@ -17,3 +17,7 @@ export type Nullish<T> = T | null | undefined
 
 export type NotNull = string | number | boolean | symbol | object | Function | bigint | undefined
 
+export interface ResAPI<T> {
+  data: T
+  error: string
+}

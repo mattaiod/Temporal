@@ -1,9 +1,8 @@
-import { useApolloClient } from '@vue/apollo-composable'
 import { gql } from "@apollo/client/core"
-import type { IdUser } from '~/models/user'
-import { nhost } from '~/modules/nhost'
-import type { BacklogModel } from '~/models/backlog'
-import type { DayPlanningModel } from '~/models/dayPlanning'
+import type { DayPlanningModel } from '../models/dayPlanning'
+import type { BacklogModel } from '../models/backlog'
+import { nhost } from '../modules/nhost'
+import { tryCatchRequest } from "./dataCache"
 
 export interface AllDataUser {
   backlog: BacklogModel[]
@@ -48,6 +47,15 @@ export const fetchAllData_User = async (userId: string) => {
   }
 }
 `
-  return await nhost.graphql.request<AllDataUser>(Request, { userId })
+
+type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (...args: any) => Promise<infer R> ? R : any
+
+const res = await nhost.graphql.request<AllDataUser>(Request, { userId })
+const dd = res.error
+
+  type b = AsyncReturnType<typeof nhost.graphql.request>
+
+  NhostGraphqlRequestResponse
 }
 
+export type AsyncReturnType<Target extends AsyncFunction> = Awaited<ReturnType<Target>>

@@ -21,7 +21,6 @@
     "no-implicit-coercion": "error",
     "@typescript-eslint/no-unused-vars": "off",
     "no-implicit-globals": "error",
-    "no-magic-numbers": "error",
     "no-new": "error",
     "no-new-func": "error",
     "no-new-object": "error",
