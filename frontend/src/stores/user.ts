@@ -1,22 +1,20 @@
 import type { User } from '@nhost/vue'
 import { defineStore } from 'pinia'
 import type { Nullable } from '../utils/types'
-import { type Either, ifRight, left, right } from '../utils/monads'
+import { nothing } from '../utils/monads'
+import type { type Either, Maybe, ifRight, left, right } from '../utils/monads'
 import { ErrorFatalNever } from '../utils/error'
 import { isNull } from '../utils/logic'
 
 export const userStore = defineStore({
   id: 'user',
   state: () => ({
-    user: null as Nullable<User>,
+    user: nothing() as Maybe<User>,
   }),
 
   getters: {
-    getUser(): Either<ErrorFatalNever, User> {
-      if (isNull(this.user))
-        return left(new ErrorFatalNever("UserStore is null"))
-      else
-        return right(this.user)
+    getUser(): Maybe<User> {
+      return this.user
     },
   },
 })

@@ -4,16 +4,38 @@ import type { Class } from "./types"
 import { doAndReturn } from "./function"
 
 /* Maybe */
-export class Nothing {
-  constructor() {}
+
+export class MaybeClass {
+
+}
+export class Nothing extends MaybeClass {
+  constructor() {
+    super()
+  }
 }
 
-export class Just<T> {
-  constructor(private value: T) {}
+export class Just<T> extends MaybeClass {
+  constructor(private value: T) {
+    super()
+  }
 
   from(): T {
     return this.value
   }
+}
+
+export const nothing = () => new Nothing()
+
+export const isNothing = <T>(value: Maybe<T>): value is Nothing => value instanceof Nothing
+
+export const just = <T>(value: T): Just<T> => new Just(value)
+export const isJust = <T>(value: Maybe<T>): value is Just<T> => value instanceof Just
+
+export const nullToMaybe = <T>(value: T | null): Maybe<T> => {
+  if (value === null)
+    return nothing()
+  else
+    return new Just(value)
 }
 
 export type Maybe<T> = Nothing | Just<T>
@@ -54,6 +76,13 @@ export const either = <T, U, V, W>(either: Either<T, U>, leftFn: (val: T) => V, 
   return either instanceof Left ? leftFn(either.from()) : rightFn(either.from())
 }
 
+export const maybeToEither = <T>(value: Maybe<T>, error: Error): Either<Error, T> => {
+  if (value instanceof Nothing)
+    return left(error)
+  else
+    return right(value.from())
+}
+
 export const ifLeft = <T, U>(either: Either<T, U>, fn: (val: T) => any) => {
   if (either instanceof Left)
     fn(either.from())
@@ -69,7 +98,20 @@ export const ifRight = <T, U>(either: Either<T, U>, fn: (val: U) => any) => {
 export const isLeft = <T, U>(either: Either<T, U>): either is Left<T> => either instanceof Left
 export const isRight = <T, U>(either: Either<T, U>): either is Right<T> => either instanceof Right
 
-export const eitherAlwaysIfRight = <T, U, V>(either: Either<T, U>, fn: (val: U) => V) => {
+export const eitherAlwaysIfRight = <T, U, V>(either: Either<T, U>, fn: (val: U) => V | Promise<V>) => {
+  if (either instanceof Right)
+    fn(either.from())
+  return either
+}
+
+export const eitherAlwaysIfRightAsync = async <T, U, V>(either: () => Promise<Either<T, U>>, fn: (val: U) => V | Promise<V>) => {
+  const res = await either()
+  if (res instanceof Right)
+    await fn(res.from())
+  return either
+}
+
+export const eitherAlwaysIfRightC = <T, U, V>(fn: (val: U) => V) => (either: Either<T, U>) => {
   if (either instanceof Right)
     fn(either.from())
   return either
@@ -83,12 +125,18 @@ export const eitherDoAndReturn = async <T, U, V, W>(either: Either<T, U>, fn: ((
   return either
 }
 
-export const getValueKeyEitherRight = <L, R, K extends keyof R>(either: Either<L, R>, key: K): Left<L> | R[K] => {
+export const getValueKeyEitherRight = <L, R, K extends keyof R>(either: Either<L, R>, key: K): Left<L> | Right<R[K]> => {
   if (either instanceof Right)
-    return either.from()[key]
+    return right(either.from()[key])
   else
     return either
 }
+
+export const switchEither = async <T, U, V, W> (either: Either<T, U>, leftFn: (val: T) => V, rightFn: (val: U) => W | Promise<W>) => {
+  return either instanceof Left ? leftFn(either.from()) : await rightFn(either.from())
+}
+
+export const fromEither = <T, U>(either: Either<T, U>) => either.from()
 
 // thrower
 abstract class ThrowerClass<T> {
