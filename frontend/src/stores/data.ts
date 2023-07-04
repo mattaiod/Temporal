@@ -8,4 +8,13 @@ export const dataStore = defineStore({
   state: () => ({
     value: null as Nullable<AllDataUser>,
   }),
+
+  actions: {
+    setValue(value: AllDataUser) {
+      this.value = value
+      return this.value
+    },
+
+  },
+
 })
