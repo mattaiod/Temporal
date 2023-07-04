@@ -52,8 +52,16 @@ export const either = <T, U, V, W>(either: Either<T, U>, leftFn: (val: T) => V, 
   return either instanceof Left ? leftFn(either.from()) : rightFn(either.from())
 }
 
-export const eitherAlwaysLeft = <T, U, V, W>(either: Either<T, U>, rightFn: (val: U) => W) => {
-  return either instanceof Left ? either : rightFn(either.from())
+export const ifLeft = <T, U>(either: Either<T, U>, fn: (val: T) => any) => {
+  if (either instanceof Left)
+    fn(either.from())
+  return either
+}
+
+export const ifRight = <T, U>(either: Either<T, U>, fn: (val: U) => any) => {
+  if (either instanceof Right)
+    fn(either.from())
+  return either
 }
 
 // thrower
