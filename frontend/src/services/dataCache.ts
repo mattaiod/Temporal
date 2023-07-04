@@ -4,7 +4,7 @@ import type { Fatal } from "../utils/error"
 import { ErrorFatalNever } from "../utils/error"
 import { always, compose } from "../utils/function"
 import { isNotNull, isNull } from '../utils/logic'
-import { type Either, Left, either, eitherAlwaysLeft, left, right, rightDoAndReturnC } from '../utils/monads'
+import { type Either, Left, either, eitherAlwaysLeft, left } from '../utils/monads'
 import { set, setC } from "../utils/object"
 import type { ResAPI } from "../utils/types"
 import type { AllDataUser, ErrorResFetch, ResFetch } from './graphQL'
