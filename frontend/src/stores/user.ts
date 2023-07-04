@@ -1,11 +1,9 @@
 import type { User } from '@nhost/vue'
 import { defineStore } from 'pinia'
 import type { Nullable } from '../utils/types'
-import { type Either, ifRight, left } from '../utils/monads'
-import { ErrorFatalNever, type Fatal } from '../utils/error'
-import { type AllDataUser, type ErrorResFetch, fetchAllData_User } from '../services/graphQL'
+import { type Either, ifRight, left, right } from '../utils/monads'
+import { ErrorFatalNever } from '../utils/error'
 import { isNull } from '../utils/logic'
-import { dataStore } from './data'
 
 export const userStore = defineStore({
   id: 'user',
@@ -14,9 +12,11 @@ export const userStore = defineStore({
   }),
 
   getters: {
-    getUser(): Nullable<User> {
-      return this.user
+    getUser(): Either<ErrorFatalNever, User> {
+      if (isNull(this.user))
+        return left(new ErrorFatalNever("UserStore is null"))
+      else
+        return right(this.user)
     },
-
   },
 })

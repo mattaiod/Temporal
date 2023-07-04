@@ -37,6 +37,8 @@ export class Right<T> extends EitherClass<T> {
   constructor(value: T) {
     super(value)
   }
+
+  uniqRight = () => this
 }
 
 export type Either<L, R> = Left<L> | Right<R>
@@ -62,6 +64,30 @@ export const ifRight = <T, U>(either: Either<T, U>, fn: (val: U) => any) => {
   if (either instanceof Right)
     fn(either.from())
   return either
+}
+
+export const isLeft = <T, U>(either: Either<T, U>): either is Left<T> => either instanceof Left
+export const isRight = <T, U>(either: Either<T, U>): either is Right<T> => either instanceof Right
+
+export const eitherAlwaysIfRight = <T, U, V>(either: Either<T, U>, fn: (val: U) => V) => {
+  if (either instanceof Right)
+    fn(either.from())
+  return either
+}
+
+export const eitherDoAndReturn = async <T, U, V, W>(either: Either<T, U>, fn: ((val: T) => W | Promise<W>), fn2: (val: U) => V | Promise<V>) => {
+  if (either instanceof Left)
+    await fn(either.from())
+  else
+    await fn2(either.from())
+  return either
+}
+
+export const getValueKeyEitherRight = <L, R, K extends keyof R>(either: Either<L, R>, key: K): Left<L> | R[K] => {
+  if (either instanceof Right)
+    return either.from()[key]
+  else
+    return either
 }
 
 // thrower
