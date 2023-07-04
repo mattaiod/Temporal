@@ -1,4 +1,5 @@
 import * as R from "ramda"
+import type { ErrorResFetch } from "../services/graphQL"
 import type { Either } from "./monads"
 import { left, right } from "./monads"
 
@@ -33,17 +34,26 @@ export class ErrorFatalValueForbidden extends Error {
   }
 }
 
-export class ErrorFetch extends Error {
-  constructor(message: string) {
-    super(message)
-    this.name = "ErrorFetch"
-  }
-}
+// export class ErrorFetch<T> extends Error {
+//   constructor(message: ErrorResFetch) {
+//     super(message)
+//     this.name = "ErrorFetch"
+//   }
+// }
 
 export class ErrorFatalNever extends Error {
   constructor(message: string) {
     super(message)
     this.name = "ErrorFatalNever"
+  }
+}
+
+export type Fatal<T> = ErrorFatalNever | T
+
+export class ErrorFetchFailed extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "ErrorFetchFailed"
   }
 }
 

@@ -21,3 +21,5 @@ export interface ResAPI<T> {
   data: T
   error: string
 }
+
+export type ValueOf<T> = T[keyof T]

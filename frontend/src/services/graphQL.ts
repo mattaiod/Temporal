@@ -1,12 +1,36 @@
 import { gql } from "@apollo/client/core"
+import type { AsyncReturnType } from 'type-fest'
+import type { ErrorPayload } from "@nhost/vue"
 import type { DayPlanningModel } from '../models/dayPlanning'
 import type { BacklogModel } from '../models/backlog'
 import { nhost } from '../modules/nhost'
-import { tryCatchRequest } from "./dataCache"
+import type { Either } from "../utils/monads"
+import { left, right } from "../utils/monads"
+import { isNotNull, isNull } from "../utils/logic"
+import type { ValueOf } from '../utils/types'
+import type { Fatal } from "../utils/error"
+import { ErrorFatalNever, ErrorFetchFailed } from "../utils/error"
 
 export interface AllDataUser {
   backlog: BacklogModel[]
   dayPlanning: DayPlanningModel[]
+}
+
+export type ResFetch<T> = AsyncReturnType<typeof nhost.graphql.request<T>>
+
+export type ErrorResFetch = ResFetch<never>["error"]
+
+export const tryCatchRequest = async <T>(fn: () => Promise<ResFetch<T>>): Promise<Either<Fatal<ErrorResFetch>, T>> => {
+  try {
+    const res = await fn()
+    if (res.error)
+      return left(res.error)
+    else
+      return isNull(res.data) ? left(new ErrorFatalNever("Failed to fetch data")) : right(res.data)
+  }
+  catch (err: any) {
+    return left(new ErrorFetchFailed(err))
+  }
 }
 
 export const fetchAllData_User = async (userId: string) => {
@@ -47,15 +71,5 @@ export const fetchAllData_User = async (userId: string) => {
   }
 }
 `
-
-type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (...args: any) => Promise<infer R> ? R : any
-
-const res = await nhost.graphql.request<AllDataUser>(Request, { userId })
-const dd = res.error
-
-  type b = AsyncReturnType<typeof nhost.graphql.request>
-
-  NhostGraphqlRequestResponse
+  return await tryCatchRequest(() => nhost.graphql.request<AllDataUser>(Request, { userId }))
 }
-
-export type AsyncReturnType<Target extends AsyncFunction> = Awaited<ReturnType<Target>>

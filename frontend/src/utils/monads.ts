@@ -1,6 +1,7 @@
 import { is, isGlobal } from "./predicat"
 import { throwErr } from "./error"
 import type { Class } from "./types"
+import { doAndReturn } from "./function"
 
 /* Maybe */
 export class Nothing {
@@ -41,10 +42,14 @@ export class Right<T> extends EitherClass<T> {
 export type Either<L, R> = Left<L> | Right<R>
 
 export const right = <T>(value: T): Either<never, T> => new Right(value)
+export const rightDoAndReturnC = <T>(fn: (val: T) => any) => (value: T): Either<never, T> => {
+  fn(value)
+  return right(value)
+}
 export const left = <T>(value: T): Either<T, never> => new Left(value)
 
 export const either = <T, U, V, W>(either: Either<T, U>, leftFn: (val: T) => V, rightFn: (val: U) => W) => {
-  return either instanceof Right ? rightFn(either.from()) : leftFn(either.from())
+  return either instanceof Left ? leftFn(either.from()) : rightFn(either.from())
 }
 
 // thrower
