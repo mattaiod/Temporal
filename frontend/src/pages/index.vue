@@ -6,6 +6,8 @@ import type { IdUser } from '../models/user'
 const state = reactive({
   result: [],
 })
+
+myUndefinedFunction()
 </script>
 
 <template>
