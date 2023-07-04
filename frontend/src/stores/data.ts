@@ -44,10 +44,8 @@ export const dataStore = defineStore({
 
         if (UserFromStore instanceof Nothing)
           return left(new ErrorFatalNever("User is null"))
-
-        const DataUser = UserFromStore.from()
-
-        return eitherAlwaysIfRight(await fetchAllData_User(DataUser.id), this.setValue)
+        else
+          return eitherAlwaysIfRight(await fetchAllData_User(UserFromStore.from().id), this.setValue)
       }
       else {
         return right(this.value.from())
