@@ -10,6 +10,8 @@ export class _BaseModel<T> {
   protected constructor(obj: _BaseModel<T>) {
     hydrate(this, obj)
   }
+
+  private _uniqBaseModel = null
 }
 
 export type BaseModel<T, Id> = _BaseModel< Id > & T

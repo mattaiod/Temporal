@@ -14,4 +14,6 @@ export class Task_Base<T> extends _BaseModel<T> {
     super(obj)
     hydrateStrict(this, obj)
   }
+
+  private _uniqTask_Base = null
 }

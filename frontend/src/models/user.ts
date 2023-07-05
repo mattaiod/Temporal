@@ -14,5 +14,7 @@ export class UserModel extends _BaseModel<IdUser> {
   static make(obj: UserModel): UserModel {
     return new this(obj)
   }
+
+  private _uniqUserModel = null
 }
 

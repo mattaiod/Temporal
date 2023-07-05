@@ -5,23 +5,22 @@ import { doAndReturn } from "./function"
 
 /* Maybe */
 
-export class MaybeClass {
+export class Nothing {
+  private _uniqNothing = null
 
-}
-export class Nothing extends MaybeClass {
   constructor() {
-    super()
   }
 }
 
-export class Just<T> extends MaybeClass {
+export class Just<T> {
   constructor(private value: T) {
-    super()
   }
 
   from(): T {
     return this.value
   }
+
+  private _uniqJust = null
 }
 
 export const nothing = () => new Nothing()
@@ -30,6 +29,13 @@ export const isNothing = <T>(value: Maybe<T>): value is Nothing => value instanc
 
 export const just = <T>(value: T): Just<T> => new Just(value)
 export const isJust = <T>(value: Maybe<T>): value is Just<T> => value instanceof Just
+
+export const maybe = <T>(value: T | null | undefined): Maybe<T> => {
+  if (value === null || value === undefined)
+    return nothing()
+  else
+    return new Just(value)
+}
 
 export const nullToMaybe = <T>(value: T | null): Maybe<T> => {
   if (value === null)
@@ -47,12 +53,16 @@ abstract class EitherClass<T> {
   from(): T {
     return this.value
   }
+
+  private _uniqEitherClass = null
 }
 
 export class Left<T> extends EitherClass<T> {
   constructor(value: T) {
     super(value)
   }
+
+  private _uniqLeft = null
 }
 
 export class Right<T> extends EitherClass<T> {
@@ -60,7 +70,7 @@ export class Right<T> extends EitherClass<T> {
     super(value)
   }
 
-  uniqRight = () => this
+  private _uniqRight = null
 }
 
 export type Either<L, R> = Left<L> | Right<R>
@@ -145,18 +155,24 @@ abstract class ThrowerClass<T> {
   from(): T {
     return this.value
   }
+
+  private _uniqThrowerClass = null
 }
 
 export class ThrowLeft<T> extends ThrowerClass<T> {
   constructor(value: T) {
     super(value)
   }
+
+  private _uniqThrowLeft = null
 }
 
 export class ThrowRight<T> extends ThrowerClass<T> {
   constructor(value: T) {
     super(value)
   }
+
+  private _uniqThrowRight = null
 }
 
 export type Thrower<L, R> = ThrowLeft<L> | ThrowRight<R> | R

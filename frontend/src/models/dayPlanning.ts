@@ -19,5 +19,7 @@ export class DayPlanningModel extends _BaseModel<IdDayPlanning> {
   static make(obj: DayPlanningModel): Either<never, DayPlanningModel> {
     return right(new this(obj))
   }
+
+  private _uniqDayPlanning = null
 }
 

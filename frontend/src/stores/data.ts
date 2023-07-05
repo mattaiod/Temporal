@@ -5,12 +5,7 @@ import type { Nullable } from '../utils/types'
 import { Just, Nothing, eitherAlwaysIfRight, isNothing, left, nothing, right } from '../utils/monads'
 import type { type Either, Left, Maybe, eitherAlwaysIfRightAsync, eitherAlwaysIfRightC, eitherDoAndReturn, fromEither, getValueKeyEitherRight, ifRight, isJust, isLeft, isRight, nullToMaybe, switchEither } from '../utils/monads'
 import { ErrorFatalNever, type Fatal } from '../utils/error'
-import { isNotNull, isNull } from '../utils/logic'
-
-import { ValueOf } from '../utils/types'
-import { compose } from '../utils/function'
 import { userStore } from './user'
-import { always } from '~/utils/function'
 
 export const dataStore = defineStore({
   id: 'data',
@@ -41,7 +36,7 @@ export const dataStore = defineStore({
     async loadAllDataUser() {
       if (this.value instanceof Nothing) {
         const UserFromStore = userStore().getUser
-
+        debugger
         if (UserFromStore instanceof Nothing)
           return left(new ErrorFatalNever("User is null"))
         else

@@ -1,10 +1,7 @@
 import type { User } from '@nhost/vue'
 import { defineStore } from 'pinia'
-import type { Nullable } from '../utils/types'
-import { nothing } from '../utils/monads'
-import type { type Either, Maybe, ifRight, left, right } from '../utils/monads'
-import { ErrorFatalNever } from '../utils/error'
-import { isNull } from '../utils/logic'
+import type { Maybe } from '../utils/monads'
+import { maybe, nothing } from '../utils/monads'
 
 export const userStore = defineStore({
   id: 'user',
@@ -13,8 +10,15 @@ export const userStore = defineStore({
   }),
 
   getters: {
-    getUser(): Maybe<User> {
-      return this.user
+    getUser(state) {
+      return state.user
+    },
+  },
+
+  actions: {
+    setUser(user: User) {
+      this.user = maybe(user)
+      return user
     },
   },
 })
