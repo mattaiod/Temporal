@@ -27,8 +27,8 @@ declare const FindUserByEmailRequest_base: import("nestjs-zod").ZodDto<{
     email: z.ZodString;
     password: z.ZodPassword;
     role: z.ZodOptional<z.ZodNativeEnum<{
-        User: "User";
-        Admin: "Admin";
+        USER: "USER";
+        ADMIN: "ADMIN";
     }>>;
 }, "email">, "strip", z.ZodTypeAny>, {
     email: string;
@@ -42,7 +42,7 @@ declare const FindUserByResponse_base: import("nestjs-zod").ZodDto<{
         email: string;
         password: string;
         id: string;
-        role?: "User" | "Admin" | undefined;
+        role?: "USER" | "ADMIN" | undefined;
     } | undefined;
 }, z.ZodObjectDef<{
     user: z.ZodOptional<z.ZodObject<{
@@ -51,8 +51,8 @@ declare const FindUserByResponse_base: import("nestjs-zod").ZodDto<{
         email: z.ZodString;
         password: z.ZodPassword;
         role: z.ZodOptional<z.ZodNativeEnum<{
-            User: "User";
-            Admin: "Admin";
+            USER: "USER";
+            ADMIN: "ADMIN";
         }>>;
         id: z.ZodString;
     }, "strip", z.ZodTypeAny, {
@@ -61,14 +61,14 @@ declare const FindUserByResponse_base: import("nestjs-zod").ZodDto<{
         email: string;
         password: string;
         id: string;
-        role?: "User" | "Admin" | undefined;
+        role?: "USER" | "ADMIN" | undefined;
     }, {
         firstName: string;
         lastName: string;
         email: string;
         password: string;
         id: string;
-        role?: "User" | "Admin" | undefined;
+        role?: "USER" | "ADMIN" | undefined;
     }>>;
 }, "strip", z.ZodTypeAny>, {
     user?: {
@@ -77,7 +77,7 @@ declare const FindUserByResponse_base: import("nestjs-zod").ZodDto<{
         email: string;
         password: string;
         id: string;
-        role?: "User" | "Admin" | undefined;
+        role?: "USER" | "ADMIN" | undefined;
     } | undefined;
 }>;
 export declare class FindUserByResponse extends FindUserByResponse_base {
@@ -88,15 +88,15 @@ declare const User_base: import("nestjs-zod").ZodDto<{
     email: string;
     password: string;
     id: string;
-    role?: "User" | "Admin" | undefined;
+    role?: "USER" | "ADMIN" | undefined;
 }, z.ZodObjectDef<{
     firstName: z.ZodString;
     lastName: z.ZodString;
     email: z.ZodString;
     password: z.ZodPassword;
     role: z.ZodOptional<z.ZodNativeEnum<{
-        User: "User";
-        Admin: "Admin";
+        USER: "USER";
+        ADMIN: "ADMIN";
     }>>;
     id: z.ZodString;
 }, "strip", z.ZodTypeAny>, {
@@ -105,7 +105,7 @@ declare const User_base: import("nestjs-zod").ZodDto<{
     email: string;
     password: string;
     id: string;
-    role?: "User" | "Admin" | undefined;
+    role?: "USER" | "ADMIN" | undefined;
 }>;
 export declare class User extends User_base {
 }
@@ -120,8 +120,8 @@ declare const CreateUserRequest_base: import("nestjs-zod").ZodDto<{
     email: z.ZodString;
     password: z.ZodPassword;
     role: z.ZodOptional<z.ZodNativeEnum<{
-        User: "User";
-        Admin: "Admin";
+        USER: "USER";
+        ADMIN: "ADMIN";
     }>>;
 }, "role">, "strip", z.ZodTypeAny>, {
     firstName: string;
@@ -140,8 +140,8 @@ declare const CheckPasswordRequest_base: import("nestjs-zod").ZodDto<{
     email: z.ZodString;
     password: z.ZodPassword;
     role: z.ZodOptional<z.ZodNativeEnum<{
-        User: "User";
-        Admin: "Admin";
+        USER: "USER";
+        ADMIN: "ADMIN";
     }>>;
 }, "email" | "password">, "strip", z.ZodTypeAny>, {
     email: string;
@@ -157,7 +157,7 @@ declare const CheckPasswordResponse_base: import("nestjs-zod").ZodDto<{
         email: string;
         password: string;
         id: string;
-        role?: "User" | "Admin" | undefined;
+        role?: "USER" | "ADMIN" | undefined;
     } | undefined;
 }, z.ZodObjectDef<{
     status: z.ZodNativeEnum<typeof CheckPasswordStatus>;
@@ -167,8 +167,8 @@ declare const CheckPasswordResponse_base: import("nestjs-zod").ZodDto<{
         email: z.ZodString;
         password: z.ZodPassword;
         role: z.ZodOptional<z.ZodNativeEnum<{
-            User: "User";
-            Admin: "Admin";
+            USER: "USER";
+            ADMIN: "ADMIN";
         }>>;
         id: z.ZodString;
     }, "strip", z.ZodTypeAny, {
@@ -177,14 +177,14 @@ declare const CheckPasswordResponse_base: import("nestjs-zod").ZodDto<{
         email: string;
         password: string;
         id: string;
-        role?: "User" | "Admin" | undefined;
+        role?: "USER" | "ADMIN" | undefined;
     }, {
         firstName: string;
         lastName: string;
         email: string;
         password: string;
         id: string;
-        role?: "User" | "Admin" | undefined;
+        role?: "USER" | "ADMIN" | undefined;
     }>>;
 }, "strip", z.ZodTypeAny>, {
     status: CheckPasswordStatus;
@@ -194,7 +194,7 @@ declare const CheckPasswordResponse_base: import("nestjs-zod").ZodDto<{
         email: string;
         password: string;
         id: string;
-        role?: "User" | "Admin" | undefined;
+        role?: "USER" | "ADMIN" | undefined;
     } | undefined;
 }>;
 export declare class CheckPasswordResponse extends CheckPasswordResponse_base {

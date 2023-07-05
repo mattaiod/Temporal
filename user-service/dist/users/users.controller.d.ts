@@ -23,7 +23,7 @@ export declare class UsersController {
             email: string;
             password: string;
             id: string;
-            role?: "User" | "Admin" | undefined;
+            role?: "USER" | "ADMIN" | undefined;
         } | undefined;
     }>;
     createUser(data: CreateUserRequest, metadata: Metadata, call: ServerUnaryCall<any, any>): Promise<import("@prisma/client/runtime").GetResult<{
