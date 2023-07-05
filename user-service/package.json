@@ -26,7 +26,7 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/microservices": "^9.4.2",
     "@nestjs/platform-express": "^9.0.0",
-    "@prisma/client": "^4.14.1",
+    "@prisma/client": "^4.16.2",
     "@trpc/server": "^10.28.0",
     "argon2": "^0.30.3",
     "nestjs-pino": "^3.2.0",

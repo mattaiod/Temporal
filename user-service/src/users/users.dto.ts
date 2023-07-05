@@ -1,6 +1,10 @@
 import { z } from 'nestjs-zod/z'
 import { createZodDto } from "nestjs-zod"
-import {Role} from "@prisma/client";
+
+export enum Role {
+    USER='USER',
+    ADMIN= 'ADMIN'
+}
 export const CreateUserSchema = z.object({
     firstName: z.string().min(2).max(64),
     lastName: z.string().min(2).max(64),

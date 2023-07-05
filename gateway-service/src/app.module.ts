@@ -1,26 +1,25 @@
-import {Module} from '@nestjs/common';
-import {ClientsModule, Transport} from '@nestjs/microservices'
-import {LoggerModule as PinoLoggerModule} from "nestjs-pino";
-import {join} from 'path';
-import {UsersController} from "./users/users.controller";
-import {UsersModule} from "./users/users.module";
-import { AuthController } from './auth/auth.controller';
-import { AuthService } from './auth/auth.service';
-import { AuthModule } from './auth/auth.module';
+import { Module } from "@nestjs/common";
+import { LoggerModule as PinoLoggerModule } from "nestjs-pino";
+import { UsersModule } from "./users/users.module";
+import { AuthModule } from "./auth/auth.module";
+import { JwtModule } from "@nestjs/jwt";
+import { ConfigModule } from "@nestjs/config";
+import * as process from "process";
+import {AuthInterceptor} from "./auth/interceptors/auth.interceptor";
 @Module({
   imports: [
-      PinoLoggerModule.forRoot({
-          pinoHttp: {
-              transport: {
-                  target: 'pino-pretty',
-                  options: {
-                      singleLine: true
-                  }
-              }
-          }
-      }),
-      UsersModule,
-      AuthModule
+    PinoLoggerModule.forRoot({
+      pinoHttp: {
+        transport: {
+          target: "pino-pretty",
+          options: {
+            singleLine: true,
+          },
+        },
+      },
+    }),
+    UsersModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

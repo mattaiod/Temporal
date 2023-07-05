@@ -6,6 +6,7 @@ import "google/protobuf/timestamp.proto";
 
 service AuthService {
   rpc Login (LoginRequest) returns (LoginResponse) {}
+  rpc VerifyAccessToken(AccessTokenRequest) returns (AccessTokenResponse) {};
 }
 
 enum CheckPasswordStatus {
@@ -15,6 +16,15 @@ enum CheckPasswordStatus {
   INTERNAL = 3;
   UNRECOGNIZED = -1;
 }
+
+enum TokenStatus {
+  OK = 0;
+  WRONG_PASSWORD = 1;
+  NOT_FOUND = 2;
+  INTERNAL = 3;
+  UNRECOGNIZED = -1;
+}
+
 
 enum  Role {
   USER = 0;
@@ -47,8 +57,14 @@ message RefreshTokenResponse {
   string refreshToken = 1;
 }
 
-message AccessTokenResponse {
+message AccessTokenRequest {
   string accessToken = 1;
+  string clientIp = 2;
+}
+
+message AccessTokenResponse {
+  TokenStatus status = 1;
+  string userUuid = 2;
 }
 
 message LoginResponse {

@@ -1,4 +1,8 @@
 import { z } from 'nestjs-zod/z';
+export declare enum Role {
+    USER = "USER",
+    ADMIN = "ADMIN"
+}
 export declare const CreateUserSchema: z.ZodObject<{
     firstName: z.ZodString;
     lastName: z.ZodString;
