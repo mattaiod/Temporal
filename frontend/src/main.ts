@@ -19,10 +19,6 @@ export const createApp = ViteCreateApp(App, { routes, base: import.meta.env.BASE
   Object.values(import.meta.globEager("./modules/*.ts")).forEach((i) => i.install?.(ctx))
 })
 
-if (Capacitor.isNative) {
-  Capacito
-}
-
 /*
 const router = createRouter({
   history: createWebHistory(), //import.meta.env.BASE_URL
