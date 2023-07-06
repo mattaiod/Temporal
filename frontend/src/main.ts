@@ -9,6 +9,8 @@ import "uno.css"
 import { apolloClient, nhost } from "./modules/nhost"
 import { ViteCreateApp } from "./createApp"
 import generatedRoutes from "~pages"
+import { Capacitor } from '@capacitor/core';
+
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -16,6 +18,10 @@ export const createApp = ViteCreateApp(App, { routes, base: import.meta.env.BASE
   // install all modules under `modules/`
   Object.values(import.meta.globEager("./modules/*.ts")).forEach((i) => i.install?.(ctx))
 })
+
+if (Capacitor.isNative) {
+  Capacito
+}
 
 /*
 const router = createRouter({
