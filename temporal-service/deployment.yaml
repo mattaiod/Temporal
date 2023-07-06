@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temporal-service
+  labels:
+    app: temporal-service
+spec:
+  type: ClusterIp
+  replicas: 2
+  selector:
+    matchLabels:
+      app: temporal-service
+  template:
+    metadata:
+      labels:
+        app: temporal-service
+    spec:
+      containers:
+        - name: user-service
+          image: user-service:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_HOST
+              value: "user-db"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_USER
+              value: "postgres"
+            - name: DB_PASSWORD
+              value: "postgres"
+            - name: DB_NAME
+              value: "postgres"

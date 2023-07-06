@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temporal-service-db
+  labels:
+    app: temporal-service-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: temporal-service-db
+  template:
+    metadata:
+      labels:
+        app: temporal-service-db
+    spec:
+      containers:
+        - name: temporal-service-db
+          ports:
+            - containerPort: 5432
+          image: postgres:15-alpine3.16
+          env:
+            - name: POSTGRES_PASSWORD
+              value: "password"
+            - name: POSTGRES_HOST
+              value: "temporal-service-db"
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_USER
+              value: "nest_db"
+            - name: POSTGRES_DB
+              value: "nest_db"
