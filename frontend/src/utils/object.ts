@@ -13,3 +13,13 @@ export const hydrateStrict = (sourceToHydrate: AnyObject, objForHydrating: AnyOb
 
 export const isObject = (obj: unknown): obj is Object => Object.prototype.toString.call(obj) === '[object Object]'
 
+export const set = <T extends AnyObject>(obj: T, key: keyof T, value: T[keyof T]): T => {
+  obj[key] = value
+  return obj
+}
+
+export const setC = <T extends AnyObject>(obj: T, key: keyof T) => (value: T[keyof T]): T => {
+  obj[key] = value
+  return obj
+}
+

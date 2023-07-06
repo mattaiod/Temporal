@@ -5,7 +5,6 @@ export class _BaseModel<T> {
   id!: T
   createdAt!: Date
   updatedAt!: Date
-  created_by!: UserModel
 
   protected constructor(obj: _BaseModel<T>) {
     hydrate(this, obj)

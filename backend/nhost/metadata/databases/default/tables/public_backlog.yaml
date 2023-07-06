@@ -17,8 +17,4 @@ select_permissions:
         - id
         - updatedAt
         - user_id
-      filter:
-        user_id:
-          _eq: X-Hasura-User-Id
-      limit: 1
-      allow_aggregations: true
+      filter: {}

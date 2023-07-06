@@ -18,4 +18,6 @@ export class TaskDayPlanningModel extends Task_Base<IdTaskDayPlanning> {
   static make(obj: BaseModel<Task_Base<IdTaskDayPlanning>, IdTaskDayPlanning>): Either<never, TaskDayPlanningModel> {
     return right(new this(obj))
   }
+
+  private _uniqTaskDayPlanning = null
 }

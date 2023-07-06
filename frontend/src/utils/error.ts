@@ -1,10 +1,13 @@
 import * as R from "ramda"
+import type { ErrorResFetch } from "../services/graphQL"
 import type { Either } from "./monads"
 import { left, right } from "./monads"
 
 export const throwErr = (arg = "err") => {
   throw new Error(arg)
 }
+
+export const hasError = (arg: any) => arg?.error
 
 export const tryCatch = async <T, U, V>(tryFn: () => Promise<T>, catchFn: (err: U) => Promise<V> | V): Promise<T | V> => {
   try {
@@ -24,10 +27,40 @@ export const tryCatchToEither = async <T, U, V>(tryFn: () => Promise<T>, catchFn
   }
 }
 
-export class ErrorValueForbidden extends Error {
+export class ErrorFatalValueForbidden extends Error {
   constructor(message: string) {
     super(message)
     this.name = "ErrorValueForbidden"
+  }
+}
+
+// export class ErrorFetch<T> extends Error {
+//   constructor(message: ErrorResFetch) {
+//     super(message)
+//     this.name = "ErrorFetch"
+//   }
+// }
+
+export class ErrorFatalNever extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "ErrorFatalNever"
+  }
+}
+
+export type Fatal<T> = ErrorFatalNever | T
+
+export class ErrorFetchFailed extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "ErrorFetchFailed"
+  }
+}
+
+export class ErrorInsertFailed extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "ErrorInsertFailed"
   }
 }
 
