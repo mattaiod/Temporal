@@ -1,4 +1,4 @@
-import { is } from "./boolean"
+import { is } from "./predicat"
 import type { Either, Maybe } from "./monads"
 import { Just, left, right } from "./monads"
 import type { Fn1 } from "./types"

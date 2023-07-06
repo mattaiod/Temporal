@@ -1,9 +1,3 @@
 table:
   name: test
   schema: public
-select_permissions:
-  - role: user
-    permission:
-      columns:
-        - test
-      filter: {}

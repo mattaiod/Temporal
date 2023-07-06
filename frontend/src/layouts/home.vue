@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { either } from '../utils/monads'
 import { log } from '../utils/log'
+import { URL_LIST } from '../router'
 import { signOut } from '~/services/auth'
 const router = useRouter()
 
 const fn = {
   async signOut() {
-    either(await signOut(), log, () => router.push('/auth/login'))
+    either(await signOut(), log, () => router.push(URL_LIST.login))
   },
 }
 </script>
@@ -17,9 +18,9 @@ const fn = {
       <div class="flex justify-between">
         <span>Temporal</span>
         <div>
-          <q-btn label="Backlog" flat dense to="/backlog" />
-          <q-btn label="Today" flat dense to="/today" />
-          <q-btn label="Day Planning" flat dense to="/day-planning" />
+          <q-btn label="Backlog" flat dense :to="URL_LIST.backlog" />
+          <q-btn label="Today" flat dense :to="URL_LIST.today" />
+          <q-btn label="Day Planning" flat dense :to="URL_LIST.dayPlanning" />
         </div>
         <q-btn label="Sign out" flat dense @click="fn.signOut" />
       </div>

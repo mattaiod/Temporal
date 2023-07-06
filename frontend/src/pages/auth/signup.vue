@@ -5,6 +5,7 @@ import { tryCatch } from '../../utils/error'
 import { either } from '../../utils/monads'
 import { log } from '../../utils/log'
 import { signUpEmailPassword } from '../../services/auth'
+import { URL_FIRST } from '../../router'
 
 const SignUpEmailPassword = useSignUpEmailPassword()
 
@@ -15,7 +16,7 @@ const password = ref('')
 const handleSubmit = async (event: Event) => {
   event.preventDefault()
   const res = await signUpEmailPassword(email.value, password.value)
-  either(res, log, () => router.push('/'))
+  either(res, log, () => router.push(URL_FIRST))
 }
 </script>
 

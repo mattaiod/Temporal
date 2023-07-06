@@ -45,7 +45,7 @@ export const install: UserModule = ({ app, router }) => {
       await nhost.auth.isAuthenticatedAsync()
       const session = nhost.auth.getSession()
       if (session) {
-        userStore().user = session?.user
+        userStore().user = session.user
         next()
       }
       else { next("/auth/login") }

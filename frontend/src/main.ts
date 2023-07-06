@@ -9,6 +9,8 @@ import "uno.css"
 import { apolloClient, nhost } from "./modules/nhost"
 import { ViteCreateApp } from "./createApp"
 import generatedRoutes from "~pages"
+import { Capacitor } from '@capacitor/core';
+
 
 const routes = setupLayouts(generatedRoutes)
 

@@ -1,17 +1,64 @@
 import type { User } from '@nhost/vue'
 import { defineStore } from 'pinia'
-import type { UserModel } from '~/models/user'
-import type { Nullable } from '~/utils/types'
+import type { Just, Maybe } from '../utils/monads'
+import { Nothing, isNothing, nothing } from '../utils/monads'
+import type { Nullable } from '../utils/types'
+import { PriorityModel } from '../models/_enum'
+import { TaskBacklogModel } from './../models/taskBacklog'
+import { ErrorFatalNever } from './../utils/error'
+import { type AllDataUser, fetchAllData_User, insertTaskBacklog } from './../services/graphQL'
+import type { IdTaskBacklog, TaskBacklogInsert } from '~/models/taskBacklog'
 
-export const userStore = defineStore({
-  id: 'user',
+export const userStore = defineStore('user', {
   state: () => ({
     user: null as Nullable<User>,
+    data: null as Nullable<AllDataUser>,
   }),
+  actions: {
+    async loadAllDataUser(): Promise<AllDataUser> {
+      if (this.data === null) {
+        if (this.user === null) {
+          throw new ErrorFatalNever("User is null")
+        }
+        else {
+          const res = await fetchAllData_User(this.user.id)
+          this.data = res
+          return res
+        }
+      }
+      else {
+        return this.data as AllDataUser
+      }
+    },
+    async insertTask(Task: { title: string; description: string; backlog_id: string }) {
+      const TaskForInsert: TaskBacklogInsert = {
+        priority: "low",
+        status: "notStarted",
+        title: Task.title,
+        description: Task.description,
+        user_id: this.user?.id as IdTaskBacklog,
+        backlog_id: Task.backlog_id,
+      }
 
-  getters: {
-    getUser(): Nullable<User> {
-      return this.user
+      const ResInsert = (await insertTaskBacklog(TaskForInsert))
+      if (ResInsert === undefined)
+        throw new ErrorFatalNever("Failed to insert task")
+
+      const TaskForModel = TaskBacklogModel.make({
+        id: ResInsert.id,
+        createdAt: ResInsert.createdAt,
+        updatedAt: ResInsert.updatedAt,
+        deadline: ResInsert.deadline,
+        title: Task.title,
+        description: Task.description,
+        priority: "low",
+        status: "notStarted",
+      })
+
+      this.data?.backlog[0]?.ListTask.push(TaskForModel)
+
+      return TaskForModel
     },
   },
 })
+
