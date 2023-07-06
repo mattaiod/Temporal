@@ -51,7 +51,7 @@ export declare class UsersService {
             email: string;
             password: string;
             id: string;
-            role?: "USER" | "ADMIN" | undefined;
+            role?: import("./users.dto").Role | undefined;
         } | undefined;
     }>;
     createUser(body: CreateUserRequest): Promise<import("@prisma/client/runtime").GetResult<{

@@ -1,4 +1,10 @@
-import { Global, MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
+import {
+  Global,
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { AuthController } from "./auth.controller";
 import { ClientsModule, Transport } from "@nestjs/microservices";
@@ -7,6 +13,7 @@ import { JwtModule } from "@nestjs/jwt";
 import { JwtTestStrategy } from "./strategy/jwt.strategy";
 import { ConfigModule } from "@nestjs/config";
 import { AuthMiddleware } from "./middlewares/auth.middleware";
+
 @Global()
 @Module({
   imports: [
@@ -32,6 +39,9 @@ import { AuthMiddleware } from "./middlewares/auth.middleware";
 })
 export class AuthModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(AuthMiddleware).forRoutes("users");
+    consumer
+      .apply(AuthMiddleware)
+      .exclude({ path: "users", method: RequestMethod.POST })
+      .forRoutes("users");
   }
 }

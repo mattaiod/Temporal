@@ -8,22 +8,19 @@ export declare const CreateUserSchema: z.ZodObject<{
     lastName: z.ZodString;
     email: z.ZodString;
     password: z.ZodPassword;
-    role: z.ZodOptional<z.ZodNativeEnum<{
-        USER: "USER";
-        ADMIN: "ADMIN";
-    }>>;
+    role: z.ZodOptional<z.ZodNativeEnum<typeof Role>>;
 }, "strip", z.ZodTypeAny, {
     firstName: string;
     lastName: string;
     email: string;
     password: string;
-    role?: "USER" | "ADMIN" | undefined;
+    role?: Role | undefined;
 }, {
     firstName: string;
     lastName: string;
     email: string;
     password: string;
-    role?: "USER" | "ADMIN" | undefined;
+    role?: Role | undefined;
 }>;
 export declare const UpdateUserSchema: z.ZodObject<{
     firstName: z.ZodOptional<z.ZodString>;
