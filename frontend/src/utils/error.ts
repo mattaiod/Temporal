@@ -57,3 +57,10 @@ export class ErrorFetchFailed extends Error {
   }
 }
 
+export class ErrorInsertFailed extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "ErrorInsertFailed"
+  }
+}
+

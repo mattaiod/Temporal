@@ -2,7 +2,7 @@
   "extends": "@antfu",
   "rules": {
     "@typescript-eslint/quotes": 0,
-    "no-console": "error",
+    "no-console": "off",
     "array-callback-return": "error",
     "no-constructor-return": "error",
     "no-duplicate-imports": "off",

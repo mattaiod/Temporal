@@ -6,7 +6,7 @@ import { hydrateStrict } from "~/utils/object"
 export class Task_Base<T> extends _BaseModel<T> {
   title!: string
   description!: string
-  deadline!: Date
+  deadline?: Date | null
   priority!: PriorityModel
   status!: StatusTaskModel
 
@@ -14,6 +14,4 @@ export class Task_Base<T> extends _BaseModel<T> {
     super(obj)
     hydrateStrict(this, obj)
   }
-
-  private _uniqTask_Base = null
 }

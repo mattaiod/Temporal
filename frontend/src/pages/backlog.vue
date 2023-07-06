@@ -5,6 +5,8 @@ import { either, nothing } from '../utils/monads'
 import { userStore } from '../stores/user'
 import { tryCatch } from '../utils/error'
 import type { Nullable } from '../utils/types'
+import { cD } from '../utils/function'
+import { TaskBacklogInsert } from '../models/taskBacklog'
 
 class Task {
   constructor(public title: string, public description: string) {
@@ -30,29 +32,25 @@ const CP = {
 
 const FN = {
   mkEditTask(task: Task) {
-    ST.CurrentTask = task
+    ST.CurrentTask = cD(task)
     ST.addOrEdit = 'edit'
   },
 
 }
 
 const FNA = {
-  async insertTask() {
-    //   try {
-    //     const res = await userStore().addTask(task)
-    //     if (res === undefined)
-    //       console.log('No backlog')
-    //     else
-    //       ST.Backlog = res
-    //   }
-    //   catch
-    //   (e) {
-    //     console.error(e)
-    //   }
-    // }
-  },
-  async updateTask() {
 
+  async insertTask() {
+    if (ST.Backlog === null)
+      return
+    const obj = { ...ST.CurrentTask, backlog_id: ST.Backlog.id }
+    try {
+      const res = await userStore().insertTask(obj)
+    }
+    catch
+    (e) {
+      console.error(e)
+    }
   },
 
 }
@@ -60,6 +58,7 @@ const FNA = {
 const loadData = async () => {
   try {
     const res = (await userStore().loadAllDataUser()).backlog[0]
+    debugger
     if (res === undefined)
       console.log('No backlog')
     else

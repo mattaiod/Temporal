@@ -14,3 +14,4 @@ export const doAndReturnC = <T>(fn: (val: T) => any) => (value: T) => {
 
 export const compose = R.compose
 
+export const cD = R.clone
