@@ -35,7 +35,10 @@ const FN = {
     ST.CurrentTask = cD(task)
     ST.addOrEdit = 'edit'
   },
-
+  mkAddTask() {
+    ST.CurrentTask = Task.init()
+    ST.addOrEdit = 'add'
+  },
 }
 
 const FNA = {
@@ -46,6 +49,7 @@ const FNA = {
     const obj = { ...ST.CurrentTask, backlog_id: ST.Backlog.id }
     try {
       const res = await userStore().insertTask(obj)
+      FN.mkAddTask()
     }
     catch
     (e) {
@@ -58,7 +62,6 @@ const FNA = {
 const loadData = async () => {
   try {
     const res = (await userStore().loadAllDataUser()).backlog[0]
-    debugger
     if (res === undefined)
       console.log('No backlog')
     else
@@ -79,11 +82,13 @@ loadData()
       Backlog
     </h1>
 
+    <q-btn v-if="ST.addOrEdit === 'edit'" label="Add Task" @click="FN.mkAddTask()" />
+
     <q-card class="q-mb-md">
       <q-input v-model="ST.CurrentTask.title" label="Title" />
       <q-input v-model="ST.CurrentTask.description" label="Description" />
-      <q-btn v-if="ST.addOrEdit === 'add'" label="Add" @click="FNA.insertTask()" />
-      <q-btn v-if="ST.addOrEdit === 'edit'" label="Edit" @click="FNA.updateTask()" />
+      <q-btn v-if="ST.addOrEdit === 'add'" label="Valider" @click="FNA.insertTask()" />
+      <q-btn v-if="ST.addOrEdit === 'edit'" label="Valider" @click="FNA.updateTask()" />
     </q-card>
 
     <div v-if="ST.Backlog !== null">

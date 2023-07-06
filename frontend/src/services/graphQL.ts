@@ -74,7 +74,6 @@ export const fetchAllData_User = async (userId: string) => {
 `
   try {
     const res = await nhost.graphql.request<AllDataUser>(Request, { userId })
-    debugger
     if (res.error)
       throw res.error
     else
