@@ -122,3 +122,26 @@ export const insertTaskBacklog = async (obj: TaskBacklogInsert) => {
     throw new ErrorInsertFailed(err)
   }
 }
+
+export const updateTaskBacklog = async (obj: { id: string; title: string; description: string }) => {
+  debugger
+  const Req = gql`
+  mutation MyMutation($id: uuid!, $title: String!, $description: String!) {
+    update_task(where: {id: {_eq: $id}}, _set: {title: $title, description: $description, id: $id}) {
+      returning {
+        id
+      }
+    }
+  }`
+
+  try {
+    const res = (await nhost.graphql.request<IdTaskBacklog>(Req, { ...obj }))
+    if (res.error)
+      throw res.error
+    else
+      return res.data
+  }
+  catch (err: any) {
+    throw new ErrorInsertFailed(err)
+  }
+}

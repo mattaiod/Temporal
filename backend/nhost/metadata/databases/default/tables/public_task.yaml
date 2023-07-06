@@ -47,20 +47,20 @@ update_permissions:
   - role: user
     permission:
       columns:
-        - description
-        - priority
-        - status
-        - title
-        - createdAt
-        - deadline
-        - timeBegin
-        - timeEnd
-        - updatedAt
-        - backlog_id
-        - dayPlanning_id
-        - dayPlanning_ListTaskPriority
         - id
         - user_id
+        - title
+        - createdAt
+        - description
+        - deadline
+        - priority
+        - status
+        - updatedAt
+        - backlog_id
+        - dayPlanning_ListTaskPriority
+        - timeBegin
+        - timeEnd
+        - dayPlanning_id
       filter:
         user_id:
           _eq: X-Hasura-User-Id

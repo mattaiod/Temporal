@@ -10,6 +10,7 @@ export const install: UserModule = ({ app, router }) => {
       // Set `tracePropagationTargets` to control for which URLs distributed tracing should be enabled
         tracePropagationTargets: ["localhost", /^https:\/\/yourserver\.io\/api/],
         routingInstrumentation: Sentry.vueRouterInstrumentation(router),
+        tracingOrigins: ["*"],
       }),
       new Sentry.Replay(),
     ],
