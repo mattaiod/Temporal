@@ -2,17 +2,73 @@
 import type { BacklogModel } from '../models/backlog'
 import type { Maybe } from '../utils/monads'
 import { either, nothing } from '../utils/monads'
-import { log } from '../utils/log'
-import { dataStore } from '~/stores/data'
-const state = reactive({
-  Backlog: nothing() as Maybe<BacklogModel>,
+import { userStore } from '../stores/user'
+import { tryCatch } from '../utils/error'
+import type { Nullable } from '../utils/types'
+
+class Task {
+  constructor(public title: string, public description: string) {
+  }
+
+  static init() {
+    return new Task("", "")
+  }
+}
+
+type AddOrEdit = 'add' | 'edit'
+
+const ST = reactive({
+  Backlog: null as Nullable<BacklogModel>,
+  CurrentTask: Task.init(),
+  addOrEdit: 'add' as AddOrEdit,
+
 })
 
+const CP = {
+
+}
+
+const FN = {
+  mkEditTask(task: Task) {
+    ST.CurrentTask = task
+    ST.addOrEdit = 'edit'
+  },
+
+}
+
+const FNA = {
+  async insertTask() {
+    //   try {
+    //     const res = await userStore().addTask(task)
+    //     if (res === undefined)
+    //       console.log('No backlog')
+    //     else
+    //       ST.Backlog = res
+    //   }
+    //   catch
+    //   (e) {
+    //     console.error(e)
+    //   }
+    // }
+  },
+  async updateTask() {
+
+  },
+
+}
+
 const loadData = async () => {
-  const res = await dataStore().loadAllDataUser()
-  either(res, log, (data) => {
-    state.Backlog = data.backlog
-  })
+  try {
+    const res = (await userStore().loadAllDataUser()).backlog[0]
+    if (res === undefined)
+      console.log('No backlog')
+    else
+      ST.Backlog = res
+  }
+  catch
+  (e) {
+    console.error(e)
+  }
 }
 
 loadData()
@@ -23,6 +79,24 @@ loadData()
     <h1>
       Backlog
     </h1>
+
+    <q-card class="q-mb-md">
+      <q-input v-model="ST.CurrentTask.title" label="Title" />
+      <q-input v-model="ST.CurrentTask.description" label="Description" />
+      <q-btn v-if="ST.addOrEdit === 'add'" label="Add" @click="FNA.insertTask()" />
+      <q-btn v-if="ST.addOrEdit === 'edit'" label="Edit" @click="FNA.updateTask()" />
+    </q-card>
+
+    <div v-if="ST.Backlog !== null">
+      <div v-for="task in ST.Backlog.ListTask" :key="task.id" class="bg-fuchsia-800" @click="FN.mkEditTask(task)">
+        <div>
+          {{ task.title }}
+          <div>
+            {{ task.description }}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

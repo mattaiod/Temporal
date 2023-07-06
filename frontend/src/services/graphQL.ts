@@ -71,5 +71,16 @@ export const fetchAllData_User = async (userId: string) => {
   }
 }
 `
-  return await tryCatchRequest(() => nhost.graphql.request<AllDataUser>(Request, { userId }))
+  try {
+    const res = await nhost.graphql.request<AllDataUser>(Request, { userId })
+    if (res.error)
+      throw res.error
+    else
+      return res.data
+  }
+  catch (err: any) {
+    throw new ErrorFetchFailed(err)
+  }
+
+  // return await tryCatchRequest(() => nhost.graphql.request<AllDataUser>(Request, { userId }))
 }
