@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "410490315273",
+    "project_id": "temporal-e5b36",
+    "storage_bucket": "temporal-e5b36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410490315273:android:7bbb79330d20907e91ced8",
+        "android_client_info": {
+          "package_name": "com.temporal.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "410490315273-n3dh8i8gq6085vvip5jnqrn5duugfa62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFZhxGFQMb77x93DmWw3tYrI5szoH6Uzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "410490315273-n3dh8i8gq6085vvip5jnqrn5duugfa62.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
