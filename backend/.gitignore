@@ -3,6 +3,7 @@ nhost/.env.development
 nhost/*.env
 nhost/*.development
 nhost/.env.development
+.env
 .env.*
 .env.development
 .secrets.nhost

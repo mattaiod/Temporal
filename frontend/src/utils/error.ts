@@ -64,3 +64,10 @@ export class ErrorInsertFailed extends Error {
   }
 }
 
+export class ErrorUpdateFailed extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "ErrorUpdateFailed"
+  }
+}
+

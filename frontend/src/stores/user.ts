@@ -5,8 +5,8 @@ import { Nothing, isNothing, nothing } from '../utils/monads'
 import type { Nullable } from '../utils/types'
 import { PriorityModel } from '../models/_enum'
 import { TaskBacklogModel } from './../models/taskBacklog'
-import { ErrorFatalNever } from './../utils/error'
-import { type AllDataUser, fetchAllData_User, insertTaskBacklog } from './../services/graphQL'
+import { ErrorFatalNever, ErrorUpdateFailed } from './../utils/error'
+import { type AllDataUser, fetchAllData_User, insertTaskBacklog, updateTaskBacklog } from './../services/graphQL'
 import type { IdTaskBacklog, TaskBacklogInsert } from '~/models/taskBacklog'
 
 export const userStore = defineStore('user', {
@@ -42,7 +42,7 @@ export const userStore = defineStore('user', {
 
       const ResInsert = (await insertTaskBacklog(TaskForInsert))
       if (ResInsert === undefined)
-        throw new ErrorFatalNever("Failed to insert task")
+        throw new ErrorUpdateFailed("Failed to insert task")
 
       const TaskForModel = TaskBacklogModel.make({
         id: ResInsert.id,
@@ -58,6 +58,22 @@ export const userStore = defineStore('user', {
       this.data?.backlog[0]?.ListTask.push(TaskForModel)
 
       return TaskForModel
+    },
+
+    async updateTask(Task: TaskBacklogModel) {
+      const resUpdate = await updateTaskBacklog(Task)
+      if (resUpdate === undefined)
+        throw new ErrorUpdateFailed("Failed to update task")
+
+      // Update the task in the store
+      const TaskToUpdate = this.data?.backlog[0]?.ListTask.find(t => t.id === Task.id)
+      if (TaskToUpdate === undefined)
+        throw new ErrorUpdateFailed("Failed to update task")
+
+      TaskToUpdate.title = Task.title
+      TaskToUpdate.description = Task.description
+
+      return TaskToUpdate
     },
   },
 })
