@@ -57,7 +57,7 @@ const FNA = {
 
   async updateTask() {
     try {
-      const res = await userStore().updateTask(ST.CurrentTask)
+      const res = await userStore().updateTask(ST.CurrentEditTask)
 
       FN.mkAddTask()
     }

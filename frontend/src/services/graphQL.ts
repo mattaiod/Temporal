@@ -135,7 +135,7 @@ export const updateTaskBacklog = async (obj: { id: string; title: string; descri
   }`
 
   try {
-    const res = (await nhost.graphql.request<IdTaskBacklog>(Req, { ...obj }))
+    const res = (await nhost.graphql.request<IdTaskBacklog>(Req, { id: obj.id, title: obj.title, description: obj.description }))
     if (res.error)
       throw res.error
     else
