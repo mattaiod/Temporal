@@ -15,3 +15,8 @@ export const doAndReturnC = <T>(fn: (val: T) => any) => (value: T) => {
 export const compose = R.compose
 
 export const cD = R.clone
+
+export const unshift = <T>(value: T) => (arr: T[]) => {
+  arr.unshift(value)
+  return arr
+}

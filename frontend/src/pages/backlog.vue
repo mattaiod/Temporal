@@ -6,7 +6,7 @@ import { userStore } from '../stores/user'
 import { tryCatch } from '../utils/error'
 import type { Nullable } from '../utils/types'
 import { cD } from '../utils/function'
-import type { TaskBacklogModel } from '../models/taskBacklog'
+import type { IdTaskBacklog, TaskBacklogModel } from '../models/taskBacklog'
 import { TaskBacklogInsert } from '../models/taskBacklog'
 
 class Task {
@@ -36,6 +36,7 @@ const FN = {
   },
   mkAddTask() {
     ST.CurrentTask = Task.init()
+    ST.CurrentEditTask = null
   },
 }
 
@@ -57,8 +58,19 @@ const FNA = {
 
   async updateTask() {
     try {
-      const res = await userStore().updateTask(ST.CurrentTask)
+      const res = await userStore().updateTask(ST.CurrentEditTask)
 
+      FN.mkAddTask()
+    }
+    catch
+    (e) {
+      console.error(e)
+    }
+  },
+
+  async deleteTask(id: IdTaskBacklog) {
+    try {
+      const res = await userStore().deleteTask(id)
       FN.mkAddTask()
     }
     catch
@@ -109,13 +121,15 @@ loadData()
     </q-card>
 
     <div v-if="ST.Backlog !== null">
-      <div v-for="task in ST.Backlog.ListTask" :key="task.id" class="bg-fuchsia-800" @click="FN.mkEditTask(task)">
+      <div v-for="task in ST.Backlog.ListTask" :key="task.id" class="bg-fuchsia-800">
         <div>
           {{ task.title }}
           <div>
             {{ task.description }}
           </div>
         </div>
+        <q-btn label="Delete" @click="FNA.deleteTask(task.id)" />
+        <q-btn label="Edit" @click="FN.mkEditTask(task)" />
       </div>
     </div>
   </div>

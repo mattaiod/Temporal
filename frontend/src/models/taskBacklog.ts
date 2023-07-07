@@ -5,7 +5,6 @@ import { Task_Base } from './task_base'
 import { type Either, left, right } from '~/utils/monads'
 
 export type IdTaskBacklog = string & { readonly __tag: unique symbol }
-
 export class TaskBacklogModel extends Task_Base<IdTaskBacklog> {
   protected constructor(obj: BaseModel<Task_Base<IdTaskBacklog>, IdTaskBacklog>) {
     super(obj)
