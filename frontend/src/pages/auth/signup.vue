@@ -19,19 +19,19 @@ const handleSubmit = async (event: Event) => {
   event.preventDefault()
   const ResSignup = await signUpEmailPassword(email.value, password.value)
 
-  // const Request = gql`
-  //   mutation InsertBacklog($user_id: uuid) {
-  //     insert_backlog(objects: {user_id: $user_id}) {
-  //       returning {
-  //         createdAt
-  //         updatedAt
-  //         id
-  //       }
-  //     }
-  //   }
-  // `
+  const Request = gql`
+    mutation InsertBacklog($user_id: uuid) {
+      insert_backlog(objects: {user_id: $user_id}) {
+        returning {
+          createdAt
+          updatedAt
+          id
+        }
+      }
+    }
+  `
 
-  // const res = await nhost.graphql.request(Request, { user_id: ResSignup.value.session.user.id })
+  const res = await nhost.graphql.request(Request, { user_id: ResSignup.value.session.user.id })
 
   either(ResSignup, log, () => router.push(URL_FIRST))
 }
@@ -46,7 +46,7 @@ const handleSubmit = async (event: Event) => {
       </q-form>
     </q-card-section>
     <q-card-actions class="q-px-md">
-      <q-btn @click="handleSubmit" color="light-green-7" size="lg" class="full-width" label="Créer un compte" />
+      <q-btn color="light-green-7" size="lg" class="full-width" label="Créer un compte" @click="handleSubmit" />
     </q-card-actions>
   </div>
 </template>
