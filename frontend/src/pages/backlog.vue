@@ -99,7 +99,7 @@ loadData()
 </script>
 
 <template>
-  <div>
+  <div class="q-pa-md">
     <h1>
       Backlog
     </h1>
@@ -121,16 +121,20 @@ loadData()
     </q-card>
 
     <div v-if="ST.Backlog !== null">
-      <div v-for="task in ST.Backlog.ListTask" :key="task.id" class="bg-fuchsia-800">
-        <div>
+      <q-card v-for="task in ST.Backlog.ListTask" :key="task.id" class="my-card q-mb-md">
+        <q-card-section>
+          Titre :
           {{ task.title }}
           <div>
+            Description :
             {{ task.description }}
           </div>
-        </div>
-        <q-btn label="Delete" @click="FNA.deleteTask(task.id)" />
-        <q-btn label="Edit" @click="FN.mkEditTask(task)" />
-      </div>
+          <div class="row justify-center">
+            <q-btn label="Delete" @click="FNA.deleteTask(task.id)" />
+            <q-btn label="Edit" @click="FN.mkEditTask(task)" />
+          </div>
+        </q-card-section>
+      </q-card>
     </div>
   </div>
 </template>
