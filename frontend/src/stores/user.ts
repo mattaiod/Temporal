@@ -6,7 +6,7 @@ import type { Nullable } from '../utils/types'
 import { PriorityModel } from '../models/_enum'
 import { TaskBacklogModel } from './../models/taskBacklog'
 import { ErrorFatalNever, ErrorUpdateFailed } from './../utils/error'
-import { type AllDataUser, fetchAllData_User, insertTaskBacklog, updateTaskBacklog } from './../services/graphQL'
+import { type AllDataUser, fetchAllData_User, insertDayPlanning, insertDayPlanningQL, insertTaskBacklog, updateTaskBacklog } from './../services/graphQL'
 import type { IdTaskBacklog, TaskBacklogInsert } from '~/models/taskBacklog'
 
 export const userStore = defineStore('user', {
@@ -88,6 +88,11 @@ export const userStore = defineStore('user', {
       this.data?.backlog[0]?.ListTask.splice(this.data.backlog[0].ListTask.indexOf(TaskToDelete), 1)
     },
 
+    async insertDayPlanning(date: Date, ListTask: TaskBacklogModel[], ListTaskPriorityMax3: TaskBacklogModel[]) {
+      const res = await insertDayPlanningQL(date, ListTask, ListTaskPriorityMax3, this.user?.id)
+      this.data = res
+    },
   },
+
 })
 
