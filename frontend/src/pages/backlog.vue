@@ -109,13 +109,15 @@ loadData()
     </q-card>
 
     <div v-if="ST.Backlog !== null">
-      <div v-for="task in ST.Backlog.ListTask" :key="task.id" class="bg-fuchsia-800" @click="FN.mkEditTask(task)">
+      <div v-for="task in ST.Backlog.ListTask" :key="task.id" class="bg-fuchsia-800">
         <div>
           {{ task.title }}
           <div>
             {{ task.description }}
           </div>
         </div>
+        <q-btn label="Edit" @click="FNA.mkEditTask(task)" />
+        <q-btn label="Delete" @click="FNA.deleteTask(task)" />
       </div>
     </div>
   </div>
