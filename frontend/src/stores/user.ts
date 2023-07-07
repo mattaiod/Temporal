@@ -75,6 +75,10 @@ export const userStore = defineStore('user', {
 
       return TaskToUpdate
     },
+
+    async deleteTask(IdTask: IdTaskBacklog) {
+
+    },
   },
 })
 
