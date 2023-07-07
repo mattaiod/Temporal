@@ -10,7 +10,8 @@ import { isNotNull, isNull } from "../utils/logic"
 import type { ValueOf } from '../utils/types'
 import type { Fatal } from "../utils/error"
 import { ErrorFatalNever, ErrorFetchFailed, ErrorInsertFailed } from "../utils/error"
-import type { IdTaskBacklog, TaskBacklogInsert } from "~/models/taskBacklog"
+import type { IdTaskBacklog, TaskBacklogInsert, TaskBacklogModel } from "~/models/taskBacklog"
+import type { IdUser } from "~/models/user"
 
 export interface AllDataUser {
   backlog: BacklogModel[]
@@ -165,4 +166,34 @@ export const deleteTaskBacklog = async (id: string) => {
   catch (err: any) {
     throw new ErrorInsertFailed(err)
   }
+}
+
+export const insertDayPlanningQL = async (date: Date, ListTask: TaskBacklogModel[], ListTaskPriorityMax3: TaskBacklogModel[], user_id: IdUser) => {
+  const idPlanningId = await nhost.graphql.request<string>(gql`
+  mutation MyMutation($user_id: uuid!, $date: date!) {
+  insert_dayPlanning_one(object: {user_id: $user_id, date: $date}) {
+    id
+  }
+  }
+`, { user_id, date })
+
+  await Promise.all(ListTask.map(async (task) => {
+    await nhost.graphql.request<string>(gql`
+  mutation MyMutation {
+  update_task(where: {id: {_eq: ""}}, _set: {dayPlanning_id: ""})
+  }
+`, { id: task.id, dayPlanning_id: idPlanningId },
+    )
+  }))
+
+  await Promise.all(ListTaskPriorityMax3.map(async (task) => {
+    await nhost.graphql.request<string>(gql`
+  mutation MyMutation($id: uuid!, $dayPlanning_ListTaskPriority: uuid!) {
+    update_task(where: {id: {_eq: $id}}, _set: {dayPlanning_ListTaskPriority: $dayPlanning_ListTaskPriority})
+  }
+`, { id: task.id, $dayPlanning_ListTaskPriority: idPlanningId },
+    )
+  }))
+
+  return await fetchAllData_User(user_id)
 }

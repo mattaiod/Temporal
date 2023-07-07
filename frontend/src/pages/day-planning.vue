@@ -36,7 +36,7 @@ const FN = {
   insertDayPlanning() {
     if (ST.NewDayPlanning === null)
       return
-    userStore().insertDayPlanning(ST.NewDayPlanning)
+    // userStore().insertDayPlanning(ST.NewDayPlanning)
   },
 
 }
