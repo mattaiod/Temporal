@@ -77,7 +77,15 @@ export const userStore = defineStore('user', {
     },
 
     async deleteTask(IdTask: IdTaskBacklog) {
+      const TaskToDelete = this.data?.backlog[0]?.ListTask.find(t => t.id === IdTask)
+      if (TaskToDelete === undefined)
+        throw new ErrorUpdateFailed("Failed to delete task")
 
+      const resDelete = await updateTaskBacklog(TaskToDelete)
+      if (resDelete === undefined)
+        throw new ErrorUpdateFailed("Failed to delete task")
+
+      this.data?.backlog[0]?.ListTask.splice(this.data.backlog[0].ListTask.indexOf(TaskToDelete), 1)
     },
   },
 })
