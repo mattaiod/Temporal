@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { fetchAllData_User } from './services/graphQL'
-import { isNotNull, isNull } from './utils/logic'
-import { throwErr } from './utils/error'
-import { dataStore } from './stores/data'
-import { userStore } from '~/stores/user'
+import { inject } from '@vercel/analytics'
+inject()
+
 useHead({
   title: "Temporal",
   meta: [
