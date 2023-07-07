@@ -55,7 +55,7 @@ export const userStore = defineStore('user', {
         status: "notStarted",
       })
 
-      this.data?.backlog[0]?.ListTask.push(TaskForModel)
+      this.data?.backlog[0]?.ListTask.unshift(TaskForModel)
 
       return TaskForModel
     },
@@ -87,6 +87,7 @@ export const userStore = defineStore('user', {
 
       this.data?.backlog[0]?.ListTask.splice(this.data.backlog[0].ListTask.indexOf(TaskToDelete), 1)
     },
+
   },
 })
 

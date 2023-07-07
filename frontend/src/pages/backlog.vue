@@ -36,6 +36,7 @@ const FN = {
   },
   mkAddTask() {
     ST.CurrentTask = Task.init()
+    ST.CurrentEditTask = null
   },
 }
 

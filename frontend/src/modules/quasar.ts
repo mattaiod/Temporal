@@ -1,5 +1,5 @@
 import { Dialog, Loading, Notify, Quasar } from "quasar"
-import cs from "quasar/lang/cs"
+import fr from "quasar/lang/fr"
 // Import icon libraries
 import "@quasar/extras/roboto-font-latin-ext/roboto-font-latin-ext.css"
 import "@quasar/extras/material-icons/material-icons.css"
@@ -33,7 +33,7 @@ export const install: UserModule = ({ app }) => {
       Notify,
       Loading,
     }, // import Quasar plugins and add here
-    lang: cs,
+    lang: fr,
     /*
   config: {
     brand: {
