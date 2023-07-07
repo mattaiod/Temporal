@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service-db
+  labels:
+    app: user-service-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-service-db
+  template:
+    metadata:
+      labels:
+        app: user-service-db
+    spec:
+      containers:
+        - name: user-service-db
+          ports:
+            - containerPort: 5432
+          image: postgres:15-alpine3.16
+          env:
+            - name: POSTGRES_PASSWORD
+              value: "password"
+            - name: POSTGRES_HOST
+              value: "user-service-db"
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_USER
+              value: "user_db"
+            - name: POSTGRES_DB
+              value: "user_db"

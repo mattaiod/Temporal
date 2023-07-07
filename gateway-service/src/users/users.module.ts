@@ -7,7 +7,7 @@ import {JwtService} from "@nestjs/jwt";
 import {AuthModule} from "../auth/auth.module";
 import {AuthService} from "../auth/auth.service";
 import {ConfigModule} from "@nestjs/config";
-
+import * as process from "process";
 @Module({
     imports: [
         ConfigModule.forRoot({
@@ -20,7 +20,7 @@ import {ConfigModule} from "@nestjs/config";
             options: {
               package: 'users',
               protoPath: join(__dirname, 'users.proto'),
-              url: "user-service:3000"
+              url: `${process.env.USER_SERVICE_URL}:${process.env.USER_SERVICE_PORT}`
             }
           },
         ])

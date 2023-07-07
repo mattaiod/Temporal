@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user
+  labels:
+    app: user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user
+  template:
+    metadata:
+      labels:
+        app: user
+    spec:
+      containers:
+        - name: user
+          ports:
+            - containerPort: 3000
+          image: wendyafrim/user-service-image:v1-release
+          env:
+            - name: USER_SERVICE_PASSWORD
+              value: "password"
+            - name: USER_SERVICE_HOST
+              value: "user-service-db"
+            - name: USER_SERVICE_PORT
+              value: "5432"
+            - name: USER_SERVICE_USER
+              value: "user_db"
+            - name: USER_SERVICE_DB
+              value: "user_db"
+            - name: USER_SERVICE_APP_PORT
+              value: "3000"
+            - name: USER_SERVICE_APP_URL
+              value: "0.0.0.0"
+            - name: USER_SERVICE_DATABASE_URL
+              value: "postgresql://${USER_SERVICE_USER}:${USER_SERVICE_PASSWORD}@${USER_SERVICE_HOST}:${USER_SERVICE_PORT}/${USER_SERVICE_DB}?schema=public"
