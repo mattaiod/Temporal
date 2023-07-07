@@ -18,14 +18,15 @@ const handleSubmit = async (event: Event) => {
 </script>
 
 <template>
-  <form @submit="handleSubmit">
-    <input v-model="email" type="email" placeholder="Email" class="input">
-    <br>
-    <input v-model="password" type="password" placeholder="Password" class="input">
-    <br>
-
-    <button class="btn-submit" type="submit">
-      Sign in
-    </button>
-  </form>
+  <div>
+    <q-card-section>
+      <q-form class="q-gutter-md">
+        <q-input v-model="email" square filled clearable type="email" label="email" />
+        <q-input v-model="password" square filled clearable type="password" label="password" />
+      </q-form>
+    </q-card-section>
+    <q-card-actions class="q-px-md">
+      <q-btn @click="handleSubmit" color="light-green-7" size="lg" class="full-width" label="Se connecter" />
+    </q-card-actions>
+  </div>
 </template>
