@@ -1,21 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: temporal
+  name: auth
   labels:
-    app: temporal
+    app: auth
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: temporal
+      app: auth
   template:
     metadata:
       labels:
-        app: temporal
+        app: auth
     spec:
       containers:
-        - name: temporal
-          image: wendyafrim/temporal-service-image:v1-release
+        - name: auth
+          image: wendyafrim/auth-service-image:v1-release
           ports:
             - containerPort: 3000
+          env:
+            - name: ACCESS_TOKEN_AUTH_SERVICE_SECRET
+              value: "ACCESS_TOKEN_AUTH_SERVICE_SECRET"
+            - name: ACCESS_TOKEN_AUTH_SERVICE_EXPIRES_IN
+              value: "15m"
+            - name: REFRESH_TOKEN_AUTH_SERVICE_SECRET
+              value: "REFRESH_TOKEN_AUTH_SERVICE_SECRET"
+            - name: REFRESH_TOKEN_AUTH_SERVICE_EXPIRES_IN
+              value: "7d"
+            - name: SECRET
+              value: "secret"

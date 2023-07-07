@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: temporal
+  name: auth
   labels:
-    app: temporal
+    app: auth
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
-    app: temporal
+    app: auth
   ports:
     - protocol: "TCP"
       port: 3000

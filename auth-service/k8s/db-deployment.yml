@@ -1,34 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres
+  name: auth-service-db
   labels:
-    app: postgres
+    app: auth-service-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: postgres
+      app: auth-service-db
   template:
     metadata:
       labels:
-        app: postgres
+        app: auth-service-db
     spec:
       containers:
-        - name: postgres
+        - name: auth-service-db
           ports:
             - containerPort: 5432
           image: postgres:15-alpine3.16
           env:
-            - name: USER_SERVICE_PASSWORD
+            - name: POSTGRES_PASSWORD
               value: "password"
-            - name: USER_SERVICE_HOST
-              value: "user-service-db"
-            - name: USER_SERVICE_PORT
+            - name: POSTGRES_HOST
+              value: "auth-service-db"
+            - name: POSTGRES_PORT
               value: "5432"
-            - name: USER_SERVICE_USER
-              value: "user_db"
-            - name: USER_SERVICE_DB
-              value: "user_db"
-            - name: USER_SERVICE_DATABASE_URL
-              value: "postgresql://${USER_SERVICE_USER}:${USER_SERVICE_PASSWORD}@${USER_SERVICE_HOST}:${USER_SERVICE_PORT}/${USER_SERVICE_DB}?schema=public"
+            - name: POSTGRES_USER
+              value: "auth_db"
+            - name: POSTGRES_DB
+              value: "auth_db"
