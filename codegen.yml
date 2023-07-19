@@ -9,6 +9,14 @@ generates:
       - typescript
       - typescript-operations
       - typed-document-node
-
+      - add:
+          content: "export type JSONValue = string | number | boolean | { [x: string]: JSONValue } | Array<JSONValue>;"
     config:
-      withRefetchFn: true
+      scalars:
+        uuid: "string"
+        bigint: "number"
+        citext: "string"
+        timestamptz: "string"
+        json: "JSONValue"
+        jsonb: "JSONValue"
+        bytea: "string"

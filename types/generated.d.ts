@@ -4,6 +4,7 @@ export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type JSONValue = string | number | boolean | { [x: string]: JSONValue } | Array<JSONValue>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -11,13 +12,13 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  bigint: any;
-  bytea: any;
-  citext: any;
+  bigint: number;
+  bytea: string;
+  citext: string;
   date: any;
-  jsonb: any;
-  timestamptz: any;
-  uuid: any;
+  jsonb: JSONValue;
+  timestamptz: string;
+  uuid: string;
 };
 
 /** Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'. */
@@ -6568,7 +6569,7 @@ export type GetBacklogQueryVariables = Exact<{
 }>;
 
 
-export type GetBacklogQuery = { __typename?: 'query_root', backlog_by_pk?: { __typename?: 'backlog', id: any, updatedAt: any, user_id: any, createdAt: any, ListTask: Array<{ __typename?: 'task', description: string, timeEnd?: any | null, title: string, updatedAt: any, deadline?: any | null }> } | null };
+export type GetBacklogQuery = { __typename?: 'query_root', backlog_by_pk?: { __typename?: 'backlog', id: string, updatedAt: string, user_id: string, createdAt: string, ListTask: Array<{ __typename?: 'task', description: string, timeEnd?: string | null, title: string, updatedAt: string, deadline?: string | null }> } | null };
 
 
 export const GetBacklogDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getBacklog"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"userId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"uuid"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"backlog_by_pk"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"userId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"user_id"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"ListTask"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"timeEnd"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"deadline"}}]}}]}}]}}]} as unknown as DocumentNode<GetBacklogQuery, GetBacklogQueryVariables>;
