@@ -9,8 +9,6 @@ generates:
       - typescript
       - typescript-operations
       - typed-document-node
-      - typescript-vue-apollo
 
     config:
       withRefetchFn: true
-      vueCompositionApiImportFrom: vue

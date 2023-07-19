@@ -6,6 +6,10 @@ query getBacklog ($userId: uuid!) {
     createdAt
     ListTask {
       description
+      timeEnd
+      title
+      updatedAt
+      deadline
     }
   }
 }

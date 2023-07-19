@@ -1,13 +1,9 @@
 import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
-import gql from 'graphql-tag';
-import * as VueApolloComposable from '@vue/apollo-composable';
-import * as VueCompositionApi from 'vue';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type ReactiveFunction<TParam> = () => TParam;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -6572,44 +6568,7 @@ export type GetBacklogQueryVariables = Exact<{
 }>;
 
 
-export type GetBacklogQuery = { __typename?: 'query_root', backlog_by_pk?: { __typename?: 'backlog', id: any, updatedAt: any, user_id: any, createdAt: any, ListTask: Array<{ __typename?: 'task', description: string }> } | null };
+export type GetBacklogQuery = { __typename?: 'query_root', backlog_by_pk?: { __typename?: 'backlog', id: any, updatedAt: any, user_id: any, createdAt: any, ListTask: Array<{ __typename?: 'task', description: string, timeEnd?: any | null, title: string, updatedAt: any, deadline?: any | null }> } | null };
 
 
-export const GetBacklogDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getBacklog"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"userId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"uuid"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"backlog_by_pk"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"userId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"user_id"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"ListTask"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]}}]}}]} as unknown as DocumentNode<GetBacklogQuery, GetBacklogQueryVariables>;
-
-export const GetBacklogDocument = gql`
-    query getBacklog($userId: uuid!) {
-  backlog_by_pk(id: $userId) {
-    id
-    updatedAt
-    user_id
-    createdAt
-    ListTask {
-      description
-    }
-  }
-}
-    `;
-
-/**
- * __useGetBacklogQuery__
- *
- * To run a query within a Vue component, call `useGetBacklogQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetBacklogQuery` returns an object from Apollo Client that contains result, loading and error properties
- * you can use to render your UI.
- *
- * @param variables that will be passed into the query
- * @param options that will be passed into the query, supported options are listed on: https://v4.apollo.vuejs.org/guide-composable/query.html#options;
- *
- * @example
- * const { result, loading, error } = useGetBacklogQuery({
- *   userId: // value for 'userId'
- * });
- */
-export function useGetBacklogQuery(variables: GetBacklogQueryVariables | VueCompositionApi.Ref<GetBacklogQueryVariables> | ReactiveFunction<GetBacklogQueryVariables>, options: VueApolloComposable.UseQueryOptions<GetBacklogQuery, GetBacklogQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<GetBacklogQuery, GetBacklogQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<GetBacklogQuery, GetBacklogQueryVariables>> = {}) {
-  return VueApolloComposable.useQuery<GetBacklogQuery, GetBacklogQueryVariables>(GetBacklogDocument, variables, options);
-}
-export function useGetBacklogLazyQuery(variables: GetBacklogQueryVariables | VueCompositionApi.Ref<GetBacklogQueryVariables> | ReactiveFunction<GetBacklogQueryVariables>, options: VueApolloComposable.UseQueryOptions<GetBacklogQuery, GetBacklogQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<GetBacklogQuery, GetBacklogQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<GetBacklogQuery, GetBacklogQueryVariables>> = {}) {
-  return VueApolloComposable.useLazyQuery<GetBacklogQuery, GetBacklogQueryVariables>(GetBacklogDocument, variables, options);
-}
-export type GetBacklogQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<GetBacklogQuery, GetBacklogQueryVariables>;
+export const GetBacklogDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getBacklog"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"userId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"uuid"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"backlog_by_pk"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"userId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"user_id"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"ListTask"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"timeEnd"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"deadline"}}]}}]}}]}}]} as unknown as DocumentNode<GetBacklogQuery, GetBacklogQueryVariables>;
