@@ -1,4 +1,18 @@
 <script setup lang="ts">
+import { GetBacklogDocument } from '../../../types/generated';
+
+import { useQuery } from '@apollo/client';
+
+
+const { data, loading, error } = useQuery(GetBacklogDocument);
+
+
+
+
+
+
+
+
 
 </script>
 

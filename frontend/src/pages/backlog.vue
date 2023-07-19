@@ -9,6 +9,9 @@ import { cD } from '../utils/function'
 import type { IdTaskBacklog, TaskBacklogModel } from '../models/taskBacklog'
 import { TaskBacklogInsert } from '../models/taskBacklog'
 
+
+
+
 class Task {
   constructor(public title: string, public description: string) {
   }
@@ -56,6 +59,8 @@ const FNA = {
     }
   },
 
+
+
   async updateTask() {
     try {
       const res = await userStore().updateTask(ST.CurrentEditTask)
@@ -94,6 +99,7 @@ const loadData = async () => {
     console.error(e)
   }
 }
+
 
 loadData()
 </script>

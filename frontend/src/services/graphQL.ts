@@ -1,9 +1,7 @@
-import { gql } from "@apollo/client/core"
+
 import type { AsyncReturnType } from 'type-fest'
-import type { ErrorPayload } from "@nhost/vue"
 import type { DayPlanningModel } from '../models/dayPlanning'
 import type { BacklogModel } from '../models/backlog'
-import { nhost } from '../modules/nhost'
 import type { Either } from "../utils/monads"
 import { left, right } from "../utils/monads"
 import { isNotNull, isNull } from "../utils/logic"
@@ -12,6 +10,11 @@ import type { Fatal } from "../utils/error"
 import { ErrorFatalNever, ErrorFetchFailed, ErrorInsertFailed } from "../utils/error"
 import type { IdTaskBacklog, TaskBacklogInsert, TaskBacklogModel } from "~/models/taskBacklog"
 import type { IdUser } from "~/models/user"
+import { apollo } from "~/modules/nhost"
+import { Backlog_Select_Column, Mutation_Root, Task_Set_Input } from '~/gql/graphql'
+import { always } from '../utils/function';
+import { gql } from '@apollo/client/core'
+
 
 export interface AllDataUser {
   backlog: BacklogModel[]
@@ -35,7 +38,10 @@ export const tryCatchRequest = async <T>(fn: () => Promise<ResFetch<T>>): Promis
   }
 }
 
-export const fetchAllData_User = async (userId: string) => {
+
+
+
+export const fetchAllData_User = async (userId: string) => {  
   const Request = gql`
   query ($userId: uuid!) {
   backlog(where: {user_id: {_eq: $userId}}) {
@@ -74,7 +80,13 @@ export const fetchAllData_User = async (userId: string) => {
 }
 `
   try {
-    const res = await nhost.graphql.request<AllDataUser>(Request, { userId })
+
+
+    const res = await apollo.mutate<AllDataUser>({
+      mutation: Request,
+      variables: { userId }
+    })
+
     if (res.error)
       throw res.error
     else
@@ -99,7 +111,11 @@ export const insertTaskBacklog = async (obj: TaskBacklogInsert) => {
     }
   }
 }
-`
+` as Mutation_Root["insert_task"]
+
+type tt =  Task_Set_Input["deadline"]
+
+
 
   interface InsertBaseReturn<T> {
     insert_task: {
@@ -113,7 +129,11 @@ export const insertTaskBacklog = async (obj: TaskBacklogInsert) => {
   }
 
   try {
-    const res = (await nhost.graphql.request <InsertBaseReturn<IdTaskBacklog>>(Req, { ...obj }))
+    const res = await apollo.mutate<InsertBaseReturn<IdTaskBacklog>>({
+      mutation: Req,
+      variables: { ...obj }
+    })
+
     if (res.error)
       throw res.error
     else
@@ -135,7 +155,12 @@ export const updateTaskBacklog = async (obj: { id: string; title: string; descri
   }`
 
   try {
-    const res = (await nhost.graphql.request<IdTaskBacklog>(Req, { id: obj.id, title: obj.title, description: obj.description }))
+    const res = await apollo.mutate<IdTaskBacklog>({
+      mutation: Req,
+      variables: { id: obj.id, title: obj.title, description: obj.description }
+    })
+
+    
     if (res.error)
       throw res.error
     else
@@ -157,7 +182,12 @@ export const deleteTaskBacklog = async (id: string) => {
   }`
 
   try {
-    const res = (await nhost.graphql.request<IdTaskBacklog>(Req, { id }))
+    const res = await apollo.mutate<IdTaskBacklog>({
+      mutation: Req,
+      variables: { id }
+    })
+
+
     if (res.error)
       throw res.error
     else
@@ -168,32 +198,42 @@ export const deleteTaskBacklog = async (id: string) => {
   }
 }
 
-export const insertDayPlanningQL = async (date: Date, ListTask: TaskBacklogModel[], ListTaskPriorityMax3: TaskBacklogModel[], user_id: IdUser) => {
-  const idPlanningId = await nhost.graphql.request<string>(gql`
-  mutation MyMutation($user_id: uuid!, $date: date!) {
-  insert_dayPlanning_one(object: {user_id: $user_id, date: $date}) {
-    id
-  }
-  }
-`, { user_id, date })
+// export const insertDayPlanningQL = async (date: Date, ListTask: TaskBacklogModel[], ListTaskPriorityMax3: TaskBacklogModel[], user_id: IdUser) => {
 
-  await Promise.all(ListTask.map(async (task) => {
-    await nhost.graphql.request<string>(gql`
-  mutation MyMutation {
-  update_task(where: {id: {_eq: ""}}, _set: {dayPlanning_id: ""})
-  }
-`, { id: task.id, dayPlanning_id: idPlanningId },
-    )
-  }))
+//   const Req = gql`
+//   mutation MyMutation($user_id: uuid!, $date: date!) {
+//   insert_dayPlanning_one(object: {user_id: $user_id, date: $date}) {
+//     id
+//   }
+//   }`
 
-  await Promise.all(ListTaskPriorityMax3.map(async (task) => {
-    await nhost.graphql.request<string>(gql`
-  mutation MyMutation($id: uuid!, $dayPlanning_ListTaskPriority: uuid!) {
-    update_task(where: {id: {_eq: $id}}, _set: {dayPlanning_ListTaskPriority: $dayPlanning_ListTaskPriority})
-  }
-`, { id: task.id, $dayPlanning_ListTaskPriority: idPlanningId },
-    )
-  }))
+//   const idPlanningId = await apollo.query<string>({
+//     query: Req,
+//     variables: { user_id, date }
+//   })
 
-  return await fetchAllData_User(user_id)
-}
+
+
+//   await Promise.all(ListTask.map(async (task) => {
+
+
+//     await nhost.graphql.request<string>(gql`
+//   mutation MyMutation {
+//   update_task(where: {id: {_eq: ""}}, _set: {dayPlanning_id: ""})
+//   }
+// `, { id: task.id, dayPlanning_id: idPlanningId },
+//     )
+//   }))
+
+//   await Promise.all(ListTaskPriorityMax3.map(async (task) => {
+//     await nhost.graphql.request<string>(gql`
+//   mutation MyMutation($id: uuid!, $dayPlanning_ListTaskPriority: uuid!) {
+//     update_task(where: {id: {_eq: $id}}, _set: {dayPlanning_ListTaskPriority: $dayPlanning_ListTaskPriority})
+//   }
+// `, { id: task.id, $dayPlanning_ListTaskPriority: idPlanningId },
+//     )
+//   }))
+
+//   return await fetchAllData_User(user_id)
+// }
+

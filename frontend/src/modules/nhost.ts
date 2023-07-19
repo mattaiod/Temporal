@@ -1,43 +1,25 @@
-import { NhostClient } from '@nhost/vue'
-import { createApolloClient } from "@nhost/apollo"
-import { DefaultApolloClient } from "@vue/apollo-composable"
-// import VueApolloComponents from "@vue/apollo-components";
-import { type Session, type User } from "@nhost/hasura-auth-js"
-import { setContext } from "@apollo/client/link/context"
 import type { UserModule } from "~/types"
 
-import { userStore } from "~/stores/user"
 
-const backendUrl = import.meta.env.VITE_NHOST_URL
+
+
+import { userStore } from "~/stores/user"
+import { NhostClient } from '@nhost/vue'
+
 const region = import.meta.env.VITE_NHOST_REGION
 const subdomain = import.meta.env.VITE_NHOST_SUBDOMAIN
 
 export const nhost = new NhostClient({
-  region,
+ region,
   subdomain,
 })
 
-// export const nhost = backendUrl
-//   ? new NhostClient({
-//     backendUrl,
-//   })
-//   : new NhostClient({
-//     region,
-//     subdomain,
-//   })
 
-export const apolloClient = createApolloClient({
-  nhost,
-  headers: {
-    "x-hasura-admin-secret": "nhost-admin-secret",
-  },
-})
 
-export { Session, User }
 
-export const install: UserModule = ({ app, router }) => {
-  app.use(nhost)
-  app.provide(DefaultApolloClient, apolloClient)
+
+
+export const install: UserModule = ({ router }) => {
   // app.use(VueApolloComponents);
   // AUTH GUARD
   router.beforeEach(async (to, from, next) => {

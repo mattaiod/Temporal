@@ -1,15 +1,11 @@
 import { setupLayouts } from "virtual:generated-layouts"
-import { createRouter, createWebHistory } from "vue-router"
-import { createHead } from "@vueuse/head"
 import App from "./App.vue"
 
 import "@unocss/reset/tailwind.css"
 import "./styles/main.css"
 import "uno.css"
-import { apolloClient, nhost } from "./modules/nhost"
 import { ViteCreateApp } from "./createApp"
 import generatedRoutes from "~pages"
-import { Capacitor } from '@capacitor/core';
 
 
 const routes = setupLayouts(generatedRoutes)

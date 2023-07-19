@@ -1,0 +1,16 @@
+overwrite: true
+schema: https://local.graphql.nhost.run/v1
+headers:
+  x-hasura-admin-secret: nhost-admin-secret
+documents: ./frontend/src/graphql/*.graphql
+generates:
+  types/generated.d.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node
+      - typescript-vue-apollo
+
+    config:
+      withRefetchFn: true
+      vueCompositionApiImportFrom: vue

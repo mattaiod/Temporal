@@ -63,7 +63,7 @@ loadData()
         <div class="q-gutter-md row items-start">
           <q-date v-model="ST.NewDayPlanning.date" minimal />
         </div>
-      </div>
+      </div>  
 
       <div>
         <q-select v-model="ST.NewDayPlanning.ListTask" label="Tâches du Backlog" filled :options="ST.ListTaskBacklog"

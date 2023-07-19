@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { inject } from '@vercel/analytics'
+
+
+
 inject()
 
 useHead({
@@ -19,6 +22,8 @@ useHead({
     },
   ],
 })
+
+
 </script>
 
 <template>

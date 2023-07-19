@@ -89,8 +89,8 @@ export const userStore = defineStore('user', {
     },
 
     async insertDayPlanning(date: Date, ListTask: TaskBacklogModel[], ListTaskPriorityMax3: TaskBacklogModel[]) {
-      const res = await insertDayPlanningQL(date, ListTask, ListTaskPriorityMax3, this.user?.id)
-      this.data = res
+      // const res = await insertDayPlanningQL(date, ListTask, ListTaskPriorityMax3, this.user?.id)
+      // this.data = res
     },
   },
 
