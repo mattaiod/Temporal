@@ -10,13 +10,16 @@ generates:
       - typescript-operations
       - typed-document-node
       - add:
-          content: "export type JSONValue = string | number | boolean | { [x: string]: JSONValue } | Array<JSONValue>;"
+          content: "import { Option } from './scalarType';"
     config:
+      enumsAsTypes: true
+      immutableTypes: true
+      maybeValue: "Option<T>"
       scalars:
         uuid: "string"
         bigint: "number"
         citext: "string"
         timestamptz: "string"
-        json: "JSONValue"
-        jsonb: "JSONValue"
+        json: "./scalarType#JSONValue"
+        jsonb: "./scalarType#JSONValue"
         bytea: "string"

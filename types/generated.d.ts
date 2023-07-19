@@ -1,10 +1,11 @@
+import { JSONValue } from './scalarType';
+import { Option } from './scalarType';
 import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
-export type Maybe<T> = T | null;
-export type InputMaybe<T> = Maybe<T>;
+export type Maybe<T> = Option<T>;
+export type InputMaybe<T> = Option<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type JSONValue = string | number | boolean | { [x: string]: JSONValue } | Array<JSONValue>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -23,68 +24,68 @@ export type Scalars = {
 
 /** Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'. */
 export type Boolean_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['Boolean']>;
-  _gt?: InputMaybe<Scalars['Boolean']>;
-  _gte?: InputMaybe<Scalars['Boolean']>;
-  _in?: InputMaybe<Array<Scalars['Boolean']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['Boolean']>;
-  _lte?: InputMaybe<Scalars['Boolean']>;
-  _neq?: InputMaybe<Scalars['Boolean']>;
-  _nin?: InputMaybe<Array<Scalars['Boolean']>>;
+  readonly _eq?: InputMaybe<Scalars['Boolean']>;
+  readonly _gt?: InputMaybe<Scalars['Boolean']>;
+  readonly _gte?: InputMaybe<Scalars['Boolean']>;
+  readonly _in?: InputMaybe<ReadonlyArray<Scalars['Boolean']>>;
+  readonly _is_null?: InputMaybe<Scalars['Boolean']>;
+  readonly _lt?: InputMaybe<Scalars['Boolean']>;
+  readonly _lte?: InputMaybe<Scalars['Boolean']>;
+  readonly _neq?: InputMaybe<Scalars['Boolean']>;
+  readonly _nin?: InputMaybe<ReadonlyArray<Scalars['Boolean']>>;
 };
 
 /** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
 export type Int_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['Int']>;
-  _gt?: InputMaybe<Scalars['Int']>;
-  _gte?: InputMaybe<Scalars['Int']>;
-  _in?: InputMaybe<Array<Scalars['Int']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['Int']>;
-  _lte?: InputMaybe<Scalars['Int']>;
-  _neq?: InputMaybe<Scalars['Int']>;
-  _nin?: InputMaybe<Array<Scalars['Int']>>;
+  readonly _eq?: InputMaybe<Scalars['Int']>;
+  readonly _gt?: InputMaybe<Scalars['Int']>;
+  readonly _gte?: InputMaybe<Scalars['Int']>;
+  readonly _in?: InputMaybe<ReadonlyArray<Scalars['Int']>>;
+  readonly _is_null?: InputMaybe<Scalars['Boolean']>;
+  readonly _lt?: InputMaybe<Scalars['Int']>;
+  readonly _lte?: InputMaybe<Scalars['Int']>;
+  readonly _neq?: InputMaybe<Scalars['Int']>;
+  readonly _nin?: InputMaybe<ReadonlyArray<Scalars['Int']>>;
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['String']>;
-  _gt?: InputMaybe<Scalars['String']>;
-  _gte?: InputMaybe<Scalars['String']>;
+  readonly _eq?: InputMaybe<Scalars['String']>;
+  readonly _gt?: InputMaybe<Scalars['String']>;
+  readonly _gte?: InputMaybe<Scalars['String']>;
   /** does the column match the given case-insensitive pattern */
-  _ilike?: InputMaybe<Scalars['String']>;
-  _in?: InputMaybe<Array<Scalars['String']>>;
+  readonly _ilike?: InputMaybe<Scalars['String']>;
+  readonly _in?: InputMaybe<ReadonlyArray<Scalars['String']>>;
   /** does the column match the given POSIX regular expression, case insensitive */
-  _iregex?: InputMaybe<Scalars['String']>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
+  readonly _iregex?: InputMaybe<Scalars['String']>;
+  readonly _is_null?: InputMaybe<Scalars['Boolean']>;
   /** does the column match the given pattern */
-  _like?: InputMaybe<Scalars['String']>;
-  _lt?: InputMaybe<Scalars['String']>;
-  _lte?: InputMaybe<Scalars['String']>;
-  _neq?: InputMaybe<Scalars['String']>;
+  readonly _like?: InputMaybe<Scalars['String']>;
+  readonly _lt?: InputMaybe<Scalars['String']>;
+  readonly _lte?: InputMaybe<Scalars['String']>;
+  readonly _neq?: InputMaybe<Scalars['String']>;
   /** does the column NOT match the given case-insensitive pattern */
-  _nilike?: InputMaybe<Scalars['String']>;
-  _nin?: InputMaybe<Array<Scalars['String']>>;
+  readonly _nilike?: InputMaybe<Scalars['String']>;
+  readonly _nin?: InputMaybe<ReadonlyArray<Scalars['String']>>;
   /** does the column NOT match the given POSIX regular expression, case insensitive */
-  _niregex?: InputMaybe<Scalars['String']>;
+  readonly _niregex?: InputMaybe<Scalars['String']>;
   /** does the column NOT match the given pattern */
-  _nlike?: InputMaybe<Scalars['String']>;
+  readonly _nlike?: InputMaybe<Scalars['String']>;
   /** does the column NOT match the given POSIX regular expression, case sensitive */
-  _nregex?: InputMaybe<Scalars['String']>;
+  readonly _nregex?: InputMaybe<Scalars['String']>;
   /** does the column NOT match the given SQL regular expression */
-  _nsimilar?: InputMaybe<Scalars['String']>;
+  readonly _nsimilar?: InputMaybe<Scalars['String']>;
   /** does the column match the given POSIX regular expression, case sensitive */
-  _regex?: InputMaybe<Scalars['String']>;
+  readonly _regex?: InputMaybe<Scalars['String']>;
   /** does the column match the given SQL regular expression */
-  _similar?: InputMaybe<Scalars['String']>;
+  readonly _similar?: InputMaybe<Scalars['String']>;
 };
 
 /** Oauth requests, inserted before redirecting to the provider's site. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthProviderRequests = {
-  __typename?: 'authProviderRequests';
-  id: Scalars['uuid'];
-  options?: Maybe<Scalars['jsonb']>;
+  readonly __typename?: 'authProviderRequests';
+  readonly id: Scalars['uuid'];
+  readonly options?: Maybe<Scalars['jsonb']>;
 };
 
 
@@ -95,511 +96,501 @@ export type AuthProviderRequestsOptionsArgs = {
 
 /** aggregated selection of "auth.provider_requests" */
 export type AuthProviderRequests_Aggregate = {
-  __typename?: 'authProviderRequests_aggregate';
-  aggregate?: Maybe<AuthProviderRequests_Aggregate_Fields>;
-  nodes: Array<AuthProviderRequests>;
+  readonly __typename?: 'authProviderRequests_aggregate';
+  readonly aggregate?: Maybe<AuthProviderRequests_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<AuthProviderRequests>;
 };
 
 /** aggregate fields of "auth.provider_requests" */
 export type AuthProviderRequests_Aggregate_Fields = {
-  __typename?: 'authProviderRequests_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<AuthProviderRequests_Max_Fields>;
-  min?: Maybe<AuthProviderRequests_Min_Fields>;
+  readonly __typename?: 'authProviderRequests_aggregate_fields';
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<AuthProviderRequests_Max_Fields>;
+  readonly min?: Maybe<AuthProviderRequests_Min_Fields>;
 };
 
 
 /** aggregate fields of "auth.provider_requests" */
 export type AuthProviderRequests_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<AuthProviderRequests_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** append existing jsonb value of filtered columns with new jsonb value */
 export type AuthProviderRequests_Append_Input = {
-  options?: InputMaybe<Scalars['jsonb']>;
+  readonly options?: InputMaybe<Scalars['jsonb']>;
 };
 
 /** Boolean expression to filter rows from the table "auth.provider_requests". All fields are combined with a logical 'AND'. */
 export type AuthProviderRequests_Bool_Exp = {
-  _and?: InputMaybe<Array<AuthProviderRequests_Bool_Exp>>;
-  _not?: InputMaybe<AuthProviderRequests_Bool_Exp>;
-  _or?: InputMaybe<Array<AuthProviderRequests_Bool_Exp>>;
-  id?: InputMaybe<Uuid_Comparison_Exp>;
-  options?: InputMaybe<Jsonb_Comparison_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<AuthProviderRequests_Bool_Exp>>;
+  readonly _not?: InputMaybe<AuthProviderRequests_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<AuthProviderRequests_Bool_Exp>>;
+  readonly id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly options?: InputMaybe<Jsonb_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "auth.provider_requests" */
-export enum AuthProviderRequests_Constraint {
+export type AuthProviderRequests_Constraint =
   /** unique or primary key constraint on columns "id" */
-  ProviderRequestsPkey = 'provider_requests_pkey'
-}
+  | 'provider_requests_pkey';
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 export type AuthProviderRequests_Delete_At_Path_Input = {
-  options?: InputMaybe<Array<Scalars['String']>>;
+  readonly options?: InputMaybe<ReadonlyArray<Scalars['String']>>;
 };
 
 /** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
 export type AuthProviderRequests_Delete_Elem_Input = {
-  options?: InputMaybe<Scalars['Int']>;
+  readonly options?: InputMaybe<Scalars['Int']>;
 };
 
 /** delete key/value pair or string element. key/value pairs are matched based on their key value */
 export type AuthProviderRequests_Delete_Key_Input = {
-  options?: InputMaybe<Scalars['String']>;
+  readonly options?: InputMaybe<Scalars['String']>;
 };
 
 /** input type for inserting data into table "auth.provider_requests" */
 export type AuthProviderRequests_Insert_Input = {
-  id?: InputMaybe<Scalars['uuid']>;
-  options?: InputMaybe<Scalars['jsonb']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly options?: InputMaybe<Scalars['jsonb']>;
 };
 
 /** aggregate max on columns */
 export type AuthProviderRequests_Max_Fields = {
-  __typename?: 'authProviderRequests_max_fields';
-  id?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'authProviderRequests_max_fields';
+  readonly id?: Maybe<Scalars['uuid']>;
 };
 
 /** aggregate min on columns */
 export type AuthProviderRequests_Min_Fields = {
-  __typename?: 'authProviderRequests_min_fields';
-  id?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'authProviderRequests_min_fields';
+  readonly id?: Maybe<Scalars['uuid']>;
 };
 
 /** response of any mutation on the table "auth.provider_requests" */
 export type AuthProviderRequests_Mutation_Response = {
-  __typename?: 'authProviderRequests_mutation_response';
+  readonly __typename?: 'authProviderRequests_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<AuthProviderRequests>;
+  readonly returning: ReadonlyArray<AuthProviderRequests>;
 };
 
 /** on_conflict condition type for table "auth.provider_requests" */
 export type AuthProviderRequests_On_Conflict = {
-  constraint: AuthProviderRequests_Constraint;
-  update_columns?: Array<AuthProviderRequests_Update_Column>;
-  where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
+  readonly constraint: AuthProviderRequests_Constraint;
+  readonly update_columns?: ReadonlyArray<AuthProviderRequests_Update_Column>;
+  readonly where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.provider_requests". */
 export type AuthProviderRequests_Order_By = {
-  id?: InputMaybe<Order_By>;
-  options?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly options?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: auth.provider_requests */
 export type AuthProviderRequests_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  readonly id: Scalars['uuid'];
 };
 
 /** prepend existing jsonb value of filtered columns with new jsonb value */
 export type AuthProviderRequests_Prepend_Input = {
-  options?: InputMaybe<Scalars['jsonb']>;
+  readonly options?: InputMaybe<Scalars['jsonb']>;
 };
 
 /** select columns of table "auth.provider_requests" */
-export enum AuthProviderRequests_Select_Column {
+export type AuthProviderRequests_Select_Column =
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Options = 'options'
-}
+  | 'options';
 
 /** input type for updating data in table "auth.provider_requests" */
 export type AuthProviderRequests_Set_Input = {
-  id?: InputMaybe<Scalars['uuid']>;
-  options?: InputMaybe<Scalars['jsonb']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly options?: InputMaybe<Scalars['jsonb']>;
 };
 
 /** Streaming cursor of the table "authProviderRequests" */
 export type AuthProviderRequests_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: AuthProviderRequests_Stream_Cursor_Value_Input;
+  readonly initial_value: AuthProviderRequests_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type AuthProviderRequests_Stream_Cursor_Value_Input = {
-  id?: InputMaybe<Scalars['uuid']>;
-  options?: InputMaybe<Scalars['jsonb']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly options?: InputMaybe<Scalars['jsonb']>;
 };
 
 /** update columns of table "auth.provider_requests" */
-export enum AuthProviderRequests_Update_Column {
+export type AuthProviderRequests_Update_Column =
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Options = 'options'
-}
+  | 'options';
 
 export type AuthProviderRequests_Updates = {
   /** append existing jsonb value of filtered columns with new jsonb value */
-  _append?: InputMaybe<AuthProviderRequests_Append_Input>;
+  readonly _append?: InputMaybe<AuthProviderRequests_Append_Input>;
   /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
-  _delete_at_path?: InputMaybe<AuthProviderRequests_Delete_At_Path_Input>;
+  readonly _delete_at_path?: InputMaybe<AuthProviderRequests_Delete_At_Path_Input>;
   /** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
-  _delete_elem?: InputMaybe<AuthProviderRequests_Delete_Elem_Input>;
+  readonly _delete_elem?: InputMaybe<AuthProviderRequests_Delete_Elem_Input>;
   /** delete key/value pair or string element. key/value pairs are matched based on their key value */
-  _delete_key?: InputMaybe<AuthProviderRequests_Delete_Key_Input>;
+  readonly _delete_key?: InputMaybe<AuthProviderRequests_Delete_Key_Input>;
   /** prepend existing jsonb value of filtered columns with new jsonb value */
-  _prepend?: InputMaybe<AuthProviderRequests_Prepend_Input>;
+  readonly _prepend?: InputMaybe<AuthProviderRequests_Prepend_Input>;
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<AuthProviderRequests_Set_Input>;
+  readonly _set?: InputMaybe<AuthProviderRequests_Set_Input>;
   /** filter the rows which have to be updated */
-  where: AuthProviderRequests_Bool_Exp;
+  readonly where: AuthProviderRequests_Bool_Exp;
 };
 
 /** List of available Oauth providers. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthProviders = {
-  __typename?: 'authProviders';
-  id: Scalars['String'];
+  readonly __typename?: 'authProviders';
+  readonly id: Scalars['String'];
   /** An array relationship */
-  userProviders: Array<AuthUserProviders>;
+  readonly userProviders: ReadonlyArray<AuthUserProviders>;
   /** An aggregate relationship */
-  userProviders_aggregate: AuthUserProviders_Aggregate;
+  readonly userProviders_aggregate: AuthUserProviders_Aggregate;
 };
 
 
 /** List of available Oauth providers. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthProvidersUserProvidersArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserProviders_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserProviders_Order_By>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
 
 /** List of available Oauth providers. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthProvidersUserProviders_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserProviders_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserProviders_Order_By>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
 /** aggregated selection of "auth.providers" */
 export type AuthProviders_Aggregate = {
-  __typename?: 'authProviders_aggregate';
-  aggregate?: Maybe<AuthProviders_Aggregate_Fields>;
-  nodes: Array<AuthProviders>;
+  readonly __typename?: 'authProviders_aggregate';
+  readonly aggregate?: Maybe<AuthProviders_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<AuthProviders>;
 };
 
 /** aggregate fields of "auth.providers" */
 export type AuthProviders_Aggregate_Fields = {
-  __typename?: 'authProviders_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<AuthProviders_Max_Fields>;
-  min?: Maybe<AuthProviders_Min_Fields>;
+  readonly __typename?: 'authProviders_aggregate_fields';
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<AuthProviders_Max_Fields>;
+  readonly min?: Maybe<AuthProviders_Min_Fields>;
 };
 
 
 /** aggregate fields of "auth.providers" */
 export type AuthProviders_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<AuthProviders_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<AuthProviders_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Boolean expression to filter rows from the table "auth.providers". All fields are combined with a logical 'AND'. */
 export type AuthProviders_Bool_Exp = {
-  _and?: InputMaybe<Array<AuthProviders_Bool_Exp>>;
-  _not?: InputMaybe<AuthProviders_Bool_Exp>;
-  _or?: InputMaybe<Array<AuthProviders_Bool_Exp>>;
-  id?: InputMaybe<String_Comparison_Exp>;
-  userProviders?: InputMaybe<AuthUserProviders_Bool_Exp>;
-  userProviders_aggregate?: InputMaybe<AuthUserProviders_Aggregate_Bool_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<AuthProviders_Bool_Exp>>;
+  readonly _not?: InputMaybe<AuthProviders_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<AuthProviders_Bool_Exp>>;
+  readonly id?: InputMaybe<String_Comparison_Exp>;
+  readonly userProviders?: InputMaybe<AuthUserProviders_Bool_Exp>;
+  readonly userProviders_aggregate?: InputMaybe<AuthUserProviders_Aggregate_Bool_Exp>;
 };
 
 /** unique or primary key constraints on table "auth.providers" */
-export enum AuthProviders_Constraint {
+export type AuthProviders_Constraint =
   /** unique or primary key constraint on columns "id" */
-  ProvidersPkey = 'providers_pkey'
-}
+  | 'providers_pkey';
 
 /** input type for inserting data into table "auth.providers" */
 export type AuthProviders_Insert_Input = {
-  id?: InputMaybe<Scalars['String']>;
-  userProviders?: InputMaybe<AuthUserProviders_Arr_Rel_Insert_Input>;
+  readonly id?: InputMaybe<Scalars['String']>;
+  readonly userProviders?: InputMaybe<AuthUserProviders_Arr_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
 export type AuthProviders_Max_Fields = {
-  __typename?: 'authProviders_max_fields';
-  id?: Maybe<Scalars['String']>;
+  readonly __typename?: 'authProviders_max_fields';
+  readonly id?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type AuthProviders_Min_Fields = {
-  __typename?: 'authProviders_min_fields';
-  id?: Maybe<Scalars['String']>;
+  readonly __typename?: 'authProviders_min_fields';
+  readonly id?: Maybe<Scalars['String']>;
 };
 
 /** response of any mutation on the table "auth.providers" */
 export type AuthProviders_Mutation_Response = {
-  __typename?: 'authProviders_mutation_response';
+  readonly __typename?: 'authProviders_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<AuthProviders>;
+  readonly returning: ReadonlyArray<AuthProviders>;
 };
 
 /** input type for inserting object relation for remote table "auth.providers" */
 export type AuthProviders_Obj_Rel_Insert_Input = {
-  data: AuthProviders_Insert_Input;
+  readonly data: AuthProviders_Insert_Input;
   /** upsert condition */
-  on_conflict?: InputMaybe<AuthProviders_On_Conflict>;
+  readonly on_conflict?: InputMaybe<AuthProviders_On_Conflict>;
 };
 
 /** on_conflict condition type for table "auth.providers" */
 export type AuthProviders_On_Conflict = {
-  constraint: AuthProviders_Constraint;
-  update_columns?: Array<AuthProviders_Update_Column>;
-  where?: InputMaybe<AuthProviders_Bool_Exp>;
+  readonly constraint: AuthProviders_Constraint;
+  readonly update_columns?: ReadonlyArray<AuthProviders_Update_Column>;
+  readonly where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.providers". */
 export type AuthProviders_Order_By = {
-  id?: InputMaybe<Order_By>;
-  userProviders_aggregate?: InputMaybe<AuthUserProviders_Aggregate_Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly userProviders_aggregate?: InputMaybe<AuthUserProviders_Aggregate_Order_By>;
 };
 
 /** primary key columns input for table: auth.providers */
 export type AuthProviders_Pk_Columns_Input = {
-  id: Scalars['String'];
+  readonly id: Scalars['String'];
 };
 
 /** select columns of table "auth.providers" */
-export enum AuthProviders_Select_Column {
+export type AuthProviders_Select_Column =
   /** column name */
-  Id = 'id'
-}
+  | 'id';
 
 /** input type for updating data in table "auth.providers" */
 export type AuthProviders_Set_Input = {
-  id?: InputMaybe<Scalars['String']>;
+  readonly id?: InputMaybe<Scalars['String']>;
 };
 
 /** Streaming cursor of the table "authProviders" */
 export type AuthProviders_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: AuthProviders_Stream_Cursor_Value_Input;
+  readonly initial_value: AuthProviders_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type AuthProviders_Stream_Cursor_Value_Input = {
-  id?: InputMaybe<Scalars['String']>;
+  readonly id?: InputMaybe<Scalars['String']>;
 };
 
 /** update columns of table "auth.providers" */
-export enum AuthProviders_Update_Column {
+export type AuthProviders_Update_Column =
   /** column name */
-  Id = 'id'
-}
+  | 'id';
 
 export type AuthProviders_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<AuthProviders_Set_Input>;
+  readonly _set?: InputMaybe<AuthProviders_Set_Input>;
   /** filter the rows which have to be updated */
-  where: AuthProviders_Bool_Exp;
+  readonly where: AuthProviders_Bool_Exp;
 };
 
 /** columns and relationships of "auth.refresh_token_types" */
 export type AuthRefreshTokenTypes = {
-  __typename?: 'authRefreshTokenTypes';
-  comment?: Maybe<Scalars['String']>;
+  readonly __typename?: 'authRefreshTokenTypes';
+  readonly comment?: Maybe<Scalars['String']>;
   /** An array relationship */
-  refreshTokens: Array<AuthRefreshTokens>;
+  readonly refreshTokens: ReadonlyArray<AuthRefreshTokens>;
   /** An aggregate relationship */
-  refreshTokens_aggregate: AuthRefreshTokens_Aggregate;
-  value: Scalars['String'];
+  readonly refreshTokens_aggregate: AuthRefreshTokens_Aggregate;
+  readonly value: Scalars['String'];
 };
 
 
 /** columns and relationships of "auth.refresh_token_types" */
 export type AuthRefreshTokenTypesRefreshTokensArgs = {
-  distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRefreshTokens_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Order_By>>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
 
 /** columns and relationships of "auth.refresh_token_types" */
 export type AuthRefreshTokenTypesRefreshTokens_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRefreshTokens_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Order_By>>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
 /** aggregated selection of "auth.refresh_token_types" */
 export type AuthRefreshTokenTypes_Aggregate = {
-  __typename?: 'authRefreshTokenTypes_aggregate';
-  aggregate?: Maybe<AuthRefreshTokenTypes_Aggregate_Fields>;
-  nodes: Array<AuthRefreshTokenTypes>;
+  readonly __typename?: 'authRefreshTokenTypes_aggregate';
+  readonly aggregate?: Maybe<AuthRefreshTokenTypes_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<AuthRefreshTokenTypes>;
 };
 
 /** aggregate fields of "auth.refresh_token_types" */
 export type AuthRefreshTokenTypes_Aggregate_Fields = {
-  __typename?: 'authRefreshTokenTypes_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<AuthRefreshTokenTypes_Max_Fields>;
-  min?: Maybe<AuthRefreshTokenTypes_Min_Fields>;
+  readonly __typename?: 'authRefreshTokenTypes_aggregate_fields';
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<AuthRefreshTokenTypes_Max_Fields>;
+  readonly min?: Maybe<AuthRefreshTokenTypes_Min_Fields>;
 };
 
 
 /** aggregate fields of "auth.refresh_token_types" */
 export type AuthRefreshTokenTypes_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<AuthRefreshTokenTypes_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<AuthRefreshTokenTypes_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Boolean expression to filter rows from the table "auth.refresh_token_types". All fields are combined with a logical 'AND'. */
 export type AuthRefreshTokenTypes_Bool_Exp = {
-  _and?: InputMaybe<Array<AuthRefreshTokenTypes_Bool_Exp>>;
-  _not?: InputMaybe<AuthRefreshTokenTypes_Bool_Exp>;
-  _or?: InputMaybe<Array<AuthRefreshTokenTypes_Bool_Exp>>;
-  comment?: InputMaybe<String_Comparison_Exp>;
-  refreshTokens?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
-  refreshTokens_aggregate?: InputMaybe<AuthRefreshTokens_Aggregate_Bool_Exp>;
-  value?: InputMaybe<String_Comparison_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<AuthRefreshTokenTypes_Bool_Exp>>;
+  readonly _not?: InputMaybe<AuthRefreshTokenTypes_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<AuthRefreshTokenTypes_Bool_Exp>>;
+  readonly comment?: InputMaybe<String_Comparison_Exp>;
+  readonly refreshTokens?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
+  readonly refreshTokens_aggregate?: InputMaybe<AuthRefreshTokens_Aggregate_Bool_Exp>;
+  readonly value?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "auth.refresh_token_types" */
-export enum AuthRefreshTokenTypes_Constraint {
+export type AuthRefreshTokenTypes_Constraint =
   /** unique or primary key constraint on columns "value" */
-  RefreshTokenTypesPkey = 'refresh_token_types_pkey'
-}
+  | 'refresh_token_types_pkey';
 
-export enum AuthRefreshTokenTypes_Enum {
+export type AuthRefreshTokenTypes_Enum =
   /** Personal access token */
-  Pat = 'pat',
+  | 'pat'
   /** Regular refresh token */
-  Regular = 'regular'
-}
+  | 'regular';
 
 /** Boolean expression to compare columns of type "authRefreshTokenTypes_enum". All fields are combined with logical 'AND'. */
 export type AuthRefreshTokenTypes_Enum_Comparison_Exp = {
-  _eq?: InputMaybe<AuthRefreshTokenTypes_Enum>;
-  _in?: InputMaybe<Array<AuthRefreshTokenTypes_Enum>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _neq?: InputMaybe<AuthRefreshTokenTypes_Enum>;
-  _nin?: InputMaybe<Array<AuthRefreshTokenTypes_Enum>>;
+  readonly _eq?: InputMaybe<AuthRefreshTokenTypes_Enum>;
+  readonly _in?: InputMaybe<ReadonlyArray<AuthRefreshTokenTypes_Enum>>;
+  readonly _is_null?: InputMaybe<Scalars['Boolean']>;
+  readonly _neq?: InputMaybe<AuthRefreshTokenTypes_Enum>;
+  readonly _nin?: InputMaybe<ReadonlyArray<AuthRefreshTokenTypes_Enum>>;
 };
 
 /** input type for inserting data into table "auth.refresh_token_types" */
 export type AuthRefreshTokenTypes_Insert_Input = {
-  comment?: InputMaybe<Scalars['String']>;
-  refreshTokens?: InputMaybe<AuthRefreshTokens_Arr_Rel_Insert_Input>;
-  value?: InputMaybe<Scalars['String']>;
+  readonly comment?: InputMaybe<Scalars['String']>;
+  readonly refreshTokens?: InputMaybe<AuthRefreshTokens_Arr_Rel_Insert_Input>;
+  readonly value?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate max on columns */
 export type AuthRefreshTokenTypes_Max_Fields = {
-  __typename?: 'authRefreshTokenTypes_max_fields';
-  comment?: Maybe<Scalars['String']>;
-  value?: Maybe<Scalars['String']>;
+  readonly __typename?: 'authRefreshTokenTypes_max_fields';
+  readonly comment?: Maybe<Scalars['String']>;
+  readonly value?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type AuthRefreshTokenTypes_Min_Fields = {
-  __typename?: 'authRefreshTokenTypes_min_fields';
-  comment?: Maybe<Scalars['String']>;
-  value?: Maybe<Scalars['String']>;
+  readonly __typename?: 'authRefreshTokenTypes_min_fields';
+  readonly comment?: Maybe<Scalars['String']>;
+  readonly value?: Maybe<Scalars['String']>;
 };
 
 /** response of any mutation on the table "auth.refresh_token_types" */
 export type AuthRefreshTokenTypes_Mutation_Response = {
-  __typename?: 'authRefreshTokenTypes_mutation_response';
+  readonly __typename?: 'authRefreshTokenTypes_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<AuthRefreshTokenTypes>;
+  readonly returning: ReadonlyArray<AuthRefreshTokenTypes>;
 };
 
 /** on_conflict condition type for table "auth.refresh_token_types" */
 export type AuthRefreshTokenTypes_On_Conflict = {
-  constraint: AuthRefreshTokenTypes_Constraint;
-  update_columns?: Array<AuthRefreshTokenTypes_Update_Column>;
-  where?: InputMaybe<AuthRefreshTokenTypes_Bool_Exp>;
+  readonly constraint: AuthRefreshTokenTypes_Constraint;
+  readonly update_columns?: ReadonlyArray<AuthRefreshTokenTypes_Update_Column>;
+  readonly where?: InputMaybe<AuthRefreshTokenTypes_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.refresh_token_types". */
 export type AuthRefreshTokenTypes_Order_By = {
-  comment?: InputMaybe<Order_By>;
-  refreshTokens_aggregate?: InputMaybe<AuthRefreshTokens_Aggregate_Order_By>;
-  value?: InputMaybe<Order_By>;
+  readonly comment?: InputMaybe<Order_By>;
+  readonly refreshTokens_aggregate?: InputMaybe<AuthRefreshTokens_Aggregate_Order_By>;
+  readonly value?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: auth.refresh_token_types */
 export type AuthRefreshTokenTypes_Pk_Columns_Input = {
-  value: Scalars['String'];
+  readonly value: Scalars['String'];
 };
 
 /** select columns of table "auth.refresh_token_types" */
-export enum AuthRefreshTokenTypes_Select_Column {
+export type AuthRefreshTokenTypes_Select_Column =
   /** column name */
-  Comment = 'comment',
+  | 'comment'
   /** column name */
-  Value = 'value'
-}
+  | 'value';
 
 /** input type for updating data in table "auth.refresh_token_types" */
 export type AuthRefreshTokenTypes_Set_Input = {
-  comment?: InputMaybe<Scalars['String']>;
-  value?: InputMaybe<Scalars['String']>;
+  readonly comment?: InputMaybe<Scalars['String']>;
+  readonly value?: InputMaybe<Scalars['String']>;
 };
 
 /** Streaming cursor of the table "authRefreshTokenTypes" */
 export type AuthRefreshTokenTypes_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: AuthRefreshTokenTypes_Stream_Cursor_Value_Input;
+  readonly initial_value: AuthRefreshTokenTypes_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type AuthRefreshTokenTypes_Stream_Cursor_Value_Input = {
-  comment?: InputMaybe<Scalars['String']>;
-  value?: InputMaybe<Scalars['String']>;
+  readonly comment?: InputMaybe<Scalars['String']>;
+  readonly value?: InputMaybe<Scalars['String']>;
 };
 
 /** update columns of table "auth.refresh_token_types" */
-export enum AuthRefreshTokenTypes_Update_Column {
+export type AuthRefreshTokenTypes_Update_Column =
   /** column name */
-  Comment = 'comment',
+  | 'comment'
   /** column name */
-  Value = 'value'
-}
+  | 'value';
 
 export type AuthRefreshTokenTypes_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<AuthRefreshTokenTypes_Set_Input>;
+  readonly _set?: InputMaybe<AuthRefreshTokenTypes_Set_Input>;
   /** filter the rows which have to be updated */
-  where: AuthRefreshTokenTypes_Bool_Exp;
+  readonly where: AuthRefreshTokenTypes_Bool_Exp;
 };
 
 /** User refresh tokens. Hasura auth uses them to rotate new access tokens as long as the refresh token is not expired. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthRefreshTokens = {
-  __typename?: 'authRefreshTokens';
-  createdAt: Scalars['timestamptz'];
-  expiresAt: Scalars['timestamptz'];
-  id: Scalars['uuid'];
-  metadata?: Maybe<Scalars['jsonb']>;
-  refreshTokenHash?: Maybe<Scalars['String']>;
-  type: AuthRefreshTokenTypes_Enum;
+  readonly __typename?: 'authRefreshTokens';
+  readonly createdAt: Scalars['timestamptz'];
+  readonly expiresAt: Scalars['timestamptz'];
+  readonly id: Scalars['uuid'];
+  readonly metadata?: Maybe<Scalars['jsonb']>;
+  readonly refreshTokenHash?: Maybe<Scalars['String']>;
+  readonly type: AuthRefreshTokenTypes_Enum;
   /** An object relationship */
-  user: Users;
-  userId: Scalars['uuid'];
+  readonly user: Users;
+  readonly userId: Scalars['uuid'];
 };
 
 
@@ -610,2775 +601,2745 @@ export type AuthRefreshTokensMetadataArgs = {
 
 /** aggregated selection of "auth.refresh_tokens" */
 export type AuthRefreshTokens_Aggregate = {
-  __typename?: 'authRefreshTokens_aggregate';
-  aggregate?: Maybe<AuthRefreshTokens_Aggregate_Fields>;
-  nodes: Array<AuthRefreshTokens>;
+  readonly __typename?: 'authRefreshTokens_aggregate';
+  readonly aggregate?: Maybe<AuthRefreshTokens_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<AuthRefreshTokens>;
 };
 
 export type AuthRefreshTokens_Aggregate_Bool_Exp = {
-  count?: InputMaybe<AuthRefreshTokens_Aggregate_Bool_Exp_Count>;
+  readonly count?: InputMaybe<AuthRefreshTokens_Aggregate_Bool_Exp_Count>;
 };
 
 export type AuthRefreshTokens_Aggregate_Bool_Exp_Count = {
-  arguments?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-  filter?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
-  predicate: Int_Comparison_Exp;
+  readonly arguments?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Select_Column>>;
+  readonly distinct?: InputMaybe<Scalars['Boolean']>;
+  readonly filter?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
+  readonly predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "auth.refresh_tokens" */
 export type AuthRefreshTokens_Aggregate_Fields = {
-  __typename?: 'authRefreshTokens_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<AuthRefreshTokens_Max_Fields>;
-  min?: Maybe<AuthRefreshTokens_Min_Fields>;
+  readonly __typename?: 'authRefreshTokens_aggregate_fields';
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<AuthRefreshTokens_Max_Fields>;
+  readonly min?: Maybe<AuthRefreshTokens_Min_Fields>;
 };
 
 
 /** aggregate fields of "auth.refresh_tokens" */
 export type AuthRefreshTokens_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "auth.refresh_tokens" */
 export type AuthRefreshTokens_Aggregate_Order_By = {
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<AuthRefreshTokens_Max_Order_By>;
-  min?: InputMaybe<AuthRefreshTokens_Min_Order_By>;
+  readonly count?: InputMaybe<Order_By>;
+  readonly max?: InputMaybe<AuthRefreshTokens_Max_Order_By>;
+  readonly min?: InputMaybe<AuthRefreshTokens_Min_Order_By>;
 };
 
 /** append existing jsonb value of filtered columns with new jsonb value */
 export type AuthRefreshTokens_Append_Input = {
-  metadata?: InputMaybe<Scalars['jsonb']>;
+  readonly metadata?: InputMaybe<Scalars['jsonb']>;
 };
 
 /** input type for inserting array relation for remote table "auth.refresh_tokens" */
 export type AuthRefreshTokens_Arr_Rel_Insert_Input = {
-  data: Array<AuthRefreshTokens_Insert_Input>;
+  readonly data: ReadonlyArray<AuthRefreshTokens_Insert_Input>;
   /** upsert condition */
-  on_conflict?: InputMaybe<AuthRefreshTokens_On_Conflict>;
+  readonly on_conflict?: InputMaybe<AuthRefreshTokens_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "auth.refresh_tokens". All fields are combined with a logical 'AND'. */
 export type AuthRefreshTokens_Bool_Exp = {
-  _and?: InputMaybe<Array<AuthRefreshTokens_Bool_Exp>>;
-  _not?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
-  _or?: InputMaybe<Array<AuthRefreshTokens_Bool_Exp>>;
-  createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  expiresAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  id?: InputMaybe<Uuid_Comparison_Exp>;
-  metadata?: InputMaybe<Jsonb_Comparison_Exp>;
-  refreshTokenHash?: InputMaybe<String_Comparison_Exp>;
-  type?: InputMaybe<AuthRefreshTokenTypes_Enum_Comparison_Exp>;
-  user?: InputMaybe<Users_Bool_Exp>;
-  userId?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Bool_Exp>>;
+  readonly _not?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Bool_Exp>>;
+  readonly createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly expiresAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly metadata?: InputMaybe<Jsonb_Comparison_Exp>;
+  readonly refreshTokenHash?: InputMaybe<String_Comparison_Exp>;
+  readonly type?: InputMaybe<AuthRefreshTokenTypes_Enum_Comparison_Exp>;
+  readonly user?: InputMaybe<Users_Bool_Exp>;
+  readonly userId?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "auth.refresh_tokens" */
-export enum AuthRefreshTokens_Constraint {
+export type AuthRefreshTokens_Constraint =
   /** unique or primary key constraint on columns "id" */
-  RefreshTokensPkey = 'refresh_tokens_pkey'
-}
+  | 'refresh_tokens_pkey';
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 export type AuthRefreshTokens_Delete_At_Path_Input = {
-  metadata?: InputMaybe<Array<Scalars['String']>>;
+  readonly metadata?: InputMaybe<ReadonlyArray<Scalars['String']>>;
 };
 
 /** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
 export type AuthRefreshTokens_Delete_Elem_Input = {
-  metadata?: InputMaybe<Scalars['Int']>;
+  readonly metadata?: InputMaybe<Scalars['Int']>;
 };
 
 /** delete key/value pair or string element. key/value pairs are matched based on their key value */
 export type AuthRefreshTokens_Delete_Key_Input = {
-  metadata?: InputMaybe<Scalars['String']>;
+  readonly metadata?: InputMaybe<Scalars['String']>;
 };
 
 /** input type for inserting data into table "auth.refresh_tokens" */
 export type AuthRefreshTokens_Insert_Input = {
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  expiresAt?: InputMaybe<Scalars['timestamptz']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  metadata?: InputMaybe<Scalars['jsonb']>;
-  refreshTokenHash?: InputMaybe<Scalars['String']>;
-  type?: InputMaybe<AuthRefreshTokenTypes_Enum>;
-  user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  userId?: InputMaybe<Scalars['uuid']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly expiresAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly metadata?: InputMaybe<Scalars['jsonb']>;
+  readonly refreshTokenHash?: InputMaybe<Scalars['String']>;
+  readonly type?: InputMaybe<AuthRefreshTokenTypes_Enum>;
+  readonly user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
+  readonly userId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** aggregate max on columns */
 export type AuthRefreshTokens_Max_Fields = {
-  __typename?: 'authRefreshTokens_max_fields';
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  expiresAt?: Maybe<Scalars['timestamptz']>;
-  id?: Maybe<Scalars['uuid']>;
-  refreshTokenHash?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'authRefreshTokens_max_fields';
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly expiresAt?: Maybe<Scalars['timestamptz']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly refreshTokenHash?: Maybe<Scalars['String']>;
+  readonly userId?: Maybe<Scalars['uuid']>;
 };
 
 /** order by max() on columns of table "auth.refresh_tokens" */
 export type AuthRefreshTokens_Max_Order_By = {
-  createdAt?: InputMaybe<Order_By>;
-  expiresAt?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  refreshTokenHash?: InputMaybe<Order_By>;
-  userId?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly expiresAt?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly refreshTokenHash?: InputMaybe<Order_By>;
+  readonly userId?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
 export type AuthRefreshTokens_Min_Fields = {
-  __typename?: 'authRefreshTokens_min_fields';
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  expiresAt?: Maybe<Scalars['timestamptz']>;
-  id?: Maybe<Scalars['uuid']>;
-  refreshTokenHash?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'authRefreshTokens_min_fields';
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly expiresAt?: Maybe<Scalars['timestamptz']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly refreshTokenHash?: Maybe<Scalars['String']>;
+  readonly userId?: Maybe<Scalars['uuid']>;
 };
 
 /** order by min() on columns of table "auth.refresh_tokens" */
 export type AuthRefreshTokens_Min_Order_By = {
-  createdAt?: InputMaybe<Order_By>;
-  expiresAt?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  refreshTokenHash?: InputMaybe<Order_By>;
-  userId?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly expiresAt?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly refreshTokenHash?: InputMaybe<Order_By>;
+  readonly userId?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "auth.refresh_tokens" */
 export type AuthRefreshTokens_Mutation_Response = {
-  __typename?: 'authRefreshTokens_mutation_response';
+  readonly __typename?: 'authRefreshTokens_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<AuthRefreshTokens>;
+  readonly returning: ReadonlyArray<AuthRefreshTokens>;
 };
 
 /** on_conflict condition type for table "auth.refresh_tokens" */
 export type AuthRefreshTokens_On_Conflict = {
-  constraint: AuthRefreshTokens_Constraint;
-  update_columns?: Array<AuthRefreshTokens_Update_Column>;
-  where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
+  readonly constraint: AuthRefreshTokens_Constraint;
+  readonly update_columns?: ReadonlyArray<AuthRefreshTokens_Update_Column>;
+  readonly where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.refresh_tokens". */
 export type AuthRefreshTokens_Order_By = {
-  createdAt?: InputMaybe<Order_By>;
-  expiresAt?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  metadata?: InputMaybe<Order_By>;
-  refreshTokenHash?: InputMaybe<Order_By>;
-  type?: InputMaybe<Order_By>;
-  user?: InputMaybe<Users_Order_By>;
-  userId?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly expiresAt?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly metadata?: InputMaybe<Order_By>;
+  readonly refreshTokenHash?: InputMaybe<Order_By>;
+  readonly type?: InputMaybe<Order_By>;
+  readonly user?: InputMaybe<Users_Order_By>;
+  readonly userId?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: auth.refresh_tokens */
 export type AuthRefreshTokens_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  readonly id: Scalars['uuid'];
 };
 
 /** prepend existing jsonb value of filtered columns with new jsonb value */
 export type AuthRefreshTokens_Prepend_Input = {
-  metadata?: InputMaybe<Scalars['jsonb']>;
+  readonly metadata?: InputMaybe<Scalars['jsonb']>;
 };
 
 /** select columns of table "auth.refresh_tokens" */
-export enum AuthRefreshTokens_Select_Column {
+export type AuthRefreshTokens_Select_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  ExpiresAt = 'expiresAt',
+  | 'expiresAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Metadata = 'metadata',
+  | 'metadata'
   /** column name */
-  RefreshTokenHash = 'refreshTokenHash',
+  | 'refreshTokenHash'
   /** column name */
-  Type = 'type',
+  | 'type'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 /** input type for updating data in table "auth.refresh_tokens" */
 export type AuthRefreshTokens_Set_Input = {
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  expiresAt?: InputMaybe<Scalars['timestamptz']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  metadata?: InputMaybe<Scalars['jsonb']>;
-  refreshTokenHash?: InputMaybe<Scalars['String']>;
-  type?: InputMaybe<AuthRefreshTokenTypes_Enum>;
-  userId?: InputMaybe<Scalars['uuid']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly expiresAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly metadata?: InputMaybe<Scalars['jsonb']>;
+  readonly refreshTokenHash?: InputMaybe<Scalars['String']>;
+  readonly type?: InputMaybe<AuthRefreshTokenTypes_Enum>;
+  readonly userId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** Streaming cursor of the table "authRefreshTokens" */
 export type AuthRefreshTokens_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: AuthRefreshTokens_Stream_Cursor_Value_Input;
+  readonly initial_value: AuthRefreshTokens_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type AuthRefreshTokens_Stream_Cursor_Value_Input = {
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  expiresAt?: InputMaybe<Scalars['timestamptz']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  metadata?: InputMaybe<Scalars['jsonb']>;
-  refreshTokenHash?: InputMaybe<Scalars['String']>;
-  type?: InputMaybe<AuthRefreshTokenTypes_Enum>;
-  userId?: InputMaybe<Scalars['uuid']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly expiresAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly metadata?: InputMaybe<Scalars['jsonb']>;
+  readonly refreshTokenHash?: InputMaybe<Scalars['String']>;
+  readonly type?: InputMaybe<AuthRefreshTokenTypes_Enum>;
+  readonly userId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** update columns of table "auth.refresh_tokens" */
-export enum AuthRefreshTokens_Update_Column {
+export type AuthRefreshTokens_Update_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  ExpiresAt = 'expiresAt',
+  | 'expiresAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Metadata = 'metadata',
+  | 'metadata'
   /** column name */
-  RefreshTokenHash = 'refreshTokenHash',
+  | 'refreshTokenHash'
   /** column name */
-  Type = 'type',
+  | 'type'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 export type AuthRefreshTokens_Updates = {
   /** append existing jsonb value of filtered columns with new jsonb value */
-  _append?: InputMaybe<AuthRefreshTokens_Append_Input>;
+  readonly _append?: InputMaybe<AuthRefreshTokens_Append_Input>;
   /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
-  _delete_at_path?: InputMaybe<AuthRefreshTokens_Delete_At_Path_Input>;
+  readonly _delete_at_path?: InputMaybe<AuthRefreshTokens_Delete_At_Path_Input>;
   /** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
-  _delete_elem?: InputMaybe<AuthRefreshTokens_Delete_Elem_Input>;
+  readonly _delete_elem?: InputMaybe<AuthRefreshTokens_Delete_Elem_Input>;
   /** delete key/value pair or string element. key/value pairs are matched based on their key value */
-  _delete_key?: InputMaybe<AuthRefreshTokens_Delete_Key_Input>;
+  readonly _delete_key?: InputMaybe<AuthRefreshTokens_Delete_Key_Input>;
   /** prepend existing jsonb value of filtered columns with new jsonb value */
-  _prepend?: InputMaybe<AuthRefreshTokens_Prepend_Input>;
+  readonly _prepend?: InputMaybe<AuthRefreshTokens_Prepend_Input>;
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<AuthRefreshTokens_Set_Input>;
+  readonly _set?: InputMaybe<AuthRefreshTokens_Set_Input>;
   /** filter the rows which have to be updated */
-  where: AuthRefreshTokens_Bool_Exp;
+  readonly where: AuthRefreshTokens_Bool_Exp;
 };
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthRoles = {
-  __typename?: 'authRoles';
-  role: Scalars['String'];
+  readonly __typename?: 'authRoles';
+  readonly role: Scalars['String'];
   /** An array relationship */
-  userRoles: Array<AuthUserRoles>;
+  readonly userRoles: ReadonlyArray<AuthUserRoles>;
   /** An aggregate relationship */
-  userRoles_aggregate: AuthUserRoles_Aggregate;
+  readonly userRoles_aggregate: AuthUserRoles_Aggregate;
   /** An array relationship */
-  usersByDefaultRole: Array<Users>;
+  readonly usersByDefaultRole: ReadonlyArray<Users>;
   /** An aggregate relationship */
-  usersByDefaultRole_aggregate: Users_Aggregate;
+  readonly usersByDefaultRole_aggregate: Users_Aggregate;
 };
 
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthRolesUserRolesArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserRoles_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserRoles_Order_By>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthRolesUserRoles_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserRoles_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserRoles_Order_By>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthRolesUsersByDefaultRoleArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Users_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthRolesUsersByDefaultRole_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Users_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
 /** aggregated selection of "auth.roles" */
 export type AuthRoles_Aggregate = {
-  __typename?: 'authRoles_aggregate';
-  aggregate?: Maybe<AuthRoles_Aggregate_Fields>;
-  nodes: Array<AuthRoles>;
+  readonly __typename?: 'authRoles_aggregate';
+  readonly aggregate?: Maybe<AuthRoles_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<AuthRoles>;
 };
 
 /** aggregate fields of "auth.roles" */
 export type AuthRoles_Aggregate_Fields = {
-  __typename?: 'authRoles_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<AuthRoles_Max_Fields>;
-  min?: Maybe<AuthRoles_Min_Fields>;
+  readonly __typename?: 'authRoles_aggregate_fields';
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<AuthRoles_Max_Fields>;
+  readonly min?: Maybe<AuthRoles_Min_Fields>;
 };
 
 
 /** aggregate fields of "auth.roles" */
 export type AuthRoles_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<AuthRoles_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<AuthRoles_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Boolean expression to filter rows from the table "auth.roles". All fields are combined with a logical 'AND'. */
 export type AuthRoles_Bool_Exp = {
-  _and?: InputMaybe<Array<AuthRoles_Bool_Exp>>;
-  _not?: InputMaybe<AuthRoles_Bool_Exp>;
-  _or?: InputMaybe<Array<AuthRoles_Bool_Exp>>;
-  role?: InputMaybe<String_Comparison_Exp>;
-  userRoles?: InputMaybe<AuthUserRoles_Bool_Exp>;
-  userRoles_aggregate?: InputMaybe<AuthUserRoles_Aggregate_Bool_Exp>;
-  usersByDefaultRole?: InputMaybe<Users_Bool_Exp>;
-  usersByDefaultRole_aggregate?: InputMaybe<Users_Aggregate_Bool_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<AuthRoles_Bool_Exp>>;
+  readonly _not?: InputMaybe<AuthRoles_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<AuthRoles_Bool_Exp>>;
+  readonly role?: InputMaybe<String_Comparison_Exp>;
+  readonly userRoles?: InputMaybe<AuthUserRoles_Bool_Exp>;
+  readonly userRoles_aggregate?: InputMaybe<AuthUserRoles_Aggregate_Bool_Exp>;
+  readonly usersByDefaultRole?: InputMaybe<Users_Bool_Exp>;
+  readonly usersByDefaultRole_aggregate?: InputMaybe<Users_Aggregate_Bool_Exp>;
 };
 
 /** unique or primary key constraints on table "auth.roles" */
-export enum AuthRoles_Constraint {
+export type AuthRoles_Constraint =
   /** unique or primary key constraint on columns "role" */
-  RolesPkey = 'roles_pkey'
-}
+  | 'roles_pkey';
 
 /** input type for inserting data into table "auth.roles" */
 export type AuthRoles_Insert_Input = {
-  role?: InputMaybe<Scalars['String']>;
-  userRoles?: InputMaybe<AuthUserRoles_Arr_Rel_Insert_Input>;
-  usersByDefaultRole?: InputMaybe<Users_Arr_Rel_Insert_Input>;
+  readonly role?: InputMaybe<Scalars['String']>;
+  readonly userRoles?: InputMaybe<AuthUserRoles_Arr_Rel_Insert_Input>;
+  readonly usersByDefaultRole?: InputMaybe<Users_Arr_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
 export type AuthRoles_Max_Fields = {
-  __typename?: 'authRoles_max_fields';
-  role?: Maybe<Scalars['String']>;
+  readonly __typename?: 'authRoles_max_fields';
+  readonly role?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type AuthRoles_Min_Fields = {
-  __typename?: 'authRoles_min_fields';
-  role?: Maybe<Scalars['String']>;
+  readonly __typename?: 'authRoles_min_fields';
+  readonly role?: Maybe<Scalars['String']>;
 };
 
 /** response of any mutation on the table "auth.roles" */
 export type AuthRoles_Mutation_Response = {
-  __typename?: 'authRoles_mutation_response';
+  readonly __typename?: 'authRoles_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<AuthRoles>;
+  readonly returning: ReadonlyArray<AuthRoles>;
 };
 
 /** input type for inserting object relation for remote table "auth.roles" */
 export type AuthRoles_Obj_Rel_Insert_Input = {
-  data: AuthRoles_Insert_Input;
+  readonly data: AuthRoles_Insert_Input;
   /** upsert condition */
-  on_conflict?: InputMaybe<AuthRoles_On_Conflict>;
+  readonly on_conflict?: InputMaybe<AuthRoles_On_Conflict>;
 };
 
 /** on_conflict condition type for table "auth.roles" */
 export type AuthRoles_On_Conflict = {
-  constraint: AuthRoles_Constraint;
-  update_columns?: Array<AuthRoles_Update_Column>;
-  where?: InputMaybe<AuthRoles_Bool_Exp>;
+  readonly constraint: AuthRoles_Constraint;
+  readonly update_columns?: ReadonlyArray<AuthRoles_Update_Column>;
+  readonly where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.roles". */
 export type AuthRoles_Order_By = {
-  role?: InputMaybe<Order_By>;
-  userRoles_aggregate?: InputMaybe<AuthUserRoles_Aggregate_Order_By>;
-  usersByDefaultRole_aggregate?: InputMaybe<Users_Aggregate_Order_By>;
+  readonly role?: InputMaybe<Order_By>;
+  readonly userRoles_aggregate?: InputMaybe<AuthUserRoles_Aggregate_Order_By>;
+  readonly usersByDefaultRole_aggregate?: InputMaybe<Users_Aggregate_Order_By>;
 };
 
 /** primary key columns input for table: auth.roles */
 export type AuthRoles_Pk_Columns_Input = {
-  role: Scalars['String'];
+  readonly role: Scalars['String'];
 };
 
 /** select columns of table "auth.roles" */
-export enum AuthRoles_Select_Column {
+export type AuthRoles_Select_Column =
   /** column name */
-  Role = 'role'
-}
+  | 'role';
 
 /** input type for updating data in table "auth.roles" */
 export type AuthRoles_Set_Input = {
-  role?: InputMaybe<Scalars['String']>;
+  readonly role?: InputMaybe<Scalars['String']>;
 };
 
 /** Streaming cursor of the table "authRoles" */
 export type AuthRoles_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: AuthRoles_Stream_Cursor_Value_Input;
+  readonly initial_value: AuthRoles_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type AuthRoles_Stream_Cursor_Value_Input = {
-  role?: InputMaybe<Scalars['String']>;
+  readonly role?: InputMaybe<Scalars['String']>;
 };
 
 /** update columns of table "auth.roles" */
-export enum AuthRoles_Update_Column {
+export type AuthRoles_Update_Column =
   /** column name */
-  Role = 'role'
-}
+  | 'role';
 
 export type AuthRoles_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<AuthRoles_Set_Input>;
+  readonly _set?: InputMaybe<AuthRoles_Set_Input>;
   /** filter the rows which have to be updated */
-  where: AuthRoles_Bool_Exp;
+  readonly where: AuthRoles_Bool_Exp;
 };
 
 /** Active providers for a given user. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthUserProviders = {
-  __typename?: 'authUserProviders';
-  accessToken: Scalars['String'];
-  createdAt: Scalars['timestamptz'];
-  id: Scalars['uuid'];
+  readonly __typename?: 'authUserProviders';
+  readonly accessToken: Scalars['String'];
+  readonly createdAt: Scalars['timestamptz'];
+  readonly id: Scalars['uuid'];
   /** An object relationship */
-  provider: AuthProviders;
-  providerId: Scalars['String'];
-  providerUserId: Scalars['String'];
-  refreshToken?: Maybe<Scalars['String']>;
-  updatedAt: Scalars['timestamptz'];
+  readonly provider: AuthProviders;
+  readonly providerId: Scalars['String'];
+  readonly providerUserId: Scalars['String'];
+  readonly refreshToken?: Maybe<Scalars['String']>;
+  readonly updatedAt: Scalars['timestamptz'];
   /** An object relationship */
-  user: Users;
-  userId: Scalars['uuid'];
+  readonly user: Users;
+  readonly userId: Scalars['uuid'];
 };
 
 /** aggregated selection of "auth.user_providers" */
 export type AuthUserProviders_Aggregate = {
-  __typename?: 'authUserProviders_aggregate';
-  aggregate?: Maybe<AuthUserProviders_Aggregate_Fields>;
-  nodes: Array<AuthUserProviders>;
+  readonly __typename?: 'authUserProviders_aggregate';
+  readonly aggregate?: Maybe<AuthUserProviders_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<AuthUserProviders>;
 };
 
 export type AuthUserProviders_Aggregate_Bool_Exp = {
-  count?: InputMaybe<AuthUserProviders_Aggregate_Bool_Exp_Count>;
+  readonly count?: InputMaybe<AuthUserProviders_Aggregate_Bool_Exp_Count>;
 };
 
 export type AuthUserProviders_Aggregate_Bool_Exp_Count = {
-  arguments?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-  filter?: InputMaybe<AuthUserProviders_Bool_Exp>;
-  predicate: Int_Comparison_Exp;
+  readonly arguments?: InputMaybe<ReadonlyArray<AuthUserProviders_Select_Column>>;
+  readonly distinct?: InputMaybe<Scalars['Boolean']>;
+  readonly filter?: InputMaybe<AuthUserProviders_Bool_Exp>;
+  readonly predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "auth.user_providers" */
 export type AuthUserProviders_Aggregate_Fields = {
-  __typename?: 'authUserProviders_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<AuthUserProviders_Max_Fields>;
-  min?: Maybe<AuthUserProviders_Min_Fields>;
+  readonly __typename?: 'authUserProviders_aggregate_fields';
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<AuthUserProviders_Max_Fields>;
+  readonly min?: Maybe<AuthUserProviders_Min_Fields>;
 };
 
 
 /** aggregate fields of "auth.user_providers" */
 export type AuthUserProviders_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<AuthUserProviders_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "auth.user_providers" */
 export type AuthUserProviders_Aggregate_Order_By = {
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<AuthUserProviders_Max_Order_By>;
-  min?: InputMaybe<AuthUserProviders_Min_Order_By>;
+  readonly count?: InputMaybe<Order_By>;
+  readonly max?: InputMaybe<AuthUserProviders_Max_Order_By>;
+  readonly min?: InputMaybe<AuthUserProviders_Min_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "auth.user_providers" */
 export type AuthUserProviders_Arr_Rel_Insert_Input = {
-  data: Array<AuthUserProviders_Insert_Input>;
+  readonly data: ReadonlyArray<AuthUserProviders_Insert_Input>;
   /** upsert condition */
-  on_conflict?: InputMaybe<AuthUserProviders_On_Conflict>;
+  readonly on_conflict?: InputMaybe<AuthUserProviders_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "auth.user_providers". All fields are combined with a logical 'AND'. */
 export type AuthUserProviders_Bool_Exp = {
-  _and?: InputMaybe<Array<AuthUserProviders_Bool_Exp>>;
-  _not?: InputMaybe<AuthUserProviders_Bool_Exp>;
-  _or?: InputMaybe<Array<AuthUserProviders_Bool_Exp>>;
-  accessToken?: InputMaybe<String_Comparison_Exp>;
-  createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  id?: InputMaybe<Uuid_Comparison_Exp>;
-  provider?: InputMaybe<AuthProviders_Bool_Exp>;
-  providerId?: InputMaybe<String_Comparison_Exp>;
-  providerUserId?: InputMaybe<String_Comparison_Exp>;
-  refreshToken?: InputMaybe<String_Comparison_Exp>;
-  updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  user?: InputMaybe<Users_Bool_Exp>;
-  userId?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<AuthUserProviders_Bool_Exp>>;
+  readonly _not?: InputMaybe<AuthUserProviders_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<AuthUserProviders_Bool_Exp>>;
+  readonly accessToken?: InputMaybe<String_Comparison_Exp>;
+  readonly createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly provider?: InputMaybe<AuthProviders_Bool_Exp>;
+  readonly providerId?: InputMaybe<String_Comparison_Exp>;
+  readonly providerUserId?: InputMaybe<String_Comparison_Exp>;
+  readonly refreshToken?: InputMaybe<String_Comparison_Exp>;
+  readonly updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly user?: InputMaybe<Users_Bool_Exp>;
+  readonly userId?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "auth.user_providers" */
-export enum AuthUserProviders_Constraint {
+export type AuthUserProviders_Constraint =
   /** unique or primary key constraint on columns "id" */
-  UserProvidersPkey = 'user_providers_pkey',
+  | 'user_providers_pkey'
   /** unique or primary key constraint on columns "provider_id", "provider_user_id" */
-  UserProvidersProviderIdProviderUserIdKey = 'user_providers_provider_id_provider_user_id_key',
+  | 'user_providers_provider_id_provider_user_id_key'
   /** unique or primary key constraint on columns "provider_id", "user_id" */
-  UserProvidersUserIdProviderIdKey = 'user_providers_user_id_provider_id_key'
-}
+  | 'user_providers_user_id_provider_id_key';
 
 /** input type for inserting data into table "auth.user_providers" */
 export type AuthUserProviders_Insert_Input = {
-  accessToken?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  provider?: InputMaybe<AuthProviders_Obj_Rel_Insert_Input>;
-  providerId?: InputMaybe<Scalars['String']>;
-  providerUserId?: InputMaybe<Scalars['String']>;
-  refreshToken?: InputMaybe<Scalars['String']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  userId?: InputMaybe<Scalars['uuid']>;
+  readonly accessToken?: InputMaybe<Scalars['String']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly provider?: InputMaybe<AuthProviders_Obj_Rel_Insert_Input>;
+  readonly providerId?: InputMaybe<Scalars['String']>;
+  readonly providerUserId?: InputMaybe<Scalars['String']>;
+  readonly refreshToken?: InputMaybe<Scalars['String']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
+  readonly userId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** aggregate max on columns */
 export type AuthUserProviders_Max_Fields = {
-  __typename?: 'authUserProviders_max_fields';
-  accessToken?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  id?: Maybe<Scalars['uuid']>;
-  providerId?: Maybe<Scalars['String']>;
-  providerUserId?: Maybe<Scalars['String']>;
-  refreshToken?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
-  userId?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'authUserProviders_max_fields';
+  readonly accessToken?: Maybe<Scalars['String']>;
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly providerId?: Maybe<Scalars['String']>;
+  readonly providerUserId?: Maybe<Scalars['String']>;
+  readonly refreshToken?: Maybe<Scalars['String']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly userId?: Maybe<Scalars['uuid']>;
 };
 
 /** order by max() on columns of table "auth.user_providers" */
 export type AuthUserProviders_Max_Order_By = {
-  accessToken?: InputMaybe<Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  providerId?: InputMaybe<Order_By>;
-  providerUserId?: InputMaybe<Order_By>;
-  refreshToken?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
-  userId?: InputMaybe<Order_By>;
+  readonly accessToken?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly providerId?: InputMaybe<Order_By>;
+  readonly providerUserId?: InputMaybe<Order_By>;
+  readonly refreshToken?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
+  readonly userId?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
 export type AuthUserProviders_Min_Fields = {
-  __typename?: 'authUserProviders_min_fields';
-  accessToken?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  id?: Maybe<Scalars['uuid']>;
-  providerId?: Maybe<Scalars['String']>;
-  providerUserId?: Maybe<Scalars['String']>;
-  refreshToken?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
-  userId?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'authUserProviders_min_fields';
+  readonly accessToken?: Maybe<Scalars['String']>;
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly providerId?: Maybe<Scalars['String']>;
+  readonly providerUserId?: Maybe<Scalars['String']>;
+  readonly refreshToken?: Maybe<Scalars['String']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly userId?: Maybe<Scalars['uuid']>;
 };
 
 /** order by min() on columns of table "auth.user_providers" */
 export type AuthUserProviders_Min_Order_By = {
-  accessToken?: InputMaybe<Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  providerId?: InputMaybe<Order_By>;
-  providerUserId?: InputMaybe<Order_By>;
-  refreshToken?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
-  userId?: InputMaybe<Order_By>;
+  readonly accessToken?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly providerId?: InputMaybe<Order_By>;
+  readonly providerUserId?: InputMaybe<Order_By>;
+  readonly refreshToken?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
+  readonly userId?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "auth.user_providers" */
 export type AuthUserProviders_Mutation_Response = {
-  __typename?: 'authUserProviders_mutation_response';
+  readonly __typename?: 'authUserProviders_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<AuthUserProviders>;
+  readonly returning: ReadonlyArray<AuthUserProviders>;
 };
 
 /** on_conflict condition type for table "auth.user_providers" */
 export type AuthUserProviders_On_Conflict = {
-  constraint: AuthUserProviders_Constraint;
-  update_columns?: Array<AuthUserProviders_Update_Column>;
-  where?: InputMaybe<AuthUserProviders_Bool_Exp>;
+  readonly constraint: AuthUserProviders_Constraint;
+  readonly update_columns?: ReadonlyArray<AuthUserProviders_Update_Column>;
+  readonly where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.user_providers". */
 export type AuthUserProviders_Order_By = {
-  accessToken?: InputMaybe<Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  provider?: InputMaybe<AuthProviders_Order_By>;
-  providerId?: InputMaybe<Order_By>;
-  providerUserId?: InputMaybe<Order_By>;
-  refreshToken?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
-  user?: InputMaybe<Users_Order_By>;
-  userId?: InputMaybe<Order_By>;
+  readonly accessToken?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly provider?: InputMaybe<AuthProviders_Order_By>;
+  readonly providerId?: InputMaybe<Order_By>;
+  readonly providerUserId?: InputMaybe<Order_By>;
+  readonly refreshToken?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
+  readonly user?: InputMaybe<Users_Order_By>;
+  readonly userId?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: auth.user_providers */
 export type AuthUserProviders_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  readonly id: Scalars['uuid'];
 };
 
 /** select columns of table "auth.user_providers" */
-export enum AuthUserProviders_Select_Column {
+export type AuthUserProviders_Select_Column =
   /** column name */
-  AccessToken = 'accessToken',
+  | 'accessToken'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  ProviderId = 'providerId',
+  | 'providerId'
   /** column name */
-  ProviderUserId = 'providerUserId',
+  | 'providerUserId'
   /** column name */
-  RefreshToken = 'refreshToken',
+  | 'refreshToken'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 /** input type for updating data in table "auth.user_providers" */
 export type AuthUserProviders_Set_Input = {
-  accessToken?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  providerId?: InputMaybe<Scalars['String']>;
-  providerUserId?: InputMaybe<Scalars['String']>;
-  refreshToken?: InputMaybe<Scalars['String']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  userId?: InputMaybe<Scalars['uuid']>;
+  readonly accessToken?: InputMaybe<Scalars['String']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly providerId?: InputMaybe<Scalars['String']>;
+  readonly providerUserId?: InputMaybe<Scalars['String']>;
+  readonly refreshToken?: InputMaybe<Scalars['String']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly userId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** Streaming cursor of the table "authUserProviders" */
 export type AuthUserProviders_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: AuthUserProviders_Stream_Cursor_Value_Input;
+  readonly initial_value: AuthUserProviders_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type AuthUserProviders_Stream_Cursor_Value_Input = {
-  accessToken?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  providerId?: InputMaybe<Scalars['String']>;
-  providerUserId?: InputMaybe<Scalars['String']>;
-  refreshToken?: InputMaybe<Scalars['String']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  userId?: InputMaybe<Scalars['uuid']>;
+  readonly accessToken?: InputMaybe<Scalars['String']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly providerId?: InputMaybe<Scalars['String']>;
+  readonly providerUserId?: InputMaybe<Scalars['String']>;
+  readonly refreshToken?: InputMaybe<Scalars['String']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly userId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** update columns of table "auth.user_providers" */
-export enum AuthUserProviders_Update_Column {
+export type AuthUserProviders_Update_Column =
   /** column name */
-  AccessToken = 'accessToken',
+  | 'accessToken'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  ProviderId = 'providerId',
+  | 'providerId'
   /** column name */
-  ProviderUserId = 'providerUserId',
+  | 'providerUserId'
   /** column name */
-  RefreshToken = 'refreshToken',
+  | 'refreshToken'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 export type AuthUserProviders_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<AuthUserProviders_Set_Input>;
+  readonly _set?: InputMaybe<AuthUserProviders_Set_Input>;
   /** filter the rows which have to be updated */
-  where: AuthUserProviders_Bool_Exp;
+  readonly where: AuthUserProviders_Bool_Exp;
 };
 
 /** Roles of users. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthUserRoles = {
-  __typename?: 'authUserRoles';
-  createdAt: Scalars['timestamptz'];
-  id: Scalars['uuid'];
-  role: Scalars['String'];
+  readonly __typename?: 'authUserRoles';
+  readonly createdAt: Scalars['timestamptz'];
+  readonly id: Scalars['uuid'];
+  readonly role: Scalars['String'];
   /** An object relationship */
-  roleByRole: AuthRoles;
+  readonly roleByRole: AuthRoles;
   /** An object relationship */
-  user: Users;
-  userId: Scalars['uuid'];
+  readonly user: Users;
+  readonly userId: Scalars['uuid'];
 };
 
 /** aggregated selection of "auth.user_roles" */
 export type AuthUserRoles_Aggregate = {
-  __typename?: 'authUserRoles_aggregate';
-  aggregate?: Maybe<AuthUserRoles_Aggregate_Fields>;
-  nodes: Array<AuthUserRoles>;
+  readonly __typename?: 'authUserRoles_aggregate';
+  readonly aggregate?: Maybe<AuthUserRoles_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<AuthUserRoles>;
 };
 
 export type AuthUserRoles_Aggregate_Bool_Exp = {
-  count?: InputMaybe<AuthUserRoles_Aggregate_Bool_Exp_Count>;
+  readonly count?: InputMaybe<AuthUserRoles_Aggregate_Bool_Exp_Count>;
 };
 
 export type AuthUserRoles_Aggregate_Bool_Exp_Count = {
-  arguments?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-  filter?: InputMaybe<AuthUserRoles_Bool_Exp>;
-  predicate: Int_Comparison_Exp;
+  readonly arguments?: InputMaybe<ReadonlyArray<AuthUserRoles_Select_Column>>;
+  readonly distinct?: InputMaybe<Scalars['Boolean']>;
+  readonly filter?: InputMaybe<AuthUserRoles_Bool_Exp>;
+  readonly predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "auth.user_roles" */
 export type AuthUserRoles_Aggregate_Fields = {
-  __typename?: 'authUserRoles_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<AuthUserRoles_Max_Fields>;
-  min?: Maybe<AuthUserRoles_Min_Fields>;
+  readonly __typename?: 'authUserRoles_aggregate_fields';
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<AuthUserRoles_Max_Fields>;
+  readonly min?: Maybe<AuthUserRoles_Min_Fields>;
 };
 
 
 /** aggregate fields of "auth.user_roles" */
 export type AuthUserRoles_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<AuthUserRoles_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "auth.user_roles" */
 export type AuthUserRoles_Aggregate_Order_By = {
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<AuthUserRoles_Max_Order_By>;
-  min?: InputMaybe<AuthUserRoles_Min_Order_By>;
+  readonly count?: InputMaybe<Order_By>;
+  readonly max?: InputMaybe<AuthUserRoles_Max_Order_By>;
+  readonly min?: InputMaybe<AuthUserRoles_Min_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "auth.user_roles" */
 export type AuthUserRoles_Arr_Rel_Insert_Input = {
-  data: Array<AuthUserRoles_Insert_Input>;
+  readonly data: ReadonlyArray<AuthUserRoles_Insert_Input>;
   /** upsert condition */
-  on_conflict?: InputMaybe<AuthUserRoles_On_Conflict>;
+  readonly on_conflict?: InputMaybe<AuthUserRoles_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "auth.user_roles". All fields are combined with a logical 'AND'. */
 export type AuthUserRoles_Bool_Exp = {
-  _and?: InputMaybe<Array<AuthUserRoles_Bool_Exp>>;
-  _not?: InputMaybe<AuthUserRoles_Bool_Exp>;
-  _or?: InputMaybe<Array<AuthUserRoles_Bool_Exp>>;
-  createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  id?: InputMaybe<Uuid_Comparison_Exp>;
-  role?: InputMaybe<String_Comparison_Exp>;
-  roleByRole?: InputMaybe<AuthRoles_Bool_Exp>;
-  user?: InputMaybe<Users_Bool_Exp>;
-  userId?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<AuthUserRoles_Bool_Exp>>;
+  readonly _not?: InputMaybe<AuthUserRoles_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<AuthUserRoles_Bool_Exp>>;
+  readonly createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly role?: InputMaybe<String_Comparison_Exp>;
+  readonly roleByRole?: InputMaybe<AuthRoles_Bool_Exp>;
+  readonly user?: InputMaybe<Users_Bool_Exp>;
+  readonly userId?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "auth.user_roles" */
-export enum AuthUserRoles_Constraint {
+export type AuthUserRoles_Constraint =
   /** unique or primary key constraint on columns "id" */
-  UserRolesPkey = 'user_roles_pkey',
+  | 'user_roles_pkey'
   /** unique or primary key constraint on columns "user_id", "role" */
-  UserRolesUserIdRoleKey = 'user_roles_user_id_role_key'
-}
+  | 'user_roles_user_id_role_key';
 
 /** input type for inserting data into table "auth.user_roles" */
 export type AuthUserRoles_Insert_Input = {
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  role?: InputMaybe<Scalars['String']>;
-  roleByRole?: InputMaybe<AuthRoles_Obj_Rel_Insert_Input>;
-  user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  userId?: InputMaybe<Scalars['uuid']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly role?: InputMaybe<Scalars['String']>;
+  readonly roleByRole?: InputMaybe<AuthRoles_Obj_Rel_Insert_Input>;
+  readonly user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
+  readonly userId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** aggregate max on columns */
 export type AuthUserRoles_Max_Fields = {
-  __typename?: 'authUserRoles_max_fields';
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  id?: Maybe<Scalars['uuid']>;
-  role?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'authUserRoles_max_fields';
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly role?: Maybe<Scalars['String']>;
+  readonly userId?: Maybe<Scalars['uuid']>;
 };
 
 /** order by max() on columns of table "auth.user_roles" */
 export type AuthUserRoles_Max_Order_By = {
-  createdAt?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  role?: InputMaybe<Order_By>;
-  userId?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly role?: InputMaybe<Order_By>;
+  readonly userId?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
 export type AuthUserRoles_Min_Fields = {
-  __typename?: 'authUserRoles_min_fields';
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  id?: Maybe<Scalars['uuid']>;
-  role?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'authUserRoles_min_fields';
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly role?: Maybe<Scalars['String']>;
+  readonly userId?: Maybe<Scalars['uuid']>;
 };
 
 /** order by min() on columns of table "auth.user_roles" */
 export type AuthUserRoles_Min_Order_By = {
-  createdAt?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  role?: InputMaybe<Order_By>;
-  userId?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly role?: InputMaybe<Order_By>;
+  readonly userId?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "auth.user_roles" */
 export type AuthUserRoles_Mutation_Response = {
-  __typename?: 'authUserRoles_mutation_response';
+  readonly __typename?: 'authUserRoles_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<AuthUserRoles>;
+  readonly returning: ReadonlyArray<AuthUserRoles>;
 };
 
 /** on_conflict condition type for table "auth.user_roles" */
 export type AuthUserRoles_On_Conflict = {
-  constraint: AuthUserRoles_Constraint;
-  update_columns?: Array<AuthUserRoles_Update_Column>;
-  where?: InputMaybe<AuthUserRoles_Bool_Exp>;
+  readonly constraint: AuthUserRoles_Constraint;
+  readonly update_columns?: ReadonlyArray<AuthUserRoles_Update_Column>;
+  readonly where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.user_roles". */
 export type AuthUserRoles_Order_By = {
-  createdAt?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  role?: InputMaybe<Order_By>;
-  roleByRole?: InputMaybe<AuthRoles_Order_By>;
-  user?: InputMaybe<Users_Order_By>;
-  userId?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly role?: InputMaybe<Order_By>;
+  readonly roleByRole?: InputMaybe<AuthRoles_Order_By>;
+  readonly user?: InputMaybe<Users_Order_By>;
+  readonly userId?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: auth.user_roles */
 export type AuthUserRoles_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  readonly id: Scalars['uuid'];
 };
 
 /** select columns of table "auth.user_roles" */
-export enum AuthUserRoles_Select_Column {
+export type AuthUserRoles_Select_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Role = 'role',
+  | 'role'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 /** input type for updating data in table "auth.user_roles" */
 export type AuthUserRoles_Set_Input = {
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  role?: InputMaybe<Scalars['String']>;
-  userId?: InputMaybe<Scalars['uuid']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly role?: InputMaybe<Scalars['String']>;
+  readonly userId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** Streaming cursor of the table "authUserRoles" */
 export type AuthUserRoles_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: AuthUserRoles_Stream_Cursor_Value_Input;
+  readonly initial_value: AuthUserRoles_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type AuthUserRoles_Stream_Cursor_Value_Input = {
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  role?: InputMaybe<Scalars['String']>;
-  userId?: InputMaybe<Scalars['uuid']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly role?: InputMaybe<Scalars['String']>;
+  readonly userId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** update columns of table "auth.user_roles" */
-export enum AuthUserRoles_Update_Column {
+export type AuthUserRoles_Update_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Role = 'role',
+  | 'role'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 export type AuthUserRoles_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<AuthUserRoles_Set_Input>;
+  readonly _set?: InputMaybe<AuthUserRoles_Set_Input>;
   /** filter the rows which have to be updated */
-  where: AuthUserRoles_Bool_Exp;
+  readonly where: AuthUserRoles_Bool_Exp;
 };
 
 /** User webauthn security keys. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthUserSecurityKeys = {
-  __typename?: 'authUserSecurityKeys';
-  counter: Scalars['bigint'];
-  credentialId: Scalars['String'];
-  credentialPublicKey?: Maybe<Scalars['bytea']>;
-  id: Scalars['uuid'];
-  nickname?: Maybe<Scalars['String']>;
-  transports: Scalars['String'];
+  readonly __typename?: 'authUserSecurityKeys';
+  readonly counter: Scalars['bigint'];
+  readonly credentialId: Scalars['String'];
+  readonly credentialPublicKey?: Maybe<Scalars['bytea']>;
+  readonly id: Scalars['uuid'];
+  readonly nickname?: Maybe<Scalars['String']>;
+  readonly transports: Scalars['String'];
   /** An object relationship */
-  user: Users;
-  userId: Scalars['uuid'];
+  readonly user: Users;
+  readonly userId: Scalars['uuid'];
 };
 
 /** aggregated selection of "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Aggregate = {
-  __typename?: 'authUserSecurityKeys_aggregate';
-  aggregate?: Maybe<AuthUserSecurityKeys_Aggregate_Fields>;
-  nodes: Array<AuthUserSecurityKeys>;
+  readonly __typename?: 'authUserSecurityKeys_aggregate';
+  readonly aggregate?: Maybe<AuthUserSecurityKeys_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<AuthUserSecurityKeys>;
 };
 
 export type AuthUserSecurityKeys_Aggregate_Bool_Exp = {
-  count?: InputMaybe<AuthUserSecurityKeys_Aggregate_Bool_Exp_Count>;
+  readonly count?: InputMaybe<AuthUserSecurityKeys_Aggregate_Bool_Exp_Count>;
 };
 
 export type AuthUserSecurityKeys_Aggregate_Bool_Exp_Count = {
-  arguments?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-  filter?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
-  predicate: Int_Comparison_Exp;
+  readonly arguments?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Select_Column>>;
+  readonly distinct?: InputMaybe<Scalars['Boolean']>;
+  readonly filter?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
+  readonly predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Aggregate_Fields = {
-  __typename?: 'authUserSecurityKeys_aggregate_fields';
-  avg?: Maybe<AuthUserSecurityKeys_Avg_Fields>;
-  count: Scalars['Int'];
-  max?: Maybe<AuthUserSecurityKeys_Max_Fields>;
-  min?: Maybe<AuthUserSecurityKeys_Min_Fields>;
-  stddev?: Maybe<AuthUserSecurityKeys_Stddev_Fields>;
-  stddev_pop?: Maybe<AuthUserSecurityKeys_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<AuthUserSecurityKeys_Stddev_Samp_Fields>;
-  sum?: Maybe<AuthUserSecurityKeys_Sum_Fields>;
-  var_pop?: Maybe<AuthUserSecurityKeys_Var_Pop_Fields>;
-  var_samp?: Maybe<AuthUserSecurityKeys_Var_Samp_Fields>;
-  variance?: Maybe<AuthUserSecurityKeys_Variance_Fields>;
+  readonly __typename?: 'authUserSecurityKeys_aggregate_fields';
+  readonly avg?: Maybe<AuthUserSecurityKeys_Avg_Fields>;
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<AuthUserSecurityKeys_Max_Fields>;
+  readonly min?: Maybe<AuthUserSecurityKeys_Min_Fields>;
+  readonly stddev?: Maybe<AuthUserSecurityKeys_Stddev_Fields>;
+  readonly stddev_pop?: Maybe<AuthUserSecurityKeys_Stddev_Pop_Fields>;
+  readonly stddev_samp?: Maybe<AuthUserSecurityKeys_Stddev_Samp_Fields>;
+  readonly sum?: Maybe<AuthUserSecurityKeys_Sum_Fields>;
+  readonly var_pop?: Maybe<AuthUserSecurityKeys_Var_Pop_Fields>;
+  readonly var_samp?: Maybe<AuthUserSecurityKeys_Var_Samp_Fields>;
+  readonly variance?: Maybe<AuthUserSecurityKeys_Variance_Fields>;
 };
 
 
 /** aggregate fields of "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Aggregate_Order_By = {
-  avg?: InputMaybe<AuthUserSecurityKeys_Avg_Order_By>;
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<AuthUserSecurityKeys_Max_Order_By>;
-  min?: InputMaybe<AuthUserSecurityKeys_Min_Order_By>;
-  stddev?: InputMaybe<AuthUserSecurityKeys_Stddev_Order_By>;
-  stddev_pop?: InputMaybe<AuthUserSecurityKeys_Stddev_Pop_Order_By>;
-  stddev_samp?: InputMaybe<AuthUserSecurityKeys_Stddev_Samp_Order_By>;
-  sum?: InputMaybe<AuthUserSecurityKeys_Sum_Order_By>;
-  var_pop?: InputMaybe<AuthUserSecurityKeys_Var_Pop_Order_By>;
-  var_samp?: InputMaybe<AuthUserSecurityKeys_Var_Samp_Order_By>;
-  variance?: InputMaybe<AuthUserSecurityKeys_Variance_Order_By>;
+  readonly avg?: InputMaybe<AuthUserSecurityKeys_Avg_Order_By>;
+  readonly count?: InputMaybe<Order_By>;
+  readonly max?: InputMaybe<AuthUserSecurityKeys_Max_Order_By>;
+  readonly min?: InputMaybe<AuthUserSecurityKeys_Min_Order_By>;
+  readonly stddev?: InputMaybe<AuthUserSecurityKeys_Stddev_Order_By>;
+  readonly stddev_pop?: InputMaybe<AuthUserSecurityKeys_Stddev_Pop_Order_By>;
+  readonly stddev_samp?: InputMaybe<AuthUserSecurityKeys_Stddev_Samp_Order_By>;
+  readonly sum?: InputMaybe<AuthUserSecurityKeys_Sum_Order_By>;
+  readonly var_pop?: InputMaybe<AuthUserSecurityKeys_Var_Pop_Order_By>;
+  readonly var_samp?: InputMaybe<AuthUserSecurityKeys_Var_Samp_Order_By>;
+  readonly variance?: InputMaybe<AuthUserSecurityKeys_Variance_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Arr_Rel_Insert_Input = {
-  data: Array<AuthUserSecurityKeys_Insert_Input>;
+  readonly data: ReadonlyArray<AuthUserSecurityKeys_Insert_Input>;
   /** upsert condition */
-  on_conflict?: InputMaybe<AuthUserSecurityKeys_On_Conflict>;
+  readonly on_conflict?: InputMaybe<AuthUserSecurityKeys_On_Conflict>;
 };
 
 /** aggregate avg on columns */
 export type AuthUserSecurityKeys_Avg_Fields = {
-  __typename?: 'authUserSecurityKeys_avg_fields';
-  counter?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'authUserSecurityKeys_avg_fields';
+  readonly counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Avg_Order_By = {
-  counter?: InputMaybe<Order_By>;
+  readonly counter?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "auth.user_security_keys". All fields are combined with a logical 'AND'. */
 export type AuthUserSecurityKeys_Bool_Exp = {
-  _and?: InputMaybe<Array<AuthUserSecurityKeys_Bool_Exp>>;
-  _not?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
-  _or?: InputMaybe<Array<AuthUserSecurityKeys_Bool_Exp>>;
-  counter?: InputMaybe<Bigint_Comparison_Exp>;
-  credentialId?: InputMaybe<String_Comparison_Exp>;
-  credentialPublicKey?: InputMaybe<Bytea_Comparison_Exp>;
-  id?: InputMaybe<Uuid_Comparison_Exp>;
-  nickname?: InputMaybe<String_Comparison_Exp>;
-  transports?: InputMaybe<String_Comparison_Exp>;
-  user?: InputMaybe<Users_Bool_Exp>;
-  userId?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Bool_Exp>>;
+  readonly _not?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Bool_Exp>>;
+  readonly counter?: InputMaybe<Bigint_Comparison_Exp>;
+  readonly credentialId?: InputMaybe<String_Comparison_Exp>;
+  readonly credentialPublicKey?: InputMaybe<Bytea_Comparison_Exp>;
+  readonly id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly nickname?: InputMaybe<String_Comparison_Exp>;
+  readonly transports?: InputMaybe<String_Comparison_Exp>;
+  readonly user?: InputMaybe<Users_Bool_Exp>;
+  readonly userId?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "auth.user_security_keys" */
-export enum AuthUserSecurityKeys_Constraint {
+export type AuthUserSecurityKeys_Constraint =
   /** unique or primary key constraint on columns "credential_id" */
-  UserSecurityKeyCredentialIdKey = 'user_security_key_credential_id_key',
+  | 'user_security_key_credential_id_key'
   /** unique or primary key constraint on columns "id" */
-  UserSecurityKeysPkey = 'user_security_keys_pkey'
-}
+  | 'user_security_keys_pkey';
 
 /** input type for incrementing numeric columns in table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Inc_Input = {
-  counter?: InputMaybe<Scalars['bigint']>;
+  readonly counter?: InputMaybe<Scalars['bigint']>;
 };
 
 /** input type for inserting data into table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Insert_Input = {
-  counter?: InputMaybe<Scalars['bigint']>;
-  credentialId?: InputMaybe<Scalars['String']>;
-  credentialPublicKey?: InputMaybe<Scalars['bytea']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  nickname?: InputMaybe<Scalars['String']>;
-  transports?: InputMaybe<Scalars['String']>;
-  user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  userId?: InputMaybe<Scalars['uuid']>;
+  readonly counter?: InputMaybe<Scalars['bigint']>;
+  readonly credentialId?: InputMaybe<Scalars['String']>;
+  readonly credentialPublicKey?: InputMaybe<Scalars['bytea']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly nickname?: InputMaybe<Scalars['String']>;
+  readonly transports?: InputMaybe<Scalars['String']>;
+  readonly user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
+  readonly userId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** aggregate max on columns */
 export type AuthUserSecurityKeys_Max_Fields = {
-  __typename?: 'authUserSecurityKeys_max_fields';
-  counter?: Maybe<Scalars['bigint']>;
-  credentialId?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['uuid']>;
-  nickname?: Maybe<Scalars['String']>;
-  transports?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'authUserSecurityKeys_max_fields';
+  readonly counter?: Maybe<Scalars['bigint']>;
+  readonly credentialId?: Maybe<Scalars['String']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly nickname?: Maybe<Scalars['String']>;
+  readonly transports?: Maybe<Scalars['String']>;
+  readonly userId?: Maybe<Scalars['uuid']>;
 };
 
 /** order by max() on columns of table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Max_Order_By = {
-  counter?: InputMaybe<Order_By>;
-  credentialId?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  nickname?: InputMaybe<Order_By>;
-  transports?: InputMaybe<Order_By>;
-  userId?: InputMaybe<Order_By>;
+  readonly counter?: InputMaybe<Order_By>;
+  readonly credentialId?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly nickname?: InputMaybe<Order_By>;
+  readonly transports?: InputMaybe<Order_By>;
+  readonly userId?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
 export type AuthUserSecurityKeys_Min_Fields = {
-  __typename?: 'authUserSecurityKeys_min_fields';
-  counter?: Maybe<Scalars['bigint']>;
-  credentialId?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['uuid']>;
-  nickname?: Maybe<Scalars['String']>;
-  transports?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'authUserSecurityKeys_min_fields';
+  readonly counter?: Maybe<Scalars['bigint']>;
+  readonly credentialId?: Maybe<Scalars['String']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly nickname?: Maybe<Scalars['String']>;
+  readonly transports?: Maybe<Scalars['String']>;
+  readonly userId?: Maybe<Scalars['uuid']>;
 };
 
 /** order by min() on columns of table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Min_Order_By = {
-  counter?: InputMaybe<Order_By>;
-  credentialId?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  nickname?: InputMaybe<Order_By>;
-  transports?: InputMaybe<Order_By>;
-  userId?: InputMaybe<Order_By>;
+  readonly counter?: InputMaybe<Order_By>;
+  readonly credentialId?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly nickname?: InputMaybe<Order_By>;
+  readonly transports?: InputMaybe<Order_By>;
+  readonly userId?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Mutation_Response = {
-  __typename?: 'authUserSecurityKeys_mutation_response';
+  readonly __typename?: 'authUserSecurityKeys_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<AuthUserSecurityKeys>;
+  readonly returning: ReadonlyArray<AuthUserSecurityKeys>;
 };
 
 /** on_conflict condition type for table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_On_Conflict = {
-  constraint: AuthUserSecurityKeys_Constraint;
-  update_columns?: Array<AuthUserSecurityKeys_Update_Column>;
-  where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
+  readonly constraint: AuthUserSecurityKeys_Constraint;
+  readonly update_columns?: ReadonlyArray<AuthUserSecurityKeys_Update_Column>;
+  readonly where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.user_security_keys". */
 export type AuthUserSecurityKeys_Order_By = {
-  counter?: InputMaybe<Order_By>;
-  credentialId?: InputMaybe<Order_By>;
-  credentialPublicKey?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  nickname?: InputMaybe<Order_By>;
-  transports?: InputMaybe<Order_By>;
-  user?: InputMaybe<Users_Order_By>;
-  userId?: InputMaybe<Order_By>;
+  readonly counter?: InputMaybe<Order_By>;
+  readonly credentialId?: InputMaybe<Order_By>;
+  readonly credentialPublicKey?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly nickname?: InputMaybe<Order_By>;
+  readonly transports?: InputMaybe<Order_By>;
+  readonly user?: InputMaybe<Users_Order_By>;
+  readonly userId?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: auth.user_security_keys */
 export type AuthUserSecurityKeys_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  readonly id: Scalars['uuid'];
 };
 
 /** select columns of table "auth.user_security_keys" */
-export enum AuthUserSecurityKeys_Select_Column {
+export type AuthUserSecurityKeys_Select_Column =
   /** column name */
-  Counter = 'counter',
+  | 'counter'
   /** column name */
-  CredentialId = 'credentialId',
+  | 'credentialId'
   /** column name */
-  CredentialPublicKey = 'credentialPublicKey',
+  | 'credentialPublicKey'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Nickname = 'nickname',
+  | 'nickname'
   /** column name */
-  Transports = 'transports',
+  | 'transports'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 /** input type for updating data in table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Set_Input = {
-  counter?: InputMaybe<Scalars['bigint']>;
-  credentialId?: InputMaybe<Scalars['String']>;
-  credentialPublicKey?: InputMaybe<Scalars['bytea']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  nickname?: InputMaybe<Scalars['String']>;
-  transports?: InputMaybe<Scalars['String']>;
-  userId?: InputMaybe<Scalars['uuid']>;
+  readonly counter?: InputMaybe<Scalars['bigint']>;
+  readonly credentialId?: InputMaybe<Scalars['String']>;
+  readonly credentialPublicKey?: InputMaybe<Scalars['bytea']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly nickname?: InputMaybe<Scalars['String']>;
+  readonly transports?: InputMaybe<Scalars['String']>;
+  readonly userId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** aggregate stddev on columns */
 export type AuthUserSecurityKeys_Stddev_Fields = {
-  __typename?: 'authUserSecurityKeys_stddev_fields';
-  counter?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'authUserSecurityKeys_stddev_fields';
+  readonly counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Stddev_Order_By = {
-  counter?: InputMaybe<Order_By>;
+  readonly counter?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
 export type AuthUserSecurityKeys_Stddev_Pop_Fields = {
-  __typename?: 'authUserSecurityKeys_stddev_pop_fields';
-  counter?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'authUserSecurityKeys_stddev_pop_fields';
+  readonly counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Stddev_Pop_Order_By = {
-  counter?: InputMaybe<Order_By>;
+  readonly counter?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
 export type AuthUserSecurityKeys_Stddev_Samp_Fields = {
-  __typename?: 'authUserSecurityKeys_stddev_samp_fields';
-  counter?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'authUserSecurityKeys_stddev_samp_fields';
+  readonly counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Stddev_Samp_Order_By = {
-  counter?: InputMaybe<Order_By>;
+  readonly counter?: InputMaybe<Order_By>;
 };
 
 /** Streaming cursor of the table "authUserSecurityKeys" */
 export type AuthUserSecurityKeys_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: AuthUserSecurityKeys_Stream_Cursor_Value_Input;
+  readonly initial_value: AuthUserSecurityKeys_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type AuthUserSecurityKeys_Stream_Cursor_Value_Input = {
-  counter?: InputMaybe<Scalars['bigint']>;
-  credentialId?: InputMaybe<Scalars['String']>;
-  credentialPublicKey?: InputMaybe<Scalars['bytea']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  nickname?: InputMaybe<Scalars['String']>;
-  transports?: InputMaybe<Scalars['String']>;
-  userId?: InputMaybe<Scalars['uuid']>;
+  readonly counter?: InputMaybe<Scalars['bigint']>;
+  readonly credentialId?: InputMaybe<Scalars['String']>;
+  readonly credentialPublicKey?: InputMaybe<Scalars['bytea']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly nickname?: InputMaybe<Scalars['String']>;
+  readonly transports?: InputMaybe<Scalars['String']>;
+  readonly userId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** aggregate sum on columns */
 export type AuthUserSecurityKeys_Sum_Fields = {
-  __typename?: 'authUserSecurityKeys_sum_fields';
-  counter?: Maybe<Scalars['bigint']>;
+  readonly __typename?: 'authUserSecurityKeys_sum_fields';
+  readonly counter?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Sum_Order_By = {
-  counter?: InputMaybe<Order_By>;
+  readonly counter?: InputMaybe<Order_By>;
 };
 
 /** update columns of table "auth.user_security_keys" */
-export enum AuthUserSecurityKeys_Update_Column {
+export type AuthUserSecurityKeys_Update_Column =
   /** column name */
-  Counter = 'counter',
+  | 'counter'
   /** column name */
-  CredentialId = 'credentialId',
+  | 'credentialId'
   /** column name */
-  CredentialPublicKey = 'credentialPublicKey',
+  | 'credentialPublicKey'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Nickname = 'nickname',
+  | 'nickname'
   /** column name */
-  Transports = 'transports',
+  | 'transports'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 export type AuthUserSecurityKeys_Updates = {
   /** increments the numeric columns with given value of the filtered values */
-  _inc?: InputMaybe<AuthUserSecurityKeys_Inc_Input>;
+  readonly _inc?: InputMaybe<AuthUserSecurityKeys_Inc_Input>;
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<AuthUserSecurityKeys_Set_Input>;
+  readonly _set?: InputMaybe<AuthUserSecurityKeys_Set_Input>;
   /** filter the rows which have to be updated */
-  where: AuthUserSecurityKeys_Bool_Exp;
+  readonly where: AuthUserSecurityKeys_Bool_Exp;
 };
 
 /** aggregate var_pop on columns */
 export type AuthUserSecurityKeys_Var_Pop_Fields = {
-  __typename?: 'authUserSecurityKeys_var_pop_fields';
-  counter?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'authUserSecurityKeys_var_pop_fields';
+  readonly counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Var_Pop_Order_By = {
-  counter?: InputMaybe<Order_By>;
+  readonly counter?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
 export type AuthUserSecurityKeys_Var_Samp_Fields = {
-  __typename?: 'authUserSecurityKeys_var_samp_fields';
-  counter?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'authUserSecurityKeys_var_samp_fields';
+  readonly counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Var_Samp_Order_By = {
-  counter?: InputMaybe<Order_By>;
+  readonly counter?: InputMaybe<Order_By>;
 };
 
 /** aggregate variance on columns */
 export type AuthUserSecurityKeys_Variance_Fields = {
-  __typename?: 'authUserSecurityKeys_variance_fields';
-  counter?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'authUserSecurityKeys_variance_fields';
+  readonly counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Variance_Order_By = {
-  counter?: InputMaybe<Order_By>;
+  readonly counter?: InputMaybe<Order_By>;
 };
 
 /** columns and relationships of "backlog" */
 export type Backlog = {
-  __typename?: 'backlog';
+  readonly __typename?: 'backlog';
   /** An array relationship */
-  ListTask: Array<Task>;
+  readonly ListTask: ReadonlyArray<Task>;
   /** An aggregate relationship */
-  ListTask_aggregate: Task_Aggregate;
-  createdAt: Scalars['timestamptz'];
-  id: Scalars['uuid'];
-  updatedAt: Scalars['timestamptz'];
-  user_id: Scalars['uuid'];
+  readonly ListTask_aggregate: Task_Aggregate;
+  readonly createdAt: Scalars['timestamptz'];
+  readonly id: Scalars['uuid'];
+  readonly updatedAt: Scalars['timestamptz'];
+  readonly user_id: Scalars['uuid'];
 };
 
 
 /** columns and relationships of "backlog" */
 export type BacklogListTaskArgs = {
-  distinct_on?: InputMaybe<Array<Task_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Task_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Task_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Task_Order_By>>;
   where?: InputMaybe<Task_Bool_Exp>;
 };
 
 
 /** columns and relationships of "backlog" */
 export type BacklogListTask_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Task_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Task_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Task_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Task_Order_By>>;
   where?: InputMaybe<Task_Bool_Exp>;
 };
 
 /** aggregated selection of "backlog" */
 export type Backlog_Aggregate = {
-  __typename?: 'backlog_aggregate';
-  aggregate?: Maybe<Backlog_Aggregate_Fields>;
-  nodes: Array<Backlog>;
+  readonly __typename?: 'backlog_aggregate';
+  readonly aggregate?: Maybe<Backlog_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<Backlog>;
 };
 
 /** aggregate fields of "backlog" */
 export type Backlog_Aggregate_Fields = {
-  __typename?: 'backlog_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<Backlog_Max_Fields>;
-  min?: Maybe<Backlog_Min_Fields>;
+  readonly __typename?: 'backlog_aggregate_fields';
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<Backlog_Max_Fields>;
+  readonly min?: Maybe<Backlog_Min_Fields>;
 };
 
 
 /** aggregate fields of "backlog" */
 export type Backlog_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<Backlog_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<Backlog_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Boolean expression to filter rows from the table "backlog". All fields are combined with a logical 'AND'. */
 export type Backlog_Bool_Exp = {
-  ListTask?: InputMaybe<Task_Bool_Exp>;
-  ListTask_aggregate?: InputMaybe<Task_Aggregate_Bool_Exp>;
-  _and?: InputMaybe<Array<Backlog_Bool_Exp>>;
-  _not?: InputMaybe<Backlog_Bool_Exp>;
-  _or?: InputMaybe<Array<Backlog_Bool_Exp>>;
-  createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  id?: InputMaybe<Uuid_Comparison_Exp>;
-  updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  user_id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly ListTask?: InputMaybe<Task_Bool_Exp>;
+  readonly ListTask_aggregate?: InputMaybe<Task_Aggregate_Bool_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<Backlog_Bool_Exp>>;
+  readonly _not?: InputMaybe<Backlog_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<Backlog_Bool_Exp>>;
+  readonly createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly user_id?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "backlog" */
-export enum Backlog_Constraint {
+export type Backlog_Constraint =
   /** unique or primary key constraint on columns "id" */
-  BacklogPkey = 'backlog_pkey',
+  | 'backlog_pkey'
   /** unique or primary key constraint on columns "user_id" */
-  BacklogUserIdKey = 'backlog_user_id_key'
-}
+  | 'backlog_user_id_key';
 
 /** input type for inserting data into table "backlog" */
 export type Backlog_Insert_Input = {
-  ListTask?: InputMaybe<Task_Arr_Rel_Insert_Input>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  readonly ListTask?: InputMaybe<Task_Arr_Rel_Insert_Input>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly user_id?: InputMaybe<Scalars['uuid']>;
 };
 
 /** aggregate max on columns */
 export type Backlog_Max_Fields = {
-  __typename?: 'backlog_max_fields';
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  id?: Maybe<Scalars['uuid']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'backlog_max_fields';
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly user_id?: Maybe<Scalars['uuid']>;
 };
 
 /** aggregate min on columns */
 export type Backlog_Min_Fields = {
-  __typename?: 'backlog_min_fields';
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  id?: Maybe<Scalars['uuid']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'backlog_min_fields';
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly user_id?: Maybe<Scalars['uuid']>;
 };
 
 /** response of any mutation on the table "backlog" */
 export type Backlog_Mutation_Response = {
-  __typename?: 'backlog_mutation_response';
+  readonly __typename?: 'backlog_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<Backlog>;
+  readonly returning: ReadonlyArray<Backlog>;
 };
 
 /** on_conflict condition type for table "backlog" */
 export type Backlog_On_Conflict = {
-  constraint: Backlog_Constraint;
-  update_columns?: Array<Backlog_Update_Column>;
-  where?: InputMaybe<Backlog_Bool_Exp>;
+  readonly constraint: Backlog_Constraint;
+  readonly update_columns?: ReadonlyArray<Backlog_Update_Column>;
+  readonly where?: InputMaybe<Backlog_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "backlog". */
 export type Backlog_Order_By = {
-  ListTask_aggregate?: InputMaybe<Task_Aggregate_Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
+  readonly ListTask_aggregate?: InputMaybe<Task_Aggregate_Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
+  readonly user_id?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: backlog */
 export type Backlog_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  readonly id: Scalars['uuid'];
 };
 
 /** select columns of table "backlog" */
-export enum Backlog_Select_Column {
+export type Backlog_Select_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'user_id'
-}
+  | 'user_id';
 
 /** input type for updating data in table "backlog" */
 export type Backlog_Set_Input = {
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly user_id?: InputMaybe<Scalars['uuid']>;
 };
 
 /** Streaming cursor of the table "backlog" */
 export type Backlog_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: Backlog_Stream_Cursor_Value_Input;
+  readonly initial_value: Backlog_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Backlog_Stream_Cursor_Value_Input = {
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly user_id?: InputMaybe<Scalars['uuid']>;
 };
 
 /** update columns of table "backlog" */
-export enum Backlog_Update_Column {
+export type Backlog_Update_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'user_id'
-}
+  | 'user_id';
 
 export type Backlog_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<Backlog_Set_Input>;
+  readonly _set?: InputMaybe<Backlog_Set_Input>;
   /** filter the rows which have to be updated */
-  where: Backlog_Bool_Exp;
+  readonly where: Backlog_Bool_Exp;
 };
 
 /** Boolean expression to compare columns of type "bigint". All fields are combined with logical 'AND'. */
 export type Bigint_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['bigint']>;
-  _gt?: InputMaybe<Scalars['bigint']>;
-  _gte?: InputMaybe<Scalars['bigint']>;
-  _in?: InputMaybe<Array<Scalars['bigint']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['bigint']>;
-  _lte?: InputMaybe<Scalars['bigint']>;
-  _neq?: InputMaybe<Scalars['bigint']>;
-  _nin?: InputMaybe<Array<Scalars['bigint']>>;
+  readonly _eq?: InputMaybe<Scalars['bigint']>;
+  readonly _gt?: InputMaybe<Scalars['bigint']>;
+  readonly _gte?: InputMaybe<Scalars['bigint']>;
+  readonly _in?: InputMaybe<ReadonlyArray<Scalars['bigint']>>;
+  readonly _is_null?: InputMaybe<Scalars['Boolean']>;
+  readonly _lt?: InputMaybe<Scalars['bigint']>;
+  readonly _lte?: InputMaybe<Scalars['bigint']>;
+  readonly _neq?: InputMaybe<Scalars['bigint']>;
+  readonly _nin?: InputMaybe<ReadonlyArray<Scalars['bigint']>>;
 };
 
 /** columns and relationships of "storage.buckets" */
 export type Buckets = {
-  __typename?: 'buckets';
-  cacheControl?: Maybe<Scalars['String']>;
-  createdAt: Scalars['timestamptz'];
-  downloadExpiration: Scalars['Int'];
+  readonly __typename?: 'buckets';
+  readonly cacheControl?: Maybe<Scalars['String']>;
+  readonly createdAt: Scalars['timestamptz'];
+  readonly downloadExpiration: Scalars['Int'];
   /** An array relationship */
-  files: Array<Files>;
+  readonly files: ReadonlyArray<Files>;
   /** An aggregate relationship */
-  files_aggregate: Files_Aggregate;
-  id: Scalars['String'];
-  maxUploadFileSize: Scalars['Int'];
-  minUploadFileSize: Scalars['Int'];
-  presignedUrlsEnabled: Scalars['Boolean'];
-  updatedAt: Scalars['timestamptz'];
+  readonly files_aggregate: Files_Aggregate;
+  readonly id: Scalars['String'];
+  readonly maxUploadFileSize: Scalars['Int'];
+  readonly minUploadFileSize: Scalars['Int'];
+  readonly presignedUrlsEnabled: Scalars['Boolean'];
+  readonly updatedAt: Scalars['timestamptz'];
 };
 
 
 /** columns and relationships of "storage.buckets" */
 export type BucketsFilesArgs = {
-  distinct_on?: InputMaybe<Array<Files_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Files_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Files_Order_By>>;
   where?: InputMaybe<Files_Bool_Exp>;
 };
 
 
 /** columns and relationships of "storage.buckets" */
 export type BucketsFiles_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Files_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Files_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Files_Order_By>>;
   where?: InputMaybe<Files_Bool_Exp>;
 };
 
 /** aggregated selection of "storage.buckets" */
 export type Buckets_Aggregate = {
-  __typename?: 'buckets_aggregate';
-  aggregate?: Maybe<Buckets_Aggregate_Fields>;
-  nodes: Array<Buckets>;
+  readonly __typename?: 'buckets_aggregate';
+  readonly aggregate?: Maybe<Buckets_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<Buckets>;
 };
 
 /** aggregate fields of "storage.buckets" */
 export type Buckets_Aggregate_Fields = {
-  __typename?: 'buckets_aggregate_fields';
-  avg?: Maybe<Buckets_Avg_Fields>;
-  count: Scalars['Int'];
-  max?: Maybe<Buckets_Max_Fields>;
-  min?: Maybe<Buckets_Min_Fields>;
-  stddev?: Maybe<Buckets_Stddev_Fields>;
-  stddev_pop?: Maybe<Buckets_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Buckets_Stddev_Samp_Fields>;
-  sum?: Maybe<Buckets_Sum_Fields>;
-  var_pop?: Maybe<Buckets_Var_Pop_Fields>;
-  var_samp?: Maybe<Buckets_Var_Samp_Fields>;
-  variance?: Maybe<Buckets_Variance_Fields>;
+  readonly __typename?: 'buckets_aggregate_fields';
+  readonly avg?: Maybe<Buckets_Avg_Fields>;
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<Buckets_Max_Fields>;
+  readonly min?: Maybe<Buckets_Min_Fields>;
+  readonly stddev?: Maybe<Buckets_Stddev_Fields>;
+  readonly stddev_pop?: Maybe<Buckets_Stddev_Pop_Fields>;
+  readonly stddev_samp?: Maybe<Buckets_Stddev_Samp_Fields>;
+  readonly sum?: Maybe<Buckets_Sum_Fields>;
+  readonly var_pop?: Maybe<Buckets_Var_Pop_Fields>;
+  readonly var_samp?: Maybe<Buckets_Var_Samp_Fields>;
+  readonly variance?: Maybe<Buckets_Variance_Fields>;
 };
 
 
 /** aggregate fields of "storage.buckets" */
 export type Buckets_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<Buckets_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<Buckets_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** aggregate avg on columns */
 export type Buckets_Avg_Fields = {
-  __typename?: 'buckets_avg_fields';
-  downloadExpiration?: Maybe<Scalars['Float']>;
-  maxUploadFileSize?: Maybe<Scalars['Float']>;
-  minUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'buckets_avg_fields';
+  readonly downloadExpiration?: Maybe<Scalars['Float']>;
+  readonly maxUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly minUploadFileSize?: Maybe<Scalars['Float']>;
 };
 
 /** Boolean expression to filter rows from the table "storage.buckets". All fields are combined with a logical 'AND'. */
 export type Buckets_Bool_Exp = {
-  _and?: InputMaybe<Array<Buckets_Bool_Exp>>;
-  _not?: InputMaybe<Buckets_Bool_Exp>;
-  _or?: InputMaybe<Array<Buckets_Bool_Exp>>;
-  cacheControl?: InputMaybe<String_Comparison_Exp>;
-  createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  downloadExpiration?: InputMaybe<Int_Comparison_Exp>;
-  files?: InputMaybe<Files_Bool_Exp>;
-  files_aggregate?: InputMaybe<Files_Aggregate_Bool_Exp>;
-  id?: InputMaybe<String_Comparison_Exp>;
-  maxUploadFileSize?: InputMaybe<Int_Comparison_Exp>;
-  minUploadFileSize?: InputMaybe<Int_Comparison_Exp>;
-  presignedUrlsEnabled?: InputMaybe<Boolean_Comparison_Exp>;
-  updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<Buckets_Bool_Exp>>;
+  readonly _not?: InputMaybe<Buckets_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<Buckets_Bool_Exp>>;
+  readonly cacheControl?: InputMaybe<String_Comparison_Exp>;
+  readonly createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly downloadExpiration?: InputMaybe<Int_Comparison_Exp>;
+  readonly files?: InputMaybe<Files_Bool_Exp>;
+  readonly files_aggregate?: InputMaybe<Files_Aggregate_Bool_Exp>;
+  readonly id?: InputMaybe<String_Comparison_Exp>;
+  readonly maxUploadFileSize?: InputMaybe<Int_Comparison_Exp>;
+  readonly minUploadFileSize?: InputMaybe<Int_Comparison_Exp>;
+  readonly presignedUrlsEnabled?: InputMaybe<Boolean_Comparison_Exp>;
+  readonly updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "storage.buckets" */
-export enum Buckets_Constraint {
+export type Buckets_Constraint =
   /** unique or primary key constraint on columns "id" */
-  BucketsPkey = 'buckets_pkey'
-}
+  | 'buckets_pkey';
 
 /** input type for incrementing numeric columns in table "storage.buckets" */
 export type Buckets_Inc_Input = {
-  downloadExpiration?: InputMaybe<Scalars['Int']>;
-  maxUploadFileSize?: InputMaybe<Scalars['Int']>;
-  minUploadFileSize?: InputMaybe<Scalars['Int']>;
+  readonly downloadExpiration?: InputMaybe<Scalars['Int']>;
+  readonly maxUploadFileSize?: InputMaybe<Scalars['Int']>;
+  readonly minUploadFileSize?: InputMaybe<Scalars['Int']>;
 };
 
 /** input type for inserting data into table "storage.buckets" */
 export type Buckets_Insert_Input = {
-  cacheControl?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  downloadExpiration?: InputMaybe<Scalars['Int']>;
-  files?: InputMaybe<Files_Arr_Rel_Insert_Input>;
-  id?: InputMaybe<Scalars['String']>;
-  maxUploadFileSize?: InputMaybe<Scalars['Int']>;
-  minUploadFileSize?: InputMaybe<Scalars['Int']>;
-  presignedUrlsEnabled?: InputMaybe<Scalars['Boolean']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly cacheControl?: InputMaybe<Scalars['String']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly downloadExpiration?: InputMaybe<Scalars['Int']>;
+  readonly files?: InputMaybe<Files_Arr_Rel_Insert_Input>;
+  readonly id?: InputMaybe<Scalars['String']>;
+  readonly maxUploadFileSize?: InputMaybe<Scalars['Int']>;
+  readonly minUploadFileSize?: InputMaybe<Scalars['Int']>;
+  readonly presignedUrlsEnabled?: InputMaybe<Scalars['Boolean']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
 };
 
 /** aggregate max on columns */
 export type Buckets_Max_Fields = {
-  __typename?: 'buckets_max_fields';
-  cacheControl?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  downloadExpiration?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['String']>;
-  maxUploadFileSize?: Maybe<Scalars['Int']>;
-  minUploadFileSize?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly __typename?: 'buckets_max_fields';
+  readonly cacheControl?: Maybe<Scalars['String']>;
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly downloadExpiration?: Maybe<Scalars['Int']>;
+  readonly id?: Maybe<Scalars['String']>;
+  readonly maxUploadFileSize?: Maybe<Scalars['Int']>;
+  readonly minUploadFileSize?: Maybe<Scalars['Int']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
 };
 
 /** aggregate min on columns */
 export type Buckets_Min_Fields = {
-  __typename?: 'buckets_min_fields';
-  cacheControl?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  downloadExpiration?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['String']>;
-  maxUploadFileSize?: Maybe<Scalars['Int']>;
-  minUploadFileSize?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly __typename?: 'buckets_min_fields';
+  readonly cacheControl?: Maybe<Scalars['String']>;
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly downloadExpiration?: Maybe<Scalars['Int']>;
+  readonly id?: Maybe<Scalars['String']>;
+  readonly maxUploadFileSize?: Maybe<Scalars['Int']>;
+  readonly minUploadFileSize?: Maybe<Scalars['Int']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
 };
 
 /** response of any mutation on the table "storage.buckets" */
 export type Buckets_Mutation_Response = {
-  __typename?: 'buckets_mutation_response';
+  readonly __typename?: 'buckets_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<Buckets>;
+  readonly returning: ReadonlyArray<Buckets>;
 };
 
 /** input type for inserting object relation for remote table "storage.buckets" */
 export type Buckets_Obj_Rel_Insert_Input = {
-  data: Buckets_Insert_Input;
+  readonly data: Buckets_Insert_Input;
   /** upsert condition */
-  on_conflict?: InputMaybe<Buckets_On_Conflict>;
+  readonly on_conflict?: InputMaybe<Buckets_On_Conflict>;
 };
 
 /** on_conflict condition type for table "storage.buckets" */
 export type Buckets_On_Conflict = {
-  constraint: Buckets_Constraint;
-  update_columns?: Array<Buckets_Update_Column>;
-  where?: InputMaybe<Buckets_Bool_Exp>;
+  readonly constraint: Buckets_Constraint;
+  readonly update_columns?: ReadonlyArray<Buckets_Update_Column>;
+  readonly where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "storage.buckets". */
 export type Buckets_Order_By = {
-  cacheControl?: InputMaybe<Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  downloadExpiration?: InputMaybe<Order_By>;
-  files_aggregate?: InputMaybe<Files_Aggregate_Order_By>;
-  id?: InputMaybe<Order_By>;
-  maxUploadFileSize?: InputMaybe<Order_By>;
-  minUploadFileSize?: InputMaybe<Order_By>;
-  presignedUrlsEnabled?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
+  readonly cacheControl?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly downloadExpiration?: InputMaybe<Order_By>;
+  readonly files_aggregate?: InputMaybe<Files_Aggregate_Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly maxUploadFileSize?: InputMaybe<Order_By>;
+  readonly minUploadFileSize?: InputMaybe<Order_By>;
+  readonly presignedUrlsEnabled?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: storage.buckets */
 export type Buckets_Pk_Columns_Input = {
-  id: Scalars['String'];
+  readonly id: Scalars['String'];
 };
 
 /** select columns of table "storage.buckets" */
-export enum Buckets_Select_Column {
+export type Buckets_Select_Column =
   /** column name */
-  CacheControl = 'cacheControl',
+  | 'cacheControl'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  DownloadExpiration = 'downloadExpiration',
+  | 'downloadExpiration'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  MaxUploadFileSize = 'maxUploadFileSize',
+  | 'maxUploadFileSize'
   /** column name */
-  MinUploadFileSize = 'minUploadFileSize',
+  | 'minUploadFileSize'
   /** column name */
-  PresignedUrlsEnabled = 'presignedUrlsEnabled',
+  | 'presignedUrlsEnabled'
   /** column name */
-  UpdatedAt = 'updatedAt'
-}
+  | 'updatedAt';
 
 /** input type for updating data in table "storage.buckets" */
 export type Buckets_Set_Input = {
-  cacheControl?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  downloadExpiration?: InputMaybe<Scalars['Int']>;
-  id?: InputMaybe<Scalars['String']>;
-  maxUploadFileSize?: InputMaybe<Scalars['Int']>;
-  minUploadFileSize?: InputMaybe<Scalars['Int']>;
-  presignedUrlsEnabled?: InputMaybe<Scalars['Boolean']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly cacheControl?: InputMaybe<Scalars['String']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly downloadExpiration?: InputMaybe<Scalars['Int']>;
+  readonly id?: InputMaybe<Scalars['String']>;
+  readonly maxUploadFileSize?: InputMaybe<Scalars['Int']>;
+  readonly minUploadFileSize?: InputMaybe<Scalars['Int']>;
+  readonly presignedUrlsEnabled?: InputMaybe<Scalars['Boolean']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
 };
 
 /** aggregate stddev on columns */
 export type Buckets_Stddev_Fields = {
-  __typename?: 'buckets_stddev_fields';
-  downloadExpiration?: Maybe<Scalars['Float']>;
-  maxUploadFileSize?: Maybe<Scalars['Float']>;
-  minUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'buckets_stddev_fields';
+  readonly downloadExpiration?: Maybe<Scalars['Float']>;
+  readonly maxUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly minUploadFileSize?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Buckets_Stddev_Pop_Fields = {
-  __typename?: 'buckets_stddev_pop_fields';
-  downloadExpiration?: Maybe<Scalars['Float']>;
-  maxUploadFileSize?: Maybe<Scalars['Float']>;
-  minUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'buckets_stddev_pop_fields';
+  readonly downloadExpiration?: Maybe<Scalars['Float']>;
+  readonly maxUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly minUploadFileSize?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Buckets_Stddev_Samp_Fields = {
-  __typename?: 'buckets_stddev_samp_fields';
-  downloadExpiration?: Maybe<Scalars['Float']>;
-  maxUploadFileSize?: Maybe<Scalars['Float']>;
-  minUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'buckets_stddev_samp_fields';
+  readonly downloadExpiration?: Maybe<Scalars['Float']>;
+  readonly maxUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly minUploadFileSize?: Maybe<Scalars['Float']>;
 };
 
 /** Streaming cursor of the table "buckets" */
 export type Buckets_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: Buckets_Stream_Cursor_Value_Input;
+  readonly initial_value: Buckets_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Buckets_Stream_Cursor_Value_Input = {
-  cacheControl?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  downloadExpiration?: InputMaybe<Scalars['Int']>;
-  id?: InputMaybe<Scalars['String']>;
-  maxUploadFileSize?: InputMaybe<Scalars['Int']>;
-  minUploadFileSize?: InputMaybe<Scalars['Int']>;
-  presignedUrlsEnabled?: InputMaybe<Scalars['Boolean']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly cacheControl?: InputMaybe<Scalars['String']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly downloadExpiration?: InputMaybe<Scalars['Int']>;
+  readonly id?: InputMaybe<Scalars['String']>;
+  readonly maxUploadFileSize?: InputMaybe<Scalars['Int']>;
+  readonly minUploadFileSize?: InputMaybe<Scalars['Int']>;
+  readonly presignedUrlsEnabled?: InputMaybe<Scalars['Boolean']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
 };
 
 /** aggregate sum on columns */
 export type Buckets_Sum_Fields = {
-  __typename?: 'buckets_sum_fields';
-  downloadExpiration?: Maybe<Scalars['Int']>;
-  maxUploadFileSize?: Maybe<Scalars['Int']>;
-  minUploadFileSize?: Maybe<Scalars['Int']>;
+  readonly __typename?: 'buckets_sum_fields';
+  readonly downloadExpiration?: Maybe<Scalars['Int']>;
+  readonly maxUploadFileSize?: Maybe<Scalars['Int']>;
+  readonly minUploadFileSize?: Maybe<Scalars['Int']>;
 };
 
 /** update columns of table "storage.buckets" */
-export enum Buckets_Update_Column {
+export type Buckets_Update_Column =
   /** column name */
-  CacheControl = 'cacheControl',
+  | 'cacheControl'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  DownloadExpiration = 'downloadExpiration',
+  | 'downloadExpiration'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  MaxUploadFileSize = 'maxUploadFileSize',
+  | 'maxUploadFileSize'
   /** column name */
-  MinUploadFileSize = 'minUploadFileSize',
+  | 'minUploadFileSize'
   /** column name */
-  PresignedUrlsEnabled = 'presignedUrlsEnabled',
+  | 'presignedUrlsEnabled'
   /** column name */
-  UpdatedAt = 'updatedAt'
-}
+  | 'updatedAt';
 
 export type Buckets_Updates = {
   /** increments the numeric columns with given value of the filtered values */
-  _inc?: InputMaybe<Buckets_Inc_Input>;
+  readonly _inc?: InputMaybe<Buckets_Inc_Input>;
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<Buckets_Set_Input>;
+  readonly _set?: InputMaybe<Buckets_Set_Input>;
   /** filter the rows which have to be updated */
-  where: Buckets_Bool_Exp;
+  readonly where: Buckets_Bool_Exp;
 };
 
 /** aggregate var_pop on columns */
 export type Buckets_Var_Pop_Fields = {
-  __typename?: 'buckets_var_pop_fields';
-  downloadExpiration?: Maybe<Scalars['Float']>;
-  maxUploadFileSize?: Maybe<Scalars['Float']>;
-  minUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'buckets_var_pop_fields';
+  readonly downloadExpiration?: Maybe<Scalars['Float']>;
+  readonly maxUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly minUploadFileSize?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate var_samp on columns */
 export type Buckets_Var_Samp_Fields = {
-  __typename?: 'buckets_var_samp_fields';
-  downloadExpiration?: Maybe<Scalars['Float']>;
-  maxUploadFileSize?: Maybe<Scalars['Float']>;
-  minUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'buckets_var_samp_fields';
+  readonly downloadExpiration?: Maybe<Scalars['Float']>;
+  readonly maxUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly minUploadFileSize?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate variance on columns */
 export type Buckets_Variance_Fields = {
-  __typename?: 'buckets_variance_fields';
-  downloadExpiration?: Maybe<Scalars['Float']>;
-  maxUploadFileSize?: Maybe<Scalars['Float']>;
-  minUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'buckets_variance_fields';
+  readonly downloadExpiration?: Maybe<Scalars['Float']>;
+  readonly maxUploadFileSize?: Maybe<Scalars['Float']>;
+  readonly minUploadFileSize?: Maybe<Scalars['Float']>;
 };
 
 /** Boolean expression to compare columns of type "bytea". All fields are combined with logical 'AND'. */
 export type Bytea_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['bytea']>;
-  _gt?: InputMaybe<Scalars['bytea']>;
-  _gte?: InputMaybe<Scalars['bytea']>;
-  _in?: InputMaybe<Array<Scalars['bytea']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['bytea']>;
-  _lte?: InputMaybe<Scalars['bytea']>;
-  _neq?: InputMaybe<Scalars['bytea']>;
-  _nin?: InputMaybe<Array<Scalars['bytea']>>;
+  readonly _eq?: InputMaybe<Scalars['bytea']>;
+  readonly _gt?: InputMaybe<Scalars['bytea']>;
+  readonly _gte?: InputMaybe<Scalars['bytea']>;
+  readonly _in?: InputMaybe<ReadonlyArray<Scalars['bytea']>>;
+  readonly _is_null?: InputMaybe<Scalars['Boolean']>;
+  readonly _lt?: InputMaybe<Scalars['bytea']>;
+  readonly _lte?: InputMaybe<Scalars['bytea']>;
+  readonly _neq?: InputMaybe<Scalars['bytea']>;
+  readonly _nin?: InputMaybe<ReadonlyArray<Scalars['bytea']>>;
 };
 
 /** Boolean expression to compare columns of type "citext". All fields are combined with logical 'AND'. */
 export type Citext_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['citext']>;
-  _gt?: InputMaybe<Scalars['citext']>;
-  _gte?: InputMaybe<Scalars['citext']>;
+  readonly _eq?: InputMaybe<Scalars['citext']>;
+  readonly _gt?: InputMaybe<Scalars['citext']>;
+  readonly _gte?: InputMaybe<Scalars['citext']>;
   /** does the column match the given case-insensitive pattern */
-  _ilike?: InputMaybe<Scalars['citext']>;
-  _in?: InputMaybe<Array<Scalars['citext']>>;
+  readonly _ilike?: InputMaybe<Scalars['citext']>;
+  readonly _in?: InputMaybe<ReadonlyArray<Scalars['citext']>>;
   /** does the column match the given POSIX regular expression, case insensitive */
-  _iregex?: InputMaybe<Scalars['citext']>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
+  readonly _iregex?: InputMaybe<Scalars['citext']>;
+  readonly _is_null?: InputMaybe<Scalars['Boolean']>;
   /** does the column match the given pattern */
-  _like?: InputMaybe<Scalars['citext']>;
-  _lt?: InputMaybe<Scalars['citext']>;
-  _lte?: InputMaybe<Scalars['citext']>;
-  _neq?: InputMaybe<Scalars['citext']>;
+  readonly _like?: InputMaybe<Scalars['citext']>;
+  readonly _lt?: InputMaybe<Scalars['citext']>;
+  readonly _lte?: InputMaybe<Scalars['citext']>;
+  readonly _neq?: InputMaybe<Scalars['citext']>;
   /** does the column NOT match the given case-insensitive pattern */
-  _nilike?: InputMaybe<Scalars['citext']>;
-  _nin?: InputMaybe<Array<Scalars['citext']>>;
+  readonly _nilike?: InputMaybe<Scalars['citext']>;
+  readonly _nin?: InputMaybe<ReadonlyArray<Scalars['citext']>>;
   /** does the column NOT match the given POSIX regular expression, case insensitive */
-  _niregex?: InputMaybe<Scalars['citext']>;
+  readonly _niregex?: InputMaybe<Scalars['citext']>;
   /** does the column NOT match the given pattern */
-  _nlike?: InputMaybe<Scalars['citext']>;
+  readonly _nlike?: InputMaybe<Scalars['citext']>;
   /** does the column NOT match the given POSIX regular expression, case sensitive */
-  _nregex?: InputMaybe<Scalars['citext']>;
+  readonly _nregex?: InputMaybe<Scalars['citext']>;
   /** does the column NOT match the given SQL regular expression */
-  _nsimilar?: InputMaybe<Scalars['citext']>;
+  readonly _nsimilar?: InputMaybe<Scalars['citext']>;
   /** does the column match the given POSIX regular expression, case sensitive */
-  _regex?: InputMaybe<Scalars['citext']>;
+  readonly _regex?: InputMaybe<Scalars['citext']>;
   /** does the column match the given SQL regular expression */
-  _similar?: InputMaybe<Scalars['citext']>;
+  readonly _similar?: InputMaybe<Scalars['citext']>;
 };
 
 /** ordering argument of a cursor */
-export enum Cursor_Ordering {
+export type Cursor_Ordering =
   /** ascending ordering of the cursor */
-  Asc = 'ASC',
+  | 'ASC'
   /** descending ordering of the cursor */
-  Desc = 'DESC'
-}
+  | 'DESC';
 
 /** Boolean expression to compare columns of type "date". All fields are combined with logical 'AND'. */
 export type Date_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['date']>;
-  _gt?: InputMaybe<Scalars['date']>;
-  _gte?: InputMaybe<Scalars['date']>;
-  _in?: InputMaybe<Array<Scalars['date']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['date']>;
-  _lte?: InputMaybe<Scalars['date']>;
-  _neq?: InputMaybe<Scalars['date']>;
-  _nin?: InputMaybe<Array<Scalars['date']>>;
+  readonly _eq?: InputMaybe<Scalars['date']>;
+  readonly _gt?: InputMaybe<Scalars['date']>;
+  readonly _gte?: InputMaybe<Scalars['date']>;
+  readonly _in?: InputMaybe<ReadonlyArray<Scalars['date']>>;
+  readonly _is_null?: InputMaybe<Scalars['Boolean']>;
+  readonly _lt?: InputMaybe<Scalars['date']>;
+  readonly _lte?: InputMaybe<Scalars['date']>;
+  readonly _neq?: InputMaybe<Scalars['date']>;
+  readonly _nin?: InputMaybe<ReadonlyArray<Scalars['date']>>;
 };
 
 /** columns and relationships of "dayPlanning" */
 export type DayPlanning = {
-  __typename?: 'dayPlanning';
+  readonly __typename?: 'dayPlanning';
   /** An array relationship */
-  ListTask: Array<Task>;
+  readonly ListTask: ReadonlyArray<Task>;
   /** An array relationship */
-  ListTaskPriorityMax3: Array<Task>;
+  readonly ListTaskPriorityMax3: ReadonlyArray<Task>;
   /** An aggregate relationship */
-  ListTaskPriorityMax3_aggregate: Task_Aggregate;
+  readonly ListTaskPriorityMax3_aggregate: Task_Aggregate;
   /** An aggregate relationship */
-  ListTask_aggregate: Task_Aggregate;
-  createdAt: Scalars['timestamptz'];
-  date: Scalars['date'];
-  id: Scalars['uuid'];
-  updatedAt: Scalars['timestamptz'];
-  user_id: Scalars['uuid'];
+  readonly ListTask_aggregate: Task_Aggregate;
+  readonly createdAt: Scalars['timestamptz'];
+  readonly date: Scalars['date'];
+  readonly id: Scalars['uuid'];
+  readonly updatedAt: Scalars['timestamptz'];
+  readonly user_id: Scalars['uuid'];
 };
 
 
 /** columns and relationships of "dayPlanning" */
 export type DayPlanningListTaskArgs = {
-  distinct_on?: InputMaybe<Array<Task_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Task_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Task_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Task_Order_By>>;
   where?: InputMaybe<Task_Bool_Exp>;
 };
 
 
 /** columns and relationships of "dayPlanning" */
 export type DayPlanningListTaskPriorityMax3Args = {
-  distinct_on?: InputMaybe<Array<Task_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Task_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Task_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Task_Order_By>>;
   where?: InputMaybe<Task_Bool_Exp>;
 };
 
 
 /** columns and relationships of "dayPlanning" */
 export type DayPlanningListTaskPriorityMax3_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Task_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Task_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Task_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Task_Order_By>>;
   where?: InputMaybe<Task_Bool_Exp>;
 };
 
 
 /** columns and relationships of "dayPlanning" */
 export type DayPlanningListTask_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Task_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Task_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Task_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Task_Order_By>>;
   where?: InputMaybe<Task_Bool_Exp>;
 };
 
 /** aggregated selection of "dayPlanning" */
 export type DayPlanning_Aggregate = {
-  __typename?: 'dayPlanning_aggregate';
-  aggregate?: Maybe<DayPlanning_Aggregate_Fields>;
-  nodes: Array<DayPlanning>;
+  readonly __typename?: 'dayPlanning_aggregate';
+  readonly aggregate?: Maybe<DayPlanning_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<DayPlanning>;
 };
 
 /** aggregate fields of "dayPlanning" */
 export type DayPlanning_Aggregate_Fields = {
-  __typename?: 'dayPlanning_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<DayPlanning_Max_Fields>;
-  min?: Maybe<DayPlanning_Min_Fields>;
+  readonly __typename?: 'dayPlanning_aggregate_fields';
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<DayPlanning_Max_Fields>;
+  readonly min?: Maybe<DayPlanning_Min_Fields>;
 };
 
 
 /** aggregate fields of "dayPlanning" */
 export type DayPlanning_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<DayPlanning_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<DayPlanning_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Boolean expression to filter rows from the table "dayPlanning". All fields are combined with a logical 'AND'. */
 export type DayPlanning_Bool_Exp = {
-  ListTask?: InputMaybe<Task_Bool_Exp>;
-  ListTaskPriorityMax3?: InputMaybe<Task_Bool_Exp>;
-  ListTaskPriorityMax3_aggregate?: InputMaybe<Task_Aggregate_Bool_Exp>;
-  ListTask_aggregate?: InputMaybe<Task_Aggregate_Bool_Exp>;
-  _and?: InputMaybe<Array<DayPlanning_Bool_Exp>>;
-  _not?: InputMaybe<DayPlanning_Bool_Exp>;
-  _or?: InputMaybe<Array<DayPlanning_Bool_Exp>>;
-  createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  date?: InputMaybe<Date_Comparison_Exp>;
-  id?: InputMaybe<Uuid_Comparison_Exp>;
-  updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  user_id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly ListTask?: InputMaybe<Task_Bool_Exp>;
+  readonly ListTaskPriorityMax3?: InputMaybe<Task_Bool_Exp>;
+  readonly ListTaskPriorityMax3_aggregate?: InputMaybe<Task_Aggregate_Bool_Exp>;
+  readonly ListTask_aggregate?: InputMaybe<Task_Aggregate_Bool_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<DayPlanning_Bool_Exp>>;
+  readonly _not?: InputMaybe<DayPlanning_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<DayPlanning_Bool_Exp>>;
+  readonly createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly date?: InputMaybe<Date_Comparison_Exp>;
+  readonly id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly user_id?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "dayPlanning" */
-export enum DayPlanning_Constraint {
+export type DayPlanning_Constraint =
   /** unique or primary key constraint on columns "id" */
-  DayPlanningPkey = 'dayPlanning_pkey'
-}
+  | 'dayPlanning_pkey';
 
 /** input type for inserting data into table "dayPlanning" */
 export type DayPlanning_Insert_Input = {
-  ListTask?: InputMaybe<Task_Arr_Rel_Insert_Input>;
-  ListTaskPriorityMax3?: InputMaybe<Task_Arr_Rel_Insert_Input>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  date?: InputMaybe<Scalars['date']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  readonly ListTask?: InputMaybe<Task_Arr_Rel_Insert_Input>;
+  readonly ListTaskPriorityMax3?: InputMaybe<Task_Arr_Rel_Insert_Input>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly date?: InputMaybe<Scalars['date']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly user_id?: InputMaybe<Scalars['uuid']>;
 };
 
 /** aggregate max on columns */
 export type DayPlanning_Max_Fields = {
-  __typename?: 'dayPlanning_max_fields';
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  date?: Maybe<Scalars['date']>;
-  id?: Maybe<Scalars['uuid']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'dayPlanning_max_fields';
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly date?: Maybe<Scalars['date']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly user_id?: Maybe<Scalars['uuid']>;
 };
 
 /** aggregate min on columns */
 export type DayPlanning_Min_Fields = {
-  __typename?: 'dayPlanning_min_fields';
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  date?: Maybe<Scalars['date']>;
-  id?: Maybe<Scalars['uuid']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'dayPlanning_min_fields';
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly date?: Maybe<Scalars['date']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly user_id?: Maybe<Scalars['uuid']>;
 };
 
 /** response of any mutation on the table "dayPlanning" */
 export type DayPlanning_Mutation_Response = {
-  __typename?: 'dayPlanning_mutation_response';
+  readonly __typename?: 'dayPlanning_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<DayPlanning>;
+  readonly returning: ReadonlyArray<DayPlanning>;
 };
 
 /** on_conflict condition type for table "dayPlanning" */
 export type DayPlanning_On_Conflict = {
-  constraint: DayPlanning_Constraint;
-  update_columns?: Array<DayPlanning_Update_Column>;
-  where?: InputMaybe<DayPlanning_Bool_Exp>;
+  readonly constraint: DayPlanning_Constraint;
+  readonly update_columns?: ReadonlyArray<DayPlanning_Update_Column>;
+  readonly where?: InputMaybe<DayPlanning_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "dayPlanning". */
 export type DayPlanning_Order_By = {
-  ListTaskPriorityMax3_aggregate?: InputMaybe<Task_Aggregate_Order_By>;
-  ListTask_aggregate?: InputMaybe<Task_Aggregate_Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  date?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
+  readonly ListTaskPriorityMax3_aggregate?: InputMaybe<Task_Aggregate_Order_By>;
+  readonly ListTask_aggregate?: InputMaybe<Task_Aggregate_Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly date?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
+  readonly user_id?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: dayPlanning */
 export type DayPlanning_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  readonly id: Scalars['uuid'];
 };
 
 /** select columns of table "dayPlanning" */
-export enum DayPlanning_Select_Column {
+export type DayPlanning_Select_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Date = 'date',
+  | 'date'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'user_id'
-}
+  | 'user_id';
 
 /** input type for updating data in table "dayPlanning" */
 export type DayPlanning_Set_Input = {
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  date?: InputMaybe<Scalars['date']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly date?: InputMaybe<Scalars['date']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly user_id?: InputMaybe<Scalars['uuid']>;
 };
 
 /** Streaming cursor of the table "dayPlanning" */
 export type DayPlanning_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: DayPlanning_Stream_Cursor_Value_Input;
+  readonly initial_value: DayPlanning_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type DayPlanning_Stream_Cursor_Value_Input = {
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  date?: InputMaybe<Scalars['date']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly date?: InputMaybe<Scalars['date']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly user_id?: InputMaybe<Scalars['uuid']>;
 };
 
 /** update columns of table "dayPlanning" */
-export enum DayPlanning_Update_Column {
+export type DayPlanning_Update_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Date = 'date',
+  | 'date'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'user_id'
-}
+  | 'user_id';
 
 export type DayPlanning_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<DayPlanning_Set_Input>;
+  readonly _set?: InputMaybe<DayPlanning_Set_Input>;
   /** filter the rows which have to be updated */
-  where: DayPlanning_Bool_Exp;
+  readonly where: DayPlanning_Bool_Exp;
 };
 
 /** columns and relationships of "storage.files" */
 export type Files = {
-  __typename?: 'files';
+  readonly __typename?: 'files';
   /** An object relationship */
-  bucket: Buckets;
-  bucketId: Scalars['String'];
-  createdAt: Scalars['timestamptz'];
-  etag?: Maybe<Scalars['String']>;
-  id: Scalars['uuid'];
-  isUploaded?: Maybe<Scalars['Boolean']>;
-  mimeType?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Int']>;
-  updatedAt: Scalars['timestamptz'];
-  uploadedByUserId?: Maybe<Scalars['uuid']>;
+  readonly bucket: Buckets;
+  readonly bucketId: Scalars['String'];
+  readonly createdAt: Scalars['timestamptz'];
+  readonly etag?: Maybe<Scalars['String']>;
+  readonly id: Scalars['uuid'];
+  readonly isUploaded?: Maybe<Scalars['Boolean']>;
+  readonly mimeType?: Maybe<Scalars['String']>;
+  readonly name?: Maybe<Scalars['String']>;
+  readonly size?: Maybe<Scalars['Int']>;
+  readonly updatedAt: Scalars['timestamptz'];
+  readonly uploadedByUserId?: Maybe<Scalars['uuid']>;
 };
 
 /** aggregated selection of "storage.files" */
 export type Files_Aggregate = {
-  __typename?: 'files_aggregate';
-  aggregate?: Maybe<Files_Aggregate_Fields>;
-  nodes: Array<Files>;
+  readonly __typename?: 'files_aggregate';
+  readonly aggregate?: Maybe<Files_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<Files>;
 };
 
 export type Files_Aggregate_Bool_Exp = {
-  bool_and?: InputMaybe<Files_Aggregate_Bool_Exp_Bool_And>;
-  bool_or?: InputMaybe<Files_Aggregate_Bool_Exp_Bool_Or>;
-  count?: InputMaybe<Files_Aggregate_Bool_Exp_Count>;
+  readonly bool_and?: InputMaybe<Files_Aggregate_Bool_Exp_Bool_And>;
+  readonly bool_or?: InputMaybe<Files_Aggregate_Bool_Exp_Bool_Or>;
+  readonly count?: InputMaybe<Files_Aggregate_Bool_Exp_Count>;
 };
 
 export type Files_Aggregate_Bool_Exp_Bool_And = {
-  arguments: Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-  filter?: InputMaybe<Files_Bool_Exp>;
-  predicate: Boolean_Comparison_Exp;
+  readonly arguments: Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns;
+  readonly distinct?: InputMaybe<Scalars['Boolean']>;
+  readonly filter?: InputMaybe<Files_Bool_Exp>;
+  readonly predicate: Boolean_Comparison_Exp;
 };
 
 export type Files_Aggregate_Bool_Exp_Bool_Or = {
-  arguments: Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-  filter?: InputMaybe<Files_Bool_Exp>;
-  predicate: Boolean_Comparison_Exp;
+  readonly arguments: Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns;
+  readonly distinct?: InputMaybe<Scalars['Boolean']>;
+  readonly filter?: InputMaybe<Files_Bool_Exp>;
+  readonly predicate: Boolean_Comparison_Exp;
 };
 
 export type Files_Aggregate_Bool_Exp_Count = {
-  arguments?: InputMaybe<Array<Files_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-  filter?: InputMaybe<Files_Bool_Exp>;
-  predicate: Int_Comparison_Exp;
+  readonly arguments?: InputMaybe<ReadonlyArray<Files_Select_Column>>;
+  readonly distinct?: InputMaybe<Scalars['Boolean']>;
+  readonly filter?: InputMaybe<Files_Bool_Exp>;
+  readonly predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "storage.files" */
 export type Files_Aggregate_Fields = {
-  __typename?: 'files_aggregate_fields';
-  avg?: Maybe<Files_Avg_Fields>;
-  count: Scalars['Int'];
-  max?: Maybe<Files_Max_Fields>;
-  min?: Maybe<Files_Min_Fields>;
-  stddev?: Maybe<Files_Stddev_Fields>;
-  stddev_pop?: Maybe<Files_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Files_Stddev_Samp_Fields>;
-  sum?: Maybe<Files_Sum_Fields>;
-  var_pop?: Maybe<Files_Var_Pop_Fields>;
-  var_samp?: Maybe<Files_Var_Samp_Fields>;
-  variance?: Maybe<Files_Variance_Fields>;
+  readonly __typename?: 'files_aggregate_fields';
+  readonly avg?: Maybe<Files_Avg_Fields>;
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<Files_Max_Fields>;
+  readonly min?: Maybe<Files_Min_Fields>;
+  readonly stddev?: Maybe<Files_Stddev_Fields>;
+  readonly stddev_pop?: Maybe<Files_Stddev_Pop_Fields>;
+  readonly stddev_samp?: Maybe<Files_Stddev_Samp_Fields>;
+  readonly sum?: Maybe<Files_Sum_Fields>;
+  readonly var_pop?: Maybe<Files_Var_Pop_Fields>;
+  readonly var_samp?: Maybe<Files_Var_Samp_Fields>;
+  readonly variance?: Maybe<Files_Variance_Fields>;
 };
 
 
 /** aggregate fields of "storage.files" */
 export type Files_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<Files_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<Files_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "storage.files" */
 export type Files_Aggregate_Order_By = {
-  avg?: InputMaybe<Files_Avg_Order_By>;
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<Files_Max_Order_By>;
-  min?: InputMaybe<Files_Min_Order_By>;
-  stddev?: InputMaybe<Files_Stddev_Order_By>;
-  stddev_pop?: InputMaybe<Files_Stddev_Pop_Order_By>;
-  stddev_samp?: InputMaybe<Files_Stddev_Samp_Order_By>;
-  sum?: InputMaybe<Files_Sum_Order_By>;
-  var_pop?: InputMaybe<Files_Var_Pop_Order_By>;
-  var_samp?: InputMaybe<Files_Var_Samp_Order_By>;
-  variance?: InputMaybe<Files_Variance_Order_By>;
+  readonly avg?: InputMaybe<Files_Avg_Order_By>;
+  readonly count?: InputMaybe<Order_By>;
+  readonly max?: InputMaybe<Files_Max_Order_By>;
+  readonly min?: InputMaybe<Files_Min_Order_By>;
+  readonly stddev?: InputMaybe<Files_Stddev_Order_By>;
+  readonly stddev_pop?: InputMaybe<Files_Stddev_Pop_Order_By>;
+  readonly stddev_samp?: InputMaybe<Files_Stddev_Samp_Order_By>;
+  readonly sum?: InputMaybe<Files_Sum_Order_By>;
+  readonly var_pop?: InputMaybe<Files_Var_Pop_Order_By>;
+  readonly var_samp?: InputMaybe<Files_Var_Samp_Order_By>;
+  readonly variance?: InputMaybe<Files_Variance_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "storage.files" */
 export type Files_Arr_Rel_Insert_Input = {
-  data: Array<Files_Insert_Input>;
+  readonly data: ReadonlyArray<Files_Insert_Input>;
   /** upsert condition */
-  on_conflict?: InputMaybe<Files_On_Conflict>;
+  readonly on_conflict?: InputMaybe<Files_On_Conflict>;
 };
 
 /** aggregate avg on columns */
 export type Files_Avg_Fields = {
-  __typename?: 'files_avg_fields';
-  size?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'files_avg_fields';
+  readonly size?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "storage.files" */
 export type Files_Avg_Order_By = {
-  size?: InputMaybe<Order_By>;
+  readonly size?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "storage.files". All fields are combined with a logical 'AND'. */
 export type Files_Bool_Exp = {
-  _and?: InputMaybe<Array<Files_Bool_Exp>>;
-  _not?: InputMaybe<Files_Bool_Exp>;
-  _or?: InputMaybe<Array<Files_Bool_Exp>>;
-  bucket?: InputMaybe<Buckets_Bool_Exp>;
-  bucketId?: InputMaybe<String_Comparison_Exp>;
-  createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  etag?: InputMaybe<String_Comparison_Exp>;
-  id?: InputMaybe<Uuid_Comparison_Exp>;
-  isUploaded?: InputMaybe<Boolean_Comparison_Exp>;
-  mimeType?: InputMaybe<String_Comparison_Exp>;
-  name?: InputMaybe<String_Comparison_Exp>;
-  size?: InputMaybe<Int_Comparison_Exp>;
-  updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  uploadedByUserId?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<Files_Bool_Exp>>;
+  readonly _not?: InputMaybe<Files_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<Files_Bool_Exp>>;
+  readonly bucket?: InputMaybe<Buckets_Bool_Exp>;
+  readonly bucketId?: InputMaybe<String_Comparison_Exp>;
+  readonly createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly etag?: InputMaybe<String_Comparison_Exp>;
+  readonly id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly isUploaded?: InputMaybe<Boolean_Comparison_Exp>;
+  readonly mimeType?: InputMaybe<String_Comparison_Exp>;
+  readonly name?: InputMaybe<String_Comparison_Exp>;
+  readonly size?: InputMaybe<Int_Comparison_Exp>;
+  readonly updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly uploadedByUserId?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "storage.files" */
-export enum Files_Constraint {
+export type Files_Constraint =
   /** unique or primary key constraint on columns "id" */
-  FilesPkey = 'files_pkey'
-}
+  | 'files_pkey';
 
 /** input type for incrementing numeric columns in table "storage.files" */
 export type Files_Inc_Input = {
-  size?: InputMaybe<Scalars['Int']>;
+  readonly size?: InputMaybe<Scalars['Int']>;
 };
 
 /** input type for inserting data into table "storage.files" */
 export type Files_Insert_Input = {
-  bucket?: InputMaybe<Buckets_Obj_Rel_Insert_Input>;
-  bucketId?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  etag?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  isUploaded?: InputMaybe<Scalars['Boolean']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-  size?: InputMaybe<Scalars['Int']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  uploadedByUserId?: InputMaybe<Scalars['uuid']>;
+  readonly bucket?: InputMaybe<Buckets_Obj_Rel_Insert_Input>;
+  readonly bucketId?: InputMaybe<Scalars['String']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly etag?: InputMaybe<Scalars['String']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly isUploaded?: InputMaybe<Scalars['Boolean']>;
+  readonly mimeType?: InputMaybe<Scalars['String']>;
+  readonly name?: InputMaybe<Scalars['String']>;
+  readonly size?: InputMaybe<Scalars['Int']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly uploadedByUserId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** aggregate max on columns */
 export type Files_Max_Fields = {
-  __typename?: 'files_max_fields';
-  bucketId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  etag?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['uuid']>;
-  mimeType?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
-  uploadedByUserId?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'files_max_fields';
+  readonly bucketId?: Maybe<Scalars['String']>;
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly etag?: Maybe<Scalars['String']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly mimeType?: Maybe<Scalars['String']>;
+  readonly name?: Maybe<Scalars['String']>;
+  readonly size?: Maybe<Scalars['Int']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly uploadedByUserId?: Maybe<Scalars['uuid']>;
 };
 
 /** order by max() on columns of table "storage.files" */
 export type Files_Max_Order_By = {
-  bucketId?: InputMaybe<Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  etag?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  mimeType?: InputMaybe<Order_By>;
-  name?: InputMaybe<Order_By>;
-  size?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
-  uploadedByUserId?: InputMaybe<Order_By>;
+  readonly bucketId?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly etag?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly mimeType?: InputMaybe<Order_By>;
+  readonly name?: InputMaybe<Order_By>;
+  readonly size?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
+  readonly uploadedByUserId?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
 export type Files_Min_Fields = {
-  __typename?: 'files_min_fields';
-  bucketId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  etag?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['uuid']>;
-  mimeType?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
-  uploadedByUserId?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'files_min_fields';
+  readonly bucketId?: Maybe<Scalars['String']>;
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly etag?: Maybe<Scalars['String']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly mimeType?: Maybe<Scalars['String']>;
+  readonly name?: Maybe<Scalars['String']>;
+  readonly size?: Maybe<Scalars['Int']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly uploadedByUserId?: Maybe<Scalars['uuid']>;
 };
 
 /** order by min() on columns of table "storage.files" */
 export type Files_Min_Order_By = {
-  bucketId?: InputMaybe<Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  etag?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  mimeType?: InputMaybe<Order_By>;
-  name?: InputMaybe<Order_By>;
-  size?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
-  uploadedByUserId?: InputMaybe<Order_By>;
+  readonly bucketId?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly etag?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly mimeType?: InputMaybe<Order_By>;
+  readonly name?: InputMaybe<Order_By>;
+  readonly size?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
+  readonly uploadedByUserId?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "storage.files" */
 export type Files_Mutation_Response = {
-  __typename?: 'files_mutation_response';
+  readonly __typename?: 'files_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<Files>;
+  readonly returning: ReadonlyArray<Files>;
 };
 
 /** on_conflict condition type for table "storage.files" */
 export type Files_On_Conflict = {
-  constraint: Files_Constraint;
-  update_columns?: Array<Files_Update_Column>;
-  where?: InputMaybe<Files_Bool_Exp>;
+  readonly constraint: Files_Constraint;
+  readonly update_columns?: ReadonlyArray<Files_Update_Column>;
+  readonly where?: InputMaybe<Files_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "storage.files". */
 export type Files_Order_By = {
-  bucket?: InputMaybe<Buckets_Order_By>;
-  bucketId?: InputMaybe<Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  etag?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  isUploaded?: InputMaybe<Order_By>;
-  mimeType?: InputMaybe<Order_By>;
-  name?: InputMaybe<Order_By>;
-  size?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
-  uploadedByUserId?: InputMaybe<Order_By>;
+  readonly bucket?: InputMaybe<Buckets_Order_By>;
+  readonly bucketId?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly etag?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly isUploaded?: InputMaybe<Order_By>;
+  readonly mimeType?: InputMaybe<Order_By>;
+  readonly name?: InputMaybe<Order_By>;
+  readonly size?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
+  readonly uploadedByUserId?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: storage.files */
 export type Files_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  readonly id: Scalars['uuid'];
 };
 
 /** select columns of table "storage.files" */
-export enum Files_Select_Column {
+export type Files_Select_Column =
   /** column name */
-  BucketId = 'bucketId',
+  | 'bucketId'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Etag = 'etag',
+  | 'etag'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  IsUploaded = 'isUploaded',
+  | 'isUploaded'
   /** column name */
-  MimeType = 'mimeType',
+  | 'mimeType'
   /** column name */
-  Name = 'name',
+  | 'name'
   /** column name */
-  Size = 'size',
+  | 'size'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UploadedByUserId = 'uploadedByUserId'
-}
+  | 'uploadedByUserId';
 
 /** select "files_aggregate_bool_exp_bool_and_arguments_columns" columns of table "storage.files" */
-export enum Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns {
+export type Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns =
   /** column name */
-  IsUploaded = 'isUploaded'
-}
+  | 'isUploaded';
 
 /** select "files_aggregate_bool_exp_bool_or_arguments_columns" columns of table "storage.files" */
-export enum Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns {
+export type Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns =
   /** column name */
-  IsUploaded = 'isUploaded'
-}
+  | 'isUploaded';
 
 /** input type for updating data in table "storage.files" */
 export type Files_Set_Input = {
-  bucketId?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  etag?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  isUploaded?: InputMaybe<Scalars['Boolean']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-  size?: InputMaybe<Scalars['Int']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  uploadedByUserId?: InputMaybe<Scalars['uuid']>;
+  readonly bucketId?: InputMaybe<Scalars['String']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly etag?: InputMaybe<Scalars['String']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly isUploaded?: InputMaybe<Scalars['Boolean']>;
+  readonly mimeType?: InputMaybe<Scalars['String']>;
+  readonly name?: InputMaybe<Scalars['String']>;
+  readonly size?: InputMaybe<Scalars['Int']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly uploadedByUserId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** aggregate stddev on columns */
 export type Files_Stddev_Fields = {
-  __typename?: 'files_stddev_fields';
-  size?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'files_stddev_fields';
+  readonly size?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "storage.files" */
 export type Files_Stddev_Order_By = {
-  size?: InputMaybe<Order_By>;
+  readonly size?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Files_Stddev_Pop_Fields = {
-  __typename?: 'files_stddev_pop_fields';
-  size?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'files_stddev_pop_fields';
+  readonly size?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "storage.files" */
 export type Files_Stddev_Pop_Order_By = {
-  size?: InputMaybe<Order_By>;
+  readonly size?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Files_Stddev_Samp_Fields = {
-  __typename?: 'files_stddev_samp_fields';
-  size?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'files_stddev_samp_fields';
+  readonly size?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "storage.files" */
 export type Files_Stddev_Samp_Order_By = {
-  size?: InputMaybe<Order_By>;
+  readonly size?: InputMaybe<Order_By>;
 };
 
 /** Streaming cursor of the table "files" */
 export type Files_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: Files_Stream_Cursor_Value_Input;
+  readonly initial_value: Files_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Files_Stream_Cursor_Value_Input = {
-  bucketId?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  etag?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  isUploaded?: InputMaybe<Scalars['Boolean']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-  size?: InputMaybe<Scalars['Int']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  uploadedByUserId?: InputMaybe<Scalars['uuid']>;
+  readonly bucketId?: InputMaybe<Scalars['String']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly etag?: InputMaybe<Scalars['String']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly isUploaded?: InputMaybe<Scalars['Boolean']>;
+  readonly mimeType?: InputMaybe<Scalars['String']>;
+  readonly name?: InputMaybe<Scalars['String']>;
+  readonly size?: InputMaybe<Scalars['Int']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly uploadedByUserId?: InputMaybe<Scalars['uuid']>;
 };
 
 /** aggregate sum on columns */
 export type Files_Sum_Fields = {
-  __typename?: 'files_sum_fields';
-  size?: Maybe<Scalars['Int']>;
+  readonly __typename?: 'files_sum_fields';
+  readonly size?: Maybe<Scalars['Int']>;
 };
 
 /** order by sum() on columns of table "storage.files" */
 export type Files_Sum_Order_By = {
-  size?: InputMaybe<Order_By>;
+  readonly size?: InputMaybe<Order_By>;
 };
 
 /** update columns of table "storage.files" */
-export enum Files_Update_Column {
+export type Files_Update_Column =
   /** column name */
-  BucketId = 'bucketId',
+  | 'bucketId'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Etag = 'etag',
+  | 'etag'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  IsUploaded = 'isUploaded',
+  | 'isUploaded'
   /** column name */
-  MimeType = 'mimeType',
+  | 'mimeType'
   /** column name */
-  Name = 'name',
+  | 'name'
   /** column name */
-  Size = 'size',
+  | 'size'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UploadedByUserId = 'uploadedByUserId'
-}
+  | 'uploadedByUserId';
 
 export type Files_Updates = {
   /** increments the numeric columns with given value of the filtered values */
-  _inc?: InputMaybe<Files_Inc_Input>;
+  readonly _inc?: InputMaybe<Files_Inc_Input>;
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<Files_Set_Input>;
+  readonly _set?: InputMaybe<Files_Set_Input>;
   /** filter the rows which have to be updated */
-  where: Files_Bool_Exp;
+  readonly where: Files_Bool_Exp;
 };
 
 /** aggregate var_pop on columns */
 export type Files_Var_Pop_Fields = {
-  __typename?: 'files_var_pop_fields';
-  size?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'files_var_pop_fields';
+  readonly size?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "storage.files" */
 export type Files_Var_Pop_Order_By = {
-  size?: InputMaybe<Order_By>;
+  readonly size?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
 export type Files_Var_Samp_Fields = {
-  __typename?: 'files_var_samp_fields';
-  size?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'files_var_samp_fields';
+  readonly size?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "storage.files" */
 export type Files_Var_Samp_Order_By = {
-  size?: InputMaybe<Order_By>;
+  readonly size?: InputMaybe<Order_By>;
 };
 
 /** aggregate variance on columns */
 export type Files_Variance_Fields = {
-  __typename?: 'files_variance_fields';
-  size?: Maybe<Scalars['Float']>;
+  readonly __typename?: 'files_variance_fields';
+  readonly size?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "storage.files" */
 export type Files_Variance_Order_By = {
-  size?: InputMaybe<Order_By>;
+  readonly size?: InputMaybe<Order_By>;
 };
 
 export type Jsonb_Cast_Exp = {
-  String?: InputMaybe<String_Comparison_Exp>;
+  readonly String?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** Boolean expression to compare columns of type "jsonb". All fields are combined with logical 'AND'. */
 export type Jsonb_Comparison_Exp = {
-  _cast?: InputMaybe<Jsonb_Cast_Exp>;
+  readonly _cast?: InputMaybe<Jsonb_Cast_Exp>;
   /** is the column contained in the given json value */
-  _contained_in?: InputMaybe<Scalars['jsonb']>;
+  readonly _contained_in?: InputMaybe<Scalars['jsonb']>;
   /** does the column contain the given json value at the top level */
-  _contains?: InputMaybe<Scalars['jsonb']>;
-  _eq?: InputMaybe<Scalars['jsonb']>;
-  _gt?: InputMaybe<Scalars['jsonb']>;
-  _gte?: InputMaybe<Scalars['jsonb']>;
+  readonly _contains?: InputMaybe<Scalars['jsonb']>;
+  readonly _eq?: InputMaybe<Scalars['jsonb']>;
+  readonly _gt?: InputMaybe<Scalars['jsonb']>;
+  readonly _gte?: InputMaybe<Scalars['jsonb']>;
   /** does the string exist as a top-level key in the column */
-  _has_key?: InputMaybe<Scalars['String']>;
+  readonly _has_key?: InputMaybe<Scalars['String']>;
   /** do all of these strings exist as top-level keys in the column */
-  _has_keys_all?: InputMaybe<Array<Scalars['String']>>;
+  readonly _has_keys_all?: InputMaybe<ReadonlyArray<Scalars['String']>>;
   /** do any of these strings exist as top-level keys in the column */
-  _has_keys_any?: InputMaybe<Array<Scalars['String']>>;
-  _in?: InputMaybe<Array<Scalars['jsonb']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['jsonb']>;
-  _lte?: InputMaybe<Scalars['jsonb']>;
-  _neq?: InputMaybe<Scalars['jsonb']>;
-  _nin?: InputMaybe<Array<Scalars['jsonb']>>;
+  readonly _has_keys_any?: InputMaybe<ReadonlyArray<Scalars['String']>>;
+  readonly _in?: InputMaybe<ReadonlyArray<Scalars['jsonb']>>;
+  readonly _is_null?: InputMaybe<Scalars['Boolean']>;
+  readonly _lt?: InputMaybe<Scalars['jsonb']>;
+  readonly _lte?: InputMaybe<Scalars['jsonb']>;
+  readonly _neq?: InputMaybe<Scalars['jsonb']>;
+  readonly _nin?: InputMaybe<ReadonlyArray<Scalars['jsonb']>>;
 };
 
 /** mutation root */
 export type Mutation_Root = {
-  __typename?: 'mutation_root';
+  readonly __typename?: 'mutation_root';
   /** delete single row from the table: "auth.providers" */
-  deleteAuthProvider?: Maybe<AuthProviders>;
+  readonly deleteAuthProvider?: Maybe<AuthProviders>;
   /** delete single row from the table: "auth.provider_requests" */
-  deleteAuthProviderRequest?: Maybe<AuthProviderRequests>;
+  readonly deleteAuthProviderRequest?: Maybe<AuthProviderRequests>;
   /** delete data from the table: "auth.provider_requests" */
-  deleteAuthProviderRequests?: Maybe<AuthProviderRequests_Mutation_Response>;
+  readonly deleteAuthProviderRequests?: Maybe<AuthProviderRequests_Mutation_Response>;
   /** delete data from the table: "auth.providers" */
-  deleteAuthProviders?: Maybe<AuthProviders_Mutation_Response>;
+  readonly deleteAuthProviders?: Maybe<AuthProviders_Mutation_Response>;
   /** delete single row from the table: "auth.refresh_tokens" */
-  deleteAuthRefreshToken?: Maybe<AuthRefreshTokens>;
+  readonly deleteAuthRefreshToken?: Maybe<AuthRefreshTokens>;
   /** delete single row from the table: "auth.refresh_token_types" */
-  deleteAuthRefreshTokenType?: Maybe<AuthRefreshTokenTypes>;
+  readonly deleteAuthRefreshTokenType?: Maybe<AuthRefreshTokenTypes>;
   /** delete data from the table: "auth.refresh_token_types" */
-  deleteAuthRefreshTokenTypes?: Maybe<AuthRefreshTokenTypes_Mutation_Response>;
+  readonly deleteAuthRefreshTokenTypes?: Maybe<AuthRefreshTokenTypes_Mutation_Response>;
   /** delete data from the table: "auth.refresh_tokens" */
-  deleteAuthRefreshTokens?: Maybe<AuthRefreshTokens_Mutation_Response>;
+  readonly deleteAuthRefreshTokens?: Maybe<AuthRefreshTokens_Mutation_Response>;
   /** delete single row from the table: "auth.roles" */
-  deleteAuthRole?: Maybe<AuthRoles>;
+  readonly deleteAuthRole?: Maybe<AuthRoles>;
   /** delete data from the table: "auth.roles" */
-  deleteAuthRoles?: Maybe<AuthRoles_Mutation_Response>;
+  readonly deleteAuthRoles?: Maybe<AuthRoles_Mutation_Response>;
   /** delete single row from the table: "auth.user_providers" */
-  deleteAuthUserProvider?: Maybe<AuthUserProviders>;
+  readonly deleteAuthUserProvider?: Maybe<AuthUserProviders>;
   /** delete data from the table: "auth.user_providers" */
-  deleteAuthUserProviders?: Maybe<AuthUserProviders_Mutation_Response>;
+  readonly deleteAuthUserProviders?: Maybe<AuthUserProviders_Mutation_Response>;
   /** delete single row from the table: "auth.user_roles" */
-  deleteAuthUserRole?: Maybe<AuthUserRoles>;
+  readonly deleteAuthUserRole?: Maybe<AuthUserRoles>;
   /** delete data from the table: "auth.user_roles" */
-  deleteAuthUserRoles?: Maybe<AuthUserRoles_Mutation_Response>;
+  readonly deleteAuthUserRoles?: Maybe<AuthUserRoles_Mutation_Response>;
   /** delete single row from the table: "auth.user_security_keys" */
-  deleteAuthUserSecurityKey?: Maybe<AuthUserSecurityKeys>;
+  readonly deleteAuthUserSecurityKey?: Maybe<AuthUserSecurityKeys>;
   /** delete data from the table: "auth.user_security_keys" */
-  deleteAuthUserSecurityKeys?: Maybe<AuthUserSecurityKeys_Mutation_Response>;
+  readonly deleteAuthUserSecurityKeys?: Maybe<AuthUserSecurityKeys_Mutation_Response>;
   /** delete single row from the table: "storage.buckets" */
-  deleteBucket?: Maybe<Buckets>;
+  readonly deleteBucket?: Maybe<Buckets>;
   /** delete data from the table: "storage.buckets" */
-  deleteBuckets?: Maybe<Buckets_Mutation_Response>;
+  readonly deleteBuckets?: Maybe<Buckets_Mutation_Response>;
   /** delete single row from the table: "storage.files" */
-  deleteFile?: Maybe<Files>;
+  readonly deleteFile?: Maybe<Files>;
   /** delete data from the table: "storage.files" */
-  deleteFiles?: Maybe<Files_Mutation_Response>;
+  readonly deleteFiles?: Maybe<Files_Mutation_Response>;
   /** delete single row from the table: "auth.users" */
-  deleteUser?: Maybe<Users>;
+  readonly deleteUser?: Maybe<Users>;
   /** delete data from the table: "auth.users" */
-  deleteUsers?: Maybe<Users_Mutation_Response>;
+  readonly deleteUsers?: Maybe<Users_Mutation_Response>;
   /** delete data from the table: "backlog" */
-  delete_backlog?: Maybe<Backlog_Mutation_Response>;
+  readonly delete_backlog?: Maybe<Backlog_Mutation_Response>;
   /** delete single row from the table: "backlog" */
-  delete_backlog_by_pk?: Maybe<Backlog>;
+  readonly delete_backlog_by_pk?: Maybe<Backlog>;
   /** delete data from the table: "dayPlanning" */
-  delete_dayPlanning?: Maybe<DayPlanning_Mutation_Response>;
+  readonly delete_dayPlanning?: Maybe<DayPlanning_Mutation_Response>;
   /** delete single row from the table: "dayPlanning" */
-  delete_dayPlanning_by_pk?: Maybe<DayPlanning>;
+  readonly delete_dayPlanning_by_pk?: Maybe<DayPlanning>;
   /** delete data from the table: "priority" */
-  delete_priority?: Maybe<Priority_Mutation_Response>;
+  readonly delete_priority?: Maybe<Priority_Mutation_Response>;
   /** delete single row from the table: "priority" */
-  delete_priority_by_pk?: Maybe<Priority>;
+  readonly delete_priority_by_pk?: Maybe<Priority>;
   /** delete data from the table: "task" */
-  delete_task?: Maybe<Task_Mutation_Response>;
+  readonly delete_task?: Maybe<Task_Mutation_Response>;
   /** delete data from the table: "taskStatus" */
-  delete_taskStatus?: Maybe<TaskStatus_Mutation_Response>;
+  readonly delete_taskStatus?: Maybe<TaskStatus_Mutation_Response>;
   /** delete single row from the table: "taskStatus" */
-  delete_taskStatus_by_pk?: Maybe<TaskStatus>;
+  readonly delete_taskStatus_by_pk?: Maybe<TaskStatus>;
   /** delete single row from the table: "task" */
-  delete_task_by_pk?: Maybe<Task>;
+  readonly delete_task_by_pk?: Maybe<Task>;
   /** insert a single row into the table: "auth.providers" */
-  insertAuthProvider?: Maybe<AuthProviders>;
+  readonly insertAuthProvider?: Maybe<AuthProviders>;
   /** insert a single row into the table: "auth.provider_requests" */
-  insertAuthProviderRequest?: Maybe<AuthProviderRequests>;
+  readonly insertAuthProviderRequest?: Maybe<AuthProviderRequests>;
   /** insert data into the table: "auth.provider_requests" */
-  insertAuthProviderRequests?: Maybe<AuthProviderRequests_Mutation_Response>;
+  readonly insertAuthProviderRequests?: Maybe<AuthProviderRequests_Mutation_Response>;
   /** insert data into the table: "auth.providers" */
-  insertAuthProviders?: Maybe<AuthProviders_Mutation_Response>;
+  readonly insertAuthProviders?: Maybe<AuthProviders_Mutation_Response>;
   /** insert a single row into the table: "auth.refresh_tokens" */
-  insertAuthRefreshToken?: Maybe<AuthRefreshTokens>;
+  readonly insertAuthRefreshToken?: Maybe<AuthRefreshTokens>;
   /** insert a single row into the table: "auth.refresh_token_types" */
-  insertAuthRefreshTokenType?: Maybe<AuthRefreshTokenTypes>;
+  readonly insertAuthRefreshTokenType?: Maybe<AuthRefreshTokenTypes>;
   /** insert data into the table: "auth.refresh_token_types" */
-  insertAuthRefreshTokenTypes?: Maybe<AuthRefreshTokenTypes_Mutation_Response>;
+  readonly insertAuthRefreshTokenTypes?: Maybe<AuthRefreshTokenTypes_Mutation_Response>;
   /** insert data into the table: "auth.refresh_tokens" */
-  insertAuthRefreshTokens?: Maybe<AuthRefreshTokens_Mutation_Response>;
+  readonly insertAuthRefreshTokens?: Maybe<AuthRefreshTokens_Mutation_Response>;
   /** insert a single row into the table: "auth.roles" */
-  insertAuthRole?: Maybe<AuthRoles>;
+  readonly insertAuthRole?: Maybe<AuthRoles>;
   /** insert data into the table: "auth.roles" */
-  insertAuthRoles?: Maybe<AuthRoles_Mutation_Response>;
+  readonly insertAuthRoles?: Maybe<AuthRoles_Mutation_Response>;
   /** insert a single row into the table: "auth.user_providers" */
-  insertAuthUserProvider?: Maybe<AuthUserProviders>;
+  readonly insertAuthUserProvider?: Maybe<AuthUserProviders>;
   /** insert data into the table: "auth.user_providers" */
-  insertAuthUserProviders?: Maybe<AuthUserProviders_Mutation_Response>;
+  readonly insertAuthUserProviders?: Maybe<AuthUserProviders_Mutation_Response>;
   /** insert a single row into the table: "auth.user_roles" */
-  insertAuthUserRole?: Maybe<AuthUserRoles>;
+  readonly insertAuthUserRole?: Maybe<AuthUserRoles>;
   /** insert data into the table: "auth.user_roles" */
-  insertAuthUserRoles?: Maybe<AuthUserRoles_Mutation_Response>;
+  readonly insertAuthUserRoles?: Maybe<AuthUserRoles_Mutation_Response>;
   /** insert a single row into the table: "auth.user_security_keys" */
-  insertAuthUserSecurityKey?: Maybe<AuthUserSecurityKeys>;
+  readonly insertAuthUserSecurityKey?: Maybe<AuthUserSecurityKeys>;
   /** insert data into the table: "auth.user_security_keys" */
-  insertAuthUserSecurityKeys?: Maybe<AuthUserSecurityKeys_Mutation_Response>;
+  readonly insertAuthUserSecurityKeys?: Maybe<AuthUserSecurityKeys_Mutation_Response>;
   /** insert a single row into the table: "storage.buckets" */
-  insertBucket?: Maybe<Buckets>;
+  readonly insertBucket?: Maybe<Buckets>;
   /** insert data into the table: "storage.buckets" */
-  insertBuckets?: Maybe<Buckets_Mutation_Response>;
+  readonly insertBuckets?: Maybe<Buckets_Mutation_Response>;
   /** insert a single row into the table: "storage.files" */
-  insertFile?: Maybe<Files>;
+  readonly insertFile?: Maybe<Files>;
   /** insert data into the table: "storage.files" */
-  insertFiles?: Maybe<Files_Mutation_Response>;
+  readonly insertFiles?: Maybe<Files_Mutation_Response>;
   /** insert a single row into the table: "auth.users" */
-  insertUser?: Maybe<Users>;
+  readonly insertUser?: Maybe<Users>;
   /** insert data into the table: "auth.users" */
-  insertUsers?: Maybe<Users_Mutation_Response>;
+  readonly insertUsers?: Maybe<Users_Mutation_Response>;
   /** insert data into the table: "backlog" */
-  insert_backlog?: Maybe<Backlog_Mutation_Response>;
+  readonly insert_backlog?: Maybe<Backlog_Mutation_Response>;
   /** insert a single row into the table: "backlog" */
-  insert_backlog_one?: Maybe<Backlog>;
+  readonly insert_backlog_one?: Maybe<Backlog>;
   /** insert data into the table: "dayPlanning" */
-  insert_dayPlanning?: Maybe<DayPlanning_Mutation_Response>;
+  readonly insert_dayPlanning?: Maybe<DayPlanning_Mutation_Response>;
   /** insert a single row into the table: "dayPlanning" */
-  insert_dayPlanning_one?: Maybe<DayPlanning>;
+  readonly insert_dayPlanning_one?: Maybe<DayPlanning>;
   /** insert data into the table: "priority" */
-  insert_priority?: Maybe<Priority_Mutation_Response>;
+  readonly insert_priority?: Maybe<Priority_Mutation_Response>;
   /** insert a single row into the table: "priority" */
-  insert_priority_one?: Maybe<Priority>;
+  readonly insert_priority_one?: Maybe<Priority>;
   /** insert data into the table: "task" */
-  insert_task?: Maybe<Task_Mutation_Response>;
+  readonly insert_task?: Maybe<Task_Mutation_Response>;
   /** insert data into the table: "taskStatus" */
-  insert_taskStatus?: Maybe<TaskStatus_Mutation_Response>;
+  readonly insert_taskStatus?: Maybe<TaskStatus_Mutation_Response>;
   /** insert a single row into the table: "taskStatus" */
-  insert_taskStatus_one?: Maybe<TaskStatus>;
+  readonly insert_taskStatus_one?: Maybe<TaskStatus>;
   /** insert a single row into the table: "task" */
-  insert_task_one?: Maybe<Task>;
+  readonly insert_task_one?: Maybe<Task>;
   /** update single row of the table: "auth.providers" */
-  updateAuthProvider?: Maybe<AuthProviders>;
+  readonly updateAuthProvider?: Maybe<AuthProviders>;
   /** update single row of the table: "auth.provider_requests" */
-  updateAuthProviderRequest?: Maybe<AuthProviderRequests>;
+  readonly updateAuthProviderRequest?: Maybe<AuthProviderRequests>;
   /** update data of the table: "auth.provider_requests" */
-  updateAuthProviderRequests?: Maybe<AuthProviderRequests_Mutation_Response>;
+  readonly updateAuthProviderRequests?: Maybe<AuthProviderRequests_Mutation_Response>;
   /** update data of the table: "auth.providers" */
-  updateAuthProviders?: Maybe<AuthProviders_Mutation_Response>;
+  readonly updateAuthProviders?: Maybe<AuthProviders_Mutation_Response>;
   /** update single row of the table: "auth.refresh_tokens" */
-  updateAuthRefreshToken?: Maybe<AuthRefreshTokens>;
+  readonly updateAuthRefreshToken?: Maybe<AuthRefreshTokens>;
   /** update single row of the table: "auth.refresh_token_types" */
-  updateAuthRefreshTokenType?: Maybe<AuthRefreshTokenTypes>;
+  readonly updateAuthRefreshTokenType?: Maybe<AuthRefreshTokenTypes>;
   /** update data of the table: "auth.refresh_token_types" */
-  updateAuthRefreshTokenTypes?: Maybe<AuthRefreshTokenTypes_Mutation_Response>;
+  readonly updateAuthRefreshTokenTypes?: Maybe<AuthRefreshTokenTypes_Mutation_Response>;
   /** update data of the table: "auth.refresh_tokens" */
-  updateAuthRefreshTokens?: Maybe<AuthRefreshTokens_Mutation_Response>;
+  readonly updateAuthRefreshTokens?: Maybe<AuthRefreshTokens_Mutation_Response>;
   /** update single row of the table: "auth.roles" */
-  updateAuthRole?: Maybe<AuthRoles>;
+  readonly updateAuthRole?: Maybe<AuthRoles>;
   /** update data of the table: "auth.roles" */
-  updateAuthRoles?: Maybe<AuthRoles_Mutation_Response>;
+  readonly updateAuthRoles?: Maybe<AuthRoles_Mutation_Response>;
   /** update single row of the table: "auth.user_providers" */
-  updateAuthUserProvider?: Maybe<AuthUserProviders>;
+  readonly updateAuthUserProvider?: Maybe<AuthUserProviders>;
   /** update data of the table: "auth.user_providers" */
-  updateAuthUserProviders?: Maybe<AuthUserProviders_Mutation_Response>;
+  readonly updateAuthUserProviders?: Maybe<AuthUserProviders_Mutation_Response>;
   /** update single row of the table: "auth.user_roles" */
-  updateAuthUserRole?: Maybe<AuthUserRoles>;
+  readonly updateAuthUserRole?: Maybe<AuthUserRoles>;
   /** update data of the table: "auth.user_roles" */
-  updateAuthUserRoles?: Maybe<AuthUserRoles_Mutation_Response>;
+  readonly updateAuthUserRoles?: Maybe<AuthUserRoles_Mutation_Response>;
   /** update single row of the table: "auth.user_security_keys" */
-  updateAuthUserSecurityKey?: Maybe<AuthUserSecurityKeys>;
+  readonly updateAuthUserSecurityKey?: Maybe<AuthUserSecurityKeys>;
   /** update data of the table: "auth.user_security_keys" */
-  updateAuthUserSecurityKeys?: Maybe<AuthUserSecurityKeys_Mutation_Response>;
+  readonly updateAuthUserSecurityKeys?: Maybe<AuthUserSecurityKeys_Mutation_Response>;
   /** update single row of the table: "storage.buckets" */
-  updateBucket?: Maybe<Buckets>;
+  readonly updateBucket?: Maybe<Buckets>;
   /** update data of the table: "storage.buckets" */
-  updateBuckets?: Maybe<Buckets_Mutation_Response>;
+  readonly updateBuckets?: Maybe<Buckets_Mutation_Response>;
   /** update single row of the table: "storage.files" */
-  updateFile?: Maybe<Files>;
+  readonly updateFile?: Maybe<Files>;
   /** update data of the table: "storage.files" */
-  updateFiles?: Maybe<Files_Mutation_Response>;
+  readonly updateFiles?: Maybe<Files_Mutation_Response>;
   /** update single row of the table: "auth.users" */
-  updateUser?: Maybe<Users>;
+  readonly updateUser?: Maybe<Users>;
   /** update data of the table: "auth.users" */
-  updateUsers?: Maybe<Users_Mutation_Response>;
+  readonly updateUsers?: Maybe<Users_Mutation_Response>;
   /** update multiples rows of table: "auth.provider_requests" */
-  update_authProviderRequests_many?: Maybe<Array<Maybe<AuthProviderRequests_Mutation_Response>>>;
+  readonly update_authProviderRequests_many?: Maybe<ReadonlyArray<Maybe<AuthProviderRequests_Mutation_Response>>>;
   /** update multiples rows of table: "auth.providers" */
-  update_authProviders_many?: Maybe<Array<Maybe<AuthProviders_Mutation_Response>>>;
+  readonly update_authProviders_many?: Maybe<ReadonlyArray<Maybe<AuthProviders_Mutation_Response>>>;
   /** update multiples rows of table: "auth.refresh_token_types" */
-  update_authRefreshTokenTypes_many?: Maybe<Array<Maybe<AuthRefreshTokenTypes_Mutation_Response>>>;
+  readonly update_authRefreshTokenTypes_many?: Maybe<ReadonlyArray<Maybe<AuthRefreshTokenTypes_Mutation_Response>>>;
   /** update multiples rows of table: "auth.refresh_tokens" */
-  update_authRefreshTokens_many?: Maybe<Array<Maybe<AuthRefreshTokens_Mutation_Response>>>;
+  readonly update_authRefreshTokens_many?: Maybe<ReadonlyArray<Maybe<AuthRefreshTokens_Mutation_Response>>>;
   /** update multiples rows of table: "auth.roles" */
-  update_authRoles_many?: Maybe<Array<Maybe<AuthRoles_Mutation_Response>>>;
+  readonly update_authRoles_many?: Maybe<ReadonlyArray<Maybe<AuthRoles_Mutation_Response>>>;
   /** update multiples rows of table: "auth.user_providers" */
-  update_authUserProviders_many?: Maybe<Array<Maybe<AuthUserProviders_Mutation_Response>>>;
+  readonly update_authUserProviders_many?: Maybe<ReadonlyArray<Maybe<AuthUserProviders_Mutation_Response>>>;
   /** update multiples rows of table: "auth.user_roles" */
-  update_authUserRoles_many?: Maybe<Array<Maybe<AuthUserRoles_Mutation_Response>>>;
+  readonly update_authUserRoles_many?: Maybe<ReadonlyArray<Maybe<AuthUserRoles_Mutation_Response>>>;
   /** update multiples rows of table: "auth.user_security_keys" */
-  update_authUserSecurityKeys_many?: Maybe<Array<Maybe<AuthUserSecurityKeys_Mutation_Response>>>;
+  readonly update_authUserSecurityKeys_many?: Maybe<ReadonlyArray<Maybe<AuthUserSecurityKeys_Mutation_Response>>>;
   /** update data of the table: "backlog" */
-  update_backlog?: Maybe<Backlog_Mutation_Response>;
+  readonly update_backlog?: Maybe<Backlog_Mutation_Response>;
   /** update single row of the table: "backlog" */
-  update_backlog_by_pk?: Maybe<Backlog>;
+  readonly update_backlog_by_pk?: Maybe<Backlog>;
   /** update multiples rows of table: "backlog" */
-  update_backlog_many?: Maybe<Array<Maybe<Backlog_Mutation_Response>>>;
+  readonly update_backlog_many?: Maybe<ReadonlyArray<Maybe<Backlog_Mutation_Response>>>;
   /** update multiples rows of table: "storage.buckets" */
-  update_buckets_many?: Maybe<Array<Maybe<Buckets_Mutation_Response>>>;
+  readonly update_buckets_many?: Maybe<ReadonlyArray<Maybe<Buckets_Mutation_Response>>>;
   /** update data of the table: "dayPlanning" */
-  update_dayPlanning?: Maybe<DayPlanning_Mutation_Response>;
+  readonly update_dayPlanning?: Maybe<DayPlanning_Mutation_Response>;
   /** update single row of the table: "dayPlanning" */
-  update_dayPlanning_by_pk?: Maybe<DayPlanning>;
+  readonly update_dayPlanning_by_pk?: Maybe<DayPlanning>;
   /** update multiples rows of table: "dayPlanning" */
-  update_dayPlanning_many?: Maybe<Array<Maybe<DayPlanning_Mutation_Response>>>;
+  readonly update_dayPlanning_many?: Maybe<ReadonlyArray<Maybe<DayPlanning_Mutation_Response>>>;
   /** update multiples rows of table: "storage.files" */
-  update_files_many?: Maybe<Array<Maybe<Files_Mutation_Response>>>;
+  readonly update_files_many?: Maybe<ReadonlyArray<Maybe<Files_Mutation_Response>>>;
   /** update data of the table: "priority" */
-  update_priority?: Maybe<Priority_Mutation_Response>;
+  readonly update_priority?: Maybe<Priority_Mutation_Response>;
   /** update single row of the table: "priority" */
-  update_priority_by_pk?: Maybe<Priority>;
+  readonly update_priority_by_pk?: Maybe<Priority>;
   /** update multiples rows of table: "priority" */
-  update_priority_many?: Maybe<Array<Maybe<Priority_Mutation_Response>>>;
+  readonly update_priority_many?: Maybe<ReadonlyArray<Maybe<Priority_Mutation_Response>>>;
   /** update data of the table: "task" */
-  update_task?: Maybe<Task_Mutation_Response>;
+  readonly update_task?: Maybe<Task_Mutation_Response>;
   /** update data of the table: "taskStatus" */
-  update_taskStatus?: Maybe<TaskStatus_Mutation_Response>;
+  readonly update_taskStatus?: Maybe<TaskStatus_Mutation_Response>;
   /** update single row of the table: "taskStatus" */
-  update_taskStatus_by_pk?: Maybe<TaskStatus>;
+  readonly update_taskStatus_by_pk?: Maybe<TaskStatus>;
   /** update multiples rows of table: "taskStatus" */
-  update_taskStatus_many?: Maybe<Array<Maybe<TaskStatus_Mutation_Response>>>;
+  readonly update_taskStatus_many?: Maybe<ReadonlyArray<Maybe<TaskStatus_Mutation_Response>>>;
   /** update single row of the table: "task" */
-  update_task_by_pk?: Maybe<Task>;
+  readonly update_task_by_pk?: Maybe<Task>;
   /** update multiples rows of table: "task" */
-  update_task_many?: Maybe<Array<Maybe<Task_Mutation_Response>>>;
+  readonly update_task_many?: Maybe<ReadonlyArray<Maybe<Task_Mutation_Response>>>;
   /** update multiples rows of table: "auth.users" */
-  update_users_many?: Maybe<Array<Maybe<Users_Mutation_Response>>>;
+  readonly update_users_many?: Maybe<ReadonlyArray<Maybe<Users_Mutation_Response>>>;
 };
 
 
@@ -3590,14 +3551,14 @@ export type Mutation_RootInsertAuthProviderRequestArgs = {
 
 /** mutation root */
 export type Mutation_RootInsertAuthProviderRequestsArgs = {
-  objects: Array<AuthProviderRequests_Insert_Input>;
+  objects: ReadonlyArray<AuthProviderRequests_Insert_Input>;
   on_conflict?: InputMaybe<AuthProviderRequests_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsertAuthProvidersArgs = {
-  objects: Array<AuthProviders_Insert_Input>;
+  objects: ReadonlyArray<AuthProviders_Insert_Input>;
   on_conflict?: InputMaybe<AuthProviders_On_Conflict>;
 };
 
@@ -3618,14 +3579,14 @@ export type Mutation_RootInsertAuthRefreshTokenTypeArgs = {
 
 /** mutation root */
 export type Mutation_RootInsertAuthRefreshTokenTypesArgs = {
-  objects: Array<AuthRefreshTokenTypes_Insert_Input>;
+  objects: ReadonlyArray<AuthRefreshTokenTypes_Insert_Input>;
   on_conflict?: InputMaybe<AuthRefreshTokenTypes_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsertAuthRefreshTokensArgs = {
-  objects: Array<AuthRefreshTokens_Insert_Input>;
+  objects: ReadonlyArray<AuthRefreshTokens_Insert_Input>;
   on_conflict?: InputMaybe<AuthRefreshTokens_On_Conflict>;
 };
 
@@ -3639,7 +3600,7 @@ export type Mutation_RootInsertAuthRoleArgs = {
 
 /** mutation root */
 export type Mutation_RootInsertAuthRolesArgs = {
-  objects: Array<AuthRoles_Insert_Input>;
+  objects: ReadonlyArray<AuthRoles_Insert_Input>;
   on_conflict?: InputMaybe<AuthRoles_On_Conflict>;
 };
 
@@ -3653,7 +3614,7 @@ export type Mutation_RootInsertAuthUserProviderArgs = {
 
 /** mutation root */
 export type Mutation_RootInsertAuthUserProvidersArgs = {
-  objects: Array<AuthUserProviders_Insert_Input>;
+  objects: ReadonlyArray<AuthUserProviders_Insert_Input>;
   on_conflict?: InputMaybe<AuthUserProviders_On_Conflict>;
 };
 
@@ -3667,7 +3628,7 @@ export type Mutation_RootInsertAuthUserRoleArgs = {
 
 /** mutation root */
 export type Mutation_RootInsertAuthUserRolesArgs = {
-  objects: Array<AuthUserRoles_Insert_Input>;
+  objects: ReadonlyArray<AuthUserRoles_Insert_Input>;
   on_conflict?: InputMaybe<AuthUserRoles_On_Conflict>;
 };
 
@@ -3681,7 +3642,7 @@ export type Mutation_RootInsertAuthUserSecurityKeyArgs = {
 
 /** mutation root */
 export type Mutation_RootInsertAuthUserSecurityKeysArgs = {
-  objects: Array<AuthUserSecurityKeys_Insert_Input>;
+  objects: ReadonlyArray<AuthUserSecurityKeys_Insert_Input>;
   on_conflict?: InputMaybe<AuthUserSecurityKeys_On_Conflict>;
 };
 
@@ -3695,7 +3656,7 @@ export type Mutation_RootInsertBucketArgs = {
 
 /** mutation root */
 export type Mutation_RootInsertBucketsArgs = {
-  objects: Array<Buckets_Insert_Input>;
+  objects: ReadonlyArray<Buckets_Insert_Input>;
   on_conflict?: InputMaybe<Buckets_On_Conflict>;
 };
 
@@ -3709,7 +3670,7 @@ export type Mutation_RootInsertFileArgs = {
 
 /** mutation root */
 export type Mutation_RootInsertFilesArgs = {
-  objects: Array<Files_Insert_Input>;
+  objects: ReadonlyArray<Files_Insert_Input>;
   on_conflict?: InputMaybe<Files_On_Conflict>;
 };
 
@@ -3723,14 +3684,14 @@ export type Mutation_RootInsertUserArgs = {
 
 /** mutation root */
 export type Mutation_RootInsertUsersArgs = {
-  objects: Array<Users_Insert_Input>;
+  objects: ReadonlyArray<Users_Insert_Input>;
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_BacklogArgs = {
-  objects: Array<Backlog_Insert_Input>;
+  objects: ReadonlyArray<Backlog_Insert_Input>;
   on_conflict?: InputMaybe<Backlog_On_Conflict>;
 };
 
@@ -3744,7 +3705,7 @@ export type Mutation_RootInsert_Backlog_OneArgs = {
 
 /** mutation root */
 export type Mutation_RootInsert_DayPlanningArgs = {
-  objects: Array<DayPlanning_Insert_Input>;
+  objects: ReadonlyArray<DayPlanning_Insert_Input>;
   on_conflict?: InputMaybe<DayPlanning_On_Conflict>;
 };
 
@@ -3758,7 +3719,7 @@ export type Mutation_RootInsert_DayPlanning_OneArgs = {
 
 /** mutation root */
 export type Mutation_RootInsert_PriorityArgs = {
-  objects: Array<Priority_Insert_Input>;
+  objects: ReadonlyArray<Priority_Insert_Input>;
   on_conflict?: InputMaybe<Priority_On_Conflict>;
 };
 
@@ -3772,14 +3733,14 @@ export type Mutation_RootInsert_Priority_OneArgs = {
 
 /** mutation root */
 export type Mutation_RootInsert_TaskArgs = {
-  objects: Array<Task_Insert_Input>;
+  objects: ReadonlyArray<Task_Insert_Input>;
   on_conflict?: InputMaybe<Task_On_Conflict>;
 };
 
 
 /** mutation root */
 export type Mutation_RootInsert_TaskStatusArgs = {
-  objects: Array<TaskStatus_Insert_Input>;
+  objects: ReadonlyArray<TaskStatus_Insert_Input>;
   on_conflict?: InputMaybe<TaskStatus_On_Conflict>;
 };
 
@@ -3990,49 +3951,49 @@ export type Mutation_RootUpdateUsersArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_AuthProviderRequests_ManyArgs = {
-  updates: Array<AuthProviderRequests_Updates>;
+  updates: ReadonlyArray<AuthProviderRequests_Updates>;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_AuthProviders_ManyArgs = {
-  updates: Array<AuthProviders_Updates>;
+  updates: ReadonlyArray<AuthProviders_Updates>;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_AuthRefreshTokenTypes_ManyArgs = {
-  updates: Array<AuthRefreshTokenTypes_Updates>;
+  updates: ReadonlyArray<AuthRefreshTokenTypes_Updates>;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_AuthRefreshTokens_ManyArgs = {
-  updates: Array<AuthRefreshTokens_Updates>;
+  updates: ReadonlyArray<AuthRefreshTokens_Updates>;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_AuthRoles_ManyArgs = {
-  updates: Array<AuthRoles_Updates>;
+  updates: ReadonlyArray<AuthRoles_Updates>;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_AuthUserProviders_ManyArgs = {
-  updates: Array<AuthUserProviders_Updates>;
+  updates: ReadonlyArray<AuthUserProviders_Updates>;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_AuthUserRoles_ManyArgs = {
-  updates: Array<AuthUserRoles_Updates>;
+  updates: ReadonlyArray<AuthUserRoles_Updates>;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_AuthUserSecurityKeys_ManyArgs = {
-  updates: Array<AuthUserSecurityKeys_Updates>;
+  updates: ReadonlyArray<AuthUserSecurityKeys_Updates>;
 };
 
 
@@ -4052,13 +4013,13 @@ export type Mutation_RootUpdate_Backlog_By_PkArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_Backlog_ManyArgs = {
-  updates: Array<Backlog_Updates>;
+  updates: ReadonlyArray<Backlog_Updates>;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Buckets_ManyArgs = {
-  updates: Array<Buckets_Updates>;
+  updates: ReadonlyArray<Buckets_Updates>;
 };
 
 
@@ -4078,13 +4039,13 @@ export type Mutation_RootUpdate_DayPlanning_By_PkArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_DayPlanning_ManyArgs = {
-  updates: Array<DayPlanning_Updates>;
+  updates: ReadonlyArray<DayPlanning_Updates>;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Files_ManyArgs = {
-  updates: Array<Files_Updates>;
+  updates: ReadonlyArray<Files_Updates>;
 };
 
 
@@ -4104,7 +4065,7 @@ export type Mutation_RootUpdate_Priority_By_PkArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_Priority_ManyArgs = {
-  updates: Array<Priority_Updates>;
+  updates: ReadonlyArray<Priority_Updates>;
 };
 
 
@@ -4131,7 +4092,7 @@ export type Mutation_RootUpdate_TaskStatus_By_PkArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_TaskStatus_ManyArgs = {
-  updates: Array<TaskStatus_Updates>;
+  updates: ReadonlyArray<TaskStatus_Updates>;
 };
 
 
@@ -4144,266 +4105,261 @@ export type Mutation_RootUpdate_Task_By_PkArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_Task_ManyArgs = {
-  updates: Array<Task_Updates>;
+  updates: ReadonlyArray<Task_Updates>;
 };
 
 
 /** mutation root */
 export type Mutation_RootUpdate_Users_ManyArgs = {
-  updates: Array<Users_Updates>;
+  updates: ReadonlyArray<Users_Updates>;
 };
 
 /** column ordering options */
-export enum Order_By {
+export type Order_By =
   /** in ascending order, nulls last */
-  Asc = 'asc',
+  | 'asc'
   /** in ascending order, nulls first */
-  AscNullsFirst = 'asc_nulls_first',
+  | 'asc_nulls_first'
   /** in ascending order, nulls last */
-  AscNullsLast = 'asc_nulls_last',
+  | 'asc_nulls_last'
   /** in descending order, nulls first */
-  Desc = 'desc',
+  | 'desc'
   /** in descending order, nulls first */
-  DescNullsFirst = 'desc_nulls_first',
+  | 'desc_nulls_first'
   /** in descending order, nulls last */
-  DescNullsLast = 'desc_nulls_last'
-}
+  | 'desc_nulls_last';
 
 /** columns and relationships of "priority" */
 export type Priority = {
-  __typename?: 'priority';
-  value: Scalars['String'];
+  readonly __typename?: 'priority';
+  readonly value: Scalars['String'];
 };
 
 /** aggregated selection of "priority" */
 export type Priority_Aggregate = {
-  __typename?: 'priority_aggregate';
-  aggregate?: Maybe<Priority_Aggregate_Fields>;
-  nodes: Array<Priority>;
+  readonly __typename?: 'priority_aggregate';
+  readonly aggregate?: Maybe<Priority_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<Priority>;
 };
 
 /** aggregate fields of "priority" */
 export type Priority_Aggregate_Fields = {
-  __typename?: 'priority_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<Priority_Max_Fields>;
-  min?: Maybe<Priority_Min_Fields>;
+  readonly __typename?: 'priority_aggregate_fields';
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<Priority_Max_Fields>;
+  readonly min?: Maybe<Priority_Min_Fields>;
 };
 
 
 /** aggregate fields of "priority" */
 export type Priority_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<Priority_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<Priority_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Boolean expression to filter rows from the table "priority". All fields are combined with a logical 'AND'. */
 export type Priority_Bool_Exp = {
-  _and?: InputMaybe<Array<Priority_Bool_Exp>>;
-  _not?: InputMaybe<Priority_Bool_Exp>;
-  _or?: InputMaybe<Array<Priority_Bool_Exp>>;
-  value?: InputMaybe<String_Comparison_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<Priority_Bool_Exp>>;
+  readonly _not?: InputMaybe<Priority_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<Priority_Bool_Exp>>;
+  readonly value?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "priority" */
-export enum Priority_Constraint {
+export type Priority_Constraint =
   /** unique or primary key constraint on columns "value" */
-  PriorityPkey = 'priority_pkey'
-}
+  | 'priority_pkey';
 
-export enum Priority_Enum {
-  High = 'high',
-  Low = 'low',
-  Medium = 'medium'
-}
+export type Priority_Enum =
+  | 'high'
+  | 'low'
+  | 'medium';
 
 /** Boolean expression to compare columns of type "priority_enum". All fields are combined with logical 'AND'. */
 export type Priority_Enum_Comparison_Exp = {
-  _eq?: InputMaybe<Priority_Enum>;
-  _in?: InputMaybe<Array<Priority_Enum>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _neq?: InputMaybe<Priority_Enum>;
-  _nin?: InputMaybe<Array<Priority_Enum>>;
+  readonly _eq?: InputMaybe<Priority_Enum>;
+  readonly _in?: InputMaybe<ReadonlyArray<Priority_Enum>>;
+  readonly _is_null?: InputMaybe<Scalars['Boolean']>;
+  readonly _neq?: InputMaybe<Priority_Enum>;
+  readonly _nin?: InputMaybe<ReadonlyArray<Priority_Enum>>;
 };
 
 /** input type for inserting data into table "priority" */
 export type Priority_Insert_Input = {
-  value?: InputMaybe<Scalars['String']>;
+  readonly value?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate max on columns */
 export type Priority_Max_Fields = {
-  __typename?: 'priority_max_fields';
-  value?: Maybe<Scalars['String']>;
+  readonly __typename?: 'priority_max_fields';
+  readonly value?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type Priority_Min_Fields = {
-  __typename?: 'priority_min_fields';
-  value?: Maybe<Scalars['String']>;
+  readonly __typename?: 'priority_min_fields';
+  readonly value?: Maybe<Scalars['String']>;
 };
 
 /** response of any mutation on the table "priority" */
 export type Priority_Mutation_Response = {
-  __typename?: 'priority_mutation_response';
+  readonly __typename?: 'priority_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<Priority>;
+  readonly returning: ReadonlyArray<Priority>;
 };
 
 /** on_conflict condition type for table "priority" */
 export type Priority_On_Conflict = {
-  constraint: Priority_Constraint;
-  update_columns?: Array<Priority_Update_Column>;
-  where?: InputMaybe<Priority_Bool_Exp>;
+  readonly constraint: Priority_Constraint;
+  readonly update_columns?: ReadonlyArray<Priority_Update_Column>;
+  readonly where?: InputMaybe<Priority_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "priority". */
 export type Priority_Order_By = {
-  value?: InputMaybe<Order_By>;
+  readonly value?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: priority */
 export type Priority_Pk_Columns_Input = {
-  value: Scalars['String'];
+  readonly value: Scalars['String'];
 };
 
 /** select columns of table "priority" */
-export enum Priority_Select_Column {
+export type Priority_Select_Column =
   /** column name */
-  Value = 'value'
-}
+  | 'value';
 
 /** input type for updating data in table "priority" */
 export type Priority_Set_Input = {
-  value?: InputMaybe<Scalars['String']>;
+  readonly value?: InputMaybe<Scalars['String']>;
 };
 
 /** Streaming cursor of the table "priority" */
 export type Priority_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: Priority_Stream_Cursor_Value_Input;
+  readonly initial_value: Priority_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Priority_Stream_Cursor_Value_Input = {
-  value?: InputMaybe<Scalars['String']>;
+  readonly value?: InputMaybe<Scalars['String']>;
 };
 
 /** update columns of table "priority" */
-export enum Priority_Update_Column {
+export type Priority_Update_Column =
   /** column name */
-  Value = 'value'
-}
+  | 'value';
 
 export type Priority_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<Priority_Set_Input>;
+  readonly _set?: InputMaybe<Priority_Set_Input>;
   /** filter the rows which have to be updated */
-  where: Priority_Bool_Exp;
+  readonly where: Priority_Bool_Exp;
 };
 
 export type Query_Root = {
-  __typename?: 'query_root';
+  readonly __typename?: 'query_root';
   /** fetch data from the table: "auth.providers" using primary key columns */
-  authProvider?: Maybe<AuthProviders>;
+  readonly authProvider?: Maybe<AuthProviders>;
   /** fetch data from the table: "auth.provider_requests" using primary key columns */
-  authProviderRequest?: Maybe<AuthProviderRequests>;
+  readonly authProviderRequest?: Maybe<AuthProviderRequests>;
   /** fetch data from the table: "auth.provider_requests" */
-  authProviderRequests: Array<AuthProviderRequests>;
+  readonly authProviderRequests: ReadonlyArray<AuthProviderRequests>;
   /** fetch aggregated fields from the table: "auth.provider_requests" */
-  authProviderRequestsAggregate: AuthProviderRequests_Aggregate;
+  readonly authProviderRequestsAggregate: AuthProviderRequests_Aggregate;
   /** fetch data from the table: "auth.providers" */
-  authProviders: Array<AuthProviders>;
+  readonly authProviders: ReadonlyArray<AuthProviders>;
   /** fetch aggregated fields from the table: "auth.providers" */
-  authProvidersAggregate: AuthProviders_Aggregate;
+  readonly authProvidersAggregate: AuthProviders_Aggregate;
   /** fetch data from the table: "auth.refresh_tokens" using primary key columns */
-  authRefreshToken?: Maybe<AuthRefreshTokens>;
+  readonly authRefreshToken?: Maybe<AuthRefreshTokens>;
   /** fetch data from the table: "auth.refresh_token_types" using primary key columns */
-  authRefreshTokenType?: Maybe<AuthRefreshTokenTypes>;
+  readonly authRefreshTokenType?: Maybe<AuthRefreshTokenTypes>;
   /** fetch data from the table: "auth.refresh_token_types" */
-  authRefreshTokenTypes: Array<AuthRefreshTokenTypes>;
+  readonly authRefreshTokenTypes: ReadonlyArray<AuthRefreshTokenTypes>;
   /** fetch aggregated fields from the table: "auth.refresh_token_types" */
-  authRefreshTokenTypesAggregate: AuthRefreshTokenTypes_Aggregate;
+  readonly authRefreshTokenTypesAggregate: AuthRefreshTokenTypes_Aggregate;
   /** fetch data from the table: "auth.refresh_tokens" */
-  authRefreshTokens: Array<AuthRefreshTokens>;
+  readonly authRefreshTokens: ReadonlyArray<AuthRefreshTokens>;
   /** fetch aggregated fields from the table: "auth.refresh_tokens" */
-  authRefreshTokensAggregate: AuthRefreshTokens_Aggregate;
+  readonly authRefreshTokensAggregate: AuthRefreshTokens_Aggregate;
   /** fetch data from the table: "auth.roles" using primary key columns */
-  authRole?: Maybe<AuthRoles>;
+  readonly authRole?: Maybe<AuthRoles>;
   /** fetch data from the table: "auth.roles" */
-  authRoles: Array<AuthRoles>;
+  readonly authRoles: ReadonlyArray<AuthRoles>;
   /** fetch aggregated fields from the table: "auth.roles" */
-  authRolesAggregate: AuthRoles_Aggregate;
+  readonly authRolesAggregate: AuthRoles_Aggregate;
   /** fetch data from the table: "auth.user_providers" using primary key columns */
-  authUserProvider?: Maybe<AuthUserProviders>;
+  readonly authUserProvider?: Maybe<AuthUserProviders>;
   /** fetch data from the table: "auth.user_providers" */
-  authUserProviders: Array<AuthUserProviders>;
+  readonly authUserProviders: ReadonlyArray<AuthUserProviders>;
   /** fetch aggregated fields from the table: "auth.user_providers" */
-  authUserProvidersAggregate: AuthUserProviders_Aggregate;
+  readonly authUserProvidersAggregate: AuthUserProviders_Aggregate;
   /** fetch data from the table: "auth.user_roles" using primary key columns */
-  authUserRole?: Maybe<AuthUserRoles>;
+  readonly authUserRole?: Maybe<AuthUserRoles>;
   /** fetch data from the table: "auth.user_roles" */
-  authUserRoles: Array<AuthUserRoles>;
+  readonly authUserRoles: ReadonlyArray<AuthUserRoles>;
   /** fetch aggregated fields from the table: "auth.user_roles" */
-  authUserRolesAggregate: AuthUserRoles_Aggregate;
+  readonly authUserRolesAggregate: AuthUserRoles_Aggregate;
   /** fetch data from the table: "auth.user_security_keys" using primary key columns */
-  authUserSecurityKey?: Maybe<AuthUserSecurityKeys>;
+  readonly authUserSecurityKey?: Maybe<AuthUserSecurityKeys>;
   /** fetch data from the table: "auth.user_security_keys" */
-  authUserSecurityKeys: Array<AuthUserSecurityKeys>;
+  readonly authUserSecurityKeys: ReadonlyArray<AuthUserSecurityKeys>;
   /** fetch aggregated fields from the table: "auth.user_security_keys" */
-  authUserSecurityKeysAggregate: AuthUserSecurityKeys_Aggregate;
+  readonly authUserSecurityKeysAggregate: AuthUserSecurityKeys_Aggregate;
   /** fetch data from the table: "backlog" */
-  backlog: Array<Backlog>;
+  readonly backlog: ReadonlyArray<Backlog>;
   /** fetch aggregated fields from the table: "backlog" */
-  backlog_aggregate: Backlog_Aggregate;
+  readonly backlog_aggregate: Backlog_Aggregate;
   /** fetch data from the table: "backlog" using primary key columns */
-  backlog_by_pk?: Maybe<Backlog>;
+  readonly backlog_by_pk?: Maybe<Backlog>;
   /** fetch data from the table: "storage.buckets" using primary key columns */
-  bucket?: Maybe<Buckets>;
+  readonly bucket?: Maybe<Buckets>;
   /** fetch data from the table: "storage.buckets" */
-  buckets: Array<Buckets>;
+  readonly buckets: ReadonlyArray<Buckets>;
   /** fetch aggregated fields from the table: "storage.buckets" */
-  bucketsAggregate: Buckets_Aggregate;
+  readonly bucketsAggregate: Buckets_Aggregate;
   /** fetch data from the table: "dayPlanning" */
-  dayPlanning: Array<DayPlanning>;
+  readonly dayPlanning: ReadonlyArray<DayPlanning>;
   /** fetch aggregated fields from the table: "dayPlanning" */
-  dayPlanning_aggregate: DayPlanning_Aggregate;
+  readonly dayPlanning_aggregate: DayPlanning_Aggregate;
   /** fetch data from the table: "dayPlanning" using primary key columns */
-  dayPlanning_by_pk?: Maybe<DayPlanning>;
+  readonly dayPlanning_by_pk?: Maybe<DayPlanning>;
   /** fetch data from the table: "storage.files" using primary key columns */
-  file?: Maybe<Files>;
+  readonly file?: Maybe<Files>;
   /** An array relationship */
-  files: Array<Files>;
+  readonly files: ReadonlyArray<Files>;
   /** fetch aggregated fields from the table: "storage.files" */
-  filesAggregate: Files_Aggregate;
+  readonly filesAggregate: Files_Aggregate;
   /** fetch data from the table: "priority" */
-  priority: Array<Priority>;
+  readonly priority: ReadonlyArray<Priority>;
   /** fetch aggregated fields from the table: "priority" */
-  priority_aggregate: Priority_Aggregate;
+  readonly priority_aggregate: Priority_Aggregate;
   /** fetch data from the table: "priority" using primary key columns */
-  priority_by_pk?: Maybe<Priority>;
+  readonly priority_by_pk?: Maybe<Priority>;
   /** fetch data from the table: "task" */
-  task: Array<Task>;
+  readonly task: ReadonlyArray<Task>;
   /** fetch data from the table: "taskStatus" */
-  taskStatus: Array<TaskStatus>;
+  readonly taskStatus: ReadonlyArray<TaskStatus>;
   /** fetch aggregated fields from the table: "taskStatus" */
-  taskStatus_aggregate: TaskStatus_Aggregate;
+  readonly taskStatus_aggregate: TaskStatus_Aggregate;
   /** fetch data from the table: "taskStatus" using primary key columns */
-  taskStatus_by_pk?: Maybe<TaskStatus>;
+  readonly taskStatus_by_pk?: Maybe<TaskStatus>;
   /** fetch aggregated fields from the table: "task" */
-  task_aggregate: Task_Aggregate;
+  readonly task_aggregate: Task_Aggregate;
   /** fetch data from the table: "task" using primary key columns */
-  task_by_pk?: Maybe<Task>;
+  readonly task_by_pk?: Maybe<Task>;
   /** fetch data from the table: "auth.users" using primary key columns */
-  user?: Maybe<Users>;
+  readonly user?: Maybe<Users>;
   /** fetch data from the table: "auth.users" */
-  users: Array<Users>;
+  readonly users: ReadonlyArray<Users>;
   /** fetch aggregated fields from the table: "auth.users" */
-  usersAggregate: Users_Aggregate;
+  readonly usersAggregate: Users_Aggregate;
 };
 
 
@@ -4418,37 +4374,37 @@ export type Query_RootAuthProviderRequestArgs = {
 
 
 export type Query_RootAuthProviderRequestsArgs = {
-  distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthProviderRequests_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthProviderRequests_Order_By>>;
   where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
 
 
 export type Query_RootAuthProviderRequestsAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthProviderRequests_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthProviderRequests_Order_By>>;
   where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
 
 
 export type Query_RootAuthProvidersArgs = {
-  distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthProviders_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthProviders_Order_By>>;
   where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
 
 export type Query_RootAuthProvidersAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthProviders_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthProviders_Order_By>>;
   where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
@@ -4464,37 +4420,37 @@ export type Query_RootAuthRefreshTokenTypeArgs = {
 
 
 export type Query_RootAuthRefreshTokenTypesArgs = {
-  distinct_on?: InputMaybe<Array<AuthRefreshTokenTypes_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRefreshTokenTypes_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRefreshTokenTypes_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRefreshTokenTypes_Order_By>>;
   where?: InputMaybe<AuthRefreshTokenTypes_Bool_Exp>;
 };
 
 
 export type Query_RootAuthRefreshTokenTypesAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthRefreshTokenTypes_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRefreshTokenTypes_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRefreshTokenTypes_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRefreshTokenTypes_Order_By>>;
   where?: InputMaybe<AuthRefreshTokenTypes_Bool_Exp>;
 };
 
 
 export type Query_RootAuthRefreshTokensArgs = {
-  distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRefreshTokens_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Order_By>>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
 
 export type Query_RootAuthRefreshTokensAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRefreshTokens_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Order_By>>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
@@ -4505,19 +4461,19 @@ export type Query_RootAuthRoleArgs = {
 
 
 export type Query_RootAuthRolesArgs = {
-  distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRoles_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRoles_Order_By>>;
   where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
 
 export type Query_RootAuthRolesAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRoles_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRoles_Order_By>>;
   where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
@@ -4528,19 +4484,19 @@ export type Query_RootAuthUserProviderArgs = {
 
 
 export type Query_RootAuthUserProvidersArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserProviders_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserProviders_Order_By>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
 
 export type Query_RootAuthUserProvidersAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserProviders_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserProviders_Order_By>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
@@ -4551,19 +4507,19 @@ export type Query_RootAuthUserRoleArgs = {
 
 
 export type Query_RootAuthUserRolesArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserRoles_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserRoles_Order_By>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
 
 export type Query_RootAuthUserRolesAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserRoles_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserRoles_Order_By>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
@@ -4574,37 +4530,37 @@ export type Query_RootAuthUserSecurityKeyArgs = {
 
 
 export type Query_RootAuthUserSecurityKeysArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserSecurityKeys_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Order_By>>;
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
 
 export type Query_RootAuthUserSecurityKeysAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserSecurityKeys_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Order_By>>;
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
 
 export type Query_RootBacklogArgs = {
-  distinct_on?: InputMaybe<Array<Backlog_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Backlog_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Backlog_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Backlog_Order_By>>;
   where?: InputMaybe<Backlog_Bool_Exp>;
 };
 
 
 export type Query_RootBacklog_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Backlog_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Backlog_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Backlog_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Backlog_Order_By>>;
   where?: InputMaybe<Backlog_Bool_Exp>;
 };
 
@@ -4620,37 +4576,37 @@ export type Query_RootBucketArgs = {
 
 
 export type Query_RootBucketsArgs = {
-  distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Buckets_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Buckets_Order_By>>;
   where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
 
 export type Query_RootBucketsAggregateArgs = {
-  distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Buckets_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Buckets_Order_By>>;
   where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
 
 export type Query_RootDayPlanningArgs = {
-  distinct_on?: InputMaybe<Array<DayPlanning_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<DayPlanning_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<DayPlanning_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<DayPlanning_Order_By>>;
   where?: InputMaybe<DayPlanning_Bool_Exp>;
 };
 
 
 export type Query_RootDayPlanning_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<DayPlanning_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<DayPlanning_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<DayPlanning_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<DayPlanning_Order_By>>;
   where?: InputMaybe<DayPlanning_Bool_Exp>;
 };
 
@@ -4666,37 +4622,37 @@ export type Query_RootFileArgs = {
 
 
 export type Query_RootFilesArgs = {
-  distinct_on?: InputMaybe<Array<Files_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Files_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Files_Order_By>>;
   where?: InputMaybe<Files_Bool_Exp>;
 };
 
 
 export type Query_RootFilesAggregateArgs = {
-  distinct_on?: InputMaybe<Array<Files_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Files_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Files_Order_By>>;
   where?: InputMaybe<Files_Bool_Exp>;
 };
 
 
 export type Query_RootPriorityArgs = {
-  distinct_on?: InputMaybe<Array<Priority_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Priority_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Priority_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Priority_Order_By>>;
   where?: InputMaybe<Priority_Bool_Exp>;
 };
 
 
 export type Query_RootPriority_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Priority_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Priority_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Priority_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Priority_Order_By>>;
   where?: InputMaybe<Priority_Bool_Exp>;
 };
 
@@ -4707,28 +4663,28 @@ export type Query_RootPriority_By_PkArgs = {
 
 
 export type Query_RootTaskArgs = {
-  distinct_on?: InputMaybe<Array<Task_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Task_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Task_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Task_Order_By>>;
   where?: InputMaybe<Task_Bool_Exp>;
 };
 
 
 export type Query_RootTaskStatusArgs = {
-  distinct_on?: InputMaybe<Array<TaskStatus_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<TaskStatus_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<TaskStatus_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<TaskStatus_Order_By>>;
   where?: InputMaybe<TaskStatus_Bool_Exp>;
 };
 
 
 export type Query_RootTaskStatus_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<TaskStatus_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<TaskStatus_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<TaskStatus_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<TaskStatus_Order_By>>;
   where?: InputMaybe<TaskStatus_Bool_Exp>;
 };
 
@@ -4739,10 +4695,10 @@ export type Query_RootTaskStatus_By_PkArgs = {
 
 
 export type Query_RootTask_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Task_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Task_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Task_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Task_Order_By>>;
   where?: InputMaybe<Task_Bool_Exp>;
 };
 
@@ -4758,152 +4714,152 @@ export type Query_RootUserArgs = {
 
 
 export type Query_RootUsersArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Users_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
 
 export type Query_RootUsersAggregateArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Users_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
 export type Subscription_Root = {
-  __typename?: 'subscription_root';
+  readonly __typename?: 'subscription_root';
   /** fetch data from the table: "auth.providers" using primary key columns */
-  authProvider?: Maybe<AuthProviders>;
+  readonly authProvider?: Maybe<AuthProviders>;
   /** fetch data from the table: "auth.provider_requests" using primary key columns */
-  authProviderRequest?: Maybe<AuthProviderRequests>;
+  readonly authProviderRequest?: Maybe<AuthProviderRequests>;
   /** fetch data from the table: "auth.provider_requests" */
-  authProviderRequests: Array<AuthProviderRequests>;
+  readonly authProviderRequests: ReadonlyArray<AuthProviderRequests>;
   /** fetch aggregated fields from the table: "auth.provider_requests" */
-  authProviderRequestsAggregate: AuthProviderRequests_Aggregate;
+  readonly authProviderRequestsAggregate: AuthProviderRequests_Aggregate;
   /** fetch data from the table in a streaming manner: "auth.provider_requests" */
-  authProviderRequests_stream: Array<AuthProviderRequests>;
+  readonly authProviderRequests_stream: ReadonlyArray<AuthProviderRequests>;
   /** fetch data from the table: "auth.providers" */
-  authProviders: Array<AuthProviders>;
+  readonly authProviders: ReadonlyArray<AuthProviders>;
   /** fetch aggregated fields from the table: "auth.providers" */
-  authProvidersAggregate: AuthProviders_Aggregate;
+  readonly authProvidersAggregate: AuthProviders_Aggregate;
   /** fetch data from the table in a streaming manner: "auth.providers" */
-  authProviders_stream: Array<AuthProviders>;
+  readonly authProviders_stream: ReadonlyArray<AuthProviders>;
   /** fetch data from the table: "auth.refresh_tokens" using primary key columns */
-  authRefreshToken?: Maybe<AuthRefreshTokens>;
+  readonly authRefreshToken?: Maybe<AuthRefreshTokens>;
   /** fetch data from the table: "auth.refresh_token_types" using primary key columns */
-  authRefreshTokenType?: Maybe<AuthRefreshTokenTypes>;
+  readonly authRefreshTokenType?: Maybe<AuthRefreshTokenTypes>;
   /** fetch data from the table: "auth.refresh_token_types" */
-  authRefreshTokenTypes: Array<AuthRefreshTokenTypes>;
+  readonly authRefreshTokenTypes: ReadonlyArray<AuthRefreshTokenTypes>;
   /** fetch aggregated fields from the table: "auth.refresh_token_types" */
-  authRefreshTokenTypesAggregate: AuthRefreshTokenTypes_Aggregate;
+  readonly authRefreshTokenTypesAggregate: AuthRefreshTokenTypes_Aggregate;
   /** fetch data from the table in a streaming manner: "auth.refresh_token_types" */
-  authRefreshTokenTypes_stream: Array<AuthRefreshTokenTypes>;
+  readonly authRefreshTokenTypes_stream: ReadonlyArray<AuthRefreshTokenTypes>;
   /** fetch data from the table: "auth.refresh_tokens" */
-  authRefreshTokens: Array<AuthRefreshTokens>;
+  readonly authRefreshTokens: ReadonlyArray<AuthRefreshTokens>;
   /** fetch aggregated fields from the table: "auth.refresh_tokens" */
-  authRefreshTokensAggregate: AuthRefreshTokens_Aggregate;
+  readonly authRefreshTokensAggregate: AuthRefreshTokens_Aggregate;
   /** fetch data from the table in a streaming manner: "auth.refresh_tokens" */
-  authRefreshTokens_stream: Array<AuthRefreshTokens>;
+  readonly authRefreshTokens_stream: ReadonlyArray<AuthRefreshTokens>;
   /** fetch data from the table: "auth.roles" using primary key columns */
-  authRole?: Maybe<AuthRoles>;
+  readonly authRole?: Maybe<AuthRoles>;
   /** fetch data from the table: "auth.roles" */
-  authRoles: Array<AuthRoles>;
+  readonly authRoles: ReadonlyArray<AuthRoles>;
   /** fetch aggregated fields from the table: "auth.roles" */
-  authRolesAggregate: AuthRoles_Aggregate;
+  readonly authRolesAggregate: AuthRoles_Aggregate;
   /** fetch data from the table in a streaming manner: "auth.roles" */
-  authRoles_stream: Array<AuthRoles>;
+  readonly authRoles_stream: ReadonlyArray<AuthRoles>;
   /** fetch data from the table: "auth.user_providers" using primary key columns */
-  authUserProvider?: Maybe<AuthUserProviders>;
+  readonly authUserProvider?: Maybe<AuthUserProviders>;
   /** fetch data from the table: "auth.user_providers" */
-  authUserProviders: Array<AuthUserProviders>;
+  readonly authUserProviders: ReadonlyArray<AuthUserProviders>;
   /** fetch aggregated fields from the table: "auth.user_providers" */
-  authUserProvidersAggregate: AuthUserProviders_Aggregate;
+  readonly authUserProvidersAggregate: AuthUserProviders_Aggregate;
   /** fetch data from the table in a streaming manner: "auth.user_providers" */
-  authUserProviders_stream: Array<AuthUserProviders>;
+  readonly authUserProviders_stream: ReadonlyArray<AuthUserProviders>;
   /** fetch data from the table: "auth.user_roles" using primary key columns */
-  authUserRole?: Maybe<AuthUserRoles>;
+  readonly authUserRole?: Maybe<AuthUserRoles>;
   /** fetch data from the table: "auth.user_roles" */
-  authUserRoles: Array<AuthUserRoles>;
+  readonly authUserRoles: ReadonlyArray<AuthUserRoles>;
   /** fetch aggregated fields from the table: "auth.user_roles" */
-  authUserRolesAggregate: AuthUserRoles_Aggregate;
+  readonly authUserRolesAggregate: AuthUserRoles_Aggregate;
   /** fetch data from the table in a streaming manner: "auth.user_roles" */
-  authUserRoles_stream: Array<AuthUserRoles>;
+  readonly authUserRoles_stream: ReadonlyArray<AuthUserRoles>;
   /** fetch data from the table: "auth.user_security_keys" using primary key columns */
-  authUserSecurityKey?: Maybe<AuthUserSecurityKeys>;
+  readonly authUserSecurityKey?: Maybe<AuthUserSecurityKeys>;
   /** fetch data from the table: "auth.user_security_keys" */
-  authUserSecurityKeys: Array<AuthUserSecurityKeys>;
+  readonly authUserSecurityKeys: ReadonlyArray<AuthUserSecurityKeys>;
   /** fetch aggregated fields from the table: "auth.user_security_keys" */
-  authUserSecurityKeysAggregate: AuthUserSecurityKeys_Aggregate;
+  readonly authUserSecurityKeysAggregate: AuthUserSecurityKeys_Aggregate;
   /** fetch data from the table in a streaming manner: "auth.user_security_keys" */
-  authUserSecurityKeys_stream: Array<AuthUserSecurityKeys>;
+  readonly authUserSecurityKeys_stream: ReadonlyArray<AuthUserSecurityKeys>;
   /** fetch data from the table: "backlog" */
-  backlog: Array<Backlog>;
+  readonly backlog: ReadonlyArray<Backlog>;
   /** fetch aggregated fields from the table: "backlog" */
-  backlog_aggregate: Backlog_Aggregate;
+  readonly backlog_aggregate: Backlog_Aggregate;
   /** fetch data from the table: "backlog" using primary key columns */
-  backlog_by_pk?: Maybe<Backlog>;
+  readonly backlog_by_pk?: Maybe<Backlog>;
   /** fetch data from the table in a streaming manner: "backlog" */
-  backlog_stream: Array<Backlog>;
+  readonly backlog_stream: ReadonlyArray<Backlog>;
   /** fetch data from the table: "storage.buckets" using primary key columns */
-  bucket?: Maybe<Buckets>;
+  readonly bucket?: Maybe<Buckets>;
   /** fetch data from the table: "storage.buckets" */
-  buckets: Array<Buckets>;
+  readonly buckets: ReadonlyArray<Buckets>;
   /** fetch aggregated fields from the table: "storage.buckets" */
-  bucketsAggregate: Buckets_Aggregate;
+  readonly bucketsAggregate: Buckets_Aggregate;
   /** fetch data from the table in a streaming manner: "storage.buckets" */
-  buckets_stream: Array<Buckets>;
+  readonly buckets_stream: ReadonlyArray<Buckets>;
   /** fetch data from the table: "dayPlanning" */
-  dayPlanning: Array<DayPlanning>;
+  readonly dayPlanning: ReadonlyArray<DayPlanning>;
   /** fetch aggregated fields from the table: "dayPlanning" */
-  dayPlanning_aggregate: DayPlanning_Aggregate;
+  readonly dayPlanning_aggregate: DayPlanning_Aggregate;
   /** fetch data from the table: "dayPlanning" using primary key columns */
-  dayPlanning_by_pk?: Maybe<DayPlanning>;
+  readonly dayPlanning_by_pk?: Maybe<DayPlanning>;
   /** fetch data from the table in a streaming manner: "dayPlanning" */
-  dayPlanning_stream: Array<DayPlanning>;
+  readonly dayPlanning_stream: ReadonlyArray<DayPlanning>;
   /** fetch data from the table: "storage.files" using primary key columns */
-  file?: Maybe<Files>;
+  readonly file?: Maybe<Files>;
   /** An array relationship */
-  files: Array<Files>;
+  readonly files: ReadonlyArray<Files>;
   /** fetch aggregated fields from the table: "storage.files" */
-  filesAggregate: Files_Aggregate;
+  readonly filesAggregate: Files_Aggregate;
   /** fetch data from the table in a streaming manner: "storage.files" */
-  files_stream: Array<Files>;
+  readonly files_stream: ReadonlyArray<Files>;
   /** fetch data from the table: "priority" */
-  priority: Array<Priority>;
+  readonly priority: ReadonlyArray<Priority>;
   /** fetch aggregated fields from the table: "priority" */
-  priority_aggregate: Priority_Aggregate;
+  readonly priority_aggregate: Priority_Aggregate;
   /** fetch data from the table: "priority" using primary key columns */
-  priority_by_pk?: Maybe<Priority>;
+  readonly priority_by_pk?: Maybe<Priority>;
   /** fetch data from the table in a streaming manner: "priority" */
-  priority_stream: Array<Priority>;
+  readonly priority_stream: ReadonlyArray<Priority>;
   /** fetch data from the table: "task" */
-  task: Array<Task>;
+  readonly task: ReadonlyArray<Task>;
   /** fetch data from the table: "taskStatus" */
-  taskStatus: Array<TaskStatus>;
+  readonly taskStatus: ReadonlyArray<TaskStatus>;
   /** fetch aggregated fields from the table: "taskStatus" */
-  taskStatus_aggregate: TaskStatus_Aggregate;
+  readonly taskStatus_aggregate: TaskStatus_Aggregate;
   /** fetch data from the table: "taskStatus" using primary key columns */
-  taskStatus_by_pk?: Maybe<TaskStatus>;
+  readonly taskStatus_by_pk?: Maybe<TaskStatus>;
   /** fetch data from the table in a streaming manner: "taskStatus" */
-  taskStatus_stream: Array<TaskStatus>;
+  readonly taskStatus_stream: ReadonlyArray<TaskStatus>;
   /** fetch aggregated fields from the table: "task" */
-  task_aggregate: Task_Aggregate;
+  readonly task_aggregate: Task_Aggregate;
   /** fetch data from the table: "task" using primary key columns */
-  task_by_pk?: Maybe<Task>;
+  readonly task_by_pk?: Maybe<Task>;
   /** fetch data from the table in a streaming manner: "task" */
-  task_stream: Array<Task>;
+  readonly task_stream: ReadonlyArray<Task>;
   /** fetch data from the table: "auth.users" using primary key columns */
-  user?: Maybe<Users>;
+  readonly user?: Maybe<Users>;
   /** fetch data from the table: "auth.users" */
-  users: Array<Users>;
+  readonly users: ReadonlyArray<Users>;
   /** fetch aggregated fields from the table: "auth.users" */
-  usersAggregate: Users_Aggregate;
+  readonly usersAggregate: Users_Aggregate;
   /** fetch data from the table in a streaming manner: "auth.users" */
-  users_stream: Array<Users>;
+  readonly users_stream: ReadonlyArray<Users>;
 };
 
 
@@ -4918,51 +4874,51 @@ export type Subscription_RootAuthProviderRequestArgs = {
 
 
 export type Subscription_RootAuthProviderRequestsArgs = {
-  distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthProviderRequests_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthProviderRequests_Order_By>>;
   where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthProviderRequestsAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthProviderRequests_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthProviderRequests_Order_By>>;
   where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthProviderRequests_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<AuthProviderRequests_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<AuthProviderRequests_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthProvidersArgs = {
-  distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthProviders_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthProviders_Order_By>>;
   where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthProvidersAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthProviders_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthProviders_Order_By>>;
   where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthProviders_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<AuthProviders_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<AuthProviders_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
@@ -4978,51 +4934,51 @@ export type Subscription_RootAuthRefreshTokenTypeArgs = {
 
 
 export type Subscription_RootAuthRefreshTokenTypesArgs = {
-  distinct_on?: InputMaybe<Array<AuthRefreshTokenTypes_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRefreshTokenTypes_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRefreshTokenTypes_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRefreshTokenTypes_Order_By>>;
   where?: InputMaybe<AuthRefreshTokenTypes_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthRefreshTokenTypesAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthRefreshTokenTypes_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRefreshTokenTypes_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRefreshTokenTypes_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRefreshTokenTypes_Order_By>>;
   where?: InputMaybe<AuthRefreshTokenTypes_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthRefreshTokenTypes_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<AuthRefreshTokenTypes_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<AuthRefreshTokenTypes_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthRefreshTokenTypes_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthRefreshTokensArgs = {
-  distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRefreshTokens_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Order_By>>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthRefreshTokensAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRefreshTokens_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Order_By>>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthRefreshTokens_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<AuthRefreshTokens_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<AuthRefreshTokens_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
@@ -5033,26 +4989,26 @@ export type Subscription_RootAuthRoleArgs = {
 
 
 export type Subscription_RootAuthRolesArgs = {
-  distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRoles_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRoles_Order_By>>;
   where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthRolesAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRoles_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRoles_Order_By>>;
   where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthRoles_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<AuthRoles_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<AuthRoles_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
@@ -5063,26 +5019,26 @@ export type Subscription_RootAuthUserProviderArgs = {
 
 
 export type Subscription_RootAuthUserProvidersArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserProviders_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserProviders_Order_By>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthUserProvidersAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserProviders_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserProviders_Order_By>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthUserProviders_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<AuthUserProviders_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<AuthUserProviders_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
@@ -5093,26 +5049,26 @@ export type Subscription_RootAuthUserRoleArgs = {
 
 
 export type Subscription_RootAuthUserRolesArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserRoles_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserRoles_Order_By>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthUserRolesAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserRoles_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserRoles_Order_By>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthUserRoles_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<AuthUserRoles_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<AuthUserRoles_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
@@ -5123,44 +5079,44 @@ export type Subscription_RootAuthUserSecurityKeyArgs = {
 
 
 export type Subscription_RootAuthUserSecurityKeysArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserSecurityKeys_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Order_By>>;
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthUserSecurityKeysAggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserSecurityKeys_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Order_By>>;
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
 
 export type Subscription_RootAuthUserSecurityKeys_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<AuthUserSecurityKeys_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<AuthUserSecurityKeys_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
 
 export type Subscription_RootBacklogArgs = {
-  distinct_on?: InputMaybe<Array<Backlog_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Backlog_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Backlog_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Backlog_Order_By>>;
   where?: InputMaybe<Backlog_Bool_Exp>;
 };
 
 
 export type Subscription_RootBacklog_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Backlog_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Backlog_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Backlog_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Backlog_Order_By>>;
   where?: InputMaybe<Backlog_Bool_Exp>;
 };
 
@@ -5172,7 +5128,7 @@ export type Subscription_RootBacklog_By_PkArgs = {
 
 export type Subscription_RootBacklog_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<Backlog_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<Backlog_Stream_Cursor_Input>>;
   where?: InputMaybe<Backlog_Bool_Exp>;
 };
 
@@ -5183,44 +5139,44 @@ export type Subscription_RootBucketArgs = {
 
 
 export type Subscription_RootBucketsArgs = {
-  distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Buckets_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Buckets_Order_By>>;
   where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
 
 export type Subscription_RootBucketsAggregateArgs = {
-  distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Buckets_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Buckets_Order_By>>;
   where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
 
 export type Subscription_RootBuckets_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<Buckets_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<Buckets_Stream_Cursor_Input>>;
   where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
 
 export type Subscription_RootDayPlanningArgs = {
-  distinct_on?: InputMaybe<Array<DayPlanning_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<DayPlanning_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<DayPlanning_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<DayPlanning_Order_By>>;
   where?: InputMaybe<DayPlanning_Bool_Exp>;
 };
 
 
 export type Subscription_RootDayPlanning_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<DayPlanning_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<DayPlanning_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<DayPlanning_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<DayPlanning_Order_By>>;
   where?: InputMaybe<DayPlanning_Bool_Exp>;
 };
 
@@ -5232,7 +5188,7 @@ export type Subscription_RootDayPlanning_By_PkArgs = {
 
 export type Subscription_RootDayPlanning_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<DayPlanning_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<DayPlanning_Stream_Cursor_Input>>;
   where?: InputMaybe<DayPlanning_Bool_Exp>;
 };
 
@@ -5243,44 +5199,44 @@ export type Subscription_RootFileArgs = {
 
 
 export type Subscription_RootFilesArgs = {
-  distinct_on?: InputMaybe<Array<Files_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Files_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Files_Order_By>>;
   where?: InputMaybe<Files_Bool_Exp>;
 };
 
 
 export type Subscription_RootFilesAggregateArgs = {
-  distinct_on?: InputMaybe<Array<Files_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Files_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Files_Order_By>>;
   where?: InputMaybe<Files_Bool_Exp>;
 };
 
 
 export type Subscription_RootFiles_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<Files_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<Files_Stream_Cursor_Input>>;
   where?: InputMaybe<Files_Bool_Exp>;
 };
 
 
 export type Subscription_RootPriorityArgs = {
-  distinct_on?: InputMaybe<Array<Priority_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Priority_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Priority_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Priority_Order_By>>;
   where?: InputMaybe<Priority_Bool_Exp>;
 };
 
 
 export type Subscription_RootPriority_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Priority_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Priority_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Priority_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Priority_Order_By>>;
   where?: InputMaybe<Priority_Bool_Exp>;
 };
 
@@ -5292,34 +5248,34 @@ export type Subscription_RootPriority_By_PkArgs = {
 
 export type Subscription_RootPriority_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<Priority_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<Priority_Stream_Cursor_Input>>;
   where?: InputMaybe<Priority_Bool_Exp>;
 };
 
 
 export type Subscription_RootTaskArgs = {
-  distinct_on?: InputMaybe<Array<Task_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Task_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Task_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Task_Order_By>>;
   where?: InputMaybe<Task_Bool_Exp>;
 };
 
 
 export type Subscription_RootTaskStatusArgs = {
-  distinct_on?: InputMaybe<Array<TaskStatus_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<TaskStatus_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<TaskStatus_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<TaskStatus_Order_By>>;
   where?: InputMaybe<TaskStatus_Bool_Exp>;
 };
 
 
 export type Subscription_RootTaskStatus_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<TaskStatus_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<TaskStatus_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<TaskStatus_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<TaskStatus_Order_By>>;
   where?: InputMaybe<TaskStatus_Bool_Exp>;
 };
 
@@ -5331,16 +5287,16 @@ export type Subscription_RootTaskStatus_By_PkArgs = {
 
 export type Subscription_RootTaskStatus_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<TaskStatus_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<TaskStatus_Stream_Cursor_Input>>;
   where?: InputMaybe<TaskStatus_Bool_Exp>;
 };
 
 
 export type Subscription_RootTask_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Task_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Task_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Task_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Task_Order_By>>;
   where?: InputMaybe<Task_Bool_Exp>;
 };
 
@@ -5352,7 +5308,7 @@ export type Subscription_RootTask_By_PkArgs = {
 
 export type Subscription_RootTask_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<Task_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<Task_Stream_Cursor_Input>>;
   where?: InputMaybe<Task_Bool_Exp>;
 };
 
@@ -5363,558 +5319,551 @@ export type Subscription_RootUserArgs = {
 
 
 export type Subscription_RootUsersArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Users_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
 
 export type Subscription_RootUsersAggregateArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Users_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
 
 export type Subscription_RootUsers_StreamArgs = {
   batch_size: Scalars['Int'];
-  cursor: Array<InputMaybe<Users_Stream_Cursor_Input>>;
+  cursor: ReadonlyArray<InputMaybe<Users_Stream_Cursor_Input>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
 /** columns and relationships of "task" */
 export type Task = {
-  __typename?: 'task';
-  backlog_id?: Maybe<Scalars['uuid']>;
-  createdAt: Scalars['timestamptz'];
-  dayPlanning_ListTaskPriority?: Maybe<Scalars['uuid']>;
-  dayPlanning_id?: Maybe<Scalars['uuid']>;
-  deadline?: Maybe<Scalars['timestamptz']>;
-  description: Scalars['String'];
-  id: Scalars['uuid'];
-  priority: Priority_Enum;
-  status?: Maybe<TaskStatus_Enum>;
-  timeBegin?: Maybe<Scalars['timestamptz']>;
-  timeEnd?: Maybe<Scalars['timestamptz']>;
-  title: Scalars['String'];
-  updatedAt: Scalars['timestamptz'];
-  user_id: Scalars['uuid'];
+  readonly __typename?: 'task';
+  readonly backlog_id?: Maybe<Scalars['uuid']>;
+  readonly createdAt: Scalars['timestamptz'];
+  readonly dayPlanning_ListTaskPriority?: Maybe<Scalars['uuid']>;
+  readonly dayPlanning_id?: Maybe<Scalars['uuid']>;
+  readonly deadline?: Maybe<Scalars['timestamptz']>;
+  readonly description: Scalars['String'];
+  readonly id: Scalars['uuid'];
+  readonly priority: Priority_Enum;
+  readonly status?: Maybe<TaskStatus_Enum>;
+  readonly timeBegin?: Maybe<Scalars['timestamptz']>;
+  readonly timeEnd?: Maybe<Scalars['timestamptz']>;
+  readonly title: Scalars['String'];
+  readonly updatedAt: Scalars['timestamptz'];
+  readonly user_id: Scalars['uuid'];
 };
 
 /** columns and relationships of "taskStatus" */
 export type TaskStatus = {
-  __typename?: 'taskStatus';
-  value: Scalars['String'];
+  readonly __typename?: 'taskStatus';
+  readonly value: Scalars['String'];
 };
 
 /** aggregated selection of "taskStatus" */
 export type TaskStatus_Aggregate = {
-  __typename?: 'taskStatus_aggregate';
-  aggregate?: Maybe<TaskStatus_Aggregate_Fields>;
-  nodes: Array<TaskStatus>;
+  readonly __typename?: 'taskStatus_aggregate';
+  readonly aggregate?: Maybe<TaskStatus_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<TaskStatus>;
 };
 
 /** aggregate fields of "taskStatus" */
 export type TaskStatus_Aggregate_Fields = {
-  __typename?: 'taskStatus_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<TaskStatus_Max_Fields>;
-  min?: Maybe<TaskStatus_Min_Fields>;
+  readonly __typename?: 'taskStatus_aggregate_fields';
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<TaskStatus_Max_Fields>;
+  readonly min?: Maybe<TaskStatus_Min_Fields>;
 };
 
 
 /** aggregate fields of "taskStatus" */
 export type TaskStatus_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<TaskStatus_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<TaskStatus_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Boolean expression to filter rows from the table "taskStatus". All fields are combined with a logical 'AND'. */
 export type TaskStatus_Bool_Exp = {
-  _and?: InputMaybe<Array<TaskStatus_Bool_Exp>>;
-  _not?: InputMaybe<TaskStatus_Bool_Exp>;
-  _or?: InputMaybe<Array<TaskStatus_Bool_Exp>>;
-  value?: InputMaybe<String_Comparison_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<TaskStatus_Bool_Exp>>;
+  readonly _not?: InputMaybe<TaskStatus_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<TaskStatus_Bool_Exp>>;
+  readonly value?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "taskStatus" */
-export enum TaskStatus_Constraint {
+export type TaskStatus_Constraint =
   /** unique or primary key constraint on columns "value" */
-  TaskStatusPkey = 'taskStatus_pkey'
-}
+  | 'taskStatus_pkey';
 
-export enum TaskStatus_Enum {
-  Failed = 'failed',
-  NotStarted = 'notStarted',
-  Success = 'success'
-}
+export type TaskStatus_Enum =
+  | 'failed'
+  | 'notStarted'
+  | 'success';
 
 /** Boolean expression to compare columns of type "taskStatus_enum". All fields are combined with logical 'AND'. */
 export type TaskStatus_Enum_Comparison_Exp = {
-  _eq?: InputMaybe<TaskStatus_Enum>;
-  _in?: InputMaybe<Array<TaskStatus_Enum>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _neq?: InputMaybe<TaskStatus_Enum>;
-  _nin?: InputMaybe<Array<TaskStatus_Enum>>;
+  readonly _eq?: InputMaybe<TaskStatus_Enum>;
+  readonly _in?: InputMaybe<ReadonlyArray<TaskStatus_Enum>>;
+  readonly _is_null?: InputMaybe<Scalars['Boolean']>;
+  readonly _neq?: InputMaybe<TaskStatus_Enum>;
+  readonly _nin?: InputMaybe<ReadonlyArray<TaskStatus_Enum>>;
 };
 
 /** input type for inserting data into table "taskStatus" */
 export type TaskStatus_Insert_Input = {
-  value?: InputMaybe<Scalars['String']>;
+  readonly value?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate max on columns */
 export type TaskStatus_Max_Fields = {
-  __typename?: 'taskStatus_max_fields';
-  value?: Maybe<Scalars['String']>;
+  readonly __typename?: 'taskStatus_max_fields';
+  readonly value?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type TaskStatus_Min_Fields = {
-  __typename?: 'taskStatus_min_fields';
-  value?: Maybe<Scalars['String']>;
+  readonly __typename?: 'taskStatus_min_fields';
+  readonly value?: Maybe<Scalars['String']>;
 };
 
 /** response of any mutation on the table "taskStatus" */
 export type TaskStatus_Mutation_Response = {
-  __typename?: 'taskStatus_mutation_response';
+  readonly __typename?: 'taskStatus_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<TaskStatus>;
+  readonly returning: ReadonlyArray<TaskStatus>;
 };
 
 /** on_conflict condition type for table "taskStatus" */
 export type TaskStatus_On_Conflict = {
-  constraint: TaskStatus_Constraint;
-  update_columns?: Array<TaskStatus_Update_Column>;
-  where?: InputMaybe<TaskStatus_Bool_Exp>;
+  readonly constraint: TaskStatus_Constraint;
+  readonly update_columns?: ReadonlyArray<TaskStatus_Update_Column>;
+  readonly where?: InputMaybe<TaskStatus_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "taskStatus". */
 export type TaskStatus_Order_By = {
-  value?: InputMaybe<Order_By>;
+  readonly value?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: taskStatus */
 export type TaskStatus_Pk_Columns_Input = {
-  value: Scalars['String'];
+  readonly value: Scalars['String'];
 };
 
 /** select columns of table "taskStatus" */
-export enum TaskStatus_Select_Column {
+export type TaskStatus_Select_Column =
   /** column name */
-  Value = 'value'
-}
+  | 'value';
 
 /** input type for updating data in table "taskStatus" */
 export type TaskStatus_Set_Input = {
-  value?: InputMaybe<Scalars['String']>;
+  readonly value?: InputMaybe<Scalars['String']>;
 };
 
 /** Streaming cursor of the table "taskStatus" */
 export type TaskStatus_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: TaskStatus_Stream_Cursor_Value_Input;
+  readonly initial_value: TaskStatus_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type TaskStatus_Stream_Cursor_Value_Input = {
-  value?: InputMaybe<Scalars['String']>;
+  readonly value?: InputMaybe<Scalars['String']>;
 };
 
 /** update columns of table "taskStatus" */
-export enum TaskStatus_Update_Column {
+export type TaskStatus_Update_Column =
   /** column name */
-  Value = 'value'
-}
+  | 'value';
 
 export type TaskStatus_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<TaskStatus_Set_Input>;
+  readonly _set?: InputMaybe<TaskStatus_Set_Input>;
   /** filter the rows which have to be updated */
-  where: TaskStatus_Bool_Exp;
+  readonly where: TaskStatus_Bool_Exp;
 };
 
 /** aggregated selection of "task" */
 export type Task_Aggregate = {
-  __typename?: 'task_aggregate';
-  aggregate?: Maybe<Task_Aggregate_Fields>;
-  nodes: Array<Task>;
+  readonly __typename?: 'task_aggregate';
+  readonly aggregate?: Maybe<Task_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<Task>;
 };
 
 export type Task_Aggregate_Bool_Exp = {
-  count?: InputMaybe<Task_Aggregate_Bool_Exp_Count>;
+  readonly count?: InputMaybe<Task_Aggregate_Bool_Exp_Count>;
 };
 
 export type Task_Aggregate_Bool_Exp_Count = {
-  arguments?: InputMaybe<Array<Task_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-  filter?: InputMaybe<Task_Bool_Exp>;
-  predicate: Int_Comparison_Exp;
+  readonly arguments?: InputMaybe<ReadonlyArray<Task_Select_Column>>;
+  readonly distinct?: InputMaybe<Scalars['Boolean']>;
+  readonly filter?: InputMaybe<Task_Bool_Exp>;
+  readonly predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "task" */
 export type Task_Aggregate_Fields = {
-  __typename?: 'task_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<Task_Max_Fields>;
-  min?: Maybe<Task_Min_Fields>;
+  readonly __typename?: 'task_aggregate_fields';
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<Task_Max_Fields>;
+  readonly min?: Maybe<Task_Min_Fields>;
 };
 
 
 /** aggregate fields of "task" */
 export type Task_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<Task_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<Task_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "task" */
 export type Task_Aggregate_Order_By = {
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<Task_Max_Order_By>;
-  min?: InputMaybe<Task_Min_Order_By>;
+  readonly count?: InputMaybe<Order_By>;
+  readonly max?: InputMaybe<Task_Max_Order_By>;
+  readonly min?: InputMaybe<Task_Min_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "task" */
 export type Task_Arr_Rel_Insert_Input = {
-  data: Array<Task_Insert_Input>;
+  readonly data: ReadonlyArray<Task_Insert_Input>;
   /** upsert condition */
-  on_conflict?: InputMaybe<Task_On_Conflict>;
+  readonly on_conflict?: InputMaybe<Task_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "task". All fields are combined with a logical 'AND'. */
 export type Task_Bool_Exp = {
-  _and?: InputMaybe<Array<Task_Bool_Exp>>;
-  _not?: InputMaybe<Task_Bool_Exp>;
-  _or?: InputMaybe<Array<Task_Bool_Exp>>;
-  backlog_id?: InputMaybe<Uuid_Comparison_Exp>;
-  createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  dayPlanning_ListTaskPriority?: InputMaybe<Uuid_Comparison_Exp>;
-  dayPlanning_id?: InputMaybe<Uuid_Comparison_Exp>;
-  deadline?: InputMaybe<Timestamptz_Comparison_Exp>;
-  description?: InputMaybe<String_Comparison_Exp>;
-  id?: InputMaybe<Uuid_Comparison_Exp>;
-  priority?: InputMaybe<Priority_Enum_Comparison_Exp>;
-  status?: InputMaybe<TaskStatus_Enum_Comparison_Exp>;
-  timeBegin?: InputMaybe<Timestamptz_Comparison_Exp>;
-  timeEnd?: InputMaybe<Timestamptz_Comparison_Exp>;
-  title?: InputMaybe<String_Comparison_Exp>;
-  updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  user_id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<Task_Bool_Exp>>;
+  readonly _not?: InputMaybe<Task_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<Task_Bool_Exp>>;
+  readonly backlog_id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly dayPlanning_ListTaskPriority?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly dayPlanning_id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly deadline?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly description?: InputMaybe<String_Comparison_Exp>;
+  readonly id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly priority?: InputMaybe<Priority_Enum_Comparison_Exp>;
+  readonly status?: InputMaybe<TaskStatus_Enum_Comparison_Exp>;
+  readonly timeBegin?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly timeEnd?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly title?: InputMaybe<String_Comparison_Exp>;
+  readonly updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly user_id?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "task" */
-export enum Task_Constraint {
+export type Task_Constraint =
   /** unique or primary key constraint on columns "id" */
-  TaskIdKey = 'task_id_key',
+  | 'task_id_key'
   /** unique or primary key constraint on columns "id" */
-  TaskPkey = 'task_pkey'
-}
+  | 'task_pkey';
 
 /** input type for inserting data into table "task" */
 export type Task_Insert_Input = {
-  backlog_id?: InputMaybe<Scalars['uuid']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  dayPlanning_ListTaskPriority?: InputMaybe<Scalars['uuid']>;
-  dayPlanning_id?: InputMaybe<Scalars['uuid']>;
-  deadline?: InputMaybe<Scalars['timestamptz']>;
-  description?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  priority?: InputMaybe<Priority_Enum>;
-  status?: InputMaybe<TaskStatus_Enum>;
-  timeBegin?: InputMaybe<Scalars['timestamptz']>;
-  timeEnd?: InputMaybe<Scalars['timestamptz']>;
-  title?: InputMaybe<Scalars['String']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  readonly backlog_id?: InputMaybe<Scalars['uuid']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly dayPlanning_ListTaskPriority?: InputMaybe<Scalars['uuid']>;
+  readonly dayPlanning_id?: InputMaybe<Scalars['uuid']>;
+  readonly deadline?: InputMaybe<Scalars['timestamptz']>;
+  readonly description?: InputMaybe<Scalars['String']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly priority?: InputMaybe<Priority_Enum>;
+  readonly status?: InputMaybe<TaskStatus_Enum>;
+  readonly timeBegin?: InputMaybe<Scalars['timestamptz']>;
+  readonly timeEnd?: InputMaybe<Scalars['timestamptz']>;
+  readonly title?: InputMaybe<Scalars['String']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly user_id?: InputMaybe<Scalars['uuid']>;
 };
 
 /** aggregate max on columns */
 export type Task_Max_Fields = {
-  __typename?: 'task_max_fields';
-  backlog_id?: Maybe<Scalars['uuid']>;
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  dayPlanning_ListTaskPriority?: Maybe<Scalars['uuid']>;
-  dayPlanning_id?: Maybe<Scalars['uuid']>;
-  deadline?: Maybe<Scalars['timestamptz']>;
-  description?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['uuid']>;
-  timeBegin?: Maybe<Scalars['timestamptz']>;
-  timeEnd?: Maybe<Scalars['timestamptz']>;
-  title?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'task_max_fields';
+  readonly backlog_id?: Maybe<Scalars['uuid']>;
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly dayPlanning_ListTaskPriority?: Maybe<Scalars['uuid']>;
+  readonly dayPlanning_id?: Maybe<Scalars['uuid']>;
+  readonly deadline?: Maybe<Scalars['timestamptz']>;
+  readonly description?: Maybe<Scalars['String']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly timeBegin?: Maybe<Scalars['timestamptz']>;
+  readonly timeEnd?: Maybe<Scalars['timestamptz']>;
+  readonly title?: Maybe<Scalars['String']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly user_id?: Maybe<Scalars['uuid']>;
 };
 
 /** order by max() on columns of table "task" */
 export type Task_Max_Order_By = {
-  backlog_id?: InputMaybe<Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  dayPlanning_ListTaskPriority?: InputMaybe<Order_By>;
-  dayPlanning_id?: InputMaybe<Order_By>;
-  deadline?: InputMaybe<Order_By>;
-  description?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  timeBegin?: InputMaybe<Order_By>;
-  timeEnd?: InputMaybe<Order_By>;
-  title?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
+  readonly backlog_id?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly dayPlanning_ListTaskPriority?: InputMaybe<Order_By>;
+  readonly dayPlanning_id?: InputMaybe<Order_By>;
+  readonly deadline?: InputMaybe<Order_By>;
+  readonly description?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly timeBegin?: InputMaybe<Order_By>;
+  readonly timeEnd?: InputMaybe<Order_By>;
+  readonly title?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
+  readonly user_id?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
 export type Task_Min_Fields = {
-  __typename?: 'task_min_fields';
-  backlog_id?: Maybe<Scalars['uuid']>;
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  dayPlanning_ListTaskPriority?: Maybe<Scalars['uuid']>;
-  dayPlanning_id?: Maybe<Scalars['uuid']>;
-  deadline?: Maybe<Scalars['timestamptz']>;
-  description?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['uuid']>;
-  timeBegin?: Maybe<Scalars['timestamptz']>;
-  timeEnd?: Maybe<Scalars['timestamptz']>;
-  title?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
-  user_id?: Maybe<Scalars['uuid']>;
+  readonly __typename?: 'task_min_fields';
+  readonly backlog_id?: Maybe<Scalars['uuid']>;
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly dayPlanning_ListTaskPriority?: Maybe<Scalars['uuid']>;
+  readonly dayPlanning_id?: Maybe<Scalars['uuid']>;
+  readonly deadline?: Maybe<Scalars['timestamptz']>;
+  readonly description?: Maybe<Scalars['String']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly timeBegin?: Maybe<Scalars['timestamptz']>;
+  readonly timeEnd?: Maybe<Scalars['timestamptz']>;
+  readonly title?: Maybe<Scalars['String']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly user_id?: Maybe<Scalars['uuid']>;
 };
 
 /** order by min() on columns of table "task" */
 export type Task_Min_Order_By = {
-  backlog_id?: InputMaybe<Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  dayPlanning_ListTaskPriority?: InputMaybe<Order_By>;
-  dayPlanning_id?: InputMaybe<Order_By>;
-  deadline?: InputMaybe<Order_By>;
-  description?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  timeBegin?: InputMaybe<Order_By>;
-  timeEnd?: InputMaybe<Order_By>;
-  title?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
+  readonly backlog_id?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly dayPlanning_ListTaskPriority?: InputMaybe<Order_By>;
+  readonly dayPlanning_id?: InputMaybe<Order_By>;
+  readonly deadline?: InputMaybe<Order_By>;
+  readonly description?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly timeBegin?: InputMaybe<Order_By>;
+  readonly timeEnd?: InputMaybe<Order_By>;
+  readonly title?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
+  readonly user_id?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "task" */
 export type Task_Mutation_Response = {
-  __typename?: 'task_mutation_response';
+  readonly __typename?: 'task_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<Task>;
+  readonly returning: ReadonlyArray<Task>;
 };
 
 /** on_conflict condition type for table "task" */
 export type Task_On_Conflict = {
-  constraint: Task_Constraint;
-  update_columns?: Array<Task_Update_Column>;
-  where?: InputMaybe<Task_Bool_Exp>;
+  readonly constraint: Task_Constraint;
+  readonly update_columns?: ReadonlyArray<Task_Update_Column>;
+  readonly where?: InputMaybe<Task_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "task". */
 export type Task_Order_By = {
-  backlog_id?: InputMaybe<Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  dayPlanning_ListTaskPriority?: InputMaybe<Order_By>;
-  dayPlanning_id?: InputMaybe<Order_By>;
-  deadline?: InputMaybe<Order_By>;
-  description?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  priority?: InputMaybe<Order_By>;
-  status?: InputMaybe<Order_By>;
-  timeBegin?: InputMaybe<Order_By>;
-  timeEnd?: InputMaybe<Order_By>;
-  title?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
+  readonly backlog_id?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly dayPlanning_ListTaskPriority?: InputMaybe<Order_By>;
+  readonly dayPlanning_id?: InputMaybe<Order_By>;
+  readonly deadline?: InputMaybe<Order_By>;
+  readonly description?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly priority?: InputMaybe<Order_By>;
+  readonly status?: InputMaybe<Order_By>;
+  readonly timeBegin?: InputMaybe<Order_By>;
+  readonly timeEnd?: InputMaybe<Order_By>;
+  readonly title?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
+  readonly user_id?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: task */
 export type Task_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  readonly id: Scalars['uuid'];
 };
 
 /** select columns of table "task" */
-export enum Task_Select_Column {
+export type Task_Select_Column =
   /** column name */
-  BacklogId = 'backlog_id',
+  | 'backlog_id'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  DayPlanningListTaskPriority = 'dayPlanning_ListTaskPriority',
+  | 'dayPlanning_ListTaskPriority'
   /** column name */
-  DayPlanningId = 'dayPlanning_id',
+  | 'dayPlanning_id'
   /** column name */
-  Deadline = 'deadline',
+  | 'deadline'
   /** column name */
-  Description = 'description',
+  | 'description'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Priority = 'priority',
+  | 'priority'
   /** column name */
-  Status = 'status',
+  | 'status'
   /** column name */
-  TimeBegin = 'timeBegin',
+  | 'timeBegin'
   /** column name */
-  TimeEnd = 'timeEnd',
+  | 'timeEnd'
   /** column name */
-  Title = 'title',
+  | 'title'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'user_id'
-}
+  | 'user_id';
 
 /** input type for updating data in table "task" */
 export type Task_Set_Input = {
-  backlog_id?: InputMaybe<Scalars['uuid']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  dayPlanning_ListTaskPriority?: InputMaybe<Scalars['uuid']>;
-  dayPlanning_id?: InputMaybe<Scalars['uuid']>;
-  deadline?: InputMaybe<Scalars['timestamptz']>;
-  description?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  priority?: InputMaybe<Priority_Enum>;
-  status?: InputMaybe<TaskStatus_Enum>;
-  timeBegin?: InputMaybe<Scalars['timestamptz']>;
-  timeEnd?: InputMaybe<Scalars['timestamptz']>;
-  title?: InputMaybe<Scalars['String']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  readonly backlog_id?: InputMaybe<Scalars['uuid']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly dayPlanning_ListTaskPriority?: InputMaybe<Scalars['uuid']>;
+  readonly dayPlanning_id?: InputMaybe<Scalars['uuid']>;
+  readonly deadline?: InputMaybe<Scalars['timestamptz']>;
+  readonly description?: InputMaybe<Scalars['String']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly priority?: InputMaybe<Priority_Enum>;
+  readonly status?: InputMaybe<TaskStatus_Enum>;
+  readonly timeBegin?: InputMaybe<Scalars['timestamptz']>;
+  readonly timeEnd?: InputMaybe<Scalars['timestamptz']>;
+  readonly title?: InputMaybe<Scalars['String']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly user_id?: InputMaybe<Scalars['uuid']>;
 };
 
 /** Streaming cursor of the table "task" */
 export type Task_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: Task_Stream_Cursor_Value_Input;
+  readonly initial_value: Task_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Task_Stream_Cursor_Value_Input = {
-  backlog_id?: InputMaybe<Scalars['uuid']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  dayPlanning_ListTaskPriority?: InputMaybe<Scalars['uuid']>;
-  dayPlanning_id?: InputMaybe<Scalars['uuid']>;
-  deadline?: InputMaybe<Scalars['timestamptz']>;
-  description?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  priority?: InputMaybe<Priority_Enum>;
-  status?: InputMaybe<TaskStatus_Enum>;
-  timeBegin?: InputMaybe<Scalars['timestamptz']>;
-  timeEnd?: InputMaybe<Scalars['timestamptz']>;
-  title?: InputMaybe<Scalars['String']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  user_id?: InputMaybe<Scalars['uuid']>;
+  readonly backlog_id?: InputMaybe<Scalars['uuid']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly dayPlanning_ListTaskPriority?: InputMaybe<Scalars['uuid']>;
+  readonly dayPlanning_id?: InputMaybe<Scalars['uuid']>;
+  readonly deadline?: InputMaybe<Scalars['timestamptz']>;
+  readonly description?: InputMaybe<Scalars['String']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly priority?: InputMaybe<Priority_Enum>;
+  readonly status?: InputMaybe<TaskStatus_Enum>;
+  readonly timeBegin?: InputMaybe<Scalars['timestamptz']>;
+  readonly timeEnd?: InputMaybe<Scalars['timestamptz']>;
+  readonly title?: InputMaybe<Scalars['String']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly user_id?: InputMaybe<Scalars['uuid']>;
 };
 
 /** update columns of table "task" */
-export enum Task_Update_Column {
+export type Task_Update_Column =
   /** column name */
-  BacklogId = 'backlog_id',
+  | 'backlog_id'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  DayPlanningListTaskPriority = 'dayPlanning_ListTaskPriority',
+  | 'dayPlanning_ListTaskPriority'
   /** column name */
-  DayPlanningId = 'dayPlanning_id',
+  | 'dayPlanning_id'
   /** column name */
-  Deadline = 'deadline',
+  | 'deadline'
   /** column name */
-  Description = 'description',
+  | 'description'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Priority = 'priority',
+  | 'priority'
   /** column name */
-  Status = 'status',
+  | 'status'
   /** column name */
-  TimeBegin = 'timeBegin',
+  | 'timeBegin'
   /** column name */
-  TimeEnd = 'timeEnd',
+  | 'timeEnd'
   /** column name */
-  Title = 'title',
+  | 'title'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'user_id'
-}
+  | 'user_id';
 
 export type Task_Updates = {
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<Task_Set_Input>;
+  readonly _set?: InputMaybe<Task_Set_Input>;
   /** filter the rows which have to be updated */
-  where: Task_Bool_Exp;
+  readonly where: Task_Bool_Exp;
 };
 
 /** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
 export type Timestamptz_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['timestamptz']>;
-  _gt?: InputMaybe<Scalars['timestamptz']>;
-  _gte?: InputMaybe<Scalars['timestamptz']>;
-  _in?: InputMaybe<Array<Scalars['timestamptz']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['timestamptz']>;
-  _lte?: InputMaybe<Scalars['timestamptz']>;
-  _neq?: InputMaybe<Scalars['timestamptz']>;
-  _nin?: InputMaybe<Array<Scalars['timestamptz']>>;
+  readonly _eq?: InputMaybe<Scalars['timestamptz']>;
+  readonly _gt?: InputMaybe<Scalars['timestamptz']>;
+  readonly _gte?: InputMaybe<Scalars['timestamptz']>;
+  readonly _in?: InputMaybe<ReadonlyArray<Scalars['timestamptz']>>;
+  readonly _is_null?: InputMaybe<Scalars['Boolean']>;
+  readonly _lt?: InputMaybe<Scalars['timestamptz']>;
+  readonly _lte?: InputMaybe<Scalars['timestamptz']>;
+  readonly _neq?: InputMaybe<Scalars['timestamptz']>;
+  readonly _nin?: InputMaybe<ReadonlyArray<Scalars['timestamptz']>>;
 };
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type Users = {
-  __typename?: 'users';
-  activeMfaType?: Maybe<Scalars['String']>;
-  avatarUrl: Scalars['String'];
-  createdAt: Scalars['timestamptz'];
-  currentChallenge?: Maybe<Scalars['String']>;
-  defaultRole: Scalars['String'];
+  readonly __typename?: 'users';
+  readonly activeMfaType?: Maybe<Scalars['String']>;
+  readonly avatarUrl: Scalars['String'];
+  readonly createdAt: Scalars['timestamptz'];
+  readonly currentChallenge?: Maybe<Scalars['String']>;
+  readonly defaultRole: Scalars['String'];
   /** An object relationship */
-  defaultRoleByRole: AuthRoles;
-  disabled: Scalars['Boolean'];
-  displayName: Scalars['String'];
-  email?: Maybe<Scalars['citext']>;
-  emailVerified: Scalars['Boolean'];
-  id: Scalars['uuid'];
-  isAnonymous: Scalars['Boolean'];
-  lastSeen?: Maybe<Scalars['timestamptz']>;
-  locale: Scalars['String'];
-  metadata?: Maybe<Scalars['jsonb']>;
-  newEmail?: Maybe<Scalars['citext']>;
-  otpHash?: Maybe<Scalars['String']>;
-  otpHashExpiresAt: Scalars['timestamptz'];
-  otpMethodLastUsed?: Maybe<Scalars['String']>;
-  passwordHash?: Maybe<Scalars['String']>;
-  phoneNumber?: Maybe<Scalars['String']>;
-  phoneNumberVerified: Scalars['Boolean'];
+  readonly defaultRoleByRole: AuthRoles;
+  readonly disabled: Scalars['Boolean'];
+  readonly displayName: Scalars['String'];
+  readonly email?: Maybe<Scalars['citext']>;
+  readonly emailVerified: Scalars['Boolean'];
+  readonly id: Scalars['uuid'];
+  readonly isAnonymous: Scalars['Boolean'];
+  readonly lastSeen?: Maybe<Scalars['timestamptz']>;
+  readonly locale: Scalars['String'];
+  readonly metadata?: Maybe<Scalars['jsonb']>;
+  readonly newEmail?: Maybe<Scalars['citext']>;
+  readonly otpHash?: Maybe<Scalars['String']>;
+  readonly otpHashExpiresAt: Scalars['timestamptz'];
+  readonly otpMethodLastUsed?: Maybe<Scalars['String']>;
+  readonly passwordHash?: Maybe<Scalars['String']>;
+  readonly phoneNumber?: Maybe<Scalars['String']>;
+  readonly phoneNumberVerified: Scalars['Boolean'];
   /** An array relationship */
-  refreshTokens: Array<AuthRefreshTokens>;
+  readonly refreshTokens: ReadonlyArray<AuthRefreshTokens>;
   /** An aggregate relationship */
-  refreshTokens_aggregate: AuthRefreshTokens_Aggregate;
+  readonly refreshTokens_aggregate: AuthRefreshTokens_Aggregate;
   /** An array relationship */
-  roles: Array<AuthUserRoles>;
+  readonly roles: ReadonlyArray<AuthUserRoles>;
   /** An aggregate relationship */
-  roles_aggregate: AuthUserRoles_Aggregate;
+  readonly roles_aggregate: AuthUserRoles_Aggregate;
   /** An array relationship */
-  securityKeys: Array<AuthUserSecurityKeys>;
+  readonly securityKeys: ReadonlyArray<AuthUserSecurityKeys>;
   /** An aggregate relationship */
-  securityKeys_aggregate: AuthUserSecurityKeys_Aggregate;
-  ticket?: Maybe<Scalars['String']>;
-  ticketExpiresAt: Scalars['timestamptz'];
-  totpSecret?: Maybe<Scalars['String']>;
-  updatedAt: Scalars['timestamptz'];
+  readonly securityKeys_aggregate: AuthUserSecurityKeys_Aggregate;
+  readonly ticket?: Maybe<Scalars['String']>;
+  readonly ticketExpiresAt: Scalars['timestamptz'];
+  readonly totpSecret?: Maybe<Scalars['String']>;
+  readonly updatedAt: Scalars['timestamptz'];
   /** An array relationship */
-  userProviders: Array<AuthUserProviders>;
+  readonly userProviders: ReadonlyArray<AuthUserProviders>;
   /** An aggregate relationship */
-  userProviders_aggregate: AuthUserProviders_Aggregate;
+  readonly userProviders_aggregate: AuthUserProviders_Aggregate;
 };
 
 
@@ -5926,642 +5875,637 @@ export type UsersMetadataArgs = {
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersRefreshTokensArgs = {
-  distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRefreshTokens_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Order_By>>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersRefreshTokens_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthRefreshTokens_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthRefreshTokens_Order_By>>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersRolesArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserRoles_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserRoles_Order_By>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersRoles_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserRoles_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserRoles_Order_By>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersSecurityKeysArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserSecurityKeys_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Order_By>>;
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersSecurityKeys_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserSecurityKeys_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserSecurityKeys_Order_By>>;
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersUserProvidersArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserProviders_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserProviders_Order_By>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersUserProviders_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
+  distinct_on?: InputMaybe<ReadonlyArray<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<AuthUserProviders_Order_By>>;
+  order_by?: InputMaybe<ReadonlyArray<AuthUserProviders_Order_By>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
 /** aggregated selection of "auth.users" */
 export type Users_Aggregate = {
-  __typename?: 'users_aggregate';
-  aggregate?: Maybe<Users_Aggregate_Fields>;
-  nodes: Array<Users>;
+  readonly __typename?: 'users_aggregate';
+  readonly aggregate?: Maybe<Users_Aggregate_Fields>;
+  readonly nodes: ReadonlyArray<Users>;
 };
 
 export type Users_Aggregate_Bool_Exp = {
-  bool_and?: InputMaybe<Users_Aggregate_Bool_Exp_Bool_And>;
-  bool_or?: InputMaybe<Users_Aggregate_Bool_Exp_Bool_Or>;
-  count?: InputMaybe<Users_Aggregate_Bool_Exp_Count>;
+  readonly bool_and?: InputMaybe<Users_Aggregate_Bool_Exp_Bool_And>;
+  readonly bool_or?: InputMaybe<Users_Aggregate_Bool_Exp_Bool_Or>;
+  readonly count?: InputMaybe<Users_Aggregate_Bool_Exp_Count>;
 };
 
 export type Users_Aggregate_Bool_Exp_Bool_And = {
-  arguments: Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-  filter?: InputMaybe<Users_Bool_Exp>;
-  predicate: Boolean_Comparison_Exp;
+  readonly arguments: Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns;
+  readonly distinct?: InputMaybe<Scalars['Boolean']>;
+  readonly filter?: InputMaybe<Users_Bool_Exp>;
+  readonly predicate: Boolean_Comparison_Exp;
 };
 
 export type Users_Aggregate_Bool_Exp_Bool_Or = {
-  arguments: Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-  filter?: InputMaybe<Users_Bool_Exp>;
-  predicate: Boolean_Comparison_Exp;
+  readonly arguments: Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns;
+  readonly distinct?: InputMaybe<Scalars['Boolean']>;
+  readonly filter?: InputMaybe<Users_Bool_Exp>;
+  readonly predicate: Boolean_Comparison_Exp;
 };
 
 export type Users_Aggregate_Bool_Exp_Count = {
-  arguments?: InputMaybe<Array<Users_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-  filter?: InputMaybe<Users_Bool_Exp>;
-  predicate: Int_Comparison_Exp;
+  readonly arguments?: InputMaybe<ReadonlyArray<Users_Select_Column>>;
+  readonly distinct?: InputMaybe<Scalars['Boolean']>;
+  readonly filter?: InputMaybe<Users_Bool_Exp>;
+  readonly predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "auth.users" */
 export type Users_Aggregate_Fields = {
-  __typename?: 'users_aggregate_fields';
-  count: Scalars['Int'];
-  max?: Maybe<Users_Max_Fields>;
-  min?: Maybe<Users_Min_Fields>;
+  readonly __typename?: 'users_aggregate_fields';
+  readonly count: Scalars['Int'];
+  readonly max?: Maybe<Users_Max_Fields>;
+  readonly min?: Maybe<Users_Min_Fields>;
 };
 
 
 /** aggregate fields of "auth.users" */
 export type Users_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<Users_Select_Column>>;
+  columns?: InputMaybe<ReadonlyArray<Users_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "auth.users" */
 export type Users_Aggregate_Order_By = {
-  count?: InputMaybe<Order_By>;
-  max?: InputMaybe<Users_Max_Order_By>;
-  min?: InputMaybe<Users_Min_Order_By>;
+  readonly count?: InputMaybe<Order_By>;
+  readonly max?: InputMaybe<Users_Max_Order_By>;
+  readonly min?: InputMaybe<Users_Min_Order_By>;
 };
 
 /** append existing jsonb value of filtered columns with new jsonb value */
 export type Users_Append_Input = {
-  metadata?: InputMaybe<Scalars['jsonb']>;
+  readonly metadata?: InputMaybe<Scalars['jsonb']>;
 };
 
 /** input type for inserting array relation for remote table "auth.users" */
 export type Users_Arr_Rel_Insert_Input = {
-  data: Array<Users_Insert_Input>;
+  readonly data: ReadonlyArray<Users_Insert_Input>;
   /** upsert condition */
-  on_conflict?: InputMaybe<Users_On_Conflict>;
+  readonly on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "auth.users". All fields are combined with a logical 'AND'. */
 export type Users_Bool_Exp = {
-  _and?: InputMaybe<Array<Users_Bool_Exp>>;
-  _not?: InputMaybe<Users_Bool_Exp>;
-  _or?: InputMaybe<Array<Users_Bool_Exp>>;
-  activeMfaType?: InputMaybe<String_Comparison_Exp>;
-  avatarUrl?: InputMaybe<String_Comparison_Exp>;
-  createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  currentChallenge?: InputMaybe<String_Comparison_Exp>;
-  defaultRole?: InputMaybe<String_Comparison_Exp>;
-  defaultRoleByRole?: InputMaybe<AuthRoles_Bool_Exp>;
-  disabled?: InputMaybe<Boolean_Comparison_Exp>;
-  displayName?: InputMaybe<String_Comparison_Exp>;
-  email?: InputMaybe<Citext_Comparison_Exp>;
-  emailVerified?: InputMaybe<Boolean_Comparison_Exp>;
-  id?: InputMaybe<Uuid_Comparison_Exp>;
-  isAnonymous?: InputMaybe<Boolean_Comparison_Exp>;
-  lastSeen?: InputMaybe<Timestamptz_Comparison_Exp>;
-  locale?: InputMaybe<String_Comparison_Exp>;
-  metadata?: InputMaybe<Jsonb_Comparison_Exp>;
-  newEmail?: InputMaybe<Citext_Comparison_Exp>;
-  otpHash?: InputMaybe<String_Comparison_Exp>;
-  otpHashExpiresAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  otpMethodLastUsed?: InputMaybe<String_Comparison_Exp>;
-  passwordHash?: InputMaybe<String_Comparison_Exp>;
-  phoneNumber?: InputMaybe<String_Comparison_Exp>;
-  phoneNumberVerified?: InputMaybe<Boolean_Comparison_Exp>;
-  refreshTokens?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
-  refreshTokens_aggregate?: InputMaybe<AuthRefreshTokens_Aggregate_Bool_Exp>;
-  roles?: InputMaybe<AuthUserRoles_Bool_Exp>;
-  roles_aggregate?: InputMaybe<AuthUserRoles_Aggregate_Bool_Exp>;
-  securityKeys?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
-  securityKeys_aggregate?: InputMaybe<AuthUserSecurityKeys_Aggregate_Bool_Exp>;
-  ticket?: InputMaybe<String_Comparison_Exp>;
-  ticketExpiresAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  totpSecret?: InputMaybe<String_Comparison_Exp>;
-  updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
-  userProviders?: InputMaybe<AuthUserProviders_Bool_Exp>;
-  userProviders_aggregate?: InputMaybe<AuthUserProviders_Aggregate_Bool_Exp>;
+  readonly _and?: InputMaybe<ReadonlyArray<Users_Bool_Exp>>;
+  readonly _not?: InputMaybe<Users_Bool_Exp>;
+  readonly _or?: InputMaybe<ReadonlyArray<Users_Bool_Exp>>;
+  readonly activeMfaType?: InputMaybe<String_Comparison_Exp>;
+  readonly avatarUrl?: InputMaybe<String_Comparison_Exp>;
+  readonly createdAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly currentChallenge?: InputMaybe<String_Comparison_Exp>;
+  readonly defaultRole?: InputMaybe<String_Comparison_Exp>;
+  readonly defaultRoleByRole?: InputMaybe<AuthRoles_Bool_Exp>;
+  readonly disabled?: InputMaybe<Boolean_Comparison_Exp>;
+  readonly displayName?: InputMaybe<String_Comparison_Exp>;
+  readonly email?: InputMaybe<Citext_Comparison_Exp>;
+  readonly emailVerified?: InputMaybe<Boolean_Comparison_Exp>;
+  readonly id?: InputMaybe<Uuid_Comparison_Exp>;
+  readonly isAnonymous?: InputMaybe<Boolean_Comparison_Exp>;
+  readonly lastSeen?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly locale?: InputMaybe<String_Comparison_Exp>;
+  readonly metadata?: InputMaybe<Jsonb_Comparison_Exp>;
+  readonly newEmail?: InputMaybe<Citext_Comparison_Exp>;
+  readonly otpHash?: InputMaybe<String_Comparison_Exp>;
+  readonly otpHashExpiresAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly otpMethodLastUsed?: InputMaybe<String_Comparison_Exp>;
+  readonly passwordHash?: InputMaybe<String_Comparison_Exp>;
+  readonly phoneNumber?: InputMaybe<String_Comparison_Exp>;
+  readonly phoneNumberVerified?: InputMaybe<Boolean_Comparison_Exp>;
+  readonly refreshTokens?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
+  readonly refreshTokens_aggregate?: InputMaybe<AuthRefreshTokens_Aggregate_Bool_Exp>;
+  readonly roles?: InputMaybe<AuthUserRoles_Bool_Exp>;
+  readonly roles_aggregate?: InputMaybe<AuthUserRoles_Aggregate_Bool_Exp>;
+  readonly securityKeys?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
+  readonly securityKeys_aggregate?: InputMaybe<AuthUserSecurityKeys_Aggregate_Bool_Exp>;
+  readonly ticket?: InputMaybe<String_Comparison_Exp>;
+  readonly ticketExpiresAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly totpSecret?: InputMaybe<String_Comparison_Exp>;
+  readonly updatedAt?: InputMaybe<Timestamptz_Comparison_Exp>;
+  readonly userProviders?: InputMaybe<AuthUserProviders_Bool_Exp>;
+  readonly userProviders_aggregate?: InputMaybe<AuthUserProviders_Aggregate_Bool_Exp>;
 };
 
 /** unique or primary key constraints on table "auth.users" */
-export enum Users_Constraint {
+export type Users_Constraint =
   /** unique or primary key constraint on columns "email" */
-  UsersEmailKey = 'users_email_key',
+  | 'users_email_key'
   /** unique or primary key constraint on columns "phone_number" */
-  UsersPhoneNumberKey = 'users_phone_number_key',
+  | 'users_phone_number_key'
   /** unique or primary key constraint on columns "id" */
-  UsersPkey = 'users_pkey'
-}
+  | 'users_pkey';
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 export type Users_Delete_At_Path_Input = {
-  metadata?: InputMaybe<Array<Scalars['String']>>;
+  readonly metadata?: InputMaybe<ReadonlyArray<Scalars['String']>>;
 };
 
 /** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
 export type Users_Delete_Elem_Input = {
-  metadata?: InputMaybe<Scalars['Int']>;
+  readonly metadata?: InputMaybe<Scalars['Int']>;
 };
 
 /** delete key/value pair or string element. key/value pairs are matched based on their key value */
 export type Users_Delete_Key_Input = {
-  metadata?: InputMaybe<Scalars['String']>;
+  readonly metadata?: InputMaybe<Scalars['String']>;
 };
 
 /** input type for inserting data into table "auth.users" */
 export type Users_Insert_Input = {
-  activeMfaType?: InputMaybe<Scalars['String']>;
-  avatarUrl?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  currentChallenge?: InputMaybe<Scalars['String']>;
-  defaultRole?: InputMaybe<Scalars['String']>;
-  defaultRoleByRole?: InputMaybe<AuthRoles_Obj_Rel_Insert_Input>;
-  disabled?: InputMaybe<Scalars['Boolean']>;
-  displayName?: InputMaybe<Scalars['String']>;
-  email?: InputMaybe<Scalars['citext']>;
-  emailVerified?: InputMaybe<Scalars['Boolean']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  isAnonymous?: InputMaybe<Scalars['Boolean']>;
-  lastSeen?: InputMaybe<Scalars['timestamptz']>;
-  locale?: InputMaybe<Scalars['String']>;
-  metadata?: InputMaybe<Scalars['jsonb']>;
-  newEmail?: InputMaybe<Scalars['citext']>;
-  otpHash?: InputMaybe<Scalars['String']>;
-  otpHashExpiresAt?: InputMaybe<Scalars['timestamptz']>;
-  otpMethodLastUsed?: InputMaybe<Scalars['String']>;
-  passwordHash?: InputMaybe<Scalars['String']>;
-  phoneNumber?: InputMaybe<Scalars['String']>;
-  phoneNumberVerified?: InputMaybe<Scalars['Boolean']>;
-  refreshTokens?: InputMaybe<AuthRefreshTokens_Arr_Rel_Insert_Input>;
-  roles?: InputMaybe<AuthUserRoles_Arr_Rel_Insert_Input>;
-  securityKeys?: InputMaybe<AuthUserSecurityKeys_Arr_Rel_Insert_Input>;
-  ticket?: InputMaybe<Scalars['String']>;
-  ticketExpiresAt?: InputMaybe<Scalars['timestamptz']>;
-  totpSecret?: InputMaybe<Scalars['String']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
-  userProviders?: InputMaybe<AuthUserProviders_Arr_Rel_Insert_Input>;
+  readonly activeMfaType?: InputMaybe<Scalars['String']>;
+  readonly avatarUrl?: InputMaybe<Scalars['String']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly currentChallenge?: InputMaybe<Scalars['String']>;
+  readonly defaultRole?: InputMaybe<Scalars['String']>;
+  readonly defaultRoleByRole?: InputMaybe<AuthRoles_Obj_Rel_Insert_Input>;
+  readonly disabled?: InputMaybe<Scalars['Boolean']>;
+  readonly displayName?: InputMaybe<Scalars['String']>;
+  readonly email?: InputMaybe<Scalars['citext']>;
+  readonly emailVerified?: InputMaybe<Scalars['Boolean']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly isAnonymous?: InputMaybe<Scalars['Boolean']>;
+  readonly lastSeen?: InputMaybe<Scalars['timestamptz']>;
+  readonly locale?: InputMaybe<Scalars['String']>;
+  readonly metadata?: InputMaybe<Scalars['jsonb']>;
+  readonly newEmail?: InputMaybe<Scalars['citext']>;
+  readonly otpHash?: InputMaybe<Scalars['String']>;
+  readonly otpHashExpiresAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly otpMethodLastUsed?: InputMaybe<Scalars['String']>;
+  readonly passwordHash?: InputMaybe<Scalars['String']>;
+  readonly phoneNumber?: InputMaybe<Scalars['String']>;
+  readonly phoneNumberVerified?: InputMaybe<Scalars['Boolean']>;
+  readonly refreshTokens?: InputMaybe<AuthRefreshTokens_Arr_Rel_Insert_Input>;
+  readonly roles?: InputMaybe<AuthUserRoles_Arr_Rel_Insert_Input>;
+  readonly securityKeys?: InputMaybe<AuthUserSecurityKeys_Arr_Rel_Insert_Input>;
+  readonly ticket?: InputMaybe<Scalars['String']>;
+  readonly ticketExpiresAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly totpSecret?: InputMaybe<Scalars['String']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly userProviders?: InputMaybe<AuthUserProviders_Arr_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
 export type Users_Max_Fields = {
-  __typename?: 'users_max_fields';
-  activeMfaType?: Maybe<Scalars['String']>;
-  avatarUrl?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  currentChallenge?: Maybe<Scalars['String']>;
-  defaultRole?: Maybe<Scalars['String']>;
-  displayName?: Maybe<Scalars['String']>;
-  email?: Maybe<Scalars['citext']>;
-  id?: Maybe<Scalars['uuid']>;
-  lastSeen?: Maybe<Scalars['timestamptz']>;
-  locale?: Maybe<Scalars['String']>;
-  newEmail?: Maybe<Scalars['citext']>;
-  otpHash?: Maybe<Scalars['String']>;
-  otpHashExpiresAt?: Maybe<Scalars['timestamptz']>;
-  otpMethodLastUsed?: Maybe<Scalars['String']>;
-  passwordHash?: Maybe<Scalars['String']>;
-  phoneNumber?: Maybe<Scalars['String']>;
-  ticket?: Maybe<Scalars['String']>;
-  ticketExpiresAt?: Maybe<Scalars['timestamptz']>;
-  totpSecret?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly __typename?: 'users_max_fields';
+  readonly activeMfaType?: Maybe<Scalars['String']>;
+  readonly avatarUrl?: Maybe<Scalars['String']>;
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly currentChallenge?: Maybe<Scalars['String']>;
+  readonly defaultRole?: Maybe<Scalars['String']>;
+  readonly displayName?: Maybe<Scalars['String']>;
+  readonly email?: Maybe<Scalars['citext']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly lastSeen?: Maybe<Scalars['timestamptz']>;
+  readonly locale?: Maybe<Scalars['String']>;
+  readonly newEmail?: Maybe<Scalars['citext']>;
+  readonly otpHash?: Maybe<Scalars['String']>;
+  readonly otpHashExpiresAt?: Maybe<Scalars['timestamptz']>;
+  readonly otpMethodLastUsed?: Maybe<Scalars['String']>;
+  readonly passwordHash?: Maybe<Scalars['String']>;
+  readonly phoneNumber?: Maybe<Scalars['String']>;
+  readonly ticket?: Maybe<Scalars['String']>;
+  readonly ticketExpiresAt?: Maybe<Scalars['timestamptz']>;
+  readonly totpSecret?: Maybe<Scalars['String']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
 };
 
 /** order by max() on columns of table "auth.users" */
 export type Users_Max_Order_By = {
-  activeMfaType?: InputMaybe<Order_By>;
-  avatarUrl?: InputMaybe<Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  currentChallenge?: InputMaybe<Order_By>;
-  defaultRole?: InputMaybe<Order_By>;
-  displayName?: InputMaybe<Order_By>;
-  email?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  lastSeen?: InputMaybe<Order_By>;
-  locale?: InputMaybe<Order_By>;
-  newEmail?: InputMaybe<Order_By>;
-  otpHash?: InputMaybe<Order_By>;
-  otpHashExpiresAt?: InputMaybe<Order_By>;
-  otpMethodLastUsed?: InputMaybe<Order_By>;
-  passwordHash?: InputMaybe<Order_By>;
-  phoneNumber?: InputMaybe<Order_By>;
-  ticket?: InputMaybe<Order_By>;
-  ticketExpiresAt?: InputMaybe<Order_By>;
-  totpSecret?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
+  readonly activeMfaType?: InputMaybe<Order_By>;
+  readonly avatarUrl?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly currentChallenge?: InputMaybe<Order_By>;
+  readonly defaultRole?: InputMaybe<Order_By>;
+  readonly displayName?: InputMaybe<Order_By>;
+  readonly email?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly lastSeen?: InputMaybe<Order_By>;
+  readonly locale?: InputMaybe<Order_By>;
+  readonly newEmail?: InputMaybe<Order_By>;
+  readonly otpHash?: InputMaybe<Order_By>;
+  readonly otpHashExpiresAt?: InputMaybe<Order_By>;
+  readonly otpMethodLastUsed?: InputMaybe<Order_By>;
+  readonly passwordHash?: InputMaybe<Order_By>;
+  readonly phoneNumber?: InputMaybe<Order_By>;
+  readonly ticket?: InputMaybe<Order_By>;
+  readonly ticketExpiresAt?: InputMaybe<Order_By>;
+  readonly totpSecret?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
 export type Users_Min_Fields = {
-  __typename?: 'users_min_fields';
-  activeMfaType?: Maybe<Scalars['String']>;
-  avatarUrl?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['timestamptz']>;
-  currentChallenge?: Maybe<Scalars['String']>;
-  defaultRole?: Maybe<Scalars['String']>;
-  displayName?: Maybe<Scalars['String']>;
-  email?: Maybe<Scalars['citext']>;
-  id?: Maybe<Scalars['uuid']>;
-  lastSeen?: Maybe<Scalars['timestamptz']>;
-  locale?: Maybe<Scalars['String']>;
-  newEmail?: Maybe<Scalars['citext']>;
-  otpHash?: Maybe<Scalars['String']>;
-  otpHashExpiresAt?: Maybe<Scalars['timestamptz']>;
-  otpMethodLastUsed?: Maybe<Scalars['String']>;
-  passwordHash?: Maybe<Scalars['String']>;
-  phoneNumber?: Maybe<Scalars['String']>;
-  ticket?: Maybe<Scalars['String']>;
-  ticketExpiresAt?: Maybe<Scalars['timestamptz']>;
-  totpSecret?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['timestamptz']>;
+  readonly __typename?: 'users_min_fields';
+  readonly activeMfaType?: Maybe<Scalars['String']>;
+  readonly avatarUrl?: Maybe<Scalars['String']>;
+  readonly createdAt?: Maybe<Scalars['timestamptz']>;
+  readonly currentChallenge?: Maybe<Scalars['String']>;
+  readonly defaultRole?: Maybe<Scalars['String']>;
+  readonly displayName?: Maybe<Scalars['String']>;
+  readonly email?: Maybe<Scalars['citext']>;
+  readonly id?: Maybe<Scalars['uuid']>;
+  readonly lastSeen?: Maybe<Scalars['timestamptz']>;
+  readonly locale?: Maybe<Scalars['String']>;
+  readonly newEmail?: Maybe<Scalars['citext']>;
+  readonly otpHash?: Maybe<Scalars['String']>;
+  readonly otpHashExpiresAt?: Maybe<Scalars['timestamptz']>;
+  readonly otpMethodLastUsed?: Maybe<Scalars['String']>;
+  readonly passwordHash?: Maybe<Scalars['String']>;
+  readonly phoneNumber?: Maybe<Scalars['String']>;
+  readonly ticket?: Maybe<Scalars['String']>;
+  readonly ticketExpiresAt?: Maybe<Scalars['timestamptz']>;
+  readonly totpSecret?: Maybe<Scalars['String']>;
+  readonly updatedAt?: Maybe<Scalars['timestamptz']>;
 };
 
 /** order by min() on columns of table "auth.users" */
 export type Users_Min_Order_By = {
-  activeMfaType?: InputMaybe<Order_By>;
-  avatarUrl?: InputMaybe<Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  currentChallenge?: InputMaybe<Order_By>;
-  defaultRole?: InputMaybe<Order_By>;
-  displayName?: InputMaybe<Order_By>;
-  email?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  lastSeen?: InputMaybe<Order_By>;
-  locale?: InputMaybe<Order_By>;
-  newEmail?: InputMaybe<Order_By>;
-  otpHash?: InputMaybe<Order_By>;
-  otpHashExpiresAt?: InputMaybe<Order_By>;
-  otpMethodLastUsed?: InputMaybe<Order_By>;
-  passwordHash?: InputMaybe<Order_By>;
-  phoneNumber?: InputMaybe<Order_By>;
-  ticket?: InputMaybe<Order_By>;
-  ticketExpiresAt?: InputMaybe<Order_By>;
-  totpSecret?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
+  readonly activeMfaType?: InputMaybe<Order_By>;
+  readonly avatarUrl?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly currentChallenge?: InputMaybe<Order_By>;
+  readonly defaultRole?: InputMaybe<Order_By>;
+  readonly displayName?: InputMaybe<Order_By>;
+  readonly email?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly lastSeen?: InputMaybe<Order_By>;
+  readonly locale?: InputMaybe<Order_By>;
+  readonly newEmail?: InputMaybe<Order_By>;
+  readonly otpHash?: InputMaybe<Order_By>;
+  readonly otpHashExpiresAt?: InputMaybe<Order_By>;
+  readonly otpMethodLastUsed?: InputMaybe<Order_By>;
+  readonly passwordHash?: InputMaybe<Order_By>;
+  readonly phoneNumber?: InputMaybe<Order_By>;
+  readonly ticket?: InputMaybe<Order_By>;
+  readonly ticketExpiresAt?: InputMaybe<Order_By>;
+  readonly totpSecret?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "auth.users" */
 export type Users_Mutation_Response = {
-  __typename?: 'users_mutation_response';
+  readonly __typename?: 'users_mutation_response';
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  readonly affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
-  returning: Array<Users>;
+  readonly returning: ReadonlyArray<Users>;
 };
 
 /** input type for inserting object relation for remote table "auth.users" */
 export type Users_Obj_Rel_Insert_Input = {
-  data: Users_Insert_Input;
+  readonly data: Users_Insert_Input;
   /** upsert condition */
-  on_conflict?: InputMaybe<Users_On_Conflict>;
+  readonly on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 /** on_conflict condition type for table "auth.users" */
 export type Users_On_Conflict = {
-  constraint: Users_Constraint;
-  update_columns?: Array<Users_Update_Column>;
-  where?: InputMaybe<Users_Bool_Exp>;
+  readonly constraint: Users_Constraint;
+  readonly update_columns?: ReadonlyArray<Users_Update_Column>;
+  readonly where?: InputMaybe<Users_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.users". */
 export type Users_Order_By = {
-  activeMfaType?: InputMaybe<Order_By>;
-  avatarUrl?: InputMaybe<Order_By>;
-  createdAt?: InputMaybe<Order_By>;
-  currentChallenge?: InputMaybe<Order_By>;
-  defaultRole?: InputMaybe<Order_By>;
-  defaultRoleByRole?: InputMaybe<AuthRoles_Order_By>;
-  disabled?: InputMaybe<Order_By>;
-  displayName?: InputMaybe<Order_By>;
-  email?: InputMaybe<Order_By>;
-  emailVerified?: InputMaybe<Order_By>;
-  id?: InputMaybe<Order_By>;
-  isAnonymous?: InputMaybe<Order_By>;
-  lastSeen?: InputMaybe<Order_By>;
-  locale?: InputMaybe<Order_By>;
-  metadata?: InputMaybe<Order_By>;
-  newEmail?: InputMaybe<Order_By>;
-  otpHash?: InputMaybe<Order_By>;
-  otpHashExpiresAt?: InputMaybe<Order_By>;
-  otpMethodLastUsed?: InputMaybe<Order_By>;
-  passwordHash?: InputMaybe<Order_By>;
-  phoneNumber?: InputMaybe<Order_By>;
-  phoneNumberVerified?: InputMaybe<Order_By>;
-  refreshTokens_aggregate?: InputMaybe<AuthRefreshTokens_Aggregate_Order_By>;
-  roles_aggregate?: InputMaybe<AuthUserRoles_Aggregate_Order_By>;
-  securityKeys_aggregate?: InputMaybe<AuthUserSecurityKeys_Aggregate_Order_By>;
-  ticket?: InputMaybe<Order_By>;
-  ticketExpiresAt?: InputMaybe<Order_By>;
-  totpSecret?: InputMaybe<Order_By>;
-  updatedAt?: InputMaybe<Order_By>;
-  userProviders_aggregate?: InputMaybe<AuthUserProviders_Aggregate_Order_By>;
+  readonly activeMfaType?: InputMaybe<Order_By>;
+  readonly avatarUrl?: InputMaybe<Order_By>;
+  readonly createdAt?: InputMaybe<Order_By>;
+  readonly currentChallenge?: InputMaybe<Order_By>;
+  readonly defaultRole?: InputMaybe<Order_By>;
+  readonly defaultRoleByRole?: InputMaybe<AuthRoles_Order_By>;
+  readonly disabled?: InputMaybe<Order_By>;
+  readonly displayName?: InputMaybe<Order_By>;
+  readonly email?: InputMaybe<Order_By>;
+  readonly emailVerified?: InputMaybe<Order_By>;
+  readonly id?: InputMaybe<Order_By>;
+  readonly isAnonymous?: InputMaybe<Order_By>;
+  readonly lastSeen?: InputMaybe<Order_By>;
+  readonly locale?: InputMaybe<Order_By>;
+  readonly metadata?: InputMaybe<Order_By>;
+  readonly newEmail?: InputMaybe<Order_By>;
+  readonly otpHash?: InputMaybe<Order_By>;
+  readonly otpHashExpiresAt?: InputMaybe<Order_By>;
+  readonly otpMethodLastUsed?: InputMaybe<Order_By>;
+  readonly passwordHash?: InputMaybe<Order_By>;
+  readonly phoneNumber?: InputMaybe<Order_By>;
+  readonly phoneNumberVerified?: InputMaybe<Order_By>;
+  readonly refreshTokens_aggregate?: InputMaybe<AuthRefreshTokens_Aggregate_Order_By>;
+  readonly roles_aggregate?: InputMaybe<AuthUserRoles_Aggregate_Order_By>;
+  readonly securityKeys_aggregate?: InputMaybe<AuthUserSecurityKeys_Aggregate_Order_By>;
+  readonly ticket?: InputMaybe<Order_By>;
+  readonly ticketExpiresAt?: InputMaybe<Order_By>;
+  readonly totpSecret?: InputMaybe<Order_By>;
+  readonly updatedAt?: InputMaybe<Order_By>;
+  readonly userProviders_aggregate?: InputMaybe<AuthUserProviders_Aggregate_Order_By>;
 };
 
 /** primary key columns input for table: auth.users */
 export type Users_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  readonly id: Scalars['uuid'];
 };
 
 /** prepend existing jsonb value of filtered columns with new jsonb value */
 export type Users_Prepend_Input = {
-  metadata?: InputMaybe<Scalars['jsonb']>;
+  readonly metadata?: InputMaybe<Scalars['jsonb']>;
 };
 
 /** select columns of table "auth.users" */
-export enum Users_Select_Column {
+export type Users_Select_Column =
   /** column name */
-  ActiveMfaType = 'activeMfaType',
+  | 'activeMfaType'
   /** column name */
-  AvatarUrl = 'avatarUrl',
+  | 'avatarUrl'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  CurrentChallenge = 'currentChallenge',
+  | 'currentChallenge'
   /** column name */
-  DefaultRole = 'defaultRole',
+  | 'defaultRole'
   /** column name */
-  Disabled = 'disabled',
+  | 'disabled'
   /** column name */
-  DisplayName = 'displayName',
+  | 'displayName'
   /** column name */
-  Email = 'email',
+  | 'email'
   /** column name */
-  EmailVerified = 'emailVerified',
+  | 'emailVerified'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  IsAnonymous = 'isAnonymous',
+  | 'isAnonymous'
   /** column name */
-  LastSeen = 'lastSeen',
+  | 'lastSeen'
   /** column name */
-  Locale = 'locale',
+  | 'locale'
   /** column name */
-  Metadata = 'metadata',
+  | 'metadata'
   /** column name */
-  NewEmail = 'newEmail',
+  | 'newEmail'
   /** column name */
-  OtpHash = 'otpHash',
+  | 'otpHash'
   /** column name */
-  OtpHashExpiresAt = 'otpHashExpiresAt',
+  | 'otpHashExpiresAt'
   /** column name */
-  OtpMethodLastUsed = 'otpMethodLastUsed',
+  | 'otpMethodLastUsed'
   /** column name */
-  PasswordHash = 'passwordHash',
+  | 'passwordHash'
   /** column name */
-  PhoneNumber = 'phoneNumber',
+  | 'phoneNumber'
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified',
+  | 'phoneNumberVerified'
   /** column name */
-  Ticket = 'ticket',
+  | 'ticket'
   /** column name */
-  TicketExpiresAt = 'ticketExpiresAt',
+  | 'ticketExpiresAt'
   /** column name */
-  TotpSecret = 'totpSecret',
+  | 'totpSecret'
   /** column name */
-  UpdatedAt = 'updatedAt'
-}
+  | 'updatedAt';
 
 /** select "users_aggregate_bool_exp_bool_and_arguments_columns" columns of table "auth.users" */
-export enum Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns {
+export type Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns =
   /** column name */
-  Disabled = 'disabled',
+  | 'disabled'
   /** column name */
-  EmailVerified = 'emailVerified',
+  | 'emailVerified'
   /** column name */
-  IsAnonymous = 'isAnonymous',
+  | 'isAnonymous'
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified'
-}
+  | 'phoneNumberVerified';
 
 /** select "users_aggregate_bool_exp_bool_or_arguments_columns" columns of table "auth.users" */
-export enum Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns {
+export type Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns =
   /** column name */
-  Disabled = 'disabled',
+  | 'disabled'
   /** column name */
-  EmailVerified = 'emailVerified',
+  | 'emailVerified'
   /** column name */
-  IsAnonymous = 'isAnonymous',
+  | 'isAnonymous'
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified'
-}
+  | 'phoneNumberVerified';
 
 /** input type for updating data in table "auth.users" */
 export type Users_Set_Input = {
-  activeMfaType?: InputMaybe<Scalars['String']>;
-  avatarUrl?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  currentChallenge?: InputMaybe<Scalars['String']>;
-  defaultRole?: InputMaybe<Scalars['String']>;
-  disabled?: InputMaybe<Scalars['Boolean']>;
-  displayName?: InputMaybe<Scalars['String']>;
-  email?: InputMaybe<Scalars['citext']>;
-  emailVerified?: InputMaybe<Scalars['Boolean']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  isAnonymous?: InputMaybe<Scalars['Boolean']>;
-  lastSeen?: InputMaybe<Scalars['timestamptz']>;
-  locale?: InputMaybe<Scalars['String']>;
-  metadata?: InputMaybe<Scalars['jsonb']>;
-  newEmail?: InputMaybe<Scalars['citext']>;
-  otpHash?: InputMaybe<Scalars['String']>;
-  otpHashExpiresAt?: InputMaybe<Scalars['timestamptz']>;
-  otpMethodLastUsed?: InputMaybe<Scalars['String']>;
-  passwordHash?: InputMaybe<Scalars['String']>;
-  phoneNumber?: InputMaybe<Scalars['String']>;
-  phoneNumberVerified?: InputMaybe<Scalars['Boolean']>;
-  ticket?: InputMaybe<Scalars['String']>;
-  ticketExpiresAt?: InputMaybe<Scalars['timestamptz']>;
-  totpSecret?: InputMaybe<Scalars['String']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly activeMfaType?: InputMaybe<Scalars['String']>;
+  readonly avatarUrl?: InputMaybe<Scalars['String']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly currentChallenge?: InputMaybe<Scalars['String']>;
+  readonly defaultRole?: InputMaybe<Scalars['String']>;
+  readonly disabled?: InputMaybe<Scalars['Boolean']>;
+  readonly displayName?: InputMaybe<Scalars['String']>;
+  readonly email?: InputMaybe<Scalars['citext']>;
+  readonly emailVerified?: InputMaybe<Scalars['Boolean']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly isAnonymous?: InputMaybe<Scalars['Boolean']>;
+  readonly lastSeen?: InputMaybe<Scalars['timestamptz']>;
+  readonly locale?: InputMaybe<Scalars['String']>;
+  readonly metadata?: InputMaybe<Scalars['jsonb']>;
+  readonly newEmail?: InputMaybe<Scalars['citext']>;
+  readonly otpHash?: InputMaybe<Scalars['String']>;
+  readonly otpHashExpiresAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly otpMethodLastUsed?: InputMaybe<Scalars['String']>;
+  readonly passwordHash?: InputMaybe<Scalars['String']>;
+  readonly phoneNumber?: InputMaybe<Scalars['String']>;
+  readonly phoneNumberVerified?: InputMaybe<Scalars['Boolean']>;
+  readonly ticket?: InputMaybe<Scalars['String']>;
+  readonly ticketExpiresAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly totpSecret?: InputMaybe<Scalars['String']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
 };
 
 /** Streaming cursor of the table "users" */
 export type Users_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: Users_Stream_Cursor_Value_Input;
+  readonly initial_value: Users_Stream_Cursor_Value_Input;
   /** cursor ordering */
-  ordering?: InputMaybe<Cursor_Ordering>;
+  readonly ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
 export type Users_Stream_Cursor_Value_Input = {
-  activeMfaType?: InputMaybe<Scalars['String']>;
-  avatarUrl?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['timestamptz']>;
-  currentChallenge?: InputMaybe<Scalars['String']>;
-  defaultRole?: InputMaybe<Scalars['String']>;
-  disabled?: InputMaybe<Scalars['Boolean']>;
-  displayName?: InputMaybe<Scalars['String']>;
-  email?: InputMaybe<Scalars['citext']>;
-  emailVerified?: InputMaybe<Scalars['Boolean']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  isAnonymous?: InputMaybe<Scalars['Boolean']>;
-  lastSeen?: InputMaybe<Scalars['timestamptz']>;
-  locale?: InputMaybe<Scalars['String']>;
-  metadata?: InputMaybe<Scalars['jsonb']>;
-  newEmail?: InputMaybe<Scalars['citext']>;
-  otpHash?: InputMaybe<Scalars['String']>;
-  otpHashExpiresAt?: InputMaybe<Scalars['timestamptz']>;
-  otpMethodLastUsed?: InputMaybe<Scalars['String']>;
-  passwordHash?: InputMaybe<Scalars['String']>;
-  phoneNumber?: InputMaybe<Scalars['String']>;
-  phoneNumberVerified?: InputMaybe<Scalars['Boolean']>;
-  ticket?: InputMaybe<Scalars['String']>;
-  ticketExpiresAt?: InputMaybe<Scalars['timestamptz']>;
-  totpSecret?: InputMaybe<Scalars['String']>;
-  updatedAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly activeMfaType?: InputMaybe<Scalars['String']>;
+  readonly avatarUrl?: InputMaybe<Scalars['String']>;
+  readonly createdAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly currentChallenge?: InputMaybe<Scalars['String']>;
+  readonly defaultRole?: InputMaybe<Scalars['String']>;
+  readonly disabled?: InputMaybe<Scalars['Boolean']>;
+  readonly displayName?: InputMaybe<Scalars['String']>;
+  readonly email?: InputMaybe<Scalars['citext']>;
+  readonly emailVerified?: InputMaybe<Scalars['Boolean']>;
+  readonly id?: InputMaybe<Scalars['uuid']>;
+  readonly isAnonymous?: InputMaybe<Scalars['Boolean']>;
+  readonly lastSeen?: InputMaybe<Scalars['timestamptz']>;
+  readonly locale?: InputMaybe<Scalars['String']>;
+  readonly metadata?: InputMaybe<Scalars['jsonb']>;
+  readonly newEmail?: InputMaybe<Scalars['citext']>;
+  readonly otpHash?: InputMaybe<Scalars['String']>;
+  readonly otpHashExpiresAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly otpMethodLastUsed?: InputMaybe<Scalars['String']>;
+  readonly passwordHash?: InputMaybe<Scalars['String']>;
+  readonly phoneNumber?: InputMaybe<Scalars['String']>;
+  readonly phoneNumberVerified?: InputMaybe<Scalars['Boolean']>;
+  readonly ticket?: InputMaybe<Scalars['String']>;
+  readonly ticketExpiresAt?: InputMaybe<Scalars['timestamptz']>;
+  readonly totpSecret?: InputMaybe<Scalars['String']>;
+  readonly updatedAt?: InputMaybe<Scalars['timestamptz']>;
 };
 
 /** update columns of table "auth.users" */
-export enum Users_Update_Column {
+export type Users_Update_Column =
   /** column name */
-  ActiveMfaType = 'activeMfaType',
+  | 'activeMfaType'
   /** column name */
-  AvatarUrl = 'avatarUrl',
+  | 'avatarUrl'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  CurrentChallenge = 'currentChallenge',
+  | 'currentChallenge'
   /** column name */
-  DefaultRole = 'defaultRole',
+  | 'defaultRole'
   /** column name */
-  Disabled = 'disabled',
+  | 'disabled'
   /** column name */
-  DisplayName = 'displayName',
+  | 'displayName'
   /** column name */
-  Email = 'email',
+  | 'email'
   /** column name */
-  EmailVerified = 'emailVerified',
+  | 'emailVerified'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  IsAnonymous = 'isAnonymous',
+  | 'isAnonymous'
   /** column name */
-  LastSeen = 'lastSeen',
+  | 'lastSeen'
   /** column name */
-  Locale = 'locale',
+  | 'locale'
   /** column name */
-  Metadata = 'metadata',
+  | 'metadata'
   /** column name */
-  NewEmail = 'newEmail',
+  | 'newEmail'
   /** column name */
-  OtpHash = 'otpHash',
+  | 'otpHash'
   /** column name */
-  OtpHashExpiresAt = 'otpHashExpiresAt',
+  | 'otpHashExpiresAt'
   /** column name */
-  OtpMethodLastUsed = 'otpMethodLastUsed',
+  | 'otpMethodLastUsed'
   /** column name */
-  PasswordHash = 'passwordHash',
+  | 'passwordHash'
   /** column name */
-  PhoneNumber = 'phoneNumber',
+  | 'phoneNumber'
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified',
+  | 'phoneNumberVerified'
   /** column name */
-  Ticket = 'ticket',
+  | 'ticket'
   /** column name */
-  TicketExpiresAt = 'ticketExpiresAt',
+  | 'ticketExpiresAt'
   /** column name */
-  TotpSecret = 'totpSecret',
+  | 'totpSecret'
   /** column name */
-  UpdatedAt = 'updatedAt'
-}
+  | 'updatedAt';
 
 export type Users_Updates = {
   /** append existing jsonb value of filtered columns with new jsonb value */
-  _append?: InputMaybe<Users_Append_Input>;
+  readonly _append?: InputMaybe<Users_Append_Input>;
   /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
-  _delete_at_path?: InputMaybe<Users_Delete_At_Path_Input>;
+  readonly _delete_at_path?: InputMaybe<Users_Delete_At_Path_Input>;
   /** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
-  _delete_elem?: InputMaybe<Users_Delete_Elem_Input>;
+  readonly _delete_elem?: InputMaybe<Users_Delete_Elem_Input>;
   /** delete key/value pair or string element. key/value pairs are matched based on their key value */
-  _delete_key?: InputMaybe<Users_Delete_Key_Input>;
+  readonly _delete_key?: InputMaybe<Users_Delete_Key_Input>;
   /** prepend existing jsonb value of filtered columns with new jsonb value */
-  _prepend?: InputMaybe<Users_Prepend_Input>;
+  readonly _prepend?: InputMaybe<Users_Prepend_Input>;
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<Users_Set_Input>;
+  readonly _set?: InputMaybe<Users_Set_Input>;
   /** filter the rows which have to be updated */
-  where: Users_Bool_Exp;
+  readonly where: Users_Bool_Exp;
 };
 
 /** Boolean expression to compare columns of type "uuid". All fields are combined with logical 'AND'. */
 export type Uuid_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['uuid']>;
-  _gt?: InputMaybe<Scalars['uuid']>;
-  _gte?: InputMaybe<Scalars['uuid']>;
-  _in?: InputMaybe<Array<Scalars['uuid']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['uuid']>;
-  _lte?: InputMaybe<Scalars['uuid']>;
-  _neq?: InputMaybe<Scalars['uuid']>;
-  _nin?: InputMaybe<Array<Scalars['uuid']>>;
+  readonly _eq?: InputMaybe<Scalars['uuid']>;
+  readonly _gt?: InputMaybe<Scalars['uuid']>;
+  readonly _gte?: InputMaybe<Scalars['uuid']>;
+  readonly _in?: InputMaybe<ReadonlyArray<Scalars['uuid']>>;
+  readonly _is_null?: InputMaybe<Scalars['Boolean']>;
+  readonly _lt?: InputMaybe<Scalars['uuid']>;
+  readonly _lte?: InputMaybe<Scalars['uuid']>;
+  readonly _neq?: InputMaybe<Scalars['uuid']>;
+  readonly _nin?: InputMaybe<ReadonlyArray<Scalars['uuid']>>;
 };
 
 export type GetBacklogQueryVariables = Exact<{
@@ -6569,7 +6513,7 @@ export type GetBacklogQueryVariables = Exact<{
 }>;
 
 
-export type GetBacklogQuery = { __typename?: 'query_root', backlog_by_pk?: { __typename?: 'backlog', id: string, updatedAt: string, user_id: string, createdAt: string, ListTask: Array<{ __typename?: 'task', description: string, timeEnd?: string | null, title: string, updatedAt: string, deadline?: string | null }> } | null };
+export type GetBacklogQuery = { readonly __typename?: 'query_root', readonly backlog_by_pk?: Option<{ readonly __typename?: 'backlog', readonly id: string, readonly updatedAt: string, readonly user_id: string, readonly createdAt: string, readonly ListTask: ReadonlyArray<{ readonly __typename?: 'task', readonly description: string, readonly timeEnd?: Option<string>, readonly title: string, readonly updatedAt: string, readonly deadline?: Option<string> }> }> };
 
 
 export const GetBacklogDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getBacklog"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"userId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"uuid"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"backlog_by_pk"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"userId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"user_id"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"ListTask"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"timeEnd"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"deadline"}}]}}]}}]}}]} as unknown as DocumentNode<GetBacklogQuery, GetBacklogQueryVariables>;
