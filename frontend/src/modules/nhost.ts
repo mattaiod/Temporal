@@ -6,8 +6,8 @@ import type { UserModule } from "~/types"
 import { userStore } from "~/stores/user"
 import { NhostClient } from '@nhost/vue'
 
-const region = import.meta.env.VITE_NHOST_REGION
-const subdomain = import.meta.env.VITE_NHOST_SUBDOMAIN
+const region = import.meta.env["VITE_NHOST_REGION"]
+const subdomain = import.meta.env["VITE_NHOST_SUBDOMAIN"]
 
 export const nhost = new NhostClient({
  region,
@@ -22,7 +22,7 @@ export const nhost = new NhostClient({
 export const install: UserModule = ({ router }) => {
   // app.use(VueApolloComponents);
   // AUTH GUARD
-  router.beforeEach(async (to, from, next) => {
+  router.beforeEach(async (to, _, next) => {
     if (to.meta.requiresAuth) {
       await nhost.auth.isAuthenticatedAsync()
       const session = nhost.auth.getSession()
@@ -37,7 +37,7 @@ export const install: UserModule = ({ router }) => {
     }
   })
   // NOTAUTH GUARD
-  router.beforeEach(async (to, from, next) => {
+  router.beforeEach(async (to, _, next) => {
     if (to.meta.requiresNotAuth) {
       await nhost.auth.isAuthenticatedAsync()
       const session = nhost.auth.getSession()

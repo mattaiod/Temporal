@@ -1,13 +1,9 @@
 <script setup lang="ts">
 import type { BacklogModel } from '../models/backlog'
-import type { Maybe } from '../utils/monads'
-import { either, nothing } from '../utils/monads'
 import { userStore } from '../stores/user'
-import { tryCatch } from '../utils/error'
 import type { Nullable } from '../utils/types'
-import { cD } from '../utils/function'
 import type { IdTaskBacklog, TaskBacklogModel } from '../models/taskBacklog'
-import { TaskBacklogInsert } from '../models/taskBacklog'
+import { cD } from '../utils/function';
 
 
 
@@ -30,7 +26,7 @@ const ST = reactive({
 })
 
 const CP = {
-  addOrEditCurrentTask: computed(() => ST.CurrentEditTask === null ? 'add' : 'edit'),
+  addOrEditCurrentTask: computed((): AddOrEdit => ST.CurrentEditTask === null ? 'add' : 'edit'),
 }
 
 const FN = {

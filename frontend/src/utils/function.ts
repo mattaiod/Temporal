@@ -1,4 +1,4 @@
-import * as R from 'ramda'
+
 
 export const always = <T>(value: T) => value
 
@@ -12,11 +12,10 @@ export const doAndReturnC = <T>(fn: (val: T) => any) => (value: T) => {
   return value
 }
 
-export const compose = R.compose
-
-export const cD = R.clone
 
 export const unshift = <T>(value: T) => (arr: T[]) => {
   arr.unshift(value)
   return arr
 }
+
+export const cD = structuredClone

@@ -10,7 +10,6 @@ import type { Fatal } from "../utils/error"
 import { ErrorFatalNever, ErrorFetchFailed, ErrorInsertFailed } from "../utils/error"
 import type { IdTaskBacklog, TaskBacklogInsert, TaskBacklogModel } from "~/models/taskBacklog"
 import type { IdUser } from "~/models/user"
-import { apollo } from "~/modules/nhost"
 import { Backlog_Select_Column, Mutation_Root, Task_Set_Input } from '~/gql/graphql'
 import { always } from '../utils/function';
 import { gql } from '@apollo/client/core'

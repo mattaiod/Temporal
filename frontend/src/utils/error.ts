@@ -1,6 +1,3 @@
-import * as R from "ramda"
-import type { ErrorResFetch } from "../services/graphQL"
-import type { Either } from "./monads"
 import { left, right } from "./monads"
 
 export const throwErr = (arg = "err") => {

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useSignInEmailPassword } from '@nhost/vue'
 import { useRouter } from 'vue-router'
 import { either } from '../../utils/monads'
 import { log } from '../../utils/log'
